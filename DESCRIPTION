@@ -1,0 +1,22 @@
+Package: proportion
+Title: Confidence Interavals for binomial sampling
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Subbiah", "M", email = "sisufive@gmail.com", role = "aut"),
+    person("Rajeswaran", "Viswanathan", email = "v.rajeswaran@gmail.com", role = "cre"))
+Description: Multiple procedures to obtain an interval estimate for an unknown
+    proportion (p) based on binomial sampling. It is known that approximations
+    are poor when the true p is close to zero or to one. So we provide alternative
+    procedures with better properties. Non-iterative methods widely discussed
+    in litrature for computing a (central) two-sided interval estimate for p are
+    implemented in terms of coverage probability and expected length.
+Depends:
+    R (>= 3.2.2)
+License: GPL-2
+LazyData: true
+Imports:
+    TeachingDemos,
+    ggplot2
+Suggests:
+    testthat
+RoxygenNote: 5.0.0
