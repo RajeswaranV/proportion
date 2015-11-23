@@ -1,25 +1,25 @@
-#' Calculates error, long term power and pass/fail criteria for Wald method 
+#' Calculates error, long term power and pass/fail criteria for Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Evaluation of Wald-type intervals using error due to the 
+#' @details  Evaluation of Wald-type intervals using error due to the
 #' difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2
 #' errWD(n,alp,phi,f)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 1.WALD - DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errWD<-function(n,alp,phi,f) 
+errWD<-function(n,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -29,7 +29,7 @@ errWD<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
-  
+
 ####DATA
 x=0:n
 k=n+1
@@ -69,24 +69,24 @@ data.frame(delalp=delalpW,theta,Fail_Pass)
 }
 
 #####################################################################################################################################
-#' Calculates error, long term power and pass/fail criteria for Score method 
+#' Calculates error, long term power and pass/fail criteria for Score method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Evaluation of score test approach using error due to the 
+#' @details  Evaluation of score test approach using error due to the
 #' difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2
 #' errSC(n,alp,phi,f)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 2.SCORE:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
@@ -100,7 +100,7 @@ errSC<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:fai
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
-  
+
 ####DATA
 x=0:n
 k=n+1
@@ -145,25 +145,25 @@ Fail_Pass="failure" else Fail_Pass="success"
 return(data.frame(delalp=delalpS,theta,Fail_Pass))
 }
 #####################################################################################################################################
-#' Calculates error, long term power and pass/fail criteria for ArcSine method 
+#' Calculates error, long term power and pass/fail criteria for ArcSine method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Evaluation of Wald-type interval for the arcsine transformation of the parameter 
-#' \code{p} error due to the difference of achieved and nominal level of 
+#' @details  Evaluation of Wald-type interval for the arcsine transformation of the parameter
+#' \code{p} error due to the difference of achieved and nominal level of
 #' significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2
 #' errAS(n,alp,phi,f)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 3.ARC SINE:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
@@ -177,7 +177,7 @@ errAS<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:fai
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
-  
+
 ####DATA
 x=0:n
 k=n+1
@@ -216,24 +216,24 @@ return(data.frame(delalp=delalpA,theta,Fail_Pass))
 }
 
 #####################################################################################################################################
-#' Calculates error, long term power and pass/fail criteria for Logit Wald method 
+#' Calculates error, long term power and pass/fail criteria for Logit Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Evaluation of Wald-type interval based on the logit transformation of \code{p} 
+#' @details  Evaluation of Wald-type interval based on the logit transformation of \code{p}
 #' using error due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2
 #' errLT(n,alp,phi,f)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 4.LOGIT WALD :DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
@@ -247,7 +247,7 @@ errLT<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:fai
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -265,7 +265,7 @@ cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pLT[1]=0
 qLT[1]=1
-LLT[1] = 0 
+LLT[1] = 0
 ULT[1] = 1-((alp/2)^(1/n))
 pLT[k]=1
 qLT[k]=0
@@ -301,24 +301,24 @@ return(data.frame(delalp=delalpLT,theta,Fail_Pass))
 }
 
 #####################################################################################################################################
-#' Calculates error, long term power and pass/fail criteria for Wald-T method 
+#' Calculates error, long term power and pass/fail criteria for Wald-T method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Evaluation of approximate method based on a t_approximation of the 
+#' @details  Evaluation of approximate method based on a t_approximation of the
 #' standardized point estimator using error due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2
 #' errTW(n,alp,phi,f)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 5. WALD -t:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
@@ -332,7 +332,7 @@ errTW<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:fai
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
-  
+
 ####DATA
 x=0:n
 k=n+1
@@ -384,24 +384,24 @@ return(data.frame(delalp=delalpTW,theta,Fail_Pass))
 }
 
 #####################################################################################################################################
-#' Calculates error, long term power and pass/fail criteria for Likelihood Ratio method 
+#' Calculates error, long term power and pass/fail criteria for Likelihood Ratio method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Evaluation of Likelihood ratio limits using error due to the difference 
+#' @details  Evaluation of Likelihood ratio limits using error due to the difference
 #' of achieved and nominal level of significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2
 #' errLR(n,alp,phi,f)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 6.LIKELIHOOD RATIO:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
@@ -415,7 +415,7 @@ errLR<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:fai
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
-  
+
 ####DATA
 y=0:n
 k=n+1
@@ -458,31 +458,31 @@ return(data.frame(delalp=delalpL,theta,Fail_Pass))
 }
 
 #####################################################################################################################################
-#' Calculates error, long term power and pass/fail criteria for Exact method 
+#' Calculates error, long term power and pass/fail criteria for Exact method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
 #' @param e - Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P}
 #' The input can also be a range of values between 0 and 1.
-#' @details  Evaluation of Confidence interval for \code{p} 
-#' based on inverting equal-tailed binomial tests with null hypothesis \eqn{H0: p = p0} 
+#' @details  Evaluation of Confidence interval for \code{p}
+#' based on inverting equal-tailed binomial tests with null hypothesis \eqn{H0: p = p0}
 #' using error due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05;phi=0.05; f=-2;e=0.5 # Mid-p
 #' errEX(n,alp,phi,f,e)
 #' n=20; alp=0.05;phi=0.05; f=-2;e=1 #Clopper-Pearson
 #' errEX(n,alp,phi,f,e)
 #' n=20; alp=0.05;phi=0.05; f=-2;e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearson
 #' errEX(n,alp,phi,f,e)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #7.EXACT METHOD
@@ -499,20 +499,20 @@ errEX<-function(n,alp,phi,f,e)	#n:No of trials,alp:signi level, e: Exact method 
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
   if ((class(e) != "integer") & (class(e) != "numeric") || any(e>1) || any(e<0)) stop("'e' has to be between 0 and 1")
   if (length(e)>10) stop("'e' can have only 10 intervals")
- 
+
   nvar=length(e)
-  
+
   res <- data.frame()
-  
+
   for(i in 1:nvar)
   {
     lu=gerrEX501(n,alp,phi,f,e[i])
     res <- rbind(res,lu)
   }
   return(res)
-} 
-gerrEX501<-function(n,alp,phi,f,e)	
-{    
+}
+gerrEX501<-function(n,alp,phi,f,e)
+{
 x=0:n
 k=n+1
 #####Exact Limits
@@ -547,7 +547,7 @@ exlim501l=function(x,n,alp,e)
 {
   if(x==0)
   {
-    LEX = 0 
+    LEX = 0
   } else if(x==n){
     LEX= (alp/(2*e))^(1/n)
   }else
@@ -578,29 +578,29 @@ exlim501u=function(x,n,alp,e)
 
 
 ######################################################################
-#' Calculates error, long term power and pass/fail criteria for Bayesian method 
+#' Calculates error, long term power and pass/fail criteria for Bayesian method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  Evaluation of Bayesian Highest Probability Density 
-#' (HPD) and two tailed intervals using error due to the difference of achieved and 
-#' nominal level of significance for the \eqn{n + 1} intervals 
+#' @details  Evaluation of Bayesian Highest Probability Density
+#' (HPD) and two tailed intervals using error due to the difference of achieved and
+#' nominal level of significance for the \eqn{n + 1} intervals
 #' for the Beta - Binomial conjugate prior model for the probability of success \code{p}
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #'  \item{method}{Name of method - Quantile or HPD}
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2;a=0.5;b=0.5
 #' errBA(n,alp,phi,f,a,b)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #8.BAYESIAN
@@ -618,7 +618,7 @@ errBA<-function(n,alp,phi,f,a,b) #n:No of trials,alp:signi level
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
   if ((class(a) != "integer") & (class(a) != "numeric") || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -634,7 +634,7 @@ for(i in 1:k)
 #Quantile Based Intervals
 LBAQ[i]=qbeta(alp/2,x[i]+a,n-x[i]+b)
 UBAQ[i]=qbeta(1-(alp/2),x[i]+a,n-x[i]+b)
-	
+
 LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[1]
 UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[2]
 
@@ -684,24 +684,24 @@ return(ndf)
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Calculation of error, long term power and pass/fail 
-#' criteria using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) 
-#' @return A dataframe with 
+#' @details  Calculation of error, long term power and pass/fail
+#' criteria using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
 #'  \item{method}{Name of the method }
 #' @family Error for base methods
-#' @examples 
+#' @examples
 #' n=20; alp=0.05; phi=0.05; f=-2
 #' errAll(n,alp,phi,f)
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 10. Expected length for a given n and alpha level for 6 base methods
-errAll<-function(n,alp,phi,f)  
+errAll<-function(n,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -711,7 +711,7 @@ errAll<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
-  
+
   #### Calling functions and creating df
   df.1    = errWD(n,alp,phi,f)
   df.2    = errSC(n,alp,phi,f)
@@ -719,14 +719,14 @@ errAll<-function(n,alp,phi,f)
   df.4    = errLT(n,alp,phi,f)
   df.5    = errTW(n,alp,phi,f)
   df.6    = errLR(n,alp,phi,f)
-  
+
   df.1$method = as.factor("Wald")
   df.2$method = as.factor("Score")
   df.3$method = as.factor("ArcSine")
   df.4$method = as.factor("Logit-Wald")
   df.5$method = as.factor("Wald-T")
   df.6$method = as.factor("Likelihood")
-  
+
   df.new=  rbind(df.1,df.2,df.3,df.4,df.5,df.6)
   return(df.new)
 }

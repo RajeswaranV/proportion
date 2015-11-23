@@ -20,11 +20,13 @@
 #'  \item{tol }{   Required tolerance for coverage probability}
 #' @family General methods for coverage probability
 #' @examples
+#' \dontrun{
 #' LL=c(0,0.01,0.0734,0.18237,0.3344,0.5492)		#Lower and Upper Limits
 #' UL=c(0.4507,0.6655,0.8176,0.9265,0.9899,1)
 #' hp=seq(0,1,by=0.0001)
 #' n= 5; alp=0.05; t1=0.93; t2=0.97
 #' covpGEN(n,LL,UL,alp,hp,t1,t2)
+#' }
 #' @export
 ##### 1.Coverage Probability Related Outputs
 covpGEN<-function(n,LL,UL,alp,hp,t1,t2)
@@ -93,7 +95,7 @@ tol=100*ctr/s
 return(data.frame(mcp,micp,RMSE_N,RMSE_M,RMSE_MI,tol))
 }
 #############################################################################################################
-#' Graph of simulation based Coverage Probability with discrete values for p
+#' Plot of simulation based Coverage Probability with discrete values for p
 #' @param n - Number of trials
 #' @param LL - Lower limit
 #' @param UL - Upper limit
@@ -107,11 +109,13 @@ return(data.frame(mcp,micp,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' space for the parameter \code{p}
 #' @family General methods for coverage probability
 #' @examples
+#' \dontrun{
 #' LL=c(0,0.01,0.0734,0.18237,0.3344,0.5492)		#Lower and Upper Limits
 #' UL=c(0.4507,0.6655,0.8176,0.9265,0.9899,1)
 #' hp=seq(0,1,by=0.0001)
 #' n= 5; alp=0.05; t1=0.93; t2=0.97
 #' PlotcovpGEN(n,LL,UL,alp,hp,t1,t2)
+#' }
 #' @export
 ##### 2.  Coverage Probability - Graph
 PlotcovpGEN<-function(n,LL,UL,alp,hp,t1,t2)
@@ -134,6 +138,7 @@ PlotcovpGEN<-function(n,LL,UL,alp,hp,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   x=0:n

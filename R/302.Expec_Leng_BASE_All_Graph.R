@@ -329,12 +329,14 @@ return(ELL)
 #' binomial tests with null hypothesis \eqn{H0: p = p0} using expected length of the \eqn{n + 1} intervals.
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;e=0.5;a=1;b=1
 #' PlotexplEX(n,alp,e,a,b)
 #' n=5; alp=0.05;e=1;a=1;b=1 #Clopper-Pearson
 #' PlotexplEX(n,alp,e,a,b)
 #' n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pearson
 #' PlotexplEX(n,alp,e,a,b)
+#' }
 #' @export
 ##### 1.EXACT EMTHOD Expected Length for a given n and alpha level
 PlotexplEX<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact method indicator (1:Clop-Pear,0.5:MID-p),a&b beta parameters for hypo "p'
@@ -349,6 +351,7 @@ PlotexplEX<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact method
   if (any(e>1) || any(e<0)) stop("'e' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ewEX=NULL
 
   ELEX2=gexplEX(n,alp,e,a,b)
   ELEX2$e=as.factor(ELEX2$e)
@@ -466,7 +469,7 @@ PlotexplBA<-function(n,alp,a,b,a1,a2)
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1)>1 || a1<0 ) stop("'a1' has to be greater than or equal to 0")
   if ((class(a2) != "integer") & (class(a2) != "numeric") || length(a2)>1 || a2<0 ) stop("'a2' has to be greater than or equal to 0")
-
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
 ####INPUT n
 x=0:n
@@ -542,8 +545,10 @@ ggplot2::ggplot(df.ba, ggplot2::aes(x=hp, y=ew))+
 #' @details  The  plots using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for the expected length of \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1;b=1;
 #' PlotexplAll(n,alp,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplAll<-function(n,alp,a,b)
@@ -556,6 +561,7 @@ PlotexplAll<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
   #### Calling functions and creating df
   df.eall=  explAll(n,alp,a,b)
@@ -593,6 +599,7 @@ PlotexplWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta paramete
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
   df.wd=  gexplWD(n,alp,a,b)
   ddf.wd = lengthWD(n,alp,a,b)
@@ -643,6 +650,7 @@ PlotexplSC<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
   df.sc=  gexplSC(n,alp,a,b)
   ddf.sc = lengthSC(n,alp,a,b)
@@ -692,6 +700,7 @@ PlotexplAS<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
   df.as=  gexplAS(n,alp,a,b)
 
@@ -742,6 +751,7 @@ PlotexplLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta paramete
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
   df.lt=  gexplLT(n,alp,a,b)
   ddf.lt = lengthLT(n,alp,a,b)
@@ -792,6 +802,7 @@ PlotexplTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta paramete
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
   df.tw=  gexplTW(n,alp,a,b)
   ddf.tw = lengthTW(n,alp,a,b)
@@ -841,6 +852,7 @@ PlotexplLR<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=NULL
 
   df.lr=  gexplLR(n,alp,a,b)
   ddf.lr = lengthLR(n,alp,a,b)

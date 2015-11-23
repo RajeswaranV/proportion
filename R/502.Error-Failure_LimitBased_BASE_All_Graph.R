@@ -22,6 +22,7 @@ PloterrAll<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errAll(n,alp,phi,f)
@@ -63,6 +64,7 @@ PloterrWD<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errWD(n,alp,phi,f)
@@ -105,6 +107,7 @@ PloterrSC<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errSC(n,alp,phi,f)
@@ -147,6 +150,7 @@ PloterrAS<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errAS(n,alp,phi,f)
@@ -189,6 +193,7 @@ PloterrTW<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errTW(n,alp,phi,f)
@@ -231,6 +236,7 @@ PloterrLT<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errLT(n,alp,phi,f)
@@ -274,6 +280,7 @@ PloterrLR<-function(n,alp,phi,f)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (phi>1 || phi<0 || length(phi)>1) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errLR(n,alp,phi,f)
@@ -324,6 +331,7 @@ PloterrBA<-function(n,alp,phi,f,a,b) #n:No of trials,alp:signi level
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
   if ((class(a) != "integer") & (class(a) != "numeric") || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || b<0  ) stop("'b' has to be greater than or equal to 0")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errBA(n,alp,phi,f,a,b)
@@ -375,6 +383,7 @@ PloterrEX<-function(n,alp,phi,f,e)	#n:No of trials,alp:signi level, e: Exact met
   if ((class(f) != "integer") & (class(f) != "numeric")|| length(f)>1) stop("'f' has to be numeric value")
   if ((class(e) != "integer") & (class(e) != "numeric") || any(e>1) || any(e<0)) stop("'e' has to be between 0 and 1")
   if (length(e)>10) stop("'e' can have only 10 intervals")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errEX(n,alp,phi,f,e)

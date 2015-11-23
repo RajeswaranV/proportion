@@ -29,8 +29,10 @@ The  plots of the Coverage Probability of
 adjusted Wald method for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 PlotcovpAWD(n,alp,h,a,b,t1,t2)
+}
 }
 \seealso{
 Other Coverage probability of adjusted methods: \code{\link{PlotcovpAAS}},

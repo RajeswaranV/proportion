@@ -11,6 +11,8 @@ covpALT(n, alp, h, a, b, t1, t2)
 
 \item{alp}{- Alpha value (significance level required)}
 
+\item{h}{- Adding factor}
+
 \item{a}{- Beta parameters for hypo "p"}
 
 \item{b}{- Beta parameters for hypo "p"}

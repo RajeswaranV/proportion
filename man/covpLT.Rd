@@ -65,7 +65,7 @@ Computational Statistics and Data Analysis 40, 128, 143-157.
 Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 
-[7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+[7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/101.Confidence_base_n.R
 \name{ciBA}
 \alias{ciBA}
-\title{Bayesian method of CI estimation with different or same parameteric values 
+\title{Bayesian method of CI estimation with different or same parameteric values
 for Beta prior distribution}
 \usage{
 ciBA(n, alp, a, b)
@@ -12,14 +12,14 @@ ciBA(n, alp, a, b)
 
 \item{alp}{- Alpha value (significance level required)}
 
-\item{a}{- Shape parameter 1 for prior Beta distribution in Bayesian model. 
+\item{a}{- Shape parameter 1 for prior Beta distribution in Bayesian model.
 Can also be a vector of length n+1 priors.}
 
-\item{b}{- Shape parameter 2 for prior Beta distribution in Bayesian model. 
+\item{b}{- Shape parameter 2 for prior Beta distribution in Bayesian model.
 Can also be a vector of length n+1 priors.}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x }{- Number of successes (positive samples)}
  \item{pomean }{ - Posterior mean}
  \item{LBAQ }{ - Lower limits of Quantile based intervals}
@@ -28,34 +28,33 @@ A dataframe with
  \item{UBAH }{ - Upper limits of HPD intervals}
 }
 \description{
-Bayesian method of CI estimation with different or same parameteric values 
+Bayesian method of CI estimation with different or same parameteric values
 for Beta prior distribution
 }
 \details{
-Highest Probability Density (HPD) and two tailed intervals are provided for all 
+Highest Probability Density (HPD) and two tailed intervals are provided for all
 \eqn{xi = 0, 1, 2 ..n} based on the conjugate prior \eqn{\beta(ai, bi) (i = 1, 2..n+1)}
- for the probability of success \code{p} of the binomial distribution so that the posterior 
+ for the probability of success \code{p} of the binomial distribution so that the posterior
  is \eqn{\beta(xi + ai, n - xi + bi)}.
 }
 \examples{
- 
 n=5; alp=0.05; a=0.5;b=0.5;
 ciBA(n,alp,a,b)
 n=5; alp=0.05; a=c(0.5,2,1,1,2,0.5);b=c(0.5,2,1,1,2,0.5)
 ciBA(n,alp,a,b)
 }
 \references{
-[1] 2002 Gelman A, Carlin  JB, Stern HS and Dunson DB 
+[1] 2002 Gelman A, Carlin  JB, Stern HS and Dunson DB
 Bayesian Data Analysis, Chapman & Hall/CRC
-[2] 2006  Ghosh M, Delampady M and Samanta T. 
+[2] 2006  Ghosh M, Delampady M and Samanta T.
 An introduction to Bayesian analysis: Theory and Methods. Springer, New York
 }
 \seealso{
 \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-   \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-   \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-   \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-   \code{\link[=prevalence]{propCI}} which provides similar functionality.
+   \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+   \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+   \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+   \code{\link[prevalence]{propCI}} which provides similar functionality.
 
 Other Basic methods of CI estimation: \code{\link{PlotciAS}},
   \code{\link{PlotciAllg}}, \code{\link{PlotciAll}},

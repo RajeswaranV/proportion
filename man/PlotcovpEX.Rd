@@ -28,12 +28,16 @@ Graphs of Coverage Probability - exact method
 The  graphs of basic Coverage Probability methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; e=0.5; a=1;b=1; t1=0.93;t2=0.97 # Mid-p
 PlotcovpEX(n,alp,e,a,b,t1,t2)
 n= 10; alp=0.05; e=1; a=1;b=1; t1=0.93;t2=0.97 #Clop-Pear
 PlotcovpEX(n,alp,e,a,b,t1,t2)
-n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1; t1=0.93;t2=0.97  #Range including Mid-p and Clopper-Pearson
+n=5; alp=0.05;
+e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearson
+a=1;b=1; t1=0.93;t2=0.97
 PlotcovpEX(n,alp,e,a,b,t1,t2)
+}
 }
 \seealso{
 Other Basic coverage probability methods: \code{\link{PlotcovpAS}},

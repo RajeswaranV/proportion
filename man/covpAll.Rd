@@ -2,12 +2,13 @@
 % Please edit documentation in R/201.CoverageProb_BASE_All.R
 \name{covpAll}
 \alias{covpAll}
-\title{Coverage Probability using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
-#' @param n - Number of trials}
+\title{Coverage Probability using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
 \usage{
 covpAll(n, alp, a, b, t1, t2)
 }
 \arguments{
+\item{n}{- Number of trials}
+
 \item{alp}{- Alpha value (significance level required)}
 
 \item{a}{- Beta parameters for hypo "p"}
@@ -30,14 +31,15 @@ A dataframe with
 }
 \description{
 Coverage Probability using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
-#' @param n - Number of trials
 }
 \details{
 The  Coverage Probability of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; a=1;b=1; t1=0.93;t2=0.97
 covpAll(n,alp,a,b,t1,t2)
+}
 }
 \references{
 [1] 1993 Vollset SE.
@@ -64,7 +66,7 @@ Computational Statistics and Data Analysis 40, 128, 143-157.
 Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 
-[7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+[7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }

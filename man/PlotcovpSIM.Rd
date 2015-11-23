@@ -35,10 +35,12 @@ proportion lies within the desired level of coverage for the \eqn{n + 1} interva
 and pre-defined space for the parameter \code{p} using Monte Carle simulation
 }
 \examples{
+\dontrun{
 LL=c(0,seq(.01,.55,.1),.56)		#Lower and Upper Limits
 UL=c(seq(.35,1,.1),1)
 n= 7; alp=0.05; s=5000; a=1; b=1; t1=0.93; t2=0.97
 PlotcovpSIM(n,LL,UL,alp,s,a,b,t1,t2)
+}
 }
 \seealso{
 Other Simulated methods for coverage probability: \code{\link{covpSIM}}

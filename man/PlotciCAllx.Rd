@@ -22,7 +22,7 @@ Plots the CI estimation of 5 continuity corrected methods (Wald, Wald-T, Score, 
 Plots the Confidence Interval of 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{x} and and \code{c}
 }
 \examples{
-x=5; n=5; alp=0.05;c=1/(2*n) 
+x=5; n=5; alp=0.05;c=1/(2*n)
 PlotciCAllx(x,n,alp,c)
 }
 \seealso{

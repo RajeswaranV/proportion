@@ -24,8 +24,10 @@ Plots the Expected length using  5 continuity corrected methods (Wald, Wald-T, S
 The  plots of the expected length of 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 PlotexplCAll(n,alp,c,a,b)
+}
 }
 \seealso{
 Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAS}},

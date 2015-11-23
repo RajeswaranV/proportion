@@ -25,8 +25,10 @@ The  plots for 5 continuity corrected  methods (Wald, Wald-T, Score, Logit-Wald,
 Sum of the length is shown as bar graph.
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 PlotlengthCAll(n,alp,c,a,b)
+}
 }
 \seealso{
 Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAS}},

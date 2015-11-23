@@ -20,7 +20,7 @@ errBA(n, alp, phi, f, a, b)
 \item{b}{- Beta parameters for hypo "p"}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
  \item{theta}{ Long term power of the test}
  \item{Fail_Pass}{Fail/pass based on the input f criterion}
@@ -30,9 +30,9 @@ A dataframe with
 Calculates error, long term power and pass/fail criteria for Bayesian method
 }
 \details{
-Evaluation of Bayesian Highest Probability Density 
-(HPD) and two tailed intervals using error due to the difference of achieved and 
-nominal level of significance for the \eqn{n + 1} intervals 
+Evaluation of Bayesian Highest Probability Density
+(HPD) and two tailed intervals using error due to the difference of achieved and
+nominal level of significance for the \eqn{n + 1} intervals
 for the Beta - Binomial conjugate prior model for the probability of success \code{p}
 }
 \examples{
@@ -40,8 +40,8 @@ n=20; alp=0.05; phi=0.05; f=-2;a=0.5;b=0.5
 errBA(n,alp,phi,f,a,b)
 }
 \references{
-[1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{

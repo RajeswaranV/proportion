@@ -72,6 +72,7 @@ PlotexplSIM<-function(n,LL,UL,s,a,b) #n:No of trials,LL, UL: Lower, Upper Limits
   if ((class(s) != "integer") & (class(s) != "numeric") || length(s)>1 || s<1  ) stop("'b' has to be greater than or equal to 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
     ####INPUT n
 x=0:n

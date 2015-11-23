@@ -23,8 +23,10 @@ The  plots for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcS
 Sum of the length is shown as bar graph.
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; a=1;b=1;
 PlotlengthAll(n,alp,a,b)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAS}},

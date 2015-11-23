@@ -20,7 +20,7 @@ errGEN(n, LL, UL, alp, phi, f)
 \item{f}{- Failure criterion}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
  \item{theta}{ Long term power of the test}
  \item{Fail_Pass}{Fail/pass based on the input f criterion}
@@ -29,18 +29,18 @@ A dataframe with
 Calculates error, long term power and pass/fail criteria for CI obtained from any method
 }
 \details{
-Evaluation of intervals obtained from any method using error due to 
+Evaluation of intervals obtained from any method using error due to
 the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
 }
 \examples{
 LL=c(0,0.01,0.0734,0.18237,0.3344,0.5492)		#Lower and Upper Limits
 UL=c(0.4507,0.6655,0.8176,0.9265,0.9899,1)
 n= 5; alp=0.05;phi=0.05; f=-2
-errGEN(n,LL,UL,alp,phi,f) 
+errGEN(n,LL,UL,alp,phi,f)
 }
 \references{
-[1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 

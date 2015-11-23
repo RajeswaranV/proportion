@@ -42,12 +42,16 @@ root mean square statistic, and the proportion of proportion lies within the
 desired level of coverage.
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; e=0.5; a=1;b=1; t1=0.93;t2=0.97 # Mid-p
 covpEX(n,alp,e,a,b,t1,t2)
 n= 10; alp=0.05; e=1; a=1;b=1; t1=0.93;t2=0.97 #Clop-Pear
 covpEX(n,alp,e,a,b,t1,t2)
-n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1; t1=0.93;t2=0.97  #Range including Mid-p and Clopper-Pearson
+n=5; alp=0.05;
+e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearson
+a=1;b=1; t1=0.93;t2=0.97
 covpEX(n,alp,e,a,b,t1,t2)
+}
 }
 \references{
 [1] 1993 Vollset SE.
@@ -74,7 +78,7 @@ Computational Statistics and Data Analysis 40, 128, 143-157.
 Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 
-[7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+[7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }

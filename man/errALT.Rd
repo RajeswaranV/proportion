@@ -35,7 +35,7 @@ n=20; alp=0.05; h=2;phi=0.99; f=-2
 errALT(n,alp,h,phi,f)
 }
 \references{
-[1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+[1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }

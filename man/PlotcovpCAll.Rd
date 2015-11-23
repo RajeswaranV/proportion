@@ -29,8 +29,10 @@ The graphs of the  Coverage Probability of 5 continuity corrected methods (Wald,
 for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2}
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 PlotcovpCAll(n,alp,c,a,b,t1,t2)
+}
 }
 \seealso{
 Other Coverage probability for continuity corrected methods: \code{\link{PlotcovpCAS}},

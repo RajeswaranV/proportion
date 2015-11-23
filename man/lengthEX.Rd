@@ -19,7 +19,7 @@ The input can also be a range of values between 0 and 1.}
 \item{b}{- Beta parameters for hypo "p"}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{sumLen}{  The sum of the expected length}
  \item{explMean}{  The mean of the expected length}
  \item{explSD}{  The Standard Deviation of the expected length}
@@ -31,10 +31,11 @@ A dataframe with
 Expected length and sum of length of  Exact method
 }
 \details{
-Evaluation of Confidence interval for \code{p} based on inverting equal-tailed 
+Evaluation of Confidence interval for \code{p} based on inverting equal-tailed
 binomial tests with null hypothesis \eqn{H0: p = p0} using sum of length of the \eqn{n + 1} intervals.
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;e=0.5;a=1;b=1
 lengthEX(n,alp,e,a,b)
 n=5; alp=0.05;e=1;a=1;b=1 #Clopper-Pearson
@@ -42,33 +43,34 @@ lengthEX(n,alp,e,a,b)
 n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pearson
 lengthEX(n,alp,e,a,b)
 }
+}
 \references{
-[1] 1993 Vollset SE. 
-Confidence intervals for a binomial proportion. 
+[1] 1993 Vollset SE.
+Confidence intervals for a binomial proportion.
 Statistics in Medicine: 12; 809 - 824.
 
-[2] 1998 Agresti A and Coull BA. 
-Approximate is better than "Exact" for interval estimation of binomial proportions. 
+[2] 1998 Agresti A and Coull BA.
+Approximate is better than "Exact" for interval estimation of binomial proportions.
 The American Statistician: 52; 119 - 126.
 
-[3] 1998 Newcombe RG. 
-Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+[3] 1998 Newcombe RG.
+Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 Statistics in Medicine: 17; 857 - 872.
 
-[4] 2001 Brown LD, Cai TT and DasGupta A. 
-Interval estimation for a binomial proportion. 
+[4] 2001 Brown LD, Cai TT and DasGupta A.
+Interval estimation for a binomial proportion.
 Statistical Science: 16; 101 - 133.
 
-[5] 2002 Pan W. 
-Approximate confidence intervals for one proportion and difference of two proportions 
+[5] 2002 Pan W.
+Approximate confidence intervals for one proportion and difference of two proportions
 Computational Statistics and Data Analysis 40, 128, 143-157.
 
-[6] 2008 Pires, A.M., Amado, C. 
-Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+[6] 2008 Pires, A.M., Amado, C.
+Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 
-[7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{

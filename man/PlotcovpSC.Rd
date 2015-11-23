@@ -26,8 +26,10 @@ Plots Coverage Probability for base Score method
 Plots Coverage Probability for base Score method
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 PlotcovpSC(n,alp,a,b,t1,t2)
+}
 }
 \seealso{
 Other Basic coverage probability methods: \code{\link{PlotcovpAS}},

@@ -5,7 +5,7 @@
 #' @param b - Beta parameters for hypo "p"
 #' @details  Evaluation of Wald-type intervals using sum of length of the \eqn{n + 1}
 #'  intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -13,36 +13,36 @@
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;a=1;b=1
 #' lengthWD(n,alp,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 1.WALD sum of length for a given n and alpha level
@@ -52,11 +52,11 @@ lengthWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -68,7 +68,7 @@ LW=0
 UW=0
 s=5000
 LEW=0 								#LENGTH OF INTERVAL
-				
+
 ewiW=matrix(0,k,s)						#sum of length quantity in sum
 ewW=0									#sum of length
 ###CRITICAL VALUES
@@ -113,7 +113,7 @@ return(df.Summary)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  Evaluation of score test approach using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -121,50 +121,50 @@ return(df.Summary)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;a=1;b=1
 #' lengthSC(n,alp,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 2.SCORE - sum of length for a given n and alpha level
-lengthSC<-function(n,alp,a,b) 
+lengthSC<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -223,9 +223,9 @@ return(df.Summary)
 #' @param alp - Alpha value (significance level required)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  Evaluation of Wald-type interval for the arcsine transformation of the parameter 
+#' @details  Evaluation of Wald-type interval for the arcsine transformation of the parameter
 #' \code{p} using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -233,50 +233,50 @@ return(df.Summary)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;a=1;b=1
 #' lengthAS(n,alp,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 3. ARC SINE - sum of length for a given n and alpha level
-lengthAS<-function(n,alp,a,b) 
+lengthAS<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -288,7 +288,7 @@ LA=0
 UA=0
 s=5000
 LEA=0 								#LENGTH OF INTERVAL
-						
+
 ewiA=matrix(0,k,s)						#sum of length quantity in sum
 ewA=0									#sum of length
 ###CRITICAL VALUES
@@ -333,9 +333,9 @@ return(df.Summary)
 #' @param alp - Alpha value (significance level required)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  Evaluation of Wald-type interval based on the logit 
+#' @details  Evaluation of Wald-type interval based on the logit
 #' transformation of \code{p} using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -343,36 +343,36 @@ return(df.Summary)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;a=1;b=1
 #' lengthLT(n,alp,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 4.LOGIT-WALD - sum of length for a given n and alpha level
@@ -382,11 +382,11 @@ lengthLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -399,7 +399,7 @@ LLT=0
 ULT=0
 s=5000
 LELT=0 								#LENGTH OF INTERVAL
-				
+
 ewiLT=matrix(0,k,s)						#sum of length quantity in sum
 ewLT=0									#sum of length
 ###CRITICAL VALUES
@@ -408,7 +408,7 @@ cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 
 pLT[1]=0
 qLT[1]=1
-LLT[1] = 0 
+LLT[1] = 0
 ULT[1] = 1-((alp/2)^(1/n))
 
 pLT[k]=1
@@ -458,9 +458,9 @@ return(df.Summary)
 #' @param alp - Alpha value (significance level required)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  Evaluation of approximate method based on a t_approximation of the 
+#' @details  Evaluation of approximate method based on a t_approximation of the
 #' standardized point estimator using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -468,51 +468,51 @@ return(df.Summary)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;a=1;b=1
 #' lengthTW(n,alp,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 5.t-WALD - sum of length for a given n and alpha level
 lengthTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
-  
+
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -522,11 +522,11 @@ qTW=0
 seTW=0
 LTW=0
 UTW=0
-DOF=0	
-cv=0	
+DOF=0
+cv=0
 s=5000
 LETW=0 								#LENGTH OF INTERVAL
-				
+
 ewiTW=matrix(0,k,s)						#sum of length quantity in sum
 ewTW=0									#sum of length
 #MODIFIED_t-WALD METHOD
@@ -580,7 +580,7 @@ return(df.Summary)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  Evaluation of Likelihood ratio limits using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -588,50 +588,50 @@ return(df.Summary)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;a=1;b=1
 #' lengthLR(n,alp,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #####6.LIKELIHOOD RATIO - sum of length for a given n and alpha level
-lengthLR<-function(n,alp,a,b) 
-{ 
+lengthLR<-function(n,alp,a,b)
+{
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 y=0:n
 k=n+1
@@ -642,7 +642,7 @@ LL=0
 UL=0
 s=5000
 LEL=0 								#LENGTH OF INTERVAL
-				
+
 ewiL=matrix(0,k,s)						#sum of length quantity in sum
 ewL=0										#Simulation run to generate hypothetical p
 ###CRITICAL VALUES
@@ -687,9 +687,9 @@ return(df.Summary)
 #' The input can also be a range of values between 0 and 1.
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  Evaluation of Confidence interval for \code{p} based on inverting equal-tailed 
-#' binomial tests with null hypothesis \eqn{H0: p = p0} using sum of length of the \eqn{n + 1} intervals. 
-#' @return A dataframe with 
+#' @details  Evaluation of Confidence interval for \code{p} based on inverting equal-tailed
+#' binomial tests with null hypothesis \eqn{H0: p = p0} using sum of length of the \eqn{n + 1} intervals.
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -697,51 +697,53 @@ return(df.Summary)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
+#' \dontrun{
 #' n=5; alp=0.05;e=0.5;a=1;b=1
 #' lengthEX(n,alp,e,a,b)
 #' n=5; alp=0.05;e=1;a=1;b=1 #Clopper-Pearson
 #' lengthEX(n,alp,e,a,b)
 #' n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pearson
 #' lengthEX(n,alp,e,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' }
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 7.EXACT EMTHOD sum of length for a given n and alpha level
-lengthEX<-function(n,alp,e,a,b) 
+lengthEX<-function(n,alp,e,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(e)) stop("'e' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(e) != "integer") & (class(e) != "numeric") || any(e>1) || any(e<0)) stop("'e' has to be between 0 and 1")
   if (length(e)>10) stop("'e' can have only 10 intervals")
@@ -749,18 +751,18 @@ lengthEX<-function(n,alp,e,a,b)
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
 
   nvar=length(e)
-  
+
   res <- data.frame()
-  
+
   for(i in 1:nvar)
   {
     lu=glengthEX301(n,alp,e[i],a,b)
     res <- rbind(res,lu)
   }
-  return(res)  
+  return(res)
 }
 
-glengthEX301<-function(n,alp,e,a,b) 
+glengthEX301<-function(n,alp,e,a,b)
   {
 ####INPUT n
   x=0:n
@@ -834,10 +836,10 @@ exlim301u=function(x,n,alp,e)
 #' @param b - Beta parameters for hypo "p"
 #' @param a1 - Beta Prior Parameters for Bayesian estimation
 #' @param a2 - Beta Prior Parameters for Bayesian estimation
-#' @details  Evaluation of Bayesian Highest Probability Density (HPD) and two 
-#' tailed intervals using sum of length of the \eqn{n + 1} 
-#' intervals for the Beta - Binomial conjugate prior model for the probability of success \code{p} 
-#' @return A dataframe with 
+#' @details  Evaluation of Bayesian Highest Probability Density (HPD) and two
+#' tailed intervals using sum of length of the \eqn{n + 1}
+#' intervals for the Beta - Binomial conjugate prior model for the probability of success \code{p}
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -846,40 +848,40 @@ exlim301u=function(x,n,alp,e)
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #'  \item{method}{  The method used - Quantile and HPD}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;a=1;b=1;a1=1;a2=1
 #' lengthBA(n,alp,a,b,a1,a2)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 8.BAYESIAN sum of length for a given n and alpha level
-lengthBA<-function(n,alp,a,b,a1,a2) 
+lengthBA<-function(n,alp,a,b,a1,a2)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -887,14 +889,14 @@ lengthBA<-function(n,alp,a,b,a1,a2)
   if (missing(b)) stop("'b' is missing")
   if (missing(a1)) stop("'a1' is missing")
   if (missing(a2)) stop("'a2' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1)>1 || a1<0  ) stop("'a1' has to be greater than or equal to 0")
   if ((class(a2) != "integer") & (class(a2) != "numeric") || length(a2)>1 || a2<0  ) stop("'a2' has to be greater than or equal to 0")
-  
-  
+
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -905,7 +907,7 @@ LBAH=0
 UBAH=0
 s=5000
 LEBAQ=0 								#LENGTH OF INTERVAL
-LEBAH=0 			
+LEBAH=0
 ewiBAQ=matrix(0,k,s)						#sum of length quantity in sum
 ewBAQ=0
 ewiBAH=matrix(0,k,s)						#sum of length quantity in sum
@@ -917,7 +919,7 @@ for(i in 1:k)
 #Quantile Based Intervals
 LBAQ[i]=qbeta(alp/2,x[i]+a1,n-x[i]+a2)
 UBAQ[i]=qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
-	
+
 LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
 UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
 
@@ -933,9 +935,9 @@ for (j in 1:s)
   {
     ewiBAQ[i,j]=LEBAQ[i]*dbinom(i-1, n,hp[j])
     ewiBAH[i,j]=LEBAH[i]*dbinom(i-1, n,hp[j])
-    
+
   }
-  ewBAQ[j]=sum(ewiBAQ[,j])	
+  ewBAQ[j]=sum(ewiBAQ[,j])
   ewBAH[j]=sum(ewiBAH[,j])						#Expected Length
 }
 sumLenBAQ=sum(LEBAQ)
@@ -966,8 +968,8 @@ return(df.Summary)
 #' @param alp - Alpha value (significance level required)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  The sum of length for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given alpha \code{alp} and  Beta parameters \code{a}, \code{b} 
-#' @return A dataframe with 
+#' @details  The sum of length for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given alpha \code{alp} and  Beta parameters \code{a}, \code{b}
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -976,87 +978,89 @@ return(df.Summary)
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #'  \item{method}{  The name of the method}
 #' @family Expected length  of base methods
-#' @examples 
+#' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1
 #' lengthAll(n,alp,a,b)
-#' @references 
-#' [1] 1993 Vollset SE. 
-#' Confidence intervals for a binomial proportion. 
+#' }
+#' @references
+#' [1] 1993 Vollset SE.
+#' Confidence intervals for a binomial proportion.
 #' Statistics in Medicine: 12; 809 - 824.
-#' 
-#' [2] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#'
+#' [2] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [3] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [3] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [4] 2001 Brown LD, Cai TT and DasGupta A. 
-#' Interval estimation for a binomial proportion. 
+#'
+#' [4] 2001 Brown LD, Cai TT and DasGupta A.
+#' Interval estimation for a binomial proportion.
 #' Statistical Science: 16; 101 - 133.
-#' 
-#' [5] 2002 Pan W. 
-#' Approximate confidence intervals for one proportion and difference of two proportions 
+#'
+#' [5] 2002 Pan W.
+#' Approximate confidence intervals for one proportion and difference of two proportions
 #' Computational Statistics and Data Analysis 40, 128, 143-157.
-#' 
-#' [6] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [6] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
-#' 
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#'
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 9. sum of length for a given n and alpha level for all methods
-lengthAll<-function(n,alp,a,b) 
+lengthAll<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
-  
+
+
   #### Calling functions and creating df
-   
+
   df1    = lengthWD(n,alp,a,b)
   df2    = lengthSC(n,alp,a,b)
   df3    = lengthAS(n,alp,a,b)
   df4    = lengthLT(n,alp,a,b)
   df5    = lengthTW(n,alp,a,b)
   df6    = lengthLR(n,alp,a,b)
-  
+
   df1$method = "Wald"
   df2$method = "Score"
   df3$method = "ArcSine"
   df4$method = "Logit-Wald"
   df5$method = "Wald-T"
   df6$method = "Likelihood"
-  
+
   Final.df= rbind(df1,df2,df3,df4,df5,df6)
-  
+
   return(Final.df)
 }
 
 ########################################################################################
 # Expected length and sum of length using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
-# 
+#
 ##### 10. Expected length for a given n and alpha level for 6 base methods
-explAll<-function(n,alp,a,b)  
+explAll<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
   #### Calling functions and creating df
   df.1    = gexplWD(n,alp,a,b)
   df.2    = gexplSC(n,alp,a,b)
@@ -1064,7 +1068,7 @@ explAll<-function(n,alp,a,b)
   df.4    = gexplLT(n,alp,a,b)
   df.5    = gexplTW(n,alp,a,b)
   df.6    = gexplLR(n,alp,a,b)
-  
+
   df.new=  rbind(df.1,df.2,df.3,df.4,df.5,df.6)
   return(df.new)
 }

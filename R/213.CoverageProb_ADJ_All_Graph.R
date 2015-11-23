@@ -336,8 +336,10 @@ return(CPAL)
 #' 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpAAll(n,alp,h,a,b,t1,t2)
+#' }
 #' @export
 ##### 9.All methods - Coverage Probability
 PlotcovpAAll<-function(n,alp,h,a,b,t1,t2)
@@ -357,6 +359,7 @@ PlotcovpAAll<-function(n,alp,h,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
 
   #### Calling functions and creating df
@@ -395,8 +398,10 @@ PlotcovpAAll<-function(n,alp,h,a,b,t1,t2)
 #' adjusted Wald method for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpAWD(n,alp,h,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpAWD<-function(n,alp,h,a,b,t1,t2)
 {
@@ -415,6 +420,7 @@ PlotcovpAWD<-function(n,alp,h,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   Waldcovp.df    = covpAWD(n,alp,h,a,b,t1,t2)
@@ -452,8 +458,10 @@ PlotcovpAWD<-function(n,alp,h,a,b,t1,t2)
 #' adjusted ArcSine method for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpAAS(n,alp,h,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpAAS<-function(n,alp,h,a,b,t1,t2)
 {
@@ -472,6 +480,7 @@ PlotcovpAAS<-function(n,alp,h,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   nndf    = gcovpAAS(n,alp,h,a,b,t1,t2)
@@ -509,8 +518,10 @@ PlotcovpAAS<-function(n,alp,h,a,b,t1,t2)
 #' adjusted Likelihood Ratio method for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpALR(n,alp,h,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpALR<-function(n,alp,h,a,b,t1,t2)
 {
@@ -529,6 +540,7 @@ PlotcovpALR<-function(n,alp,h,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   nndf   = gcovpALR(n,alp,h,a,b,t1,t2)
@@ -566,8 +578,10 @@ PlotcovpALR<-function(n,alp,h,a,b,t1,t2)
 #' adjusted Score method for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpASC(n,alp,h,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpASC<-function(n,alp,h,a,b,t1,t2)
 {
@@ -586,6 +600,7 @@ PlotcovpASC<-function(n,alp,h,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   nndf   = gcovpASC(n,alp,h,a,b,t1,t2)
@@ -623,8 +638,10 @@ PlotcovpASC<-function(n,alp,h,a,b,t1,t2)
 #' adjusted Logistic Wald method for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpALT(n,alp,h,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpALT<-function(n,alp,h,a,b,t1,t2)
 {
@@ -643,6 +660,7 @@ PlotcovpALT<-function(n,alp,h,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   nndf    = gcovpALT(n,alp,h,a,b,t1,t2)
@@ -680,8 +698,10 @@ PlotcovpALT<-function(n,alp,h,a,b,t1,t2)
 #' adjusted Wald-T method for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpATW(n,alp,h,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpATW<-function(n,alp,h,a,b,t1,t2)
 {
@@ -700,6 +720,7 @@ PlotcovpATW<-function(n,alp,h,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   nndf    = gcovpATW(n,alp,h,a,b,t1,t2)

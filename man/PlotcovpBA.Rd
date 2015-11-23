@@ -30,8 +30,10 @@ Graphs of  Coverage Probability of the Bayesian method
 The  graphs of  Coverage Probability of Bayesian method
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; a=1;b=1; t1=0.93;t2=0.97;a1=1;a2=1
 PlotcovpBA(n,alp,a,b,t1,t2,a1,a2)
+}
 }
 \seealso{
 Other Basic coverage probability methods: \code{\link{PlotcovpAS}},

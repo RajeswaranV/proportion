@@ -26,12 +26,14 @@ Plot of Confidence interval for \code{p} based on inverting equal-tailed
 binomial tests with null hypothesis \eqn{H0: p = p0} using expected length of the \eqn{n + 1} intervals.
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;e=0.5;a=1;b=1 # Mid-p
 PlotlengthEX(n,alp,e,a,b)
 n=5; alp=0.05;e=1;a=1;b=1 #Clopper-Pearson
 PlotlengthEX(n,alp,e,a,b)
 n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pearson
 PlotlengthEX(n,alp,e,a,b)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAS}},

@@ -306,8 +306,10 @@ return(CPCTW)
 #' for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2}
 #' @family Coverage probability for continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpCAll(n,alp,c,a,b,t1,t2)
+#' }
 #' @export
 ##### 1.All methods - Coverage Probability 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine)
 PlotcovpCAll<-function(n,alp,c,a,b,t1,t2)
@@ -327,6 +329,7 @@ PlotcovpCAll<-function(n,alp,c,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
 
   #### Calling functions and creating df
@@ -364,8 +367,10 @@ PlotcovpCAll<-function(n,alp,c,a,b,t1,t2)
 #' for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability for continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpCWD(n,alp,c,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpCWD<-function(n,alp,c,a,b,t1,t2)
 {
@@ -384,6 +389,7 @@ PlotcovpCWD<-function(n,alp,c,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   df1    = gcovpCWD(n,alp,c,a,b,t1,t2)
@@ -420,8 +426,10 @@ PlotcovpCWD<-function(n,alp,c,a,b,t1,t2)
 #' for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability for continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpCAS(n,alp,c,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpCAS<-function(n,alp,c,a,b,t1,t2)
 {
@@ -440,6 +448,7 @@ PlotcovpCAS<-function(n,alp,c,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   df1    = gcovpCAS(n,alp,c,a,b,t1,t2)
@@ -477,8 +486,10 @@ PlotcovpCAS<-function(n,alp,c,a,b,t1,t2)
 #' for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability for continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpCSC(n,alp,c,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpCSC<-function(n,alp,c,a,b,t1,t2)
 {
@@ -497,6 +508,7 @@ PlotcovpCSC<-function(n,alp,c,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   df1    = gcovpCSC(n,alp,c,a,b,t1,t2)
@@ -534,8 +546,10 @@ PlotcovpCSC<-function(n,alp,c,a,b,t1,t2)
 #' for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability for continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpCLT(n,alp,c,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpCLT<-function(n,alp,c,a,b,t1,t2)
 {
@@ -554,6 +568,7 @@ PlotcovpCLT<-function(n,alp,c,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   df1    = gcovpCLT(n,alp,c,a,b,t1,t2)
@@ -593,8 +608,10 @@ PlotcovpCLT<-function(n,alp,c,a,b,t1,t2)
 #' for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Coverage probability for continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpCTW(n,alp,c,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpCTW<-function(n,alp,c,a,b,t1,t2)
 {
@@ -613,6 +630,7 @@ PlotcovpCTW<-function(n,alp,c,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   #### Calling functions and creating df
   df1    = gcovpCTW(n,alp,c,a,b,t1,t2)

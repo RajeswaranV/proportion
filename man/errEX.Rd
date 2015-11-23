@@ -19,7 +19,7 @@ errEX(n, alp, phi, f, e)
 The input can also be a range of values between 0 and 1.}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
  \item{theta}{ Long term power of the test}
  \item{Fail_Pass}{Fail/pass based on the input f criterion}
@@ -28,8 +28,8 @@ A dataframe with
 Calculates error, long term power and pass/fail criteria for Exact method
 }
 \details{
-Evaluation of Confidence interval for \code{p} 
-based on inverting equal-tailed binomial tests with null hypothesis \eqn{H0: p = p0} 
+Evaluation of Confidence interval for \code{p}
+based on inverting equal-tailed binomial tests with null hypothesis \eqn{H0: p = p0}
 using error due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
 }
 \examples{
@@ -41,8 +41,8 @@ n=20; alp=0.05;phi=0.05; f=-2;e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clo
 errEX(n,alp,phi,f,e)
 }
 \references{
-[1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{

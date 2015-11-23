@@ -1,20 +1,17 @@
 #########################################################################################
-#' Plots the calculated error, long term power and pass/fail criteria using 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine)
+#' Plots the calculated error, long term power and pass/fail criteria using 5 continuity
+#' corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correction
 #' @param phi - Null hypothesis value
+#' @param c - Continuity correction
 #' @param f - Failure criterion
 #' @details  Plots the  error, long term power and pass/fail criteria calculaed using 5
 #' continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine)
 #' @family Error for continuity corrected methods
 #' @examples
-#' n=5; alp=0.05; phi=0.05;c=1/(2*n); f=-2
+#' n=5; alp=0.05; phi=0.05; c=1/(2*n); f=-2
 #' PloterrCAll(n,alp,phi,c,f)
-#' @references
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
-#' Two-tailed asymptotic inferences for a proportion.
-#' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 1.CC WALD - DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
 PloterrCAll<-function(n,alp,phi,c,f)
@@ -29,6 +26,7 @@ PloterrCAll<-function(n,alp,phi,c,f)
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errCAll(n,alp,phi,c,f)
@@ -50,8 +48,8 @@ PloterrCAll<-function(n,alp,phi,c,f)
 #' Plots the error, long term power and pass/fail criteria for continuity corrected Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correction
 #' @param phi - Null hypothesis value
+#' @param c - Continuity correction
 #' @param f - Failure criterion
 #' @details  Plot of Wald-type interval with continuity correction using error
 #' due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
@@ -73,6 +71,7 @@ PloterrCWD<-function(n,alp,phi,c,f)
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errCWD(n,alp,phi,c,f)
@@ -96,8 +95,8 @@ PloterrCWD<-function(n,alp,phi,c,f)
 #' Plots the error, long term power and pass/fail criteria for continuity corrected ArcSine method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correction
 #' @param phi - Null hypothesis value
+#' @param c - Continuity correction
 #' @param f - Failure criterion
 #' @details  Plot of continuity corrected Wald-type interval for the arcsine
 #' transformation of the parameter \code{p}
@@ -120,6 +119,7 @@ PloterrCAS<-function(n,alp,phi,c,f)
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errCAS(n,alp,phi,c,f)
@@ -143,8 +143,8 @@ PloterrCAS<-function(n,alp,phi,c,f)
 #' Plots the error, long term power and pass/fail criteria for continuity corrected Logit Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correction
 #' @param phi - Null hypothesis value
+#' @param c - Continuity correction
 #' @param f - Failure criterion
 #' @details  Plot of continuity corrected Wald-type interval based on the logit transformation of \code{p}
 #' using error due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
@@ -166,6 +166,7 @@ PloterrCLT<-function(n,alp,phi,c,f)
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errCLT(n,alp,phi,c,f)
@@ -189,8 +190,8 @@ PloterrCLT<-function(n,alp,phi,c,f)
 #' Plots the error, long term power and pass/fail criteria for continuity corrected Wald-t method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correction
 #' @param phi - Null hypothesis value
+#' @param c - Continuity correction
 #' @param f - Failure criterion
 #' @details  Plot of approximate and continuity corrected method based on a t_approximation of the standardized point estimator
 #' using error due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
@@ -212,6 +213,7 @@ PloterrCTW<-function(n,alp,phi,c,f)
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errCTW(n,alp,phi,c,f)
@@ -235,8 +237,8 @@ PloterrCTW<-function(n,alp,phi,c,f)
 #' Plots the error, long term power and pass/fail criteria for continuity corrected Score method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correction
 #' @param phi - Null hypothesis value
+#' @param c - Continuity correction
 #' @param f - Failure criterion
 #' @details  Plot of continuity corrected score test approach using error due to the
 #' difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
@@ -258,6 +260,7 @@ PloterrCSC<-function(n,alp,phi,c,f)
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
+  method=value=Fail_Pass=NULL
 
   #### Calling functions and creating df
   errdf=  errCSC(n,alp,phi,c,f)

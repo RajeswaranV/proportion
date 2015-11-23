@@ -11,11 +11,11 @@ ciEX(n, alp, e)
 
 \item{alp}{- Alpha value (significance level required)}
 
-\item{e}{- Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P}, 
+\item{e}{- Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P},
 The input can also be a range of values between 0 and 1.}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x }{- Number of successes (positive samples)}
  \item{LEX }{ - Exact Lower limit}
  \item{UEX }{ - Exact Upper Limit}
@@ -28,57 +28,57 @@ A dataframe with
 Exact method of CI estimation
 }
 \details{
-Confidence interval for \code{p} (for all \code{x} = 0, 1, 2 ..\code{n}), 
-based on inverting 
-equal-tailed binomial tests with null hypothesis \deqn{H0: p = p0} and calculated from the 
-cumulative binomial distribution. Exact two sided P-value is usually calculated as 
-\deqn{P= 2[e*Pr(X = x) + min{(Pr(X < x), Pr(X > x))}]} where 
-probabilities are found at null value of p and \eqn{0 <= e <= 1}. 
+Confidence interval for \code{p} (for all \code{x} = 0, 1, 2 ..\code{n}),
+based on inverting
+equal-tailed binomial tests with null hypothesis \deqn{H0: p = p0} and calculated from the
+cumulative binomial distribution. Exact two sided P-value is usually calculated as
+\deqn{P= 2[e*Pr(X = x) + min{(Pr(X < x), Pr(X > x))}]} where
+probabilities are found at null value of p and \eqn{0 <= e <= 1}.
 The Confidence Interval of \code{n} given \code{alp} along with lower and upper abberation.
 }
 \examples{
 n=5; alp=0.05;e=0.5
 ciEX(n,alp,e) #Mid-p
 n=5; alp=0.05;e=1 #Clopper-Pearson
-ciEX(n,alp,e) 
+ciEX(n,alp,e)
 n=5; alp=0.05;e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearson
-ciEX(n,alp,e) 
+ciEX(n,alp,e)
 }
 \references{
-[1] 1993 Vollset SE. 
-Confidence intervals for a binomial proportion. 
+[1] 1993 Vollset SE.
+Confidence intervals for a binomial proportion.
 Statistics in Medicine: 12; 809 - 824.
 
-[2] 1998 Agresti A and Coull BA. 
-Approximate is better than "Exact" for interval estimation of binomial proportions. 
+[2] 1998 Agresti A and Coull BA.
+Approximate is better than "Exact" for interval estimation of binomial proportions.
 The American Statistician: 52; 119 - 126.
 
-[3] 1998 Newcombe RG. 
-Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+[3] 1998 Newcombe RG.
+Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 Statistics in Medicine: 17; 857 - 872.
 
-[4] 2001 Brown LD, Cai TT and DasGupta A. 
-Interval estimation for a binomial proportion. 
+[4] 2001 Brown LD, Cai TT and DasGupta A.
+Interval estimation for a binomial proportion.
 Statistical Science: 16; 101 - 133.
 
-[5] 2002 Pan W. 
-Approximate confidence intervals for one proportion and difference of two proportions 
+[5] 2002 Pan W.
+Approximate confidence intervals for one proportion and difference of two proportions
 Computational Statistics and Data Analysis 40, 128, 143-157.
 
-[6] 2008 Pires, A.M., Amado, C. 
-Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+[6] 2008 Pires, A.M., Amado, C.
+Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 
-[7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{
 \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-   \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-   \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-   \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-   \code{\link[=prevalence]{propCI}} which provides similar functionality.
+   \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+   \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+   \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+   \code{\link[prevalence]{propCI}} which provides similar functionality.
 
 Other Basic methods of CI estimation: \code{\link{PlotciAS}},
   \code{\link{PlotciAllg}}, \code{\link{PlotciAll}},

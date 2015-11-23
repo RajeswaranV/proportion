@@ -26,6 +26,7 @@ PlotexplGEN<-function(n,LL,UL,hp)
   if (length(UL) <= n ) stop("Length of vector UL has to be greater than n")
   if (any(LL[0:n+1] > UL[0:n+1] )) stop("LL value have to be lower than the corrosponding UL value")
   if (any(hp>1) || any(hp<0)) stop("'hp' has to be between 0 and 1")
+  ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
 ####INPUT n
 x=0:n

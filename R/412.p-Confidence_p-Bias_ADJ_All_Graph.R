@@ -18,6 +18,7 @@ PlotpCOpBIAAll<-function(n,alp,h) #n:No of trials,alp:sign level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  x=Value=Heading=val=mark=NULL
 
   nAll = pCOpBIAAll(n,alp,h)
   pc=data.frame(x=nAll$x1, val=nAll$pconf, Heading=nAll$method, mark="pconf",minmax=min(nAll$pbias, nAll$pconf))
@@ -114,6 +115,7 @@ PlotpCOpBIAWD<-function(n,alp,h) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n)>1 || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBIAWD(n,alp,h)
 
@@ -149,6 +151,7 @@ PlotpCOpBIALR<-function(n,alp,h) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n)>1 || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBIALR(n,alp,h)
 
@@ -184,6 +187,7 @@ PlotpCOpBIATW<-function(n,alp,h) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n)>1 || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBIATW(n,alp,h)
 
@@ -219,6 +223,7 @@ PlotpCOpBIALT<-function(n,alp,h) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n)>1 || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBIALT(n,alp,h)
 
@@ -254,6 +259,7 @@ PlotpCOpBIASC<-function(n,alp,h) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n)>1 || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBIASC(n,alp,h)
 
@@ -289,6 +295,7 @@ PlotpCOpBIAAS<-function(n,alp,h) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n)>1 || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBIAAS(n,alp,h)
 

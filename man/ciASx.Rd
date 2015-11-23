@@ -14,7 +14,7 @@ ciASx(x, n, alp)
 \item{alp}{- Alpha value (significance level required)}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x}{  Number of successes (positive samples)}
  \item{LASx }{   ArcSine Lower limit}
  \item{UASx }{   ArcSine Upper Limit}
@@ -26,8 +26,8 @@ A dataframe with
 Base ArcSine method of CI estimation
 }
 \details{
-Wald-type interval for the given x and n using the arcsine 
-transformation of the parameter \code{p}; that is based on the normal approximation 
+Wald-type interval for the given x and n using the arcsine
+transformation of the parameter \code{p}; that is based on the normal approximation
 for \eqn{sin^{-1}(p) }
 }
 \examples{
@@ -35,40 +35,40 @@ x=5; n=5; alp=0.05
 ciASx(x,n,alp)
 }
 \references{
-[1] 1993 Vollset SE. 
-Confidence intervals for a binomial proportion. 
+[1] 1993 Vollset SE.
+Confidence intervals for a binomial proportion.
 Statistics in Medicine: 12; 809 - 824.
 
-[2] 1998 Agresti A and Coull BA. 
-Approximate is better than "Exact" for interval estimation of binomial proportions. 
+[2] 1998 Agresti A and Coull BA.
+Approximate is better than "Exact" for interval estimation of binomial proportions.
 The American Statistician: 52; 119 - 126.
 
-[3] 1998 Newcombe RG. 
-Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+[3] 1998 Newcombe RG.
+Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 Statistics in Medicine: 17; 857 - 872.
 
-[4] 2001 Brown LD, Cai TT and DasGupta A. 
-Interval estimation for a binomial proportion. 
+[4] 2001 Brown LD, Cai TT and DasGupta A.
+Interval estimation for a binomial proportion.
 Statistical Science: 16; 101 - 133.
 
-[5] 2002 Pan W. 
-Approximate confidence intervals for one proportion and difference of two proportions 
+[5] 2002 Pan W.
+Approximate confidence intervals for one proportion and difference of two proportions
 Computational Statistics and Data Analysis 40, 128, 143-157.
 
-[6] 2008 Pires, A.M., Amado, C. 
-Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+[6] 2008 Pires, A.M., Amado, C.
+Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 
-[7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{
 \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-   \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-   \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-   \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-   \code{\link[=prevalence]{propCI}} which provides similar functionality.
+   \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+   \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+   \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+   \code{\link[prevalence]{propCI}} which provides similar functionality.
 
 Other Base methods of CI estimation given x & n: \code{\link{PlotciAllxg}},
   \code{\link{PlotciAllx}}, \code{\link{PlotciEXx}},

@@ -1,11 +1,11 @@
-#' Expected Length summary of continuity corrected Wald method 
-#' @param n - Number of trials 
+#' Expected Length summary of continuity corrected Wald method
+#' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  Evaluation of Wald-type interval with continuity correction using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -13,20 +13,20 @@
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of continuity corrected methods
-#' @examples 
-#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; 
-#' lengthCWD(n,alp,c,a,b) 
-#' @references 
-#' [1] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#' @examples
+#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
+#' lengthCWD(n,alp,c,a,b)
+#' @references
+#' [1] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [2] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [2] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [3] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [3] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 1.CC-WALD sum of length for a given n and alpha level
@@ -37,12 +37,12 @@ lengthCWD<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correcti
   if (missing(c)) stop("'c' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -54,7 +54,7 @@ LCW=0
 UCW=0
 s=5000
 LECW=0 								#LENGTH OF INTERVAL
-						
+
 ewiCW=matrix(0,k,s)						#sum of length quantity in sum
 ewCW=0									#sum of length
 ###CRITICAL VALUES
@@ -92,14 +92,14 @@ df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
 ###############################################################################################################
-#' Expected Length summary of continuity corrected Score method 
-#' @param n - Number of trials 
+#' Expected Length summary of continuity corrected Score method
+#' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  Evaluation of continuity corrected score test approach using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -107,36 +107,36 @@ return(df.length)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of continuity corrected methods
-#' @examples 
-#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; 
-#' lengthCSC(n,alp,c,a,b) 
-#' @references 
-#' [1] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#' @examples
+#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
+#' lengthCSC(n,alp,c,a,b)
+#' @references
+#' [1] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [2] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [2] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [3] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [3] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 2.CC SCORE - sum of length for a given n and alpha level
-lengthCSC<-function(n,alp,c,a,b) 
+lengthCSC<-function(n,alp,c,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -149,7 +149,7 @@ LCS=0
 UCS=0
 s=5000
 LECS=0 								#LENGTH OF INTERVAL
-						
+
 ewiCS=matrix(0,k,s)						#sum of length quantity in sum
 ewCS=0									#sum of length
 ###CRITICAL VALUES
@@ -191,14 +191,14 @@ df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
 ###############################################################################################################
-#' Expected Length summary of continuity corrected ArcSine method 
-#' @param n - Number of trials 
+#' Expected Length summary of continuity corrected ArcSine method
+#' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  Evaluation of continuity corrected Wald-type interval for the arcsine transformation of the parameter p using sum of length of the \eqn{n + 1} intervals 
-#' @return A dataframe with 
+#' @details  Evaluation of continuity corrected Wald-type interval for the arcsine transformation of the parameter p using sum of length of the \eqn{n + 1} intervals
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -206,37 +206,37 @@ return(df.length)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of continuity corrected methods
-#' @examples 
-#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; 
-#' lengthCAS(n,alp,c,a,b) 
-#' @references 
-#' [1] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#' @examples
+#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
+#' lengthCAS(n,alp,c,a,b)
+#' @references
+#' [1] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [2] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [2] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [3] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [3] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 3.CC ARC SINE - sum of length for a given n and alpha level
 lengthCAS<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
-  
+
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -248,7 +248,7 @@ LCA=0
 UCA=0
 s=5000
 LECA=0 								#LENGTH OF INTERVAL
-						
+
 ewiCA=matrix(0,k,s)						#sum of length quantity in sum
 ewCA=0									#sum of length
 ###CRITICAL VALUES
@@ -287,14 +287,14 @@ return(df.length)
 }
 
 ###############################################################################################################
-#' Expected Length summary of continuity corrected Logit Wald method 
-#' @param n - Number of trials 
+#' Expected Length summary of continuity corrected Logit Wald method
+#' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  Evaluation of continuity corrected Wald-type interval based on the logit transformation of p using sum of length of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -302,37 +302,37 @@ return(df.length)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of continuity corrected methods
-#' @examples 
-#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; 
-#' lengthCLT(n,alp,c,a,b) 
-#' @references 
-#' [1] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#' @examples
+#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
+#' lengthCLT(n,alp,c,a,b)
+#' @references
+#' [1] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [2] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [2] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [3] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [3] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 4.CC LOGIT-WALD - sum of length for a given n and alpha level
 lengthCLT<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
-  
+
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -346,7 +346,7 @@ LCLT=0
 UCLT=0
 s=5000
 LECLT=0 								#LENGTH OF INTERVAL
-				
+
 ewiCLT=matrix(0,k,s)						#sum of length quantity in sum
 ewCLT=0									#sum of length
 ###CRITICAL VALUES
@@ -354,7 +354,7 @@ cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pCLT[1]=0
 qCLT[1]=1
-LCLT[1] = 0 
+LCLT[1] = 0
 UCLT[1] = 1-((alp/2)^(1/n))
 
 pCLT[k]=1
@@ -400,16 +400,16 @@ return(df.length)
 }
 
 ###############################################################################################################
-#' Expected Length summary of continuity corrected Wald-T method 
-#' @param n - Number of trials 
+#' Expected Length summary of continuity corrected Wald-T method
+#' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
-#' @details  Evaluation of approximate and continuity corrected method based on 
-#' a t_approximation of the standardized point estimator using sum of length 
+#' @details  Evaluation of approximate and continuity corrected method based on
+#' a t_approximation of the standardized point estimator using sum of length
 #' of the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -417,37 +417,37 @@ return(df.length)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of continuity corrected methods
-#' @examples 
-#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; 
-#' lengthCTW(n,alp,c,a,b) 
-#' @references 
-#' [1] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#' @examples
+#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
+#' lengthCTW(n,alp,c,a,b)
+#' @references
+#' [1] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [2] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [2] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [3] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [3] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 5.CC t-WALD_CC - sum of length for a given n and alpha level
 lengthCTW<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
-  
+
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -457,11 +457,11 @@ qCTW=0
 seCTW=0
 LCTW=0
 UCTW=0
-DOF=0	
-cv=0	
+DOF=0
+cv=0
 s=5000
 LECTW=0 								#LENGTH OF INTERVAL
-				
+
 ewiCTW=matrix(0,k,s)						#sum of length quantity in sum
 ewCTW=0									#sum of length
 #MODIFIED_t-WALD METHOD
@@ -508,7 +508,7 @@ df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
 ########################################################################################
-#' Expected Length summary calculation using 5 continuity corrected methods 
+#' Expected Length summary calculation using 5 continuity corrected methods
 #' (Wald, Wald-T, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
@@ -516,7 +516,7 @@ return(df.length)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  The sum of length of 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine) of \code{n} given \code{alp}, \code{a}, \code{b}
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{sumLen}{  The sum of the expected length}
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
@@ -524,78 +524,80 @@ return(df.length)
 #'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
 #'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
 #' @family Expected length  of continuity corrected methods
-#' @examples 
-#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1; 
-#' lengthCAll(n,alp,c,a,b) 
-#' @references 
-#' [1] 1998 Agresti A and Coull BA. 
-#' Approximate is better than "Exact" for interval estimation of binomial proportions. 
+#' @examples
+#' \dontrun{
+#' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
+#' lengthCAll(n,alp,c,a,b)
+#' }
+#' @references
+#' [1] 1998 Agresti A and Coull BA.
+#' Approximate is better than "Exact" for interval estimation of binomial proportions.
 #' The American Statistician: 52; 119 - 126.
-#' 
-#' [2] 1998 Newcombe RG. 
-#' Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+#'
+#' [2] 1998 Newcombe RG.
+#' Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 #' Statistics in Medicine: 17; 857 - 872.
-#' 
-#' [3] 2008 Pires, A.M., Amado, C. 
-#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+#'
+#' [3] 2008 Pires, A.M., Amado, C.
+#' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 9. sum of length for a given n and alpha level for all methods
-lengthCAll<-function(n,alp,c,a,b) 
+lengthCAll<-function(n,alp,c,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
   #### Calling functions and creating df
-  
+
   df1    = lengthCWD(n,alp,c,a,b)
   df2    = lengthCSC(n,alp,c,a,b)
   df3    = lengthCAS(n,alp,c,a,b)
   df4    = lengthCLT(n,alp,c,a,b)
   df5    = lengthCTW(n,alp,c,a,b)
-  
+
   df1$method = "CC-Wald"
   df2$method = "CC-Score"
   df3$method = "CC-ArcSine"
   df4$method = "CC-Logit-Wald"
   df5$method = "CC-Wald-T"
-  
+
   Final.df= rbind(df1,df2,df3,df4,df5)
-  
+
   return(Final.df)
 }
 
 ########################################################################################
 # Expected length calculation using 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine)
 ##### 10.. Expected length for a given n and alpha level for all methods
-explCAll<-function(n,alp,c,a,b) 
+explCAll<-function(n,alp,c,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
   if (missing(a)) stop("'a' is missing")
   if (missing(b)) stop("'b' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
-  
+
   #### Calling functions and creating df
   df.1    = gexplCWD(n,alp,c,a,b)
   df.2    = gexplCSC(n,alp,c,a,b)
   df.3    = gexplCAS(n,alp,c,a,b)
   df.4    = gexplCLT(n,alp,c,a,b)
   df.5    = gexplCTW(n,alp,c,a,b)
-  
+
   df.new=  rbind(df.1,df.2,df.3,df.4,df.5)
   return(df.new)
 }

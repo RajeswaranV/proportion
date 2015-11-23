@@ -28,11 +28,6 @@ difference of achieved and nominal level of significance for the \eqn{n + 1} int
 n=20; alp=0.05; h=2;phi=0.99; f=-2
 PloterrALR(n,alp,h,phi,f)
 }
-\references{
-[1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
-Two-tailed asymptotic inferences for a proportion.
-Journal of Applied Statistics, 41, 7, 1516-1529
-}
 \seealso{
 Other Error for adjusted methods: \code{\link{PloterrAAS}},
   \code{\link{PloterrAAll}}, \code{\link{PloterrALT}},

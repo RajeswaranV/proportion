@@ -6,8 +6,10 @@
 #' @details  Plots of p-Confidence and p-Bias estimation of 5 continuity corrected methods (Wald, Wald-T,  Score, Logit-Wald, ArcSine)
 #' @family p-confidence and p-bias of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;c=1/(2*n)
 #' PlotpCOpBICAll(n,alp,c)
+#' }
 #' @export
 ####5 CC methods plots of p-confidence and p-bias
 PlotpCOpBICAll<-function(n,alp,c) #n:No of trials,alp:sign level
@@ -18,6 +20,7 @@ PlotpCOpBICAll<-function(n,alp,c) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
+  x=Value=Heading=mark=val=NULL
 
   nAll = pCOpBICAll(n,alp,c)
   pc=data.frame(x=nAll$x1, val=nAll$pconf, Heading=nAll$method, mark="pconf",minmax=min(nAll$pbias, nAll$pconf))
@@ -104,6 +107,7 @@ PlotpCOpBICWD<-function(n,alp,c) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBICWD(n,alp,c)
 
@@ -139,6 +143,7 @@ PlotpCOpBICAS<-function(n,alp,c) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBICAS(n,alp,c)
 
@@ -174,6 +179,7 @@ PlotpCOpBICTW<-function(n,alp,c) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBICTW(n,alp,c)
 
@@ -209,6 +215,7 @@ PlotpCOpBICLT<-function(n,alp,c) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBICLT(n,alp,c)
 
@@ -244,6 +251,7 @@ PlotpCOpBICSC<-function(n,alp,c) #n:No of trials,alp:sign level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
+  x=Value=Heading=mark=NULL
 
   CBEX = pCOpBICSC(n,alp,c)
 

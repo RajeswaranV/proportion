@@ -1,29 +1,29 @@
 #' Calculates error, long term power and pass/fail criteria for CI obtained from any method
-#' @param n - Number of trials 
-#' @param LL - Lower limit 
-#' @param UL - Upper limit 
+#' @param n - Number of trials
+#' @param LL - Lower limit
+#' @param UL - Upper limit
 #' @param alp - Alpha value (significance level required)
 #' @param phi - Null hypothesis value
 #' @param f - Failure criterion
-#' @details  Evaluation of intervals obtained from any method using error due to 
+#' @details  Evaluation of intervals obtained from any method using error due to
 #' the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
 #'  \item{theta}{ Long term power of the test}
 #'  \item{Fail_Pass}{Fail/pass based on the input f criterion}
-#' @family General methods for error 
-#' @examples 
+#' @family General methods for error
+#' @examples
 #' LL=c(0,0.01,0.0734,0.18237,0.3344,0.5492)		#Lower and Upper Limits
 #' UL=c(0.4507,0.6655,0.8176,0.9265,0.9899,1)
 #' n= 5; alp=0.05;phi=0.05; f=-2
-#' errGEN(n,LL,UL,alp,phi,f) 
-#' @references 
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-#' Two-tailed asymptotic inferences for a proportion. 
+#' errGEN(n,LL,UL,alp,phi,f)
+#' @references
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+#' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errGEN<-function(n,LL,UL,alp,phi,f)  
+errGEN<-function(n,LL,UL,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(LL)) stop("'Lower limit' is missing")
@@ -40,7 +40,7 @@ errGEN<-function(n,LL,UL,alp,phi,f)
   if (length(LL) <= n ) stop("Length of vector LL has to be greater than n")
   if (length(UL) <= n ) stop("Length of vector UL has to be greater than n")
   if (any(LL[0:n+1] > UL[0:n+1] )) stop("LL value have to be lower than the corrosponding UL value")
-  
+
 x=0:n
 k=n+1
 ####INITIALIZATION

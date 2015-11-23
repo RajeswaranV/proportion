@@ -25,11 +25,4 @@ The plots of confidence intervals of using 6 adjusted methods (Wald, Wald-T, Lik
 x=5; n=5; alp=0.5;h=2
 PlotciAAllxg(x,n,alp,h)
 }
-\seealso{
-\code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-   \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-   \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-   \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-   \code{\link[=prevalence]{propCI}} which provides similar functionality.
-}
 

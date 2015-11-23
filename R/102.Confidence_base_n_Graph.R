@@ -23,6 +23,7 @@ PlotciEX<-function(n,alp,e) #n:No of trials,alp:signi level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(e) != "integer") & (class(e) != "numeric") || any(e>1) || any(e<0)) stop("'e' has to be between 0 and 1")
   if (length(e)>10 ) stop("Plot of only 10 intervals of 'e' is possible")
+  Abberation=ID=method=Value=UEX=LEX=LABB=UABB=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciEX(n,alp,e)
   id=1:nrow(ss1)
@@ -126,6 +127,7 @@ PlotciBA<-function(n,alp,a,b) #n:No of trials,alp:signi level
   else{
     if ((class(a) != "integer") & (class(a) != "numeric") || a<0  ) stop("'a' has to be greater than or equal to 0")
     if ((class(b) != "integer") & (class(b) != "numeric") || b<0  ) stop("'b' has to be greater than or equal to 0")
+    UB=LB=Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciBA(n,alp,a,b)
   id=1:nrow(ss1)
@@ -159,6 +161,7 @@ PlotciBAD<-function(n,alp,a,b) #n:No of trials,alp:signi level
   dfh=ss[,c(1,6,7)]
   df1=data.frame(ID=dfq$ID, LB=dfq$LBAQ, UB=dfq$UBAQ, method="Quantile")
   df2=data.frame(ID=dfh$ID, LB=dfh$LBAH, UB=dfh$UBAH, method="HPD")
+  UB=LB=Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   vs=rbind(df1,df2)
 
@@ -191,6 +194,7 @@ PlotciAll<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
+  Abberation=ID=method=Value=LABB=UABB=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAll(n,alp)
   id=1:nrow(ss1)
@@ -264,6 +268,7 @@ PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
+  Abberation=ID=method=Value=val1=val2=LABB=UABB=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAll(n,alp)
   nss= ss1[order(ss1$x, (ss1$UpperLimit-ss1$LowerLimit)),]
@@ -323,7 +328,7 @@ PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
   }
   else {
 
-    ff= data.frame(a=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),b=(0:max(ss$x)))
+    ff= data.frame(val1=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),val2=(0:max(ss$x)))
 
     if(nrow(ldf)>0){
       oo= ggplot2::ggplot()+
@@ -342,8 +347,8 @@ PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
         ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
-        ggplot2::geom_hline(ggplot2::aes(yintercept=a),data=ff) +
-        ggplot2::geom_text(ggplot2::aes(0,a,label = paste("x=", sep="", b),hjust=1.1, vjust = -1), data=ff)
+        ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
+        ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -354,8 +359,8 @@ PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 width = 0.5) +
-        ggplot2::geom_hline(ggplot2::aes(yintercept=a),data=ff) +
-        ggplot2::geom_text(ggplot2::aes(0,a,label = paste("x=", sep="", b),hjust=1.1, vjust = -1), data=ff)
+        ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
+        ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     oo
   }
@@ -377,6 +382,7 @@ PlotciWD<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   WaldCI.df = ciWD(n,alp)
   ss1 = data.frame( x=WaldCI.df$x, LowerLimit = WaldCI.df$LWD, UpperLimit = WaldCI.df$UWD, LowerAbb = WaldCI.df$LABB, UpperAbb = WaldCI.df$UABB, ZWI = WaldCI.df$ZWI)
@@ -451,6 +457,7 @@ PlotciAS<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ArcSineCI.df = ciAS(n,alp)
   ss1 = data.frame(x=ArcSineCI.df$x, LowerLimit = ArcSineCI.df$LAS, UpperLimit = ArcSineCI.df$UAS, LowerAbb = ArcSineCI.df$LABB, UpperAbb = ArcSineCI.df$UABB, ZWI = ArcSineCI.df$ZWI)
@@ -526,8 +533,9 @@ PlotciLR<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
-  LRCI.df = ciLR(n,alp)
+    LRCI.df = ciLR(n,alp)
   ss1 = data.frame( x=LRCI.df$x, LowerLimit = LRCI.df$LLR, UpperLimit = LRCI.df$ULR, LowerAbb = LRCI.df$LABB, UpperAbb = LRCI.df$UABB, ZWI = LRCI.df$ZWI)
   id=1:nrow(ss1)
   ss= data.frame(ID=id,ss1)
@@ -599,6 +607,7 @@ PlotciSC<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ScoreCI.df = ciSC(n,alp)
   ss1 = data.frame( x=ScoreCI.df$x, LowerLimit = ScoreCI.df$LSC, UpperLimit = ScoreCI.df$USC, LowerAbb = ScoreCI.df$LABB, UpperAbb = ScoreCI.df$UABB, ZWI = ScoreCI.df$ZWI)
@@ -673,6 +682,7 @@ PlotciTW<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   WaldTCI.df = ciTW(n,alp)
   ss1 = data.frame( x=WaldTCI.df$x, LowerLimit = WaldTCI.df$LTW, UpperLimit = WaldTCI.df$UTW, LowerAbb = WaldTCI.df$LABB, UpperAbb = WaldTCI.df$UABB, ZWI = WaldTCI.df$ZWI)
@@ -747,6 +757,7 @@ PlotciLT<-function(n,alp) #n:No of trials,alp:signi level
   if (missing(alp)) stop("'alpha' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   LogitWald.df = ciLT(n,alp)
   ss1 = data.frame(x=LogitWald.df$x, LowerLimit = LogitWald.df$LLT, UpperLimit = LogitWald.df$ULT, LowerAbb = LogitWald.df$LABB, UpperAbb = LogitWald.df$UABB, ZWI = LogitWald.df$ZWI)

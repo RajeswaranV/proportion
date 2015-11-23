@@ -15,7 +15,7 @@
 #' n=20; alp=0.05; h=2;phi=0.99; f=-2
 #' errAWD(n,alp,h,phi,f)
 #' @references
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -93,7 +93,7 @@ return(data.frame(delalp=delalpAW,theta,Fail_Pass))
 #' n=20; alp=0.05; h=2;phi=0.99; f=-2
 #' errASC(n,alp,h,phi,f)
 #' @references
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -175,7 +175,7 @@ return(data.frame(delalp=delalpAS,theta,Fail_Pass))
 #' n=20; alp=0.05; h=2;phi=0.99; f=-2
 #' errAAS(n,alp,h,phi,f)
 #' @references
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -250,7 +250,7 @@ return(data.frame(delalp=delalpAAS,theta,Fail_Pass))
 #' n=20; alp=0.05; h=2;phi=0.99; f=-2
 #' errALR(n,alp,h,phi,f)
 #' @references
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -328,7 +328,7 @@ return(data.frame(delalp=delalpALR,theta,Fail_Pass))
 #' n=20; alp=0.05; h=2;phi=0.99; f=-2
 #' errATW(n,alp,h,phi,f)
 #' @references
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -408,7 +408,7 @@ return(data.frame(delalp=delalpATW,theta,Fail_Pass))
 #' n=20; alp=0.05; h=2;phi=0.99; f=-2
 #' errALT(n,alp,h,phi,f)
 #' @references
-#' [1] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -519,46 +519,3 @@ errAAll<-function(n,alp,h,phi,f)
 
 }
 
-###########################################################################################################
-#' Plots error, long term power and pass/fail criteria using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
-#' @param n - Number of trials
-#' @param alp - Alpha value (significance level required)
-#' @param h - Adding factor
-#' @param phi - Null hypothesis value
-#' @param f - Failure criterion
-#' @details  Plots of error, long term power and pass/fail
-#' criteria using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
-#' @family Error for adjusted methods
-#' @examples
-#' n=20; alp=0.05;h=2; phi=0.99; f=-2
-#' PloterrAAll(n,alp,h,phi,f)
-#' @export
-##### 10. Expected length for a given n and alpha level for 6 base methods
-PloterrAAll<-function(n,alp,h,phi,f)
-{
-  if (missing(n)) stop("'n' is missing")
-  if (missing(alp)) stop("'alpha' is missing")
-  if (missing(h)) stop("'h' is missing")
-  if (missing(phi)) stop("'phi' is missing")
-  if (missing(f)) stop("'f' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
-  if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
-  if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
-  if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
-
-  #### Calling functions and creating df
-  errdf=  errAAll(n,alp,h,phi,f)
-  alpdf=  errdf[,c(1,3,4)]
-  thetadf=errdf[,c(2,3,4)]
-  vdfa=data.frame(value=alpdf$delalp ,mark="Increase in nominal error" ,Fail_Pass=alpdf$Fail_Pass ,method=alpdf$method)
-  vdft=data.frame(value=thetadf$theta ,mark="Long term power of test",Fail_Pass=thetadf$Fail_Pass, method=thetadf$method)
-  full.df=rbind(vdfa,vdft)
-
-  ggplot2::ggplot(full.df, ggplot2::aes(x = method, y = value, fill = Fail_Pass)) +
-    ggplot2::labs(title = "Error, long term power and pass/fail for adjusted methods") +
-    ggplot2::labs(x = "Method") +
-    ggplot2::facet_grid(mark ~ .,scales="free_y") +
-    ggplot2::geom_bar(stat="identity",position = "identity")
-
-}

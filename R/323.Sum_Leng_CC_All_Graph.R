@@ -9,8 +9,10 @@
 #' Sum of the length is shown as bar graph.
 #' @family Expected length  of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 #' PlotlengthCAll(n,alp,c,a,b)
+#' }
 #' @export
 PlotlengthCAll<-function(n,alp,c,a,b)
 {
@@ -24,6 +26,7 @@ PlotlengthCAll<-function(n,alp,c,a,b)
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthCAll(n,alp,c,a,b)
 
@@ -69,6 +72,7 @@ PlotlengthCWD<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   full.df= lengthCWD(n,alp,c,a,b)
@@ -116,6 +120,7 @@ PlotlengthCSC<-function(n,alp,c,a,b)
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   full.df= lengthCSC(n,alp,c,a,b)
@@ -163,6 +168,7 @@ PlotlengthCAS<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   full.df= lengthCAS(n,alp,c,a,b)
@@ -210,6 +216,7 @@ PlotlengthCLT<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   full.df= lengthCLT(n,alp,c,a,b)
@@ -257,6 +264,7 @@ PlotlengthCTW<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   full.df= lengthCTW(n,alp,c,a,b)

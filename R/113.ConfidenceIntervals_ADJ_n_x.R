@@ -14,10 +14,10 @@
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x= 5; n=5; alp=0.05; h=2
 #' ciAWDx(x,n,alp,h)
@@ -82,10 +82,10 @@ return(data.frame(x,LAWDx,UAWDx,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #'  @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x=5; n=5; alp=0.05; h=2
 #' ciASCx(x,n,alp,h)
@@ -156,10 +156,10 @@ return(data.frame(x,LASCx,UASCx,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x=5; n=5; alp=0.05;h=2
 #' ciAASx(x,n,alp,h)
@@ -226,10 +226,10 @@ return(data.frame(x,LAASx,UAASx,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x=5; n=5; alp=0.05;h=2
 #' ciALRx(x,n,alp,h)
@@ -302,10 +302,10 @@ return(data.frame(x,LALRx,UALRx,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x=5; n=5; alp=0.05;h=2
 #' ciATWx(x,n,alp,h)
@@ -376,10 +376,10 @@ return(data.frame(x,LATWx,UATWx,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x=5; n=5; alp=0.05;h=2
 #' ciALTx(x,n,alp,h)
@@ -449,10 +449,10 @@ return(data.frame(x,LALTx,UALTx,LABB,UABB,ZWI))
 ##'  \item{ZWI }{ - Zero Width Interval}
 #'  @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x=5; n=5; alp=0.05;h=2
 #' ciAAllx(x,n,alp,h)
@@ -530,6 +530,7 @@ PlotciAAllx<-function(x,n,alp,h)
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAAllx(x,n,alp,h)
   id=1:nrow(ss1)
@@ -592,11 +593,6 @@ PlotciAAllx<-function(x,n,alp,h)
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
 #' @details  The plots of confidence intervals of using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x for \code{n} given \code{alp}, \code{x} and \code{h}
-#' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' x=5; n=5; alp=0.5;h=2
 #' PlotciAAllxg(x,n,alp,h)
@@ -612,6 +608,7 @@ PlotciAAllxg<-function(x,n,alp,h)
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAAllx(x,n,alp,h)
   nss= ss1[order(ss1$x, (ss1$UpperLimit-ss1$LowerLimit)),]
@@ -671,7 +668,7 @@ PlotciAAllxg<-function(x,n,alp,h)
   }
   else {
 
-    ff= data.frame(a=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),b=(0:max(ss$x)))
+    ff= data.frame(val1=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),val2=(0:max(ss$x)))
 
     if(nrow(ldf)>0){
       oo= ggplot2::ggplot()+
@@ -690,8 +687,8 @@ PlotciAAllxg<-function(x,n,alp,h)
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
         ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
-        ggplot2::geom_hline(ggplot2::aes(yintercept=a),data=ff) +
-        ggplot2::geom_text(ggplot2::aes(0,a,label = paste("x=", sep="", b),hjust=1.1, vjust = -1), data=ff)
+        ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
+        ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -702,8 +699,8 @@ PlotciAAllxg<-function(x,n,alp,h)
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 width = 0.5) +
-        ggplot2::geom_hline(ggplot2::aes(yintercept=a),data=ff) +
-        ggplot2::geom_text(ggplot2::aes(0,a,label = paste("x=", sep="", b),hjust=1.1, vjust = -1), data=ff)
+        ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
+        ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     oo
   }

@@ -20,7 +20,7 @@ lengthBA(n, alp, a, b, a1, a2)
 \item{a2}{- Beta Prior Parameters for Bayesian estimation}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{sumLen}{  The sum of the expected length}
  \item{explMean}{  The mean of the expected length}
  \item{explSD}{  The Standard Deviation of the expected length}
@@ -33,8 +33,8 @@ A dataframe with
 Expected length and sum of length of  Bayesian method
 }
 \details{
-Evaluation of Bayesian Highest Probability Density (HPD) and two 
-tailed intervals using sum of length of the \eqn{n + 1} 
+Evaluation of Bayesian Highest Probability Density (HPD) and two
+tailed intervals using sum of length of the \eqn{n + 1}
 intervals for the Beta - Binomial conjugate prior model for the probability of success \code{p}
 }
 \examples{
@@ -42,32 +42,32 @@ n=5; alp=0.05;a=1;b=1;a1=1;a2=1
 lengthBA(n,alp,a,b,a1,a2)
 }
 \references{
-[1] 1993 Vollset SE. 
-Confidence intervals for a binomial proportion. 
+[1] 1993 Vollset SE.
+Confidence intervals for a binomial proportion.
 Statistics in Medicine: 12; 809 - 824.
 
-[2] 1998 Agresti A and Coull BA. 
-Approximate is better than "Exact" for interval estimation of binomial proportions. 
+[2] 1998 Agresti A and Coull BA.
+Approximate is better than "Exact" for interval estimation of binomial proportions.
 The American Statistician: 52; 119 - 126.
 
-[3] 1998 Newcombe RG. 
-Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+[3] 1998 Newcombe RG.
+Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 Statistics in Medicine: 17; 857 - 872.
 
-[4] 2001 Brown LD, Cai TT and DasGupta A. 
-Interval estimation for a binomial proportion. 
+[4] 2001 Brown LD, Cai TT and DasGupta A.
+Interval estimation for a binomial proportion.
 Statistical Science: 16; 101 - 133.
 
-[5] 2002 Pan W. 
-Approximate confidence intervals for one proportion and difference of two proportions 
+[5] 2002 Pan W.
+Approximate confidence intervals for one proportion and difference of two proportions
 Computational Statistics and Data Analysis 40, 128, 143-157.
 
-[6] 2008 Pires, A.M., Amado, C. 
-Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+[6] 2008 Pires, A.M., Amado, C.
+Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 
-[7] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{

@@ -22,8 +22,8 @@ n=5; alp=0.05
 PlotpCOpBITW(n,alp)
 }
 \references{
-[1] 2005 Vos PW and Hudson S. 
-Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+[1] 2005 Vos PW and Hudson S.
+Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 The American Statistician: 59; 137 - 142.
 }
 \seealso{

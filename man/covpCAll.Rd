@@ -22,7 +22,7 @@ covpCAll(n, alp, c, a, b, t1, t2)
 \item{t2}{- Upper tolerance limit to check the spread of coverage Probability}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{method}{  Method name}
  \item{MeanCP}{  Coverage Probability}
  \item{MinCP }{  Minimum coverage probability}
@@ -38,20 +38,22 @@ Coverage Probability for 5 continuity corrected methods (Wald, Wald-T, Score, Lo
 The  Coverage Probability of 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
-covpCAll(n,alp,c,a,b,t1,t2)  
+covpCAll(n,alp,c,a,b,t1,t2)
+}
 }
 \references{
-[1] 1998 Agresti A and Coull BA. 
-Approximate is better than "Exact" for interval estimation of binomial proportions. 
+[1] 1998 Agresti A and Coull BA.
+Approximate is better than "Exact" for interval estimation of binomial proportions.
 The American Statistician: 52; 119 - 126.
 
-[2] 1998 Newcombe RG. 
-Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+[2] 1998 Newcombe RG.
+Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 Statistics in Medicine: 17; 857 - 872.
 
-[3] 2008 Pires, A.M., Amado, C. 
-Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+[3] 2008 Pires, A.M., Amado, C.
+Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{

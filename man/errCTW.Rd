@@ -18,7 +18,7 @@ errCTW(n, alp, phi, c, f)
 \item{f}{- Failure criterion}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{delalp}{ Delta-alpha is the increase of the nominal error with respect to real error}
  \item{theta}{ Long term power of the test}
  \item{Fail_Pass}{Fail/pass based on the input f criterion}
@@ -27,7 +27,7 @@ A dataframe with
 Calculates error, long term power and pass/fail criteria for continuity corrected Wald-T method
 }
 \details{
-Evaluation of approximate and continuity corrected method based on a t_approximation of the standardized point estimator 
+Evaluation of approximate and continuity corrected method based on a t_approximation of the standardized point estimator
 using error due to the difference of achieved and nominal level of significance for the \eqn{n + 1} intervals
 }
 \examples{
@@ -35,8 +35,8 @@ n=5; alp=0.05; phi=0.05;c=1/(2*n); f=-2
 errCTW(n,alp,phi,c,f)
 }
 \references{
-[1] 2014 Martín Andrés, A. and Álvarez Hernández, M. 
-Two-tailed asymptotic inferences for a proportion. 
+[1] 2014 Martin Andres, A. and Alvarez Hernandez, M.
+Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{

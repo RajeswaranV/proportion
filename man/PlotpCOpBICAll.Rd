@@ -20,8 +20,10 @@ Plots  p-confidence and p-bias for a given n and alpha level for 5 continuity co
 Plots of p-Confidence and p-Bias estimation of 5 continuity corrected methods (Wald, Wald-T,  Score, Logit-Wald, ArcSine)
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;c=1/(2*n)
 PlotpCOpBICAll(n,alp,c)
+}
 }
 \seealso{
 Other p-confidence and p-bias of continuity corrected methods: \code{\link{PlotpCOpBICAS}},

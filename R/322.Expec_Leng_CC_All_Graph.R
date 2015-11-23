@@ -273,8 +273,10 @@ return(ELCTW)
 #' @details  The  plots of the expected length of 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Expected length  of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 #' PlotexplCAll(n,alp,c,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplCAll<-function(n,alp,c,a,b)
@@ -289,6 +291,7 @@ PlotexplCAll<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.new    = explCAll(n,alp,c,a,b)
@@ -328,6 +331,7 @@ PlotexplCWD<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.cwd    = gexplCWD(n,alp,c,a,b)
@@ -381,6 +385,7 @@ PlotexplCSC<-function(n,alp,c,a,b)
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.csc    = gexplCSC(n,alp,c,a,b)
@@ -433,6 +438,7 @@ PlotexplCAS<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.cas    = gexplCAS(n,alp,c,a,b)
@@ -485,6 +491,7 @@ PlotexplCLT<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.clt    = gexplCLT(n,alp,c,a,b)
@@ -538,6 +545,7 @@ PlotexplCTW<-function(n,alp,c,a,b)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.ctw    = gexplCTW(n,alp,c,a,b)

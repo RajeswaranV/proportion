@@ -11,7 +11,7 @@ PlotciCAllg(n, alp, c)
 
 \item{alp}{- Alpha value (significance level required)}
 
-\item{h}{- adjustment}
+\item{c}{- Continuity correction}
 }
 \description{
 Plots the CI estimation of 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine) grouped by x value

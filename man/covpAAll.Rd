@@ -38,8 +38,10 @@ Coverage Probability for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Lo
 Calculates the  Coverage Probability of \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 covpAAll(n,alp,h,a,b,t1,t2)
+}
 }
 \references{
 [1] 1998 Agresti A and Coull BA.

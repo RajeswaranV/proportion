@@ -13,10 +13,10 @@
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' n=5; alp=0.05;h=2
 #' ciAWD(n,alp,h)
@@ -95,10 +95,10 @@ return(data.frame(x,LAWD,UAWD,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' n=5; alp=0.05;h=2
 #' ciASC(n,alp,h)
@@ -182,10 +182,10 @@ return(data.frame(x,LASC,UASC,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' n=5; alp=0.05;h=2
 #' ciAAS(n,alp,h)
@@ -264,10 +264,10 @@ return(data.frame(x,LAAS,UAAS,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' n=5; alp=0.05;h=2
 #' ciALR(n,alp,h)
@@ -348,10 +348,10 @@ return(data.frame(x,LALR,UALR,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' n=5; alp=0.05;h=2
 #' ciATW(n,alp,h)
@@ -436,10 +436,10 @@ return(data.frame(x,LATW,UATW,LABB,UABB,ZWI))
 #'  \item{ZWI }{   Zero Width Interval}
 #' @family Adjusted methods of CI estimation
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' n=5; alp=0.05;h=2
 #' ciALT(n,alp,h)
@@ -521,10 +521,10 @@ return(data.frame(x,LALT,UALT,LABB,UABB,ZWI))
 ##'  \item{ZWI }{ - Zero Width Interval}
 #' @family Adjusted methods of CI estimation
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-#'    \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-#'    \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-#'    \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-#'    \code{\link[=prevalence]{propCI}} which provides similar functionality.
+#'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+#'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+#'    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+#'    \code{\link[prevalence]{propCI}} which provides similar functionality.
 #' @examples
 #' n=5; alp=0.05;h=2
 #' ciAAll(n,alp,h)

@@ -29,8 +29,10 @@ The plot of the  Coverage Probability of continuity corrected ArcSine method
 for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1; t1=0.93;t2=0.97
 PlotcovpCAS(n,alp,c,a,b,t1,t2)
+}
 }
 \seealso{
 Other Coverage probability for continuity corrected methods: \code{\link{PlotcovpCAll}},

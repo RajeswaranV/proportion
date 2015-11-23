@@ -10,9 +10,9 @@ Description: Multiple procedures to obtain an interval estimate for an unknown
     procedures with better properties. Non-iterative methods widely discussed
     in litrature for computing a (central) two-sided interval estimate for p are
     implemented in terms of coverage probability and expected length.
+License: GPL-2
 Depends:
     R (>= 3.2.2)
-License: GPL-2
 LazyData: true
 Imports:
     TeachingDemos,

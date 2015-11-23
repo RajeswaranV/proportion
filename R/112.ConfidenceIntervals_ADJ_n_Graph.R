@@ -18,6 +18,7 @@ PlotciAAll<-function(n,alp,h) #n:No of trials,alp:signi level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAAll(n,alp,h)
   id=1:nrow(ss1)
@@ -94,6 +95,7 @@ PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAAll(n,alp,h)
   nss= ss1[order(ss1$x, (ss1$UpperLimit-ss1$LowerLimit)),]
@@ -153,7 +155,7 @@ PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
   }
   else {
 
-    ff= data.frame(a=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),b=(0:max(ss$x)))
+    ff= data.frame(val1=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),val2=(0:max(ss$x)))
 
     if(nrow(ldf)>0){
       oo= ggplot2::ggplot()+
@@ -172,8 +174,8 @@ PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
         ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
-        ggplot2::geom_hline(ggplot2::aes(yintercept=a),data=ff) +
-        ggplot2::geom_text(ggplot2::aes(0,a,label = paste("x=", sep="", b),hjust=1.1, vjust = -1), data=ff)
+        ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
+        ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -184,8 +186,8 @@ PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 width = 0.5) +
-        ggplot2::geom_hline(ggplot2::aes(yintercept=a),data=ff) +
-        ggplot2::geom_text(ggplot2::aes(0,a,label = paste("x=", sep="", b),hjust=1.1, vjust = -1), data=ff)
+        ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
+        ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     oo
   }
@@ -211,6 +213,7 @@ PlotciAWD<-function(n,alp,h) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   WaldCI.df    = ciAWD(n,alp,h)
   ss1 = data.frame(x=WaldCI.df$x, LowerLimit = WaldCI.df$LAWD, UpperLimit = WaldCI.df$UAWD, LowerAbb = WaldCI.df$LABB, UpperAbb = WaldCI.df$UABB, ZWI = WaldCI.df$ZWI)
@@ -287,6 +290,7 @@ PlotciAAS<-function(n,alp,h) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ArcSineCI.df = ciAAS(n,alp,h)
 
@@ -364,6 +368,7 @@ PlotciALR<-function(n,alp,h) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   LRCI.df      = ciALR(n,alp,round(h,0))		#h must be +ve integer
 
@@ -440,6 +445,7 @@ PlotciASC<-function(n,alp,h) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ScoreCI.df   = ciASC(n,alp,h)
 
@@ -517,6 +523,7 @@ PlotciALT<-function(n,alp,h) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   WaldLCI.df   = ciALT(n,alp,h)
   ss1 = data.frame( x=WaldLCI.df$x, LowerLimit = WaldLCI.df$LALT, UpperLimit = WaldLCI.df$UALT, LowerAbb = WaldLCI.df$LABB, UpperAbb = WaldLCI.df$UABB, ZWI = WaldLCI.df$ZWI)
@@ -592,6 +599,7 @@ PlotciATW<-function(n,alp,h) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   AdWaldCI.df  = ciATW(n,alp,h)
   ss1 = data.frame( x=AdWaldCI.df$x, LowerLimit = AdWaldCI.df$LATW, UpperLimit = AdWaldCI.df$UATW, LowerAbb = AdWaldCI.df$LABB, UpperAbb = AdWaldCI.df$UABB, ZWI = AdWaldCI.df$ZWI)

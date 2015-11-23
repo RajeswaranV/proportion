@@ -8,8 +8,10 @@
 #' Sum of the length is shown as bar graph.
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1;b=1;
 #' PlotlengthAll(n,alp,a,b)
+#' }
 #' @export
 PlotlengthAll<-function(n,alp,a,b)
 {
@@ -21,6 +23,7 @@ PlotlengthAll<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthAll(n,alp,a,b)
 
@@ -52,12 +55,14 @@ PlotlengthAll<-function(n,alp,a,b)
 #' binomial tests with null hypothesis \eqn{H0: p = p0} using expected length of the \eqn{n + 1} intervals.
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;e=0.5;a=1;b=1 # Mid-p
 #' PlotlengthEX(n,alp,e,a,b)
 #' n=5; alp=0.05;e=1;a=1;b=1 #Clopper-Pearson
 #' PlotlengthEX(n,alp,e,a,b)
 #' n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pearson
 #' PlotlengthEX(n,alp,e,a,b)
+#' }
 #' @export
 ##### 1.EXACT EMTHOD Expected Length for a given n and alpha level
 PlotlengthEX<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact method indicator (1:Clop-Pear,0.5:MID-p),a&b beta parameters for hypo "p'
@@ -72,6 +77,7 @@ PlotlengthEX<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact meth
   if (any(e>1) || any(e<0)) stop("'e' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthEX(n,alp,e,a,b)
   full.df$e=as.factor(full.df$e)
@@ -125,6 +131,7 @@ PlotlengthBA<-function(n,alp,a,b,a1,a2)
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1)>1 || a1<0 ) stop("'a1' has to be greater than or equal to 0")
   if ((class(a2) != "integer") & (class(a2) != "numeric") || length(a2)>1 || a2<0 ) stop("'a2' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthBA(n,alp,a,b,a1,a2)
 
@@ -168,6 +175,7 @@ PlotlengthWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parame
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthWD(n,alp,a,b)
   full.df$method="Wald"
@@ -212,6 +220,7 @@ PlotlengthSC<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthSC(n,alp,a,b)
   full.df$method="Score"
@@ -257,6 +266,7 @@ PlotlengthAS<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthAS(n,alp,a,b)
   full.df$method="ArcSine"
@@ -302,6 +312,7 @@ PlotlengthLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parame
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthLT(n,alp,a,b)
   full.df$method="Logit Wald"
@@ -348,6 +359,7 @@ PlotlengthTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parame
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthTW(n,alp,a,b)
   full.df$method="Wald-T"
@@ -392,6 +404,7 @@ PlotlengthLR<-function(n,alp,a,b)
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   full.df= lengthLR(n,alp,a,b)
   full.df$method="Likelihood Ratio"

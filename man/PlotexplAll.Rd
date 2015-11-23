@@ -22,8 +22,10 @@ Plots the Expected length using 6 base methods (Wald, Wald-T, Likelihood, Score,
 The  plots using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for the expected length of \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; a=1;b=1;
 PlotexplAll(n,alp,a,b)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAS}},

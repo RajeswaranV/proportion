@@ -16,7 +16,7 @@ ciCSCx(x, n, alp, c)
 \item{c}{- Continuity correction}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x}{  Number of successes (positive samples)}
  \item{LCSx }{   Score Lower limit}
  \item{UCSx }{   Score Upper Limit}
@@ -28,9 +28,9 @@ A dataframe with
 Continuity corrected Score method of CI estimation
 }
 \details{
-A score test approach using the 
+A score test approach using the
 test statistic  \eqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE}
-where \eqn{c > 0} is a constant for continuity correction for 
+where \eqn{c > 0} is a constant for continuity correction for
 all \eqn{x = 0, 1, 2 ..n}
 }
 \examples{
@@ -38,24 +38,24 @@ x=5; n=5; alp=0.05; c=1/(2*n)
 ciCSCx(x,n,alp,c)
 }
 \references{
-[1] 1998 Agresti A and Coull BA. 
-Approximate is better than "Exact" for interval estimation of binomial proportions. 
+[1] 1998 Agresti A and Coull BA.
+Approximate is better than "Exact" for interval estimation of binomial proportions.
 The American Statistician: 52; 119 - 126.
 
-[2] 1998 Newcombe RG. 
-Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+[2] 1998 Newcombe RG.
+Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 Statistics in Medicine: 17; 857 - 872.
 
-[3] 2008 Pires, A.M., Amado, C. 
-Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+[3] 2008 Pires, A.M., Amado, C.
+Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{
 \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-   \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-   \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-   \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-   \code{\link[=prevalence]{propCI}} which provides similar functionality.
+   \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+   \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+   \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+   \code{\link[prevalence]{propCI}} which provides similar functionality.
 
 Other Continuity correction methods of CI estimation given x and n: \code{\link{PlotciCAllxg}},
   \code{\link{PlotciCAllx}}, \code{\link{ciCAllx}},

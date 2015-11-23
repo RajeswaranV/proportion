@@ -51,10 +51,10 @@ REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{
 \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
-   \code{\link[=binom]{binom.confint}}  provides similar functionality for 11 methods,
-   \code{\link[=PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
-   \code{\link[=BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
-   \code{\link[=prevalence]{propCI}} which provides similar functionality.
+   \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
+   \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
+   \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
+   \code{\link[prevalence]{propCI}} which provides similar functionality.
 
 Other Adjusted methods of CI estimation  given x & n: \code{\link{ciAASx}},
   \code{\link{ciALRx}}, \code{\link{ciATWx}},

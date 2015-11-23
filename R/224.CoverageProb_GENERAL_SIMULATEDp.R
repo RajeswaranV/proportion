@@ -115,10 +115,12 @@ covpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
 #' and pre-defined space for the parameter \code{p} using Monte Carle simulation
 #' @family Simulated methods for coverage probability
 #' @examples
+#' \dontrun{
 #' LL=c(0,seq(.01,.55,.1),.56)		#Lower and Upper Limits
 #' UL=c(seq(.35,1,.1),1)
 #' n= 7; alp=0.05; s=5000; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpSIM(n,LL,UL,alp,s,a,b,t1,t2)
+#' }
 #' @export
 ##### 2. Mean Coverage Probability - Graph
 PlotcovpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
@@ -145,6 +147,7 @@ PlotcovpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   x=0:n

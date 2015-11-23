@@ -16,7 +16,7 @@ hypotestBAF3(n, th0, a1, b1)
 \item{b1}{- Priors for hypothesis H1}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x}{ Number of successes}
  \item{BaFa01}{ Bayesian Factor}
 }
@@ -24,8 +24,8 @@ A dataframe with
 Bayesain Hypothesis testing : Hypothesis 3: Theta = Theta0 Vs Theta < Theta0
 }
 \details{
-Computes Bayes factor under Beta-Binomial model for the 
-model: \eqn{p = p0} Vs \eqn{p < p0} from the given number of trials \code{n} and for all number 
+Computes Bayes factor under Beta-Binomial model for the
+model: \eqn{p = p0} Vs \eqn{p < p0} from the given number of trials \code{n} and for all number
 of successes \eqn{x = 0, 1, 2......n }
 }
 \examples{
@@ -33,11 +33,11 @@ n=1; th0=10; a1=1; b1=1
 hypotestBAF3(n,th0,a1,b1)
 }
 \references{
-[1] 2006  Ghosh M, Delampady M and Samanta T. 
-An introduction to Bayesian analysis: Theory and Methods. 
+[1] 2006  Ghosh M, Delampady M and Samanta T.
+An introduction to Bayesian analysis: Theory and Methods.
 Springer, New York
-[2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R 
-Default prior approach for Bayesian testing of hypotheses involving single binomial proportion 
+[2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
+Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 International Journal of Statistics and Analysis, 4 (2), 139 - 153
 }
 \seealso{

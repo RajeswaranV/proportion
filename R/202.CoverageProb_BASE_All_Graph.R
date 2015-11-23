@@ -412,12 +412,16 @@ exlim202u=function(x,n,alp,e)
 #' @details  The  graphs of basic Coverage Probability methods
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; e=0.5; a=1;b=1; t1=0.93;t2=0.97 # Mid-p
 #' PlotcovpEX(n,alp,e,a,b,t1,t2)
 #' n= 10; alp=0.05; e=1; a=1;b=1; t1=0.93;t2=0.97 #Clop-Pear
 #' PlotcovpEX(n,alp,e,a,b,t1,t2)
-#' n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1; t1=0.93;t2=0.97  #Range including Mid-p and Clopper-Pearson
+#' n=5; alp=0.05;
+#' e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearson
+#' a=1;b=1; t1=0.93;t2=0.97
 #' PlotcovpEX(n,alp,e,a,b,t1,t2)
+#' }
 #' @export
 ##### 7. EXACT METHOD - Coverage Probability
 PlotcovpEX=function(n,alp,e,a,b,t1,t2)
@@ -438,6 +442,7 @@ PlotcovpEX=function(n,alp,e,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   if(length(e)>1){
     dfex=gcovpEX(n,alp,e,a,b,t1,t2)
@@ -498,8 +503,10 @@ ggplot2::ggplot(dfex, ggplot2::aes(x=hp, y=cpp))+
 #' @details  The  graphs of  Coverage Probability of Bayesian method
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1;b=1; t1=0.93;t2=0.97;a1=1;a2=1
 #' PlotcovpBA(n,alp,a,b,t1,t2,a1,a2)
+#' }
 #' @export
 #8.BAYESIAN
 PlotcovpBA<-function(n,alp,a,b,t1,t2,a1,a2)
@@ -521,6 +528,7 @@ PlotcovpBA<-function(n,alp,a,b,t1,t2,a1,a2)
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1)>1 || a1<0  ) stop("'a1' has to be greater than or equal to 0")
   if ((class(a2) != "integer") & (class(a2) != "numeric") || length(a2)>1 || a2<0  ) stop("'a2' has to be greater than or equal to 0")
+  ID=method=Value=hp=cp=cpp=mcpBAQ=micpBAQ=mcpBAH=micpBAH=NULL
 
 ####INPUT n
 x=0:n
@@ -629,8 +637,10 @@ ggplot2::ggplot(df.new, ggplot2::aes(x=hp, y=cpp))+
 #' @details  The  graphs of basic Coverage Probability methods
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpAll(n,alp,a,b,t1,t2)
+#' }
 #' @export
 ##### 9.  Coverage Probability - Graph
 PlotcovpAll<-function(n,alp,a,b,t1,t2)
@@ -648,6 +658,7 @@ PlotcovpAll<-function(n,alp,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   df1=gcovpW(n,alp,a,b,t1,t2)
@@ -683,8 +694,10 @@ PlotcovpAll<-function(n,alp,a,b,t1,t2)
 #' @details  Plots Coverage Probability for base Wald method
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpWD(n,alp,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpWD<-function(n,alp,a,b,t1,t2)
 {
@@ -701,6 +714,7 @@ PlotcovpWD<-function(n,alp,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   Waldcovp.df    = covpWD(n,alp,a,b,t1,t2)
@@ -736,8 +750,10 @@ PlotcovpWD<-function(n,alp,a,b,t1,t2)
 #' @details  Plots Coverage Probability for base ArcSine method
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpAS(n,alp,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpAS<-function(n,alp,a,b,t1,t2)
 {
@@ -754,6 +770,7 @@ PlotcovpAS<-function(n,alp,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ArcSinecovp.df = covpAS(n,alp,a,b,t1,t2)
 
@@ -788,8 +805,10 @@ PlotcovpAS<-function(n,alp,a,b,t1,t2)
 #' @details  Plots Coverage Probability for base Likelihood Ratio method
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpLR(n,alp,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpLR<-function(n,alp,a,b,t1,t2)
 {
@@ -806,6 +825,7 @@ PlotcovpLR<-function(n,alp,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   LRcovp.df      = covpLR(n,alp,a,b,t1,t2)
@@ -842,8 +862,10 @@ PlotcovpLR<-function(n,alp,a,b,t1,t2)
 #' @details  Plots Coverage Probability for base Score method
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpSC(n,alp,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpSC<-function(n,alp,a,b,t1,t2)
 {
@@ -860,6 +882,7 @@ PlotcovpSC<-function(n,alp,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   Scorecovp.df   = covpSC(n,alp,a,b,t1,t2)
@@ -896,8 +919,10 @@ PlotcovpSC<-function(n,alp,a,b,t1,t2)
 #' @details  Plots Coverage Probability for base Logit Wald method
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpLT(n,alp,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpLT<-function(n,alp,a,b,t1,t2)
 {
@@ -914,6 +939,7 @@ PlotcovpLT<-function(n,alp,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   WaldLcovp.df   = covpLT(n,alp,a,b,t1,t2)
@@ -949,8 +975,10 @@ PlotcovpLT<-function(n,alp,a,b,t1,t2)
 #' @details  Plots Coverage Probability for base Wald-T method
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpTW(n,alp,a,b,t1,t2)
+#' }
 #' @export
 PlotcovpTW<-function(n,alp,a,b,t1,t2)
 {
@@ -967,6 +995,7 @@ PlotcovpTW<-function(n,alp,a,b,t1,t2)
   if (t1>t2) stop(" t1 has to be lesser than t2")
   if ((class(t1) != "integer") & (class(t1) != "numeric") || length(t1)>1 || t1<0 || t1>1 ) stop("'t1' has to be between 0 and 1")
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
+  ID=method=Value=hp=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
   AdWaldcovp.df  = covpTW(n,alp,a,b,t1,t2)

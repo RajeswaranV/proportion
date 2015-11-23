@@ -89,6 +89,7 @@ PlotpCOpBIGEN<-function(n,LL,UL) #n:No of trials,alp:sign level
   if (length(LL) < n ) stop("Length of vector LL has to be greater than n")
   if (length(UL) < n ) stop("Length of vector UL has to be greater than n")
   if (any(LL[0:n+1] > UL[0:n+1] )) stop("LL value have to be lower than the corrosponding UL value")
+  x=Value=Heading=mark=NULL
 
   gdf=pCOpBIGEN(n,LL,UL)
   W1 = data.frame(x=gdf$x1, Value=gdf$pconf, Heading="pconf")
@@ -113,11 +114,6 @@ PlotpCOpBIGEN<-function(n,LL,UL) #n:No of trials,alp:sign level
     ggplot2::guides(colour = ggplot2::guide_legend(override.aes = list(linetype=c(1,1,1,1),
                                                                        shape=c(NA, 16,16,NA))))
 
-#     ####INPUT n
-# windows()
-# plot(x1,pconf,type="l",xlab="No of successes",ylab="p-confidence")
-# windows()
-# plot(x1,pbias,type="l",xlab="No of successes",ylab="p-Bias")
 }
 ###############################################################################################
 

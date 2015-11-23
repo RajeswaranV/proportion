@@ -44,7 +44,7 @@
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -176,7 +176,7 @@ return(data.frame(mcpW,micpW,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -312,7 +312,7 @@ return(data.frame(mcpS,micpS,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -443,7 +443,7 @@ return(data.frame(mcpA,micpA,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -587,7 +587,7 @@ return(data.frame(mcpLT,micpLT,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -730,7 +730,7 @@ return(data.frame(mcpTW,micpTW,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -838,12 +838,16 @@ return(data.frame(mcpL,micpL,RMSE_N,RMSE_M,RMSE_MI,tol))
 #'  \item{e }{- Exact method input}
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; e=0.5; a=1;b=1; t1=0.93;t2=0.97 # Mid-p
 #' covpEX(n,alp,e,a,b,t1,t2)
 #' n= 10; alp=0.05; e=1; a=1;b=1; t1=0.93;t2=0.97 #Clop-Pear
 #' covpEX(n,alp,e,a,b,t1,t2)
-#' n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1; t1=0.93;t2=0.97  #Range including Mid-p and Clopper-Pearson
+#' n=5; alp=0.05;
+#' e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearson
+#' a=1;b=1; t1=0.93;t2=0.97
 #' covpEX(n,alp,e,a,b,t1,t2)
+#' }
 #' @references
 #' [1] 1993 Vollset SE.
 #' Confidence intervals for a binomial proportion.
@@ -869,7 +873,7 @@ return(data.frame(mcpL,micpL,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -1034,7 +1038,7 @@ exlim201u=function(x,n,alp,e)
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
@@ -1154,20 +1158,6 @@ RMSE_MH=sqrt(mean(RMSE_M1H))
 RMSE_MIH=sqrt(mean(RMSE_Mi1H))
 tolH=ctrH/s
 
-# windows()
-# par(mfrow=c(1,2))
-# plot(hp,cppBAQ,type="l",xlab="p",ylab="Coverage Probability",main="Bayes TB Interval")
-# abline(h=1-(alp), lty=2)
-# plot(hp,cppBAQ,type="l",xlab="p",ylab="Coverage Probability",main="Bayes HPD Interval")
-# abline(h=1-(alp), lty=2)
-
-# RESULT=matrix(c(mcpBAQ, micpBAQ,RMSE_N, RMSE_M,RMSE_MI,tol,mcpBAH, micpBAH,RMSE_NH,RMSE_MH,RMSE_MIH,tolH),2,6,byrow=TRUE)
-# rownames(RESULT)=c("Quantile","HPD")
-# colnames(RESULT)=c("MeanCP","MinCP","RMS-Nominal","RMS-Mean","RMSE-Min","Tol")
-# return(RESULT)
-
-# TB=data.frame(mcpBAQ,micpBAQ,RMSE_N,RMSE_M,RMSE_MI,tol)
-# HPD=data.frame(mcpBAH,micpBAH,RMSE_NH,RMSE_MH,RMSE_MIH,tolH)
 
 TB=data.frame(Method="Quantile",MeanCP=mcpBAQ,MinCP=micpBAQ,RMSE_N=RMSE_N,RMSE_M=RMSE_M,RMSE_MI=RMSE_MI,tol=tol)
 HPD=data.frame(Method="HPD",MeanCP=mcpBAH,MinCP=micpBAH,RMSE_N=RMSE_NH,RMSE_M=RMSE_MH,RMSE_MI=RMSE_MIH,tol=tolH)
@@ -1177,7 +1167,7 @@ return(ndf)
 
 #############################################################################################################
 #' Coverage Probability using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
-#' #' @param n - Number of trials
+#' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
@@ -1194,8 +1184,10 @@ return(ndf)
 #'  \item{tol }{   Required tolerance for coverage probability}
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1;b=1; t1=0.93;t2=0.97
 #' covpAll(n,alp,a,b,t1,t2)
+#' }
 #' @references
 #' [1] 1993 Vollset SE.
 #' Confidence intervals for a binomial proportion.
@@ -1221,7 +1213,7 @@ return(ndf)
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #'
-#' [7] 2014 Martín Andrés, A. and Álvarez Hernández, M.
+#' [7] 2014 Martin Andres, A. and Alvarez Hernandez, M.
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export

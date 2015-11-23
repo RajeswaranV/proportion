@@ -326,6 +326,7 @@ PlotexplAAll<-function(n,alp,h,a,b)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.new=  explAAll(n,alp,h,a,b)
@@ -366,6 +367,7 @@ PlotexplAWD<-function(n,alp,h,a,b)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.awd=  gexplAWD(n,alp,h,a,b)
@@ -420,6 +422,7 @@ PlotexplASC<-function(n,alp,h,a,b)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.asc=  gexplASC(n,alp,h,a,b)
@@ -473,6 +476,7 @@ PlotexplATW<-function(n,alp,h,a,b)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.atw=  gexplATW(n,alp,h,a,b)
@@ -527,6 +531,7 @@ PlotexplALT<-function(n,alp,h,a,b)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.alt=  gexplALT(n,alp,h,a,b)
@@ -580,6 +585,7 @@ PlotexplAAS<-function(n,alp,h,a,b)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.aas=  gexplAAS(n,alp,h,a,b)
@@ -633,6 +639,7 @@ PlotexplALR<-function(n,alp,h,a,b)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
+  hp=ew=method=gMean=gMax=gLL=gUL=explUL=explLL=sumLen=NULL
 
   #### Calling functions and creating df
   df.alr=  gexplALR(n,alp,h,a,b)

@@ -366,6 +366,7 @@ return(data.frame(mcpAA,micpAA,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' Coverage Probability of Adjusted Logit Wald method  for given n
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
+#' @param h - Adding factor
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @param t1 - Lower tolerance limit to check the spread of coverage Probability
@@ -753,8 +754,10 @@ return(data.frame(mcpAL,micpAL,RMSE_N,RMSE_M,RMSE_MI,tol))
 #'  \item{tol }{   Required tolerance for coverage probability}
 #' @family Coverage probability of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1; t1=0.93;t2=0.97
 #' covpAAll(n,alp,h,a,b,t1,t2)
+#' }
 #' @references
 #' [1] 1998 Agresti A and Coull BA.
 #' Approximate is better than "Exact" for interval estimation of binomial proportions.

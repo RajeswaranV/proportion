@@ -15,7 +15,7 @@ PlotpCOpBIEX(n, alp, e)
 The input can also be a range of values between 0 and 1.}
 }
 \value{
-A dataframe with 
+A dataframe with
 \describe{
  \item{x1}{  Number of successes (positive samples)}
  \item{pconf }{   p-Confidence}
@@ -37,8 +37,8 @@ n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pea
 PlotpCOpBIEX(n,alp,e)
 }
 \references{
-[1] 2005 Vos PW and Hudson S. 
-Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+[1] 2005 Vos PW and Hudson S.
+Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 The American Statistician: 59; 137 - 142.
 }
 \seealso{

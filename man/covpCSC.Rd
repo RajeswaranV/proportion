@@ -22,7 +22,7 @@ covpCSC(n, alp, c, a, b, t1, t2)
 \item{t2}{- Upper tolerance limit to check the spread of coverage Probability}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{mcpAS}{  Continuity corrected Score Coverage Probability}
  \item{micpAS }{   Continuity corrected Score minimum coverage probability}
  \item{RMSE_N }{   Root Mean Square Error from nominal size}
@@ -35,24 +35,24 @@ Coverage Probability of Continuity corrected Score method
 }
 \details{
 Evaluation of continuity corrected score test approach using coverage probability,
- root mean square statistic, and the proportion of proportion lies within the 
+ root mean square statistic, and the proportion of proportion lies within the
  desired level of coverage
 }
 \examples{
 n= 10; alp=0.05; c=1/(2*n); a=1;b=1; t1=0.93;t2=0.97
-covpCSC(n,alp,c,a,b,t1,t2)  
+covpCSC(n,alp,c,a,b,t1,t2)
 }
 \references{
-[1] 1998 Agresti A and Coull BA. 
-Approximate is better than "Exact" for interval estimation of binomial proportions. 
+[1] 1998 Agresti A and Coull BA.
+Approximate is better than "Exact" for interval estimation of binomial proportions.
 The American Statistician: 52; 119 - 126.
 
-[2] 1998 Newcombe RG. 
-Two-sided confidence intervals for the single proportion: Comparison of seven methods. 
+[2] 1998 Newcombe RG.
+Two-sided confidence intervals for the single proportion: Comparison of seven methods.
 Statistics in Medicine: 17; 857 - 872.
 
-[3] 2008 Pires, A.M., Amado, C. 
-Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods. 
+[3] 2008 Pires, A.M., Amado, C.
+Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{
