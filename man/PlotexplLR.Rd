@@ -22,8 +22,10 @@ Plots likelihood Ratio method of expected length
 Plot of Likelihood ratio limits using sum of length of the \eqn{n + 1} intervals
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;a=1;b=1
 PlotexplLR(n,alp,a,b)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAS}},

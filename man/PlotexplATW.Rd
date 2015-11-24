@@ -24,8 +24,10 @@ Plots the Expected length using adjusted Wald-T method
 The  plots of the Expected length of adjusted Wald method
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; h=2;a=1;b=1;
 PlotexplATW(n,alp,h,a,b)
+}
 }
 \seealso{
 Other Expected length  of adjusted methods: \code{\link{PlotexplAAS}},

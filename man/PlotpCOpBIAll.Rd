@@ -18,8 +18,10 @@ Plots  p-confidence and p-bias for a given n and alpha level for 6 base methods 
 p-confidence and p-bias plots for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \examples{
+\dontrun{
 n=5; alp=0.05
 PlotpCOpBIAll(n,alp)
+}
 }
 \references{
 [1] 2005 Vos PW and Hudson S.

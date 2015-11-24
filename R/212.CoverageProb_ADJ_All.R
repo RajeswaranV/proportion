@@ -100,7 +100,7 @@ cppAW[j]=sum(cpAW[,j])
 RMSE_N1[j]=(cppAW[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppAW[j]&&cppAW[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPAW=data.frame(hp,cppAW)
+#CPAW=data.frame(hp,cppAW)
 mcpAW=mean(cppAW)
 micpAW=min(cppAW)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -224,7 +224,7 @@ cppAS[j]=sum(cpAS[,j])						#Coverage Probability
 RMSE_N1[j]=(cppAS[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppAS[j]&&cppAS[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPAS=data.frame(hp,cppAS)
+#CPAS=data.frame(hp,cppAS)
 mcpAS=mean(cppAS)							#Mean Cov Prob
 micpAS=min(cppAS)							#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -346,7 +346,7 @@ cppAA[j]=sum(cpAA[,j])						#Coverage Probability
 RMSE_N1[j]=(cppAA[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppAA[j]&&cppAA[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPAA=data.frame(hp,cppAA)
+#CPAA=data.frame(hp,cppAA)
 mcpAA=mean(cppAA)							#Mean Cov Prob
 micpAA=min(cppAA)
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -470,7 +470,7 @@ RMSE_N1[j]=(cppALT[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppALT[j]&&cppALT[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 
 }
-CPALT=data.frame(hp,cppALT)
+#CPALT=data.frame(hp,cppALT)
 mcpALT=mean(cppALT)
 micpALT=min(cppALT)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -595,7 +595,7 @@ cppATW[j]=sum(cpATW[,j])						#Coverage Probability
 RMSE_N1[j]=(cppATW[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppATW[j]&&cppATW[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPATW=data.frame(hp,cppATW)
+#CPATW=data.frame(hp,cppATW)
 mcpATW=mean(cppATW)
 micpATW=min(cppATW)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -675,8 +675,6 @@ n1=n+(2*h)
 ####INITIALIZATIONS
 mle=0
 cutoff=0
-min1=0
-min2=0
 LAL=0
 UAL=0
 s=5000								#Simulation run to generate hypothetical p
@@ -717,7 +715,7 @@ cppAL[j]=sum(cpAL[,j])						#Coverage Probability
 RMSE_N1[j]=(cppAL[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppAL[j]&&cppAL[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPAL=data.frame(hp,cppAL)
+#CPAL=data.frame(hp,cppAL)
 mcpAL=mean(cppAL)
 micpAL=min(cppAL)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))

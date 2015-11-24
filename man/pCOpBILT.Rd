@@ -12,7 +12,7 @@ pCOpBILT(n, alp)
 \item{alp}{- Alpha value (significance level required)}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x1}{  Number of successes (positive samples)}
  \item{pconf }{   p-Confidence}
  \item{pbias }{   p-Bias}
@@ -28,8 +28,8 @@ n=5; alp=0.05
 pCOpBILT(n,alp)
 }
 \references{
-[1] 2005 Vos PW and Hudson S. 
-Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+[1] 2005 Vos PW and Hudson S.
+Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 The American Statistician: 59; 137 - 142.
 }
 \seealso{

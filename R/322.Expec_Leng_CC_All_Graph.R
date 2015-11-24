@@ -29,7 +29,7 @@ if(LCW[i]<0) LCW[i]=0
 if(UCW[i]>1) UCW[i]=1
 LECW[i]=UCW[i]-LCW[i]
 }
-sumLECW=sum(LECW)
+#sumLECW=sum(LECW)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -80,7 +80,7 @@ if(LCS[i]<0) LCS[i]=0
 if(UCS[i]>1) UCS[i]=1
 LECS[i]=UCS[i]-LCS[i]
 }
-sumLECS=sum(LECS)
+#sumLECS=sum(LECS)
 
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
@@ -128,7 +128,7 @@ if(LCA[i]<0) LCA[i]=0
 if(UCA[i]>1) UCA[i]=1
 LECA[i]=UCA[i]-LCA[i]
 }
-sumLECA=sum(LECA)
+#sumLECA=sum(LECA)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -191,7 +191,7 @@ if(LCLT[i]<0) LCLT[i]=0
 if(UCLT[i]>1) UCLT[i]=1
 LECLT[i]=UCLT[i]-LCLT[i]
 }
-sumLECLT=sum(LECLT)
+#sumLECLT=sum(LECLT)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -248,7 +248,7 @@ if(LCTW[i]<0) LCTW[i]=0
 if(UCTW[i]>1) UCTW[i]=1
 LECTW[i]=UCTW[i]-LCTW[i]
 }
-sumLECTW=sum(LECTW)
+#sumLECTW=sum(LECTW)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -315,8 +315,10 @@ PlotexplCAll<-function(n,alp,c,a,b)
 #' @details  The  plots of the expected length of continuity corrected Wald method
 #' @family Expected length  of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 #' PlotexplCWD(n,alp,c,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplCWD<-function(n,alp,c,a,b)
@@ -369,8 +371,10 @@ PlotexplCWD<-function(n,alp,c,a,b)
 #' @details  The  plots of the expected length of continuity corrected Score method
 #' @family Expected length  of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 #' PlotexplCSC(n,alp,c,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplCSC<-function(n,alp,c,a,b)
@@ -422,8 +426,10 @@ PlotexplCSC<-function(n,alp,c,a,b)
 #' @details  The  plots of the expected length of continuity corrected ArcSine method
 #' @family Expected length  of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 #' PlotexplCAS(n,alp,c,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplCAS<-function(n,alp,c,a,b)
@@ -475,8 +481,10 @@ PlotexplCAS<-function(n,alp,c,a,b)
 #' @details  The  plots of the expected length of continuity corrected Logit Wald method
 #' @family Expected length  of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 #' PlotexplCLT(n,alp,c,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplCLT<-function(n,alp,c,a,b)
@@ -529,8 +537,10 @@ PlotexplCLT<-function(n,alp,c,a,b)
 #' @details  The  plots of the expected length of continuity corrected Wald-T method
 #' @family Expected length  of continuity corrected methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 #' PlotexplCTW(n,alp,c,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplCTW<-function(n,alp,c,a,b)

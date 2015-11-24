@@ -23,8 +23,10 @@ Plot of approximate method based on a t_approximation of the
 standardized point estimator using sum of length of the \eqn{n + 1} intervals
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;a=1;b=1
 PlotexplTW(n,alp,a,b)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAS}},

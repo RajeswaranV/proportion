@@ -9,8 +9,10 @@
 #' Sum of the length is shown as bar graph.
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2; a=1;b=1;
 #' PlotlengthAAll(n,alp,h,a,b)
+#' }
 #' @export
 PlotlengthAAll<-function(n,alp,h,a,b)
 {

@@ -2,7 +2,7 @@
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Wald-type interval (for all \eqn{x = 0, 1, 2 ..n}) using the test statistic \eqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE} where
+#' @details  Wald-type interval (for all \eqn{x = 0, 1, 2 ..n}) using the test statistic \eqn{(abs(phat-p)-c)/SE} where
 #' \eqn{c > 0} is a constant for continuity correction
 #' @return A dataframe with
 #'  \item{x}{  Number of successes (positive samples)}
@@ -83,7 +83,7 @@ return(data.frame(x,LCW,UCW,LABB,UABB,ZWI))
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @details  A score test approach using the
-#' test statistic  \eqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE}
+#' test statistic  \eqn{(abs(phat-p)-c)/SE}
 #' where \eqn{c > 0} is a constant for continuity correction for
 #' all \eqn{x = 0, 1, 2 ..n}
 #' @return A dataframe with
@@ -169,8 +169,8 @@ ciCSC<-function(n,alp,c) #n:No of trials,alp:sign level,c:Continuity correction
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Wald-type interval for the arcsine transformation using the test statistic ??
-#' \eqn{\frac{\mid{sin^{-1}\hat{p}-sin^{-1}p \mid-c}{SE}}}{(abs(sin^(-1)phat-sin^(-1)p)-c)/SE}
+#' @details  Wald-type interval for the arcsine transformation using the test statistic
+#' \eqn{(abs(sin^(-1)phat-sin^(-1)p)-c)/SE}
 #'  where \eqn{c > 0} is a constant for continuity correction and for all \eqn{x = 0, 1, 2 ..n}
 #' @return A dataframe with
 #'  \item{x}{  Number of successes (positive samples)}
@@ -254,7 +254,7 @@ return(data.frame(x,LCA,UCA,LABB,UABB,ZWI))
 #' @param c - Continuity correction
 #' @details  Wald-type interval for the logit transformation of the parameter \code{p}
 #' using the test statistic
-#' \eqn{\frac{\mid{L(\hat{p})-L(p) \mid -c}{SE}}}{(abs(L(phat)-L(p))-c)/SE}
+#' \eqn{(abs(L(phat)-L(p))-c)/SE}
 #' where \eqn{c > 0} is a constant for continuity correction and \eqn{L(y) = log(y/1-y)}
 #' for all \eqn{x = 0, 1, 2 ..n}. Boundary modifications when \eqn{x = 0} or \eqn{x = n}
 #' using Exact method values.
@@ -352,7 +352,7 @@ return(data.frame(x,LCLT,UCLT,LABB,UABB,ZWI))
 #' @param c - Continuity correction
 #' @details  Approximate method based on a t_approximation of the standardized point estimator
 #' using the test statistic
-#' \deqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE}
+#' \eqn{(abs(phat-p)-c)/SE}
 #' where \eqn{c > 0} is a constant for continuity correction for all \eqn{x = 0, 1, 2 ..n}.
 #' Boundary modifications when \eqn{x = 0} or \eqn{x = n} using Wald adjustment method with
 #' \eqn{h = 2}.

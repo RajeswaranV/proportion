@@ -24,8 +24,10 @@ Plots the Expected length using continuity corrected Score method
 The  plots of the expected length of continuity corrected Score method
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 PlotexplCSC(n,alp,c,a,b)
+}
 }
 \seealso{
 Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAS}},

@@ -6,8 +6,10 @@
 #' @details  Plots of p-confidence and p-bias plots for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @family p-confidence and p-bias of adjusted methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;h=2
 #' PlotpCOpBIAAll(n,alp,h)
+#' }
 #' @export
 ####3.All methods plots of p-confidence and p-bias
 PlotpCOpBIAAll<-function(n,alp,h) #n:No of trials,alp:sign level

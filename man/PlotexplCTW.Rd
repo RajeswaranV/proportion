@@ -24,8 +24,10 @@ Plots the Expected length using continuity corrected Wald-T method
 The  plots of the expected length of continuity corrected Wald-T method
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 PlotexplCTW(n,alp,c,a,b)
+}
 }
 \seealso{
 Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAS}},

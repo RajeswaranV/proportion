@@ -3,7 +3,8 @@
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Wald-type interval (for all \eqn{x = 0, 1, 2 ..n}) using the test statistic \eqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE} where
+#' @details  Wald-type interval (for all \eqn{x = 0, 1, 2 ..n}) using the test statistic
+#' \eqn{(abs(phat-p)-c)/SE} where
 #' \eqn{c > 0} is a constant for continuity correction
 #' @return A dataframe with
 #'  \item{x}{  Number of successes (positive samples)}
@@ -72,7 +73,7 @@ return(data.frame(x,LCWx,UCWx,LABB,UABB,ZWI))
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @details  A score test approach using the
-#' test statistic  \eqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE}
+#' test statistic  \eqn{(abs(phat-p)-c)/SE}
 #' where \eqn{c > 0} is a constant for continuity correction for
 #' all \eqn{x = 0, 1, 2 ..n}
 #' @return A dataframe with
@@ -124,17 +125,17 @@ cv2= cv/(2*n)
 
 #SCORE (WILSON) METHOD
 pCSx=x/n
-qCSx=1-pCSx
+#qCSx=1-pCSx
 seCS_Lx=sqrt((cv^2)-(4*n*(c+c^2))+(4*n*pCSx*(1-pCSx+(2*c))))	#Sq. root term of LL
 seCS_Ux=sqrt((cv^2)+(4*n*(c-c^2))+(4*n*pCSx*(1-pCSx-(2*c))))	#Sq. root term of LL
 LCSx=(n/(n+(cv)^2))*((pCSx-c+cv1)-(cv2*seCS_Lx))
 UCSx=(n/(n+(cv)^2))*((pCSx+c+cv1)+(cv2*seCS_Ux))
 
 if(LCSx<0) LABB="YES" else LABB="NO"
-if(LCSx<0) LCS=0
+if(LCSx<0) LCSx=0
 
 if(UCSx>1) UABB="YES" else UABB="NO"
-if(UCSx>1) UCS=1
+if(UCSx>1) UCSx=1
 
 if(UCSx-LCSx==0)ZWI="YES" else ZWI="NO"
 return(data.frame(x,LCSx,UCSx,LABB,UABB,ZWI))
@@ -146,7 +147,7 @@ return(data.frame(x,LCSx,UCSx,LABB,UABB,ZWI))
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
 #' @details  Wald-type interval for the arcsine transformation using the test statistic
-#' \eqn{\frac{\mid{sin^{-1}\hat{p}-sin^{-1}p \mid-c}{SE}}}{(abs(sin^(-1)phat-sin^(-1)p)-c)/SE}
+#' \eqn{(abs(sin^(-1)phat-sin^(-1)p)-c)/SE}
 #'  where \eqn{c > 0} is a constant for continuity correction and for all \eqn{x = 0, 1, 2 ..n}
 #' @return A dataframe with
 #'  \item{x}{  Number of successes (positive samples)}
@@ -193,7 +194,7 @@ ciCASx<-function(x,n,alp,c) #x:No of successes,n:No of trials,alp:sign level,c: 
 cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 pCAx=x/n
-qCAx=1-pCAx
+#qCAx=1-pCAx
 seCAx=cv/sqrt(4*n)
 LCAx=(sin(asin(sqrt(pCAx))-seCAx-c))^2
 UCAx=(sin(asin(sqrt(pCAx))+seCAx+c))^2
@@ -216,7 +217,7 @@ return(data.frame(x,LCAx,UCAx,LABB,UABB,ZWI))
 #' @param c - Continuity correction
 #' @details  Wald-type interval for the logit transformation of the parameter \code{p}
 #' using the test statistic
-#' \eqn{\frac{\mid{L(\hat{p})-L(p) \mid -c}{SE}}}{(abs(L(phat)-L(p))-c)/SE}
+#' \eqn{(abs(L(phat)-L(p))-c)/SE}
 #' where \eqn{c > 0} is a constant for continuity correction and \eqn{L(y) = log(y/1-y)}
 #' for all \eqn{x = 0, 1, 2 ..n}. Boundary modifications when \eqn{x = 0} or \eqn{x = n}
 #' using Exact method values.
@@ -273,8 +274,8 @@ UCLTx = 1-((alp/2)^(1/n))
 }
 if(x==n)
 {
-pCLT=1
-qCLT=0
+pCLTx=1
+qCLTx=0
 LCLTx= (alp/2)^(1/n)
 UCLTx=1
 }
@@ -307,7 +308,7 @@ return(data.frame(x,LCLTx,UCLTx,LABB,UABB,ZWI))
 #' @param c - Continuity correction
 #' @details  Approximate method based on a t_approximation of the standardized point estimator
 #' using the test statistic
-#' \deqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE}
+#' \eqn{(abs(phat-p)-c)/SE}
 #' where \eqn{c > 0} is a constant for continuity correction for all \eqn{x = 0, 1, 2 ..n}.
 #' Boundary modifications when \eqn{x = 0} or \eqn{x = n} using Wald adjustment method with
 #' \eqn{h = 2}.
@@ -356,11 +357,11 @@ ciCTWx<-function(x,n,alp,c) #n:No of trials,alp:sign level,,c:Continuity correct
 if(x==0||x==n)
 {
 pCTWx=(x+2)/(n+4)
-qCTWx=1-pCTWx
+#qCTWx=1-pCTWx
 }else
 {
 pCTWx=x/n
-qCTWx=1-pCTWx
+#qCTWx=1-pCTWx
 }
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)

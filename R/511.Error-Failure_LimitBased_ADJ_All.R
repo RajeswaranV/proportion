@@ -122,9 +122,6 @@ qAS=0
 seAS=0
 LASC=0
 UASC=0
-LABB=0
-UABB=0
-ZWI=0
 
 ###CRITICAL VALUES
 cv=qnorm(1-(alp/2), mean = 0, sd = 1)

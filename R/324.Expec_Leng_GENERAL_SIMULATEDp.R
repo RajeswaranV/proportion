@@ -11,10 +11,10 @@
 #' LL=c(0,0.01,0.0734,0.18237,0.3344,0.5492)		#Lower and Upper Limits
 #' UL=c(0.4507,0.6655,0.8176,0.9265,0.9899,1)
 #' n= 5;
-#' sumlenGEN(n,LL,UL)
+#' lengthGEN(n,LL,UL)
 #' @export
 ##### 1.Expected Length
-sumlenGEN<-function(n,LL,UL) #n:No of trials,LL, UL: Lower, Upper Limits
+lengthGEN<-function(n,LL,UL) #n:No of trials,LL, UL: Lower, Upper Limits
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(LL)) stop("'Lower limit' is missing")

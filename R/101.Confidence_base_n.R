@@ -442,8 +442,6 @@ ciEX=function(n,alp,e)	#n:No of trials,alp:signi level, e: Exact method indicato
   if ((class(e) != "integer") & (class(e) != "numeric") || any(e>1) || any(e<0)) stop("'e' has to be between 0 and 1")
   if (length(e)>10) stop("'e' can have only 10 intervals")
 
-  LEX=0
-  UEX=0
   nvar=length(e)
 
   res <- data.frame()

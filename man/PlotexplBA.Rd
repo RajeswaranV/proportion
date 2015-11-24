@@ -28,8 +28,10 @@ intervals using expected length of the \eqn{n + 1}
 intervals for the Beta - Binomial conjugate prior model for the probability of success \code{p}
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;a=1;b=1;a1=1;a2=1
 PlotexplBA(n,alp,a,b,a1,a2)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAS}},

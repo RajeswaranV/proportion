@@ -281,8 +281,6 @@ n1=n+(2*h)
 ####INITIALIZATIONS
 mle=0
 cutoff=0
-min1=0
-min2=0
 LAL=0
 UAL=0
 s=5000								#Simulation run to generate hypothetical p

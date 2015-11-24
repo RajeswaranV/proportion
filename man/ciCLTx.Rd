@@ -30,7 +30,7 @@ Continuity corrected Logit-Wald method of CI estimation
 \details{
 Wald-type interval for the logit transformation of the parameter \code{p}
 using the test statistic
-\eqn{\frac{\mid{L(\hat{p})-L(p) \mid -c}{SE}}}{(abs(L(phat)-L(p))-c)/SE}
+\eqn{(abs(L(phat)-L(p))-c)/SE}
 where \eqn{c > 0} is a constant for continuity correction and \eqn{L(y) = log(y/1-y)}
 for all \eqn{x = 0, 1, 2 ..n}. Boundary modifications when \eqn{x = 0} or \eqn{x = n}
 using Exact method values.

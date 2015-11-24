@@ -56,7 +56,7 @@ UCW[i]=min(pCW[i]+((cv*seCW[i])+c),1)
 }
 
 ###DELTA_ALPHA, THETA,F
-z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(qnorm(1-(alp/2),0,1))^2
 alpstarCW=0
 thetactr=0
 for(m in 1:k)
@@ -136,7 +136,7 @@ UCS[i]=min((n/(n+(cv)^2))*((pCS[i]+c+cv1)+(cv2*seCS_U[i])),1)
 }
 
 ###DELTA_ALPHA, THETA,F
-z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(qnorm(1-(alp/2),0,1))^2
 alpstarCS=0
 thetactr=0
 for(m1 in 1:k)
@@ -215,7 +215,7 @@ UCA[i]=min((sin(asin(sqrt(pCA[i]))+seCA[i]+c))^2,1)
 }
 
 ###DELTA_ALPHA, THETA,F
-z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(qnorm(1-(alp/2),0,1))^2
 alpstarCA=0
 thetactr=0
 for(m1 in 1:k)
@@ -306,7 +306,7 @@ seCLT[j+1]=sqrt(pCLT[j+1]*qCLT[j+1]*n)
 LCLT[j+1]=max(lgiti(lgit[j+1]-(cv/seCLT[j+1])-c),0)
 UCLT[j+1]=min(lgiti(lgit[j+1]+(cv/seCLT[j+1])+c),1)
 }
-z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(qnorm(1-(alp/2),0,1))^2
 alpstarCLT=0
 thetactr=0
 for(m in 1:k)
@@ -392,7 +392,7 @@ seCTW[i]=cv[i]*sqrt(f1(pCTW[i],n))
 LCTW[i]=max(pCTW[i]-(seCTW[i]+c),0)
 UCTW[i]=min(pCTW[i]+(seCTW[i]+c),1)
 }
-z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(qnorm(1-(alp/2),0,1))^2
 alpstarCTW=0
 thetactr=0
 for(m in 1:k)

@@ -31,7 +31,7 @@ if(LAW[i]<0) LAW[i]=0
 if(UAW[i]>1) UAW[i]=1
 LEAW[i]=UAW[i]-LAW[i]
 }
-sumLEAW=sum(LEAW)
+#sumLEAW=sum(LEAW)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -82,7 +82,7 @@ if(LAS[i]<0) LAS[i]=0
 if(UAS[i]>1) UAS[i]=1
 LEAS[i]=UAS[i]-LAS[i]
 }
-sumLEAS=sum(LEAS)
+#sumLEAS=sum(LEAS)
 
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
@@ -131,7 +131,7 @@ if(LAA[i]<0) LAA[i]=0
 if(UAA[i]>1) UAA[i]=1
 LEAA[i]=UAA[i]-LAA[i]
 }
-sumLEAA=sum(LEAA)
+#sumLEAA=sum(LEAA)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -184,7 +184,7 @@ if(LALT[i]<0) LALT[i]=0
 if(UALT[i]>1) UALT[i]=1
 LEALT[i]=UALT[i]-LALT[i]
 }
-sumLEALT=sum(LEALT)
+#sumLEALT=sum(LEALT)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -237,7 +237,7 @@ if(LATW[i]<0) LATW[i]=0
 if(UATW[i]>1) UATW[i]=1
 LEATW[i]=UATW[i]-LATW[i]
 }
-sumLEATW=sum(LEATW)
+#sumLEATW=sum(LEATW)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -284,7 +284,7 @@ LAL[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
 UAL[i]=optimize(loglik.optim, c(mle[i],1))$minimum
 LEAL[i]=UAL[i]-LAL[i]
 }
-sumLEAL=sum(LEAL)
+#sumLEAL=sum(LEAL)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -309,8 +309,10 @@ return(ELAL)
 #' @details  The  plots of the Expected length of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1;
 #' PlotexplAAll(n,alp,h,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplAAll<-function(n,alp,h,a,b)
@@ -350,8 +352,10 @@ PlotexplAAll<-function(n,alp,h,a,b)
 #' @details  The  plots of the Expected length of adjusted Wald method
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1;
 #' PlotexplAWD(n,alp,h,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplAWD<-function(n,alp,h,a,b)
@@ -405,8 +409,10 @@ PlotexplAWD<-function(n,alp,h,a,b)
 #' @details  The  plots of the Expected length of adjusted Score method
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1;
 #' PlotexplASC(n,alp,h,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplASC<-function(n,alp,h,a,b)
@@ -459,8 +465,10 @@ PlotexplASC<-function(n,alp,h,a,b)
 #' @details  The  plots of the Expected length of adjusted Wald method
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1;
 #' PlotexplATW(n,alp,h,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplATW<-function(n,alp,h,a,b)
@@ -514,8 +522,10 @@ PlotexplATW<-function(n,alp,h,a,b)
 #' @details  The  plots of the Expected length of adjusted Wald method
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1;
 #' PlotexplALT(n,alp,h,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplALT<-function(n,alp,h,a,b)
@@ -568,8 +578,10 @@ PlotexplALT<-function(n,alp,h,a,b)
 #' @details  The  plots of the Expected length of adjusted ArcSine method
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1;
 #' PlotexplAAS(n,alp,h,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplAAS<-function(n,alp,h,a,b)
@@ -622,8 +634,10 @@ PlotexplAAS<-function(n,alp,h,a,b)
 #' @details  The  plots of the Expected length of adjusted Likelihood Ratio method
 #' @family Expected length  of adjusted methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; h=2;a=1;b=1;
 #' PlotexplALR(n,alp,h,a,b)
+#' }
 #' @export
 ##### 9.All methods - Expected length
 PlotexplALR<-function(n,alp,h,a,b)

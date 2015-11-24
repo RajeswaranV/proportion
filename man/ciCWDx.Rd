@@ -28,7 +28,8 @@ A dataframe with
 Continuity corrected Wald method of CI estimation
 }
 \details{
-Wald-type interval (for all \eqn{x = 0, 1, 2 ..n}) using the test statistic \eqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE} where
+Wald-type interval (for all \eqn{x = 0, 1, 2 ..n}) using the test statistic
+\eqn{(abs(phat-p)-c)/SE} where
 \eqn{c > 0} is a constant for continuity correction
 }
 \examples{

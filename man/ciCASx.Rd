@@ -29,7 +29,7 @@ Continuity corrected ArcSine method of CI estimation
 }
 \details{
 Wald-type interval for the arcsine transformation using the test statistic
-\eqn{\frac{\mid{sin^{-1}\hat{p}-sin^{-1}p \mid-c}{SE}}}{(abs(sin^(-1)phat-sin^(-1)p)-c)/SE}
+\eqn{(abs(sin^(-1)phat-sin^(-1)p)-c)/SE}
  where \eqn{c > 0} is a constant for continuity correction and for all \eqn{x = 0, 1, 2 ..n}
 }
 \examples{

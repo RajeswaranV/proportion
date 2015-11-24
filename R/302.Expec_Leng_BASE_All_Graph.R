@@ -29,7 +29,7 @@ if(LW[i]<0) LW[i]=0
 if(UW[i]>1) UW[i]=1
 LEW[i]=UW[i]-LW[i]
 }
-sumLEW=sum(LEW)
+#sumLEW=sum(LEW)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -77,7 +77,7 @@ if(LS[i]<0) LS[i]=0
 if(US[i]>1) US[i]=1
 LES[i]=US[i]-LS[i]
 }
-sumLES=sum(LES)
+#sumLES=sum(LES)
 
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
@@ -90,9 +90,6 @@ ewiS[i,j]=LES[i]*dbinom(i-1, n,hp[j])
 ewS[j]=sum(ewiS[,j])						#Expected Length
 }
 ELS=data.frame(hp,ew=ewS,method="Wilson")
-# windows()
-# plot(ELS,xlab="p",ylab="Expected Length",main="Wilson",type="l")
-# abline(v=0.5, lty=2)
 return(ELS)
 }
 
@@ -128,7 +125,7 @@ if(LA[i]<0) LA[i]=0
 if(UA[i]>1) UA[i]=1
 LEA[i]=UA[i]-LA[i]
 }
-sumLEA=sum(LEA)
+#sumLEA=sum(LEA)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -140,9 +137,6 @@ ewiA[i,j]=LEA[i]*dbinom(i-1, n,hp[j])
 ewA[j]=sum(ewiA[,j])						#Expected Length
 }
 ELA=data.frame(hp,ew=ewA,method="ArcSine")
-# windows()
-# plot(ELA,xlab="p",ylab="Expected Length",main="Arc Sine",type="l")
-# abline(v=0.5, lty=2)
 return(ELA)
 }
 
@@ -194,7 +188,7 @@ for(i in 1:k)
 {
 LELT[i]=ULT[i]-LLT[i]
 }
-sumLET=sum(LELT)
+#sumLET=sum(LELT)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -254,7 +248,7 @@ if(LTW[i]<0) LTW[i]=0
 if(UTW[i]>1) UTW[i]=1
 LETW[i]=UTW[i]-LTW[i]
 }
-sumLETW=sum(LETW)
+#sumLETW=sum(LETW)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -302,7 +296,7 @@ LL[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
 UL[i]=optimize(loglik.optim, c(mle[i],1))$minimum
 LEL[i]=UL[i]-LL[i]
 }
-sumLEL=sum(LEL)
+#sumLEL=sum(LEL)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -414,7 +408,7 @@ ewiEX[i,j]=LEEX[i]*dbinom(i-1, n,hp[j])
 }
 ewEX[j]=sum(ewiEX[,j])						#Expected Length
 }
-sumLEEX=sum(LEEX)
+#sumLEEX=sum(LEEX)
 ELEX=data.frame(hp,ewEX,e)
 
 return(ELEX)
@@ -451,8 +445,10 @@ exlim302u=function(x,n,alp,e)
 #' intervals for the Beta - Binomial conjugate prior model for the probability of success \code{p}
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1;a1=1;a2=1
 #' PlotexplBA(n,alp,a,b,a1,a2)
+#' }
 #' @export
 ##### 8.BAYESIAN Expected Length for a given n and alpha level
 PlotexplBA<-function(n,alp,a,b,a1,a2)
@@ -500,8 +496,8 @@ UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
 LEBAQ[i]=UBAQ[i]-LBAQ[i]
 LEBAH[i]=UBAH[i]-LBAH[i]
 }
-sumLEBAQ=sum(LEBAQ)
-sumLEBAH=sum(LEBAH)
+#sumLEBAQ=sum(LEBAQ)
+#sumLEBAH=sum(LEBAH)
 ####Expected Length
 hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
@@ -585,8 +581,10 @@ PlotexplAll<-function(n,alp,a,b)
 #'  intervals
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1
 #' PlotexplWD(n,alp,a,b)
+#' }
 #' @export
 ##### 1.WALD sum of length for a given n and alpha level
 PlotexplWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
@@ -636,8 +634,10 @@ PlotexplWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta paramete
 #' @details  Plot of score test approach using sum of length of the \eqn{n + 1} intervals
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1
 #' PlotexplSC(n,alp,a,b)
+#' }
 #' @export
 ##### 2.SCORE - sum of length for a given n and alpha level
 PlotexplSC<-function(n,alp,a,b)
@@ -686,8 +686,10 @@ PlotexplSC<-function(n,alp,a,b)
 #' \code{p} using sum of length of the \eqn{n + 1} intervals
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1
 #' PlotexplAS(n,alp,a,b)
+#' }
 #' @export
 ##### 3. ARC SINE - sum of length for a given n and alpha level
 PlotexplAS<-function(n,alp,a,b)
@@ -737,8 +739,10 @@ PlotexplAS<-function(n,alp,a,b)
 #' transformation of \code{p} using sum of length of the \eqn{n + 1} intervals
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1
 #' PlotexplLT(n,alp,a,b)
+#' }
 #' @export
 ##### 4.LOGIT-WALD - sum of length for a given n and alpha level
 PlotexplLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
@@ -787,8 +791,10 @@ PlotexplLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta paramete
 #' standardized point estimator using sum of length of the \eqn{n + 1} intervals
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1
 #' PlotexplTW(n,alp,a,b)
+#' }
 #' @export
 ##### 5.t-WALD - sum of length for a given n and alpha level
 PlotexplTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
@@ -838,8 +844,10 @@ PlotexplTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta paramete
 #' @details  Plot of Likelihood ratio limits using sum of length of the \eqn{n + 1} intervals
 #' @family Expected length  of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05;a=1;b=1
 #' PlotexplLR(n,alp,a,b)
+#' }
 #' @export
 #####6.LIKELIHOOD RATIO - sum of length for a given n and alpha level
 PlotexplLR<-function(n,alp,a,b)

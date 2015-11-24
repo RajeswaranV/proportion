@@ -22,8 +22,10 @@ Plots the expected length for Score method
 Plot of score test approach using sum of length of the \eqn{n + 1} intervals
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;a=1;b=1
 PlotexplSC(n,alp,a,b)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAS}},

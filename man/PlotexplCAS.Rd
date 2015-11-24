@@ -24,8 +24,10 @@ Plots the Expected length using continuity corrected ArcSine method
 The  plots of the expected length of continuity corrected ArcSine method
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 PlotexplCAS(n,alp,c,a,b)
+}
 }
 \seealso{
 Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAll}},

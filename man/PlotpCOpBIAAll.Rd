@@ -20,8 +20,10 @@ Plots  p-confidence and p-bias for a given n and alpha level for 6 adjusted meth
 Plots of p-confidence and p-bias plots for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;h=2
 PlotpCOpBIAAll(n,alp,h)
+}
 }
 \seealso{
 Other p-confidence and p-bias of adjusted methods: \code{\link{PlotpCOpBIAAS}},

@@ -133,8 +133,10 @@ PlotpCOpBIBA<-function(n,alp,a1,a2) #n:No of trials,alp:sign level
 #' @details  p-confidence and p-bias plots for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @family p-confidence and p-bias of base methods
 #' @examples
+#' \dontrun{
 #' n=5; alp=0.05
 #' PlotpCOpBIAll(n,alp)
+#' }
 #' @references
 #' [1] 2005 Vos PW and Hudson S.
 #' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.

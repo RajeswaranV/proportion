@@ -23,8 +23,10 @@ Plot of Wald-type interval for the arcsine transformation of the parameter
 \code{p} using sum of length of the \eqn{n + 1} intervals
 }
 \examples{
+\dontrun{
 n=5; alp=0.05;a=1;b=1
 PlotexplAS(n,alp,a,b)
+}
 }
 \seealso{
 Other Expected length  of base methods: \code{\link{PlotexplAll}},

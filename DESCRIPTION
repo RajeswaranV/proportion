@@ -4,6 +4,7 @@ Version: 0.0.0.9000
 Authors@R: c(
     person("Subbiah", "M", email = "sisufive@gmail.com", role = "aut"),
     person("Rajeswaran", "Viswanathan", email = "v.rajeswaran@gmail.com", role = "cre"))
+Maintainer: V.Rajeswaran <v.rajeswaran@gmail.com>
 Description: Multiple procedures to obtain an interval estimate for an unknown
     proportion (p) based on binomial sampling. It is known that approximations
     are poor when the true p is close to zero or to one. So we provide alternative
@@ -11,6 +12,8 @@ Description: Multiple procedures to obtain an interval estimate for an unknown
     in litrature for computing a (central) two-sided interval estimate for p are
     implemented in terms of coverage probability and expected length.
 License: GPL-2
+URL: https://github.com/RajeswaranV/proportion
+BugReports: https://github.com/RajeswaranV/proportion/issues
 Depends:
     R (>= 3.2.2)
 LazyData: true
@@ -19,4 +22,4 @@ Imports:
     ggplot2
 Suggests:
     testthat
-RoxygenNote: 5.0.0
+RoxygenNote: 5.0.1

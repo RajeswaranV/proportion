@@ -194,7 +194,7 @@ m=n+(2*h)
 cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 pA=y/m
-qA=1-pA
+#qA=1-pA
 seA=cv/sqrt(4*m)
 LAASx=(sin(asin(sqrt(pA))-seA))^2
 UAASx=(sin(asin(sqrt(pA))+seA))^2
@@ -339,7 +339,7 @@ n1=n+(2*h)
 								#Coverage probabilty
 #MODIFIED_t-ADJ_WALD METHOD
 pATWx=y/n1
-qATWx=1-pATWx
+#qATWx=1-pATWx
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOFx=2*((f1(pATWx,n1))^2)/f2(pATWx,n1)
@@ -352,7 +352,7 @@ if(LATWx<0) LABB="YES" else LABB="NO"
 if(LATWx<0) LATWx=0
 
 if(UATWx>1) UABB="YES" else  UABB="NO"
-if(UATWx>1) UATW=1
+if(UATWx>1) UATWx=1
 
 if(UATWx-LATWx==0)ZWI="YES" else ZWI="NO"
 

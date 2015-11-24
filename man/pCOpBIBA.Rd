@@ -16,7 +16,7 @@ pCOpBIBA(n, alp, a1, a2)
 \item{a2}{- Shape parameter 2 for prior Beta distribution in Bayesian model}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x1}{  Number of successes (positive samples)}
  \item{pconfQ }{   p-Confidence Quantile}
  \item{pbiasQ }{   p-Bias Quantile}
@@ -27,8 +27,8 @@ A dataframe with
 Bayesian method for p-confidence and p-bias for a given n and alpha level and priors a & b
 }
 \details{
-Evaluation of Bayesian Highest Probability Density (HPD) and two tailed 
-intervals using p-confidence and p-bias for the \eqn{n + 1} intervals for the 
+Evaluation of Bayesian Highest Probability Density (HPD) and two tailed
+intervals using p-confidence and p-bias for the \eqn{n + 1} intervals for the
 Beta - Binomial conjugate prior model for the probability of success \code{p}
 }
 \examples{
@@ -36,8 +36,8 @@ n=5; alp=0.05;a1=1;a2=1
 pCOpBIBA(n,alp,a1,a2)
 }
 \references{
-[1] 2005 Vos PW and Hudson S. 
-Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+[1] 2005 Vos PW and Hudson S.
+Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 The American Statistician: 59; 137 - 142.
 }
 \seealso{

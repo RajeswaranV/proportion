@@ -27,7 +27,7 @@ Continuity corrected Score method of CI estimation
 }
 \details{
 A score test approach using the
-test statistic  \eqn{\frac{\mid{\hat{p}-p \mid-c}{SE}}}{(abs(phat-p)-c)/SE}
+test statistic  \eqn{(abs(phat-p)-c)/SE}
 where \eqn{c > 0} is a constant for continuity correction for
 all \eqn{x = 0, 1, 2 ..n}
 }

@@ -226,7 +226,7 @@ ciASx<-function(x,n,alp) ##x:No of Success,n:No of trials,alp:signi level
 cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 pA=x/n
-qA=1-pA
+#qA=1-pA
 seA=cv/sqrt(4*n)
 LASx=(sin(asin(sqrt(pA))-seA))^2
 UASx=(sin(asin(sqrt(pA))+seA))^2
@@ -528,11 +528,11 @@ ciTWx<-function(x,n,alp) #x: No of success,n:No of trials,alp:sign level,a&b bet
 if(x==0||x==n)
 {
 pTWx=(x+2)/(n+4)
-qTWx=1-pTWx
+#qTWx=1-pTWx
 }else
 {
 pTWx=x/n
-qTWx=1-pTWx
+#qTWx=1-pTWx
 }
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
@@ -652,10 +652,10 @@ ULTx=1/(1+exp(-lgitx-(cv/seLTx)))
 }
 
 if(LLTx<0) LABB="YES" else LABB="NO"
-if(LLTx<0) LLT=0
+if(LLTx<0) LLTx=0
 
 if(ULTx>1) UABB="YES" else UABB="NO"
-if(ULTx>1) ULT=1
+if(ULTx>1) ULTx=1
 
 if(ULTx-LLTx==0)ZWI="YES" else ZWI="NO"
 

@@ -25,8 +25,10 @@ The  plots for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, 
 Sum of the length is shown as bar graph.
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; h=2; a=1;b=1;
 PlotlengthAAll(n,alp,h,a,b)
+}
 }
 \seealso{
 Other Expected length  of adjusted methods: \code{\link{PlotexplAAS}},

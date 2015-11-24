@@ -24,8 +24,10 @@ Plots the Expected length using 6 adjusted methods (Wald, Wald-T, Likelihood, Sc
 The  plots of the Expected length of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; h=2;a=1;b=1;
 PlotexplAAll(n,alp,h,a,b)
+}
 }
 \seealso{
 Other Expected length  of adjusted methods: \code{\link{PlotexplAAS}},

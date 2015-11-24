@@ -18,7 +18,7 @@ PlotciCAll<-function(n,alp,c) #n:No of trials,alp:signi level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
-  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciCAll(n,alp,c)
   id=1:nrow(ss1)
@@ -95,7 +95,7 @@ PlotciCAllg<-function(n,alp,c) #n:No of trials,alp:signi level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
-  Abberation=ID=method=Value=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciCAll(n,alp,c)
   nss= ss1[order(ss1$x, (ss1$UpperLimit-ss1$LowerLimit)),]
@@ -214,7 +214,7 @@ PlotciCWD<-function(n,alp,c) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (c<0 || length(c)>1) stop("'c' has to be positive")
-  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   WaldCI.df    = ciCWD(n,alp,c)
 
@@ -292,7 +292,7 @@ PlotciCAS<-function(n,alp,c) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (c<0 || length(c)>1) stop("'c' has to be positive")
-  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ArcSineCI.df = ciCAS(n,alp,c)
   ss1 = data.frame(x=ArcSineCI.df$x, LowerLimit = ArcSineCI.df$LCA, UpperLimit = ArcSineCI.df$UCA, LowerAbb = ArcSineCI.df$LABB, UpperAbb = ArcSineCI.df$UABB, ZWI = ArcSineCI.df$ZWI)
@@ -370,7 +370,7 @@ PlotciCSC<-function(n,alp,c) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if (c<0 || length(c)>1) stop("'c' has to be positive")
-  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ScoreCI.df   = ciCSC(n,alp,c)
   ss1 = data.frame(x=ScoreCI.df$x, LowerLimit = ScoreCI.df$LCS, UpperLimit = ScoreCI.df$UCS, LowerAbb = ScoreCI.df$LABB, UpperAbb = ScoreCI.df$UABB, ZWI = ScoreCI.df$ZWI)
@@ -448,7 +448,7 @@ PlotciCLT<-function(n,alp,c) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
-  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   WaldLCI.df   = ciCLT(n,alp,c)
   ss1= data.frame(x=WaldLCI.df$x, LowerLimit = WaldLCI.df$LCLT, UpperLimit = WaldLCI.df$UCLT, LowerAbb = WaldLCI.df$LABB, UpperAbb = WaldLCI.df$UABB, ZWI = WaldLCI.df$ZWI)
@@ -526,7 +526,7 @@ PlotciCTW<-function(n,alp,c) #n:No of trials,alp:signi level
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
-  Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   WaldTCI.df   = ciCTW(n,alp,c)
 

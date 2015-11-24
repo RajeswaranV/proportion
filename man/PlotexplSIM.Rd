@@ -33,6 +33,6 @@ PlotexplSIM(n,LL,UL,s,a,b)
 }
 \seealso{
 Other Expected length: \code{\link{PlotexplGEN}},
-  \code{\link{sumlenGEN}}
+  \code{\link{lengthGEN}}
 }
 

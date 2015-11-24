@@ -43,7 +43,7 @@ pCOpBIGEN<-function(n,LL,UL) #n:No of trials,alp:sign level
   if (any(LL[0:n+1] > UL[0:n+1] )) stop("LL value have to be lower than the corrosponding UL value")
 
 ####INPUT n
-x=0:n
+#x=0:n
 k=n+1
 pcon=0					#p-confidence
 pconC=0

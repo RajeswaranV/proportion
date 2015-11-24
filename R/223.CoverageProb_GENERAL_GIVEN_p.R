@@ -51,7 +51,7 @@ covpGEN<-function(n,LL,UL,alp,hp,t1,t2)
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
 
 ####INPUT n
-x=0:n
+#x=0:n
 k=n+1
 s=length(hp)
 cp=matrix(0,k,s)
@@ -62,7 +62,7 @@ RMSE_M1=0
 RMSE_Mi1=0
 ctr=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+#cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 ####COVERAGE PROBABILITIES
 for (j in 1:s)
 {
@@ -78,7 +78,7 @@ cpp[j]=sum(cp[,j])
 RMSE_N1[j]=(cpp[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cpp[j]&&cpp[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CP=data.frame(hp,cpp)
+#CP=data.frame(hp,cpp)
 mcp=mean(cpp)
 micp=min(cpp)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -141,7 +141,7 @@ PlotcovpGEN<-function(n,LL,UL,alp,hp,t1,t2)
   ID=method=Value=cp=cpp=mcp=micp=NULL
 
   ####INPUT n
-  x=0:n
+ # x=0:n
   k=n+1
   s=length(hp)
   cp=matrix(0,k,s)
@@ -149,7 +149,7 @@ PlotcovpGEN<-function(n,LL,UL,alp,hp,t1,t2)
   cpp=0								#Coverage probabilty
   ctr=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  #cv=qnorm(1-(alp/2), mean = 0, sd = 1)
   ####COVERAGE PROBABILITIES
   for (j in 1:s)
   {

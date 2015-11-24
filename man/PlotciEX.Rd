@@ -21,12 +21,14 @@ Plots the CI estimation of exact methods
 The plot of Confidence Interval of \code{n} given \code{alp}.
 }
 \examples{
+\dontrun{
 n=5; alp=0.05; e=0.5 #Mid-p
 PlotciEX(n,alp,e)
 n=5; alp=0.05;e=1 #Clopper-Pearson
 PlotciEX(n,alp,e)
 n=5; alp=0.05;e=c(0.05,0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearson
 PlotciEX(n,alp,e)
+}
 }
 \seealso{
 Other Basic methods of CI estimation: \code{\link{PlotciAS}},

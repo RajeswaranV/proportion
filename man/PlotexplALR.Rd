@@ -24,8 +24,10 @@ Plots the Expected length using adjusted Likelihood Ratio method
 The  plots of the Expected length of adjusted Likelihood Ratio method
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; h=2;a=1;b=1;
 PlotexplALR(n,alp,h,a,b)
+}
 }
 \seealso{
 Other Expected length  of adjusted methods: \code{\link{PlotexplAAS}},

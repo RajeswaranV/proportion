@@ -43,8 +43,10 @@ of proportion lies within the desired level of coverage for the Beta - Binomial
 conjugate prior model for the probability of success \code{p}.
 }
 \examples{
+\dontrun{
 n= 10; alp=0.05; a=1;b=1; t1=0.93;t2=0.97;a1=1;a2=1
 covpBA(n,alp,a,b,t1,t2,a1,a2)
+}
 }
 \references{
 [1] 1993 Vollset SE.

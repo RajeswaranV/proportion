@@ -112,7 +112,7 @@ cppW[j]=sum(cpW[,j])
 RMSE_N1[j]=(cppW[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppW[j]&&cppW[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPW=data.frame(hp,cppW)
+#CPW=data.frame(hp,cppW)
 mcpW=mean(cppW)
 micpW=min(cppW)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -247,7 +247,7 @@ cppS[j]=sum(cpS[,j])						#Coverage Probability
 RMSE_N1[j]=(cppS[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppS[j]&&cppS[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPS=data.frame(hp,cppS)
+#CPS=data.frame(hp,cppS)
 mcpS=mean(cppS)							#Mean Cov Prob
 micpS=min(cppS)							#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -380,7 +380,7 @@ cppA[j]=sum(cpA[,j])						#Coverage Probability
 RMSE_N1[j]=(cppA[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppA[j]&&cppA[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPA=data.frame(hp,cppA)
+#CPA=data.frame(hp,cppA)
 mcpA=mean(cppA)							#Mean Cov Prob
 micpA=min(cppA)
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -524,7 +524,7 @@ RMSE_N1[j]=(cppLT[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppLT[j]&&cppLT[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 
 }
-CPLT=data.frame(hp,cppLT)
+#CPLT=data.frame(hp,cppLT)
 mcpLT=mean(cppLT)
 micpLT=min(cppLT)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -666,7 +666,7 @@ cppTW[j]=sum(cpTW[,j])						#Coverage Probability
 RMSE_N1[j]=(cppTW[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppTW[j]&&cppTW[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPTW=data.frame(hp,cppTW)
+#CPTW=data.frame(hp,cppTW)
 mcpTW=mean(cppTW)
 micpTW=min(cppTW)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -797,7 +797,7 @@ cppL[j]=sum(cpL[,j])						#Coverage Probability
 RMSE_N1[j]=(cppL[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppL[j]&&cppL[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPL=data.frame(hp,cppL)
+#CPL=data.frame(hp,cppL)
 mcpL=mean(cppL)
 micpL=min(cppL)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -951,7 +951,7 @@ cppEX[j]=sum(cpEX[,j])						#Coverage Probability
 RMSE_N1[j]=(cppEX[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppEX[j]&&cppEX[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
 }
-CPEX=data.frame(hp,cppEX)
+#CPEX=data.frame(hp,cppEX)
 mcpEX=mean(cppEX)							#Mean Cov Prob
 micpEX=min(cppEX)							#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
@@ -1011,8 +1011,10 @@ exlim201u=function(x,n,alp,e)
 #'  \item{tol }{   Required tolerance for coverage probability}
 #' @family Basic coverage probability methods
 #' @examples
+#' \dontrun{
 #' n= 10; alp=0.05; a=1;b=1; t1=0.93;t2=0.97;a1=1;a2=1
 #' covpBA(n,alp,a,b,t1,t2,a1,a2)
+#' }
 #' @references
 #' [1] 1993 Vollset SE.
 #' Confidence intervals for a binomial proportion.
@@ -1128,12 +1130,12 @@ RMSE_N1H[j]=(cppBAH[j]-(1-alp))^2			#Root mean Square from nominal size
 if(t1<cppBAH[j]&&cppBAH[j]<t2) ctrH=ctrH+1		#tolerance for cov prob - user defined
 
 }
-CPBAQ=data.frame(hp,cppBAQ)
+#CPBAQ=data.frame(hp,cppBAQ)
 mcpBAQ=mean(cppBAQ)
 micpBAQ=min(cppBAQ)					#Mean Cov Prob
 RMSE_N=sqrt(mean(RMSE_N1))
 
-CPBAH=data.frame(hp,cppBAH)
+#CPBAH=data.frame(hp,cppBAH)
 mcpBAH=mean(cppBAH)
 micpBAH=min(cppBAH)					#Mean Cov Prob
 RMSE_NH=sqrt(mean(RMSE_N1H))
