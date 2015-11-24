@@ -1,9 +1,8 @@
 Package: proportion
 Title: Confidence Interavals for binomial sampling
 Version: 0.0.0.9000
-Author: c(
-    person("Subbiah", "M", email = "sisufive@gmail.com", role = "aut"),
-    person("Rajeswaran", "Viswanathan", email = "v.rajeswaran@gmail.com", role = "cre"))
+Author: M.Subbiah, V.Rajeswaran
+Maintainer: Rajeswaran <v.rajeswaran@gmail.com>
 Description: Multiple procedures to obtain an interval estimate for an unknown
     proportion (p) based on binomial sampling. It is known that approximations
     are poor when the true p is close to zero or to one. So we provide alternative
@@ -13,7 +12,6 @@ Description: Multiple procedures to obtain an interval estimate for an unknown
 License: GPL-2
 URL: https://github.com/RajeswaranV/proportion
 BugReports: https://github.com/RajeswaranV/proportion/issues
-Maintainer: V.Rajeswaran <v.rajeswaran@gmail.com>
 Depends:
     R (>= 3.2.2)
 LazyData: true

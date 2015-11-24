@@ -18,7 +18,7 @@ PlotciCAll<-function(n,alp,c) #n:No of trials,alp:signi level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
-  Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=method=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciCAll(n,alp,c)
   id=1:nrow(ss1)
@@ -95,7 +95,7 @@ PlotciCAllg<-function(n,alp,c) #n:No of trials,alp:signi level
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (c<=0 || c>(1/(2*n))) stop("'c' has to be positive and less than or equal to 1/(2*n)")
-  Abberation=ID=Value=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
+  Abberation=ID=Value=method=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciCAll(n,alp,c)
   nss= ss1[order(ss1$x, (ss1$UpperLimit-ss1$LowerLimit)),]
