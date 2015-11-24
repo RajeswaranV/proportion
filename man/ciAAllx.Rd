@@ -24,7 +24,6 @@ A dataframe with
  \item{LABB }{ - Lower Abberation}
  \item{UABB }{ - Upper Abberation}
  \item{ZWI }{ - Zero Width Interval}
- @family Adjusted methods of CI estimation  given x & n
 }
 \description{
 CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given x and n
@@ -55,5 +54,10 @@ REVSTAT - Statistical Journal, 6, 165-197.
    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
    \code{\link[prevalence]{propCI}} which provides similar functionality.
+
+Other Adjusted methods of CI estimation  given x & n: \code{\link{PlotciAAllx}},
+  \code{\link{ciAASx}}, \code{\link{ciALRx}},
+  \code{\link{ciALTx}}, \code{\link{ciASCx}},
+  \code{\link{ciATWx}}, \code{\link{ciAWDx}}
 }
 

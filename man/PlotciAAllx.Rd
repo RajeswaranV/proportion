@@ -2,7 +2,8 @@
 % Please edit documentation in R/113.ConfidenceIntervals_ADJ_n_x.R
 \name{PlotciAAllx}
 \alias{PlotciAAllx}
-\title{Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given n, alp and x}
+\title{Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score,
+Logit-Wald, ArcSine) given n, alp and x}
 \usage{
 PlotciAAllx(x, n, alp, h)
 }
@@ -16,14 +17,22 @@ PlotciAAllx(x, n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given n, alp and x
+Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score,
+Logit-Wald, ArcSine) given n, alp and x
 }
 \details{
-The plots of confidence intervals of using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{x} and \code{h}
- @family Adjusted methods of CI estimation  given x & n
+The plots of confidence intervals of using 6 adjusted methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+for \code{n} given \code{alp}, \code{x} and \code{h}
 }
 \examples{
 x=5; n=5; alp=0.05; h=2
 PlotciAAllx(x,n,alp,h)
+}
+\seealso{
+Other Adjusted methods of CI estimation  given x & n: \code{\link{ciAASx}},
+  \code{\link{ciAAllx}}, \code{\link{ciALRx}},
+  \code{\link{ciALTx}}, \code{\link{ciASCx}},
+  \code{\link{ciATWx}}, \code{\link{ciAWDx}}
 }
 

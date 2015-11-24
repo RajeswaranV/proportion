@@ -80,7 +80,7 @@ return(data.frame(x,LAWDx,UAWDx,LABB,UABB,ZWI))
 #'  \item{LABB }{   Score Lower Abberation}
 #'  \item{UABB }{   Score Upper Abberation}
 #'  \item{ZWI }{   Zero Width Interval}
-#'  @family Adjusted methods of CI estimation  given x & n
+#' @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
 #'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
 #'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
@@ -440,14 +440,14 @@ return(data.frame(x,LALTx,UALTx,LABB,UABB,ZWI))
 #' @param h - Adding factor
 #' @details  The Confidence Interval of using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{x} and \code{h}
 #' @return A dataframe with
-##'  \item{name }{- Name of the method}
-##'  \item{x }{- Number of successes (positive samples)}
-##'  \item{LLT }{ - Lower limit}
-##'  \item{ULT }{ - Upper Limit}
-##'  \item{LABB }{ - Lower Abberation}
-##'  \item{UABB }{ - Upper Abberation}
-##'  \item{ZWI }{ - Zero Width Interval}
-#'  @family Adjusted methods of CI estimation  given x & n
+#'  \item{name }{- Name of the method}
+#'  \item{x }{- Number of successes (positive samples)}
+#'  \item{LLT }{ - Lower limit}
+#'  \item{ULT }{ - Upper Limit}
+#'  \item{LABB }{ - Lower Abberation}
+#'  \item{UABB }{ - Upper Abberation}
+#'  \item{ZWI }{ - Zero Width Interval}
+#' @family Adjusted methods of CI estimation  given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
 #'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
 #'    \code{\link[PropCIs]{wald2ci}} which provides multiple functions for CI calculation ,
@@ -508,13 +508,16 @@ ciAAllx<-function(x,n,alp,h)
   return(Final.df)
 }
 #####################################################################################
-#' Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given n, alp and x
+#' Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score,
+#' Logit-Wald, ArcSine) given n, alp and x
 #' @param x - Number of success
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
-#' @details  The plots of confidence intervals of using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{x} and \code{h}
-#'  @family Adjusted methods of CI estimation  given x & n
+#' @details  The plots of confidence intervals of using 6 adjusted methods
+#' (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+#' for \code{n} given \code{alp}, \code{x} and \code{h}
+#' @family Adjusted methods of CI estimation  given x & n
 #' @examples
 #' x=5; n=5; alp=0.05; h=2
 #' PlotciAAllx(x,n,alp,h)
