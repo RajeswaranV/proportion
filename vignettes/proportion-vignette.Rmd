@@ -1,0 +1,278 @@
+---
+title: "Proportion"
+author: "M.Subbiah, V.Rajeswaran"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+## Introduction
+Let x denote the number of successes in n independent Bernoulli trials with X ~ Binomial (n, p) then  p\hat = x/n denotes the sample proportion. Single binomial proportion (p) has drawn appreciable research attention with theoretical, applied, and pedagogic objectives. Such interest has been intensified further when Classical, Bayesian, and Bootstrap approaches are providing candidate intervals to enrich this literature. Specifically,
+
+- M. Thulin, (2014 a, b), W. Wang (2014), B. Lecoutre and J. Poitevineau (2014), Wei Yu (2012), Zhou, X. H., Li, C.M. and Yang, Z (2008) - Aiming to improve methods methodologically
+- K. Breitung and MA. Maes (2015), AM. Andrés and MA. Hernández (2014, 2015), V. RG. Newcombe (2011), C. Damgaard and A. Fayolle (2011), Tuyl F, Gerlach R and Mengersen K (2008), Vos PW and Hudson S (2005), Reiczigel J (2003), Pires (2002) - Comparison of methods with one or two evaluation metrics
+- Pradhan, JC. Evans and T. Banerjee (2013), Newcombe RG (2007), Lewis JR and Sauro J (2006), Sauro J and Lewis JR (2005), Bolboaca S and Cadariu AA (2003), Henderson M and Meyer MC (2001) - Application in various fields and recommendations for teaching practices.
+
+This package has identified scope to collate widely or frequently used methods involved in the inferential problems regarding p and prominent procedures for comparing in terms of their performance. This includes two major statistical paradigms, Classical and Bayesian; especially, later provides a list of tools to broaden this scope.
+
+
+Methods for finding confidence interval for p include methods
+
+1. Based on the asymptotic normality of the sample proportion and estimating standard error,
+2. Exact methods based on inverting equal-tailed binomial tests of $H_0 : p = p_0$,
+3. Methods based on likelihood ratios 
+4. Bayesian approaches with beta priors or other suitable priors. 
+
+Apart from this testing of hypotheses involving p and measures based on posterior in Bayesian approach have drawn active research interest.   
+
+Objective of this package is to present interval estimation procedures for 'p' outlined above in a more comprehensive way. Performance assessment of these procedures such as coverage probability, Expected length, Error, p-confidence and p-bias are included. Also, an array of Bayesian computations (Bayes factor, Empirical Bayesian, Posterior predictive computation, and posterior probability) with conjugate prior is made available. More importantly package has aimed to complement the summaries using more appropriate graphical forms that enhance the presentation and teaching activities. 
+
+
+## Workflow
+Following Figure depicts the way this inferential problem can be understood so as to expand the scope of computations; **bold face** indicates modification of existing procedures or addition of new procedures such as t-distribution based Wald method that are not available for wider audience.  
+
+![Inference on single Binomial Proportion (??)](workflow.png)
+
+###Notations Used
+
+1.	x: Number of successes
+2.	n: Number of trials 
+3.	$\alpha$: Level of significance
+4.	e: Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P}. In all exact functions you can set a range of values between 0 and 1. 
+5.	a and b: Beta parameters for hypothetical parameter generation; Prior parameters in Bayesian predictive models 
+6.	t1 and t2: Limits for tolerance (within which CP lies)
+7.	$\pi$: Population parameter
+8.	f: Failure limit
+9.	h: Constant used in adjustment methods
+10.	c: Constant used in continuity corrected methods
+11.	$a_1,a_2$: Prior parameters in Bayesian estimation procedures
+12.	LL, UL: Lower and Upper limits for the intervals due to any other methods
+13.	s: Number of simulations 
+14.	hp: Hypothetical parameter values 
+15.	sL, sU: Lower and Upper specification for hyper prior in Empirical Bayesian (EB) approach
+16.	m, xnew: Number of trials and number of successes in Bayesian predictive models
+17.	th0, th1, th2: Parameter values in the models $M_0, M_1, M_2$ of Bayes factor 
+18.	$a_j, b_j$: Prior parameters in the models $M_j (j = 0, 1, 2)$ of Bayes factor
+19.	th: Parameter value in Bayesian posterior probabilities
+
+
+## Procedures in the Package
+
+### 1. CONFIDENCE INTERVAL- BASE METHODS 
+
+1.	__Wald:__  
+Wald-type interval that results from inverting large-sample test and evaluates standard errors at maximum likelihood estimates for all $x = 0, 1, 2 ..n.$
+2.	__Score:__  
+A score test approach based on inverting the test with standard error evaluated at the null hypothesis is due to Wilson for all $x = 0, 1, 2 ..n.$
+3.	__ArcSine:__  
+Wald-type interval for all $x = 0, 1, 2 ..n.$ using the arcsine transformation of the parameter $p$; that is based on the normal approximation for $sin^{-1}(p)$ 
+4.	__Logit Wald:__  
+Wald-type interval for all $x = 0, 1, 2 ..n.$ based on the logit transformation of $p$; that is that is normal approximation for $log\frac{p}{1-p}$
+5.	__Wald-t:__  
+An approximate method based on a t_approximation of the standardized point estimator for all $x = 0, 1, 2 ..n.$; that is the point estimator divided by its estimated standard error. Essential boundary modification is when $x = 0$ or $n$,  $\hat p =\frac{x+2}{n+4}$
+6.	__Likelihood Ratio:__  
+Likelihood ratio limits for all $x = 0, 1, 2 ..n.$ obtained as the solution to the equation in $p$ formed as logarithm of ratio between binomial likelihood at sample proportion and that of over all possible parameters
+7.	__Exact:__  
+Confidence interval for $p$ (for all $x = 0, 1, 2 ..n.$), based on inverting equal-tailed binomial tests with null hypothesis $H_0: p = p_0$ and calculated from the cumulative binomial distribution. Exact two sided P-value is usually calculated as $P= 2[ePr(X = x) + min{Pr(X < x), Pr(X > x)}]$ where probabilities are found at null value of $p$ and $0 \le e \le 1$. 
+8.	__Bayesian:__  
+Highest Probability Density (HPD) and two tailed intervals are provided for all $x = 0, 1, 2 ..n$ based on the conjugate prior beta $(a, b)$ for the probability of success $p$ of the binomial distribution so that the posterior is beta $(x + a, n - x + b)$.
+
+
+### 2.CONFIDENCE INTERVAL- ADJUSTED METHODS 
+
+1.	__Wald:__  
+Given data $x$ and $n$ are modified as $x + h$ and $n + (2*h)$ respectively, where $h > 0$ then Wald-type interval is applied for all $x = 0, 1, 2 ..n.$
+2.	__Score:__  
+A score test approach is used after the given data $x$ and $n$ are modified as $x + h$ and $n + (2*h)$ respectively, where $h > 0$ and for all $x = 0, 1, 2 ..n.$
+3.	__ArcSine:__  
+Wald-type interval for the arcsine transformation of the parameter $p$ for the modified data $x + h$ and $n + (2*h)$, where $h > 0$ and for all $x = 0, 1, 2 ..n.$
+4.	__Logit Wald:__  
+Wald-type interval for the logit transformation $log\frac{p}{1-p}$ of the parameter $p$ for the modified data $x + h$ and $n + (2*h)$, where $h > 0$  and for all $x = 0, 1, 2 ..n.$
+5.	__Wald-t:__  
+Given data $x$ and $n$ are modified as $x + h$ and $n + (2*h)$ respectively, where $h > 0$ then approximate method based on a t_approximation of the standardized point estimator for all $x = 0, 1, 2 ..n.$
+6.	__Likelihood Ratio:__  
+Likelihood ratio limits for the data $x + h$ and $n + (2*h)$ instead of the given $x$ and $n$, where $h$ is a positive integer $(1, 2.)$ and for all $x = 0, 1, 2 ..n.$
+
+
+### 3.CONFIDENCE INTERVAL- CONTINUITY CORRECTED METHODS 
+
+1.	__Wald:__  
+Wald-type interval (for all $x = 0, 1, 2 ..n$) using the test statistic $\frac{|\hat p - p| -c}{SE}$  where $c > 0$ is a constant for continuity correction
+2.	__Score:__  
+A score test approach using the test statistic $\frac{|\hat p - p| -c}{SE}$ where $0 < c < 1/(2n)$ is a constant for continuity correction for all $x = 0, 1, 2 ..n.$
+3.	__ArcSine:__  
+Wald-type interval for the arcsine transformation using the test statistic  $\frac{|sin^{-1}\hat p - sin^{-1}p| -c}{SE}$  where $c > 0$ is a constant for continuity correction and for all  $x = 0, 1, 2 ..n.$ 
+4.	__Logit Wald:__  
+Wald-type interval for the logit transformation of the parameter p using the test statistic  $\frac{|L(\hat p) - L(p)| -c}{SE}$ where $c > 0$ is a constant for continuity correction and $L(x) = log\frac{x}{1-x}$ for all $x = 0, 1, 2 ..n.$ Boundary modifications when $x = 0$ or $x = n$ using Exact method values. 
+5.	__Wald-t:__  
+Approximate method based on a t_approximation of the standardized point estimator using the test statistic $\frac{|\hat p - p|-c}{SE}$ where $c > 0$ is a constant for continuity correction for all $x = 0, 1, 2 ..n.$ Boundary modifications when $x = 0$ or $x = n$  using Wald adjustment method with $h = 2$.
+
+### 4.Metric 1:COVERAGE PROBABILITY (Applicable to Base, Adjusted and Continuity Corrected Methods)
+
+1.	__Wald:__  
+Evaluation of Wald-type interval using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage
+2.	__Score:__  
+Evaluation of score test approach using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage
+3.	__ArcSine:__  
+Evaluation of Wald-type interval for the arcsine transformation of the parameter $p$ using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage 
+4.	__Logit Wald:__  
+Evaluation of Wald-type interval based on the logit transformation of $p$ using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage
+5.	__Wald-t:__  
+Evaluation of approximate method based on a t_approximation of the standardized point estimator using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage
+6.	__Likelihood Ratio:__  
+Evaluation of Likelihood ratio limits using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage
+7.	__Exact:__  
+Evaluation of Confidence interval for p based on inverting equal-tailed binomial tests with null hypothesis H0: p = p0 using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage. 
+8.	__Bayesian:__  
+Evaluation of Bayesian Highest Probability Density (HPD) and two tailed intervals using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage for the Beta - Binomial conjugate prior model for the probability of success $p$. 
+
+### 4.Metric 2:EXPECTED LENGTH (Applicable to Base, Adjusted and Continuity Corrected Methods)
+
+1.	__Wald:__  
+Evaluation of Wald-type intervals using expected length of the $n + 1$ intervals
+2.	__Score:__  
+Evaluation of score test approach using expected length of the $n + 1$ intervals
+3.	__ArcSine:__  
+Evaluation of Wald-type interval for the arcsine transformation of the parameter p using expected length of the $n + 1$ intervals 
+4.	__Logit Wald:__  
+Evaluation of Wald-type interval based on the logit transformation of p using expected length of the $n + 1$ intervals
+5.	__Wald-t:__  
+Evaluation of approximate method based on a t_approximation of the standardized point estimator using expected length of the $n + 1$ intervals
+6.	__Likelihood Ratio:__  
+Evaluation of Likelihood ratio limits using expected length of the $n + 1$ intervals
+7.	__Exact:__  
+Evaluation of Confidence interval for p based on inverting equal-tailed binomial tests with null hypothesis $H_0: p = p_0$ using expected length of the $n + 1$ intervals.
+8.	__Bayesian:__  
+Evaluation of Bayesian Highest Probability Density (HPD) and two tailed intervals using expected length of the $n + 1$ intervals for the Beta - Binomial conjugate prior model for the probability of success $p$. 
+
+### 5.Metric 3:p-CONFIDENCE, p-BIAS (BASE METHOD)
+
+1.	__Wald:__  
+Evaluation of Wald-type intervals using p-confidence and p-bias for the $n + 1$ intervals
+2.	__Score:__  
+Evaluation of score test approach using p-confidence and p-bias for the $n + 1$ intervals
+3.	__ArcSine:__  
+Evaluation of Wald-type interval for the arcsine transformation of the parameter p using p-confidence and p-bias for the $n + 1$ intervals 
+4.	__Logit Wald:__  
+Evaluation of Wald-type interval based on the logit transformation of p using p-confidence and p-bias for the $n + 1$ intervals
+5.	__Wald-t:__  
+Evaluation of approximate method based on a t_approximation of the standardized point estimator using p-confidence and p-bias for the $n + 1$ intervals
+6.	__Likelihood Ratio:__  
+Evaluation of Likelihood ratio limits using p-confidence and p-bias for the $n + 1$ intervals
+7.	__Exact:__  
+Evaluation of Confidence interval for p based on inverting equal-tailed binomial tests with null hypothesis $H_0: p = p_0$ using p-confidence and p-bias for the $n + 1$ intervals.
+8.	__Bayesian:__  
+Evaluation of Bayesian Highest Probability Density (HPD) and two tailed intervals using p-confidence and p-bias for the $n + 1$ intervals for the Beta - Binomial conjugate prior model for the probability of success $p$. 
+
+### 6.Metric 3:p-CONFIDENCE, p-BIAS (Applicable to Base, Adjusted and Continuity Corrected Methods)
+
+1.	__Wald:__  
+Evaluation of adjusted Wald-type interval using p-confidence and p-bias for the $n + 1$ intervals
+2.	__Score:__  
+Evaluation of adjusted score test approach using p-confidence and p-bias for the $n + 1$ intervals
+3.	__ArcSine:__  
+Evaluation of adjusted Wald-type interval for the arcsine transformation of the parameter $p$ using p-confidence and p-bias for the $n + 1$ intervals 
+4.	__Logit Wald:__  
+Evaluation of adjusted Wald-type interval based on the logit transformation of $p$ using p-confidence and p-bias for the $n + 1$ intervals
+5.	__Wald-t:__  
+Evaluation of approximate and adjusted method based on a t_approximation of the standardized point estimator using p-confidence and p-bias for the $n + 1$ intervals
+6.	__Likelihood Ratio:__  
+Evaluation of adjusted Likelihood ratio limits using p-confidence and p-bias for the $n + 1$ intervals
+
+### 7.Metric 4:ERROR (Applicable to Base, Adjusted and Continuity Corrected Methods)
+
+1.	__Wald:__  
+Evaluation of Wald-type intervals using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals
+2.	__Score:__  
+Evaluation of score test approach using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals
+3.	__ArcSine:__  
+Evaluation of Wald-type interval for the arcsine transformation of the parameter $p$ error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals 
+4.	__Logit Wald:__  
+Evaluation of Wald-type interval based on the logit transformation of $p$ using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals
+5.	__Wald-t:__  
+Evaluation of approximate method based on a t_approximation of the standardized point estimator using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals
+6.	__Likelihood Ratio:__  
+Evaluation of Likelihood ratio limits using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals
+7.	__Exact:__  
+Evaluation of Confidence interval for p based on inverting equal-tailed binomial tests with null hypothesis $H_0: p = p_0$ using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals.
+8.	__Bayesian:__  
+Evaluation of Bayesian Highest Probability Density (HPD) and two tailed intervals using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals for the Beta - Binomial conjugate prior model for the probability of success $p$. 
+
+### 8. EVALUATION METHODS FOR GENERAL APPROACH
+
+1.	Evaluation of intervals obtained from any method using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage for the $n + 1$ intervals and pre-defined space for the parameter $p$ using Monte Carle simulation
+2.	Graphical evaluation of intervals obtained from any method using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage for the $n + 1$ intervals and pre-defined space for the parameter $p$ using Monte Carle simulation
+
+### 9. Testing of hypothesis and other functions for Bayesian method 
+
+1.	__EBA:__  
+Highest Probability Density (HPD) and two tailed intervals are provided for all $x = 0, 1, 2 ..n$ based on empirical Bayesian approach for Beta-Binomial model. Lower and Upper support values are needed to obtain the MLE of marginal likelihood for prior parameters.
+2.	__probPRE:__  
+Computes posterior predictive probabilities for the required size of number of trials ($m$) from the given number of trials (n) for the given parameters for Beta prior distribution
+3.	__hypotestBAF1:__  
+Computes Bayes factor under Beta-Binomial model for the model: $H_0: p = p_0$ Vs $H_A: p \ne p_0$ from the given number of trials n and for all number of successes $x = 0, 1, 2......n$ 
+4.	__hypotestBAF2:__  
+Computes Bayes factor under Beta-Binomial model for the model: $H_0: p = p_0$ Vs $H_A: p > p_0$ from the given number of trials n and for all number of successes $x = 0, 1, 2......n$ 
+5.	__hypotestBAF3:__  
+Computes Bayes factor under Beta-Binomial model for the model: $H_0: p = p_0$ Vs $H_A: p < p_0$ from the given number of trials n and for all number of successes $x = 0, 1, 2......n$ 
+6.	__hypotestBAF4:__  
+Computes Bayes factor under Beta-Binomial model for the model: $H_0: p \le p_0$ Vs $H_A: p > p_0$ from the given number of trials n and for all number of successes $x = 0, 1, 2......n$ 
+7.	__hypotestBAF5:__  
+Computes Bayes factor under Beta-Binomial model for the model: $H_0: p \ge p_0$ Vs $H_A: p < p_0$ from the given number of trials n and for all number of successes $x = 0, 1, 2......n$ 
+8.	__hypotestBAF6:__  
+Computes Bayes factor under Beta-Binomial model for the model: $H_0: p < p_1$ Vs $H_A: p > p_2$ from the given number of trials n and for all number of successes $x = 0, 1, 2......n$ 
+9.	__probPOS:__  
+Computes probability of the event $p < p_0$ ($p_0$ is specified in $[0, 1]$) based on posterior distribution of Beta-Binomial model with given parameters for prior Beta distribution for all $x = 0, 1, 2...n$ ($n$: number of trials) 
+
+These procedures are consolidated in the following three tables that respectively present  numeric summaries, plots, Bayesian tool box+ and general functions
+
+-	Wherever possible, results are consolidated for all $x (0,1...n)$ and specific $x$ (function name succeeds with $x$). For example, if we run $ciAS(n=5,alp=0.05)$ the output of $x=5$ will be the same as $ciASx(x=5,n=5,alp=0.05)$. In the first case the output is printed for all the values of $x$ till $x=n$.
+-	All refers to six approximate methods (Wald, Score, Likelihood Ratio, ArcSine, Logit Wald and Wald-T)
+- AAll (Adjusted All) refers to six  methods adjusted with adding factor $h$ (Wald, Score, Likelihood Ratio, ArcSine, Logit Wald and Wald-T)
+- CAll (Continuity corrected All) refers to five methods (Wald, Score, ArcSine, Logit Wald and Wald-T) with continuity correction $c$
+- Grouping functions for plots end with "g" (PlotciAllxg is the same as PlotciAllx, except the results are grouped by x)
+- For almost all the functions, corrosponding plot function is implemented, which plots the output in an apporiate graph. For example, the function $covpAll(n=10,alp=0.05,a=1,b=1,t1=0.93,t2=0.97)$ will give the numeric output for the coverage probability of the six approximate methods (see explanation of All above). Prefixing this with __Plot__ makes it $PlotcovpAll(n=10,alp=0.05,a=1,b=1,t1=0.93,t2=0.97)$  and will display the plot for the same six approximate methods.
+
+
+## More Examples
+
+Tables
+======
+ 
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+library(xtable)
+Nu.Functions = matrix( 
+   c("ciAS","ciASx","ciAAS","ciAASx","ciCAS","ciCASx","covpAS","covpAAS","covpCAS","lengthAS","lengthAAS","lengthCAS","pCOpBIAS","pCOpBIAAS","pCOpBICAS","errAS","errAAS","errCAS",
+"ciLR","ciLRx","ciALR","ciALRx","","","covpLR","covpALR","","lengthLR","lengthALR","","pCOpBILR","pCOpBIALR","","errLR","errALR","",
+"ciLT","ciLTx","ciALT","ciALTx","ciCLT","ciCLTx","covpLT","covpALT","covpCLT","lengthLT","lengthALT","lengthCLT","pCOpBILT","pCOpBIALT","pCOpBICLT","errLT","errALT","errCLT",
+"ciSC","ciSCx","ciASC","ciASCx","ciCSC","ciCSCx","covpSC","covpASC","covpCSC","lengthSC","lengthASC","lengthCSC","pCOpBISC","pCOpBIASC","pCOpBICSC","errSC","errASC","errCSC",
+"ciTW","ciTWx","ciATW","ciATWx","ciCTW","ciCTWx","covpTW","covpATW","covpCTW","lengthTW","lengthATW","lengthCTW","pCOpBITW","pCOpBIATW","pCOpBICTW","errTW","errATW","errCTW",
+"ciWD","ciWDx","ciAWD","ciAWDx","ciCWD","ciCWDx","covpWD","covpAWD","covpCWD","lengthWD","lengthAWD","lengthCWD","pCOpBIWD","pCOpBIAWD","pCOpBICWD","errWD","errAWD","errCWD",
+"ciAll","ciAllx","ciAAll","ciAAllx","ciCAll","ciCAllx","covpAll","covpAAll","covpCAll","lengthAll","lengthAAll","lengthCAll","pCOpBIAll","pCOpBIAAll","pCOpBICAll","errAll","errAAll","errCAll",
+"ciBA","ciBAx","","","","","covpBA","","","lengthBA","","","pCOpBIBA","","","errBA","","",
+"ciEX","ciEXx","","","","","covpEX","","","lengthEX","","","pCOpBIEX","","","errEX","",""
+), 
+   byrow=TRUE,
+   nrow=9, 
+   ncol=18)
+
+colnames(Nu.Functions)=c("CI","Cix","CIA","CIAx","CIC","CICx","covp","covpA","covpC","length","Alength","Clength","pcpb","pcpbA","pcpbC","error","errorA","errorC")
+rownames(Nu.Functions)=c("ArcSine", "LR","Logit","Score","Wald-T","Wald","All","Bayes","Exact")
+col <- sprintf("Cell %d:%%d", 1:9)
+vars <- sapply(1:3, function(i) sprintf(col, i))
+ 
+print(xtable(Nu.Functions, caption="An xtable example", type="html", include.rownames = TRUE))
+```
+
+```{r, echo=TRUE, results='asis'}
+#print(xNu)
+#align(xNu)="|r|rrrrrrrrrrrrrrrrrr|"
+#print(xNu)
+
+```
+
+

@@ -350,8 +350,8 @@ return(data.frame(x,LCLT,UCLT,LABB,UABB,ZWI))
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Approximate method based on a t_approximation of the standardized point estimator
-#' using the test statistic
+#' @details  Approximate method based on a t_approximation of the standardized
+#' point estimator using the test statistic
 #' \eqn{(abs(phat-p)-c)/SE}
 #' where \eqn{c > 0} is a constant for continuity correction for all \eqn{x = 0, 1, 2 ..n}.
 #' Boundary modifications when \eqn{x = 0} or \eqn{x = n} using Wald adjustment method with
