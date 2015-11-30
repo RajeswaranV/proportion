@@ -1,4 +1,5 @@
-#' Performs general method of p-Confidence and p-Bias estimation only using n, lower limit and upper limit
+#' Performs p-Confidence and p-Bias estimation only using n,
+#' lower limit and upper limit for general method
 #' @param n - Number of trials
 #' @param LL - Lower limit
 #' @param UL - Upper limit
@@ -30,7 +31,7 @@
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 1. p-confidence and p-bias
-pCOpBIGEN<-function(n,LL,UL) #n:No of trials,alp:sign level
+pCOpBIGEN<-function(n,LL,UL)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(LL)) stop("'Lower limit' is missing")
@@ -64,7 +65,7 @@ p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
 ###############################################################################################
-#' Plots the general method output of p-Confidence and p-Bias estimation
+#' Plots p-Confidence and p-Bias estimation for general method
 #' @param n - Number of trials
 #' @param LL - Lower limit
 #' @param UL - Upper limit
@@ -78,7 +79,7 @@ return(p_C_B)
 #' PlotpCOpBIGEN(n,LL,UL)
 #' @export
 ##### 2. p-confidence and p-bias
-PlotpCOpBIGEN<-function(n,LL,UL) #n:No of trials,alp:sign level
+PlotpCOpBIGEN<-function(n,LL,UL)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(LL)) stop("'Lower limit' is missing")

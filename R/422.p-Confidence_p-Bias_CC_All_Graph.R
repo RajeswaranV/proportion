@@ -12,7 +12,7 @@
 #' }
 #' @export
 ####5 CC methods plots of p-confidence and p-bias
-PlotpCOpBICAll<-function(n,alp,c) #n:No of trials,alp:sign level
+PlotpCOpBICAll<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -99,7 +99,7 @@ PlotpCOpBICAll<-function(n,alp,c) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;c=1/(2*n)
 #' PlotpCOpBICWD(n,alp,c)
 #' @export
-PlotpCOpBICWD<-function(n,alp,c) #n:No of trials,alp:sign level
+PlotpCOpBICWD<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -135,7 +135,7 @@ PlotpCOpBICWD<-function(n,alp,c) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;c=1/(2*n)
 #' PlotpCOpBICAS(n,alp,c)
 #' @export
-PlotpCOpBICAS<-function(n,alp,c) #n:No of trials,alp:sign level
+PlotpCOpBICAS<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -171,7 +171,7 @@ PlotpCOpBICAS<-function(n,alp,c) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;c=1/(2*n)
 #' PlotpCOpBICTW(n,alp,c)
 #' @export
-PlotpCOpBICTW<-function(n,alp,c) #n:No of trials,alp:sign level
+PlotpCOpBICTW<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -207,7 +207,7 @@ PlotpCOpBICTW<-function(n,alp,c) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;c=1/(2*n)
 #' PlotpCOpBICLT(n,alp,c)
 #' @export
-PlotpCOpBICLT<-function(n,alp,c) #n:No of trials,alp:sign level
+PlotpCOpBICLT<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -243,7 +243,7 @@ PlotpCOpBICLT<-function(n,alp,c) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;c=1/(2*n)
 #' PlotpCOpBICSC(n,alp,c)
 #' @export
-PlotpCOpBICSC<-function(n,alp,c) #n:No of trials,alp:sign level
+PlotpCOpBICSC<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

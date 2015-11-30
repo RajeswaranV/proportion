@@ -2,7 +2,8 @@
 % Please edit documentation in R/412.p-Confidence_p-Bias_ADJ_All_Graph.R
 \name{PlotpCOpBIAAll}
 \alias{PlotpCOpBIAAll}
-\title{Plots  p-confidence and p-bias for a given n and alpha level for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
+\title{Plots  p-confidence and p-bias for a given n and alpha level for
+6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
 \usage{
 PlotpCOpBIAAll(n, alp, h)
 }
@@ -14,10 +15,12 @@ PlotpCOpBIAAll(n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plots  p-confidence and p-bias for a given n and alpha level for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+Plots  p-confidence and p-bias for a given n and alpha level for
+6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \details{
-Plots of p-confidence and p-bias plots for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+Plots of p-confidence and p-bias for 6 adjusted methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \examples{
 \dontrun{

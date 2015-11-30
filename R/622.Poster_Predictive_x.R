@@ -22,7 +22,7 @@
 #' [1] 2002 Gelman A, Carlin  JB, Stern HS and Dunson DB
 #' Bayesian Data Analysis, Chapman & Hall/CRC
 #' @export
-probPREx<-function(x,n,xnew,m,a1,a2)	#x,n:Data - success,trials,xnew,m:Future - success,trials, a1,a2:Prior parameters
+probPREx<-function(x,n,xnew,m,a1,a2)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")

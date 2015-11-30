@@ -51,20 +51,26 @@ ewi[i,j]=LE[i]*dbinom(i-1, n,hp[j])
 }
 ew[j]=sum(ewi[,j])						#Expected Length
 }
-EL=data.frame(hp,ew)
-ggplot2::ggplot(EL, ggplot2::aes(x=hp, y=ew))+
+explMean=mean(ew)
+explSD=sd(ew)
+explMax=max(ew)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
+EL=data.frame(hp,ew,method="General",explMean,explMax,explLL,explUL)
+
+ggplot2::ggplot(data=EL, mapping=ggplot2::aes(x=hp, y=ew)) +
   ggplot2::labs(title = "Expected length given hypothetical 'p'") +
   ggplot2::labs(y = "Expected length") +
   ggplot2::labs(x = "p") +
-  ggplot2::geom_vline(ggplot2::aes(xintercept=0.5,color="Cutoff"), linetype=2)+
-  ggplot2::geom_line(ggplot2::aes(color="Expected length"))+
-  ggplot2::geom_point(ggplot2::aes(color="EL Values"))+
-  ggplot2::scale_colour_manual(name='Heading',
-                               values=c('Cutoff'="brown",
-                                        'Expected length'='red',
-                                        'EL Values'='red'),
-                               guide='legend') +
-  ggplot2::guides(colour = ggplot2::guide_legend(override.aes = list(linetype=c(2,1,1),
-                                                                     shape=c(NA, 16,NA))))
+  ggplot2::geom_line(mapping=ggplot2::aes(colour=method), show_guide = TRUE)  +
+  ggplot2::geom_hline(mapping=ggplot2::aes(yintercept=explMean, fill="Mean"),color="orange"  ) +
+  ggplot2::geom_hline(mapping=ggplot2::aes(yintercept=explMax, fill="Max"),color="blue"  ) +
+  ggplot2::geom_hline(mapping=ggplot2::aes(yintercept=explLL, fill="Lower Limit"),color="cyan4"  ) +
+  ggplot2::geom_hline(mapping=ggplot2::aes(yintercept=explUL, fill="Upper Limit"),color="brown"  ) +
+  ggplot2::scale_color_hue("Method") +
+  ggplot2::scale_fill_manual(
+    "Metric lines", values=c(1,1,1,1),
+    guide=ggplot2::guide_legend(override.aes = list(colour=c("orange", "blue", "cyan4","brown"))),
+    labels=c("Mean", "Max", "Lower Limit(Mean- 1SD)", "Upper Limit(Mean + 1SD)"))
 
 }

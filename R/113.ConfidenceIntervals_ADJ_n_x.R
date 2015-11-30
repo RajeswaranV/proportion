@@ -35,8 +35,7 @@
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #1.WALD
-ciAWDx<-function(x,n,alp,h) #x:No of Successes, n:No of trials,alp:sign level,h: Adding factor
-
+ciAWDx<-function(x,n,alp,h)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -103,7 +102,7 @@ return(data.frame(x,LAWDx,UAWDx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #2.SCORE
-ciASCx<-function(x,n,alp,h) #x: No. of Successes, n:No of trials,alp:sign level
+ciASCx<-function(x,n,alp,h)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -119,8 +118,8 @@ m=n+(2*h)
 
 ###CRITICAL VALUES
 cv=qnorm(1-(alp/2), mean = 0, sd = 1)
-cv1=(cv^2)/(2*n)
-cv2=(cv/(2*n))^2
+cv1=(cv^2)/(2*m)
+cv2=(cv/(2*m))^2
 
 #AASCORE (WILSON) METHOD
 pAS=y/m
@@ -177,8 +176,7 @@ return(data.frame(x,LASCx,UASCx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #3.ARCSINE
-ciAASx<-function(x,n,alp,h) ##x:No of Success,n:No of trials,alp:sign level,h: Adding factor
-
+ciAASx<-function(x,n,alp,h)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -247,8 +245,7 @@ return(data.frame(x,LAASx,UAASx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #4.LIKELIHOOD RATIO
-ciALRx<-function(x,n,alp,h) #x:No of Success, n:No of trials,alp:sign level,h: Adding factor
-
+ciALRx<-function(x,n,alp,h)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -257,7 +254,7 @@ ciALRx<-function(x,n,alp,h) #x:No of Success, n:No of trials,alp:sign level,h: A
   if (((class(x) != "integer") & (class(x) != "numeric")) || (x<0) || x>n || length(x)>1) stop("'x' has to be a positive integer between 0 and n")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
 
 ####INPUT
 y=x
@@ -323,7 +320,7 @@ return(data.frame(x,LALRx,UALRx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #5.ADJUSTED WALD-T
-ciATWx<-function(x,n,alp,h) #x:No of Success,n:No of trials,alp:sign level,h: Adding factor
+ciATWx<-function(x,n,alp,h)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -397,7 +394,7 @@ return(data.frame(x,LATWx,UATWx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #6.ADJUSTED LOGIT-WALD
-ciALTx<-function(x,n,alp,h) #x:No of Success,n:No of trials,alp:sign level,h: Adding factor
+ciALTx<-function(x,n,alp,h)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -479,7 +476,7 @@ ciAAllx<-function(x,n,alp,h)
   if (((class(x) != "integer") & (class(x) != "numeric")) || (x<0) || x>n || length(x)>1) stop("'x' has to be a positive integer between 0 and n")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
 
   #### Calling functions and creating df
   WaldCI.df    = ciAWDx(x,n,alp,h)
@@ -571,11 +568,11 @@ PlotciAAllx<-function(x,n,alp,h)
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
       ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -610,7 +607,7 @@ PlotciAAllxg<-function(x,n,alp,h)
   if (((class(x) != "integer") & (class(x) != "numeric")) || (x<0) || x>n || length(x)>1) stop("'x' has to be a positive integer between 0 and n")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   Abberation=ID=method=Value=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAAllx(x,n,alp,h)
@@ -651,11 +648,11 @@ PlotciAAllxg<-function(x,n,alp,h)
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))                # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -685,11 +682,11 @@ PlotciAAllxg<-function(x,n,alp,h)
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))    +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }

@@ -1,6 +1,6 @@
 
 # test_dir("C:/Users/kanchana/Desktop/02-R-package/proportion/tests/testthat/")
-source("../../R/103.ConfidenceIntervals_BASE_n_x.R")
+source("./R/103.ConfidenceIntervals_BASE_n_x.R")
 
 context("Testing summary of base CI functions")
 test_that("Summary base CI functions", {

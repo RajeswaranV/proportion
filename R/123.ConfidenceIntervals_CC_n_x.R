@@ -36,7 +36,7 @@
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #1.WALD
-ciCWDx<-function(x,n,alp,c) ##x:No of successes,n:No of trials,alp:sign level,c: continuity correction
+ciCWDx<-function(x,n,alp,c)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -106,7 +106,7 @@ return(data.frame(x,LCWx,UCWx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #2.SCORE
-ciCSCx<-function(x,n,alp,c) #x:No of successes, n:No of trials,alp:sign level,c:Cont. Correction
+ciCSCx<-function(x,n,alp,c)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -179,7 +179,7 @@ return(data.frame(x,LCSx,UCSx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #3.ARC-SINE
-ciCASx<-function(x,n,alp,c) #x:No of successes,n:No of trials,alp:sign level,c: Correction factor,a&b beta parameters for hypo "p'
+ciCASx<-function(x,n,alp,c)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -251,7 +251,7 @@ return(data.frame(x,LCAx,UCAx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #4.LOGIT-WALD
-ciCLTx<-function(x,n,alp,c) #x:No of successes,n:No of trials,alp:sign level,c:Continuity correction
+ciCLTx<-function(x,n,alp,c)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -342,7 +342,7 @@ return(data.frame(x,LCLTx,UCLTx,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #5.T-WALD
-ciCTWx<-function(x,n,alp,c) #n:No of trials,alp:sign level,,c:Continuity correction
+ciCTWx<-function(x,n,alp,c)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -514,11 +514,11 @@ PlotciCAllx<-function(x,n,alp,c)
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
       ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -595,11 +595,11 @@ PlotciCAllxg<-function(x,n,alp,c)
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))                # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -629,11 +629,11 @@ PlotciCAllxg<-function(x,n,alp,c)
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))    +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }

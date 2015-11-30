@@ -2,7 +2,8 @@
 % Please edit documentation in R/402.p-Confidence_p-Bias_BASE_All_Graph.R
 \name{PlotpCOpBIAll}
 \alias{PlotpCOpBIAll}
-\title{Plots  p-confidence and p-bias for a given n and alpha level for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
+\title{Plots  p-confidence and p-bias for a given n and alpha level for
+6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
 \usage{
 PlotpCOpBIAll(n, alp)
 }
@@ -12,7 +13,8 @@ PlotpCOpBIAll(n, alp)
 \item{alp}{- Alpha value (significance level required)}
 }
 \description{
-Plots  p-confidence and p-bias for a given n and alpha level for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+Plots  p-confidence and p-bias for a given n and alpha level for
+6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \details{
 p-confidence and p-bias plots for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)

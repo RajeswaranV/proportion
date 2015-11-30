@@ -34,7 +34,7 @@
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #1.WALD
-ciCWD<-function(n,alp,c) #n:No of trials,alp:sign level,c: Continuity correction
+ciCWD<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -116,7 +116,7 @@ return(data.frame(x,LCW,UCW,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #2.SCORE
-ciCSC<-function(n,alp,c) #n:No of trials,alp:sign level,c:Continuity correction
+ciCSC<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -202,8 +202,7 @@ ciCSC<-function(n,alp,c) #n:No of trials,alp:sign level,c:Continuity correction
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #3.ARC-SINE
-ciCAS<-function(n,alp,c) #n:No of trials,alp:sign level,c:Continuity correction
-
+ciCAS<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -288,7 +287,7 @@ return(data.frame(x,LCA,UCA,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #4.LOGIT-WALD
-ciCLT<-function(n,alp,c) #n:No of trials,alp:sign level,c:Continuity correction
+ciCLT<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -386,7 +385,7 @@ return(data.frame(x,LCLT,UCLT,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #5.T-WALD
-ciCTW<-function(n,alp,c) #n:No of trials,alp:sign level,,c:Continuity correction
+ciCTW<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -478,7 +477,7 @@ return(data.frame(x,LCTW,UCTW,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #6.All methods
-ciCAll<-function(n,alp,c) #n:No of trials,alp:signi level and addin factor
+ciCAll<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

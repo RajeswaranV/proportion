@@ -2,7 +2,8 @@
 % Please edit documentation in R/423.p-Confidence_p-Bias_GENERAL.R
 \name{pCOpBIGEN}
 \alias{pCOpBIGEN}
-\title{Performs general method of p-Confidence and p-Bias estimation only using n, lower limit and upper limit}
+\title{Performs p-Confidence and p-Bias estimation only using n,
+lower limit and upper limit for general method}
 \usage{
 pCOpBIGEN(n, LL, UL)
 }
@@ -22,7 +23,8 @@ A dataframe with
 }
 }
 \description{
-Performs general method of p-Confidence and p-Bias estimation only using n, lower limit and upper limit
+Performs p-Confidence and p-Bias estimation only using n,
+lower limit and upper limit for general method
 }
 \details{
 Evaluation of intervals obtained from any method using

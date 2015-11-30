@@ -26,7 +26,7 @@ hypotestBAF6x(x, n, th1, a1, b1, th2, a2, b2)
 \value{
 A dataframe with
  \item{x}{ Number of successes}
- \item{BaFa12}{ Bayesian Factor}
+ \item{BaFa01}{ Bayesian Factor}
 }
 \description{
 Bayesain Hypothesis testing given x: Hypothesis 6: Theta < Theta1 Vs Theta > Theta2
@@ -36,6 +36,16 @@ Computes Bayes factor under Beta-Binomial model for the
 model: \eqn{p < p1} Vs \eqn{p > p2} from the given number of
 trials \code{n} and and for given number
 of successes \eqn{x = 0, 1, 2......n }
+We use the following guideline for reporting the results:
+\itemize{
+\item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+\item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+\item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+\item  BaFa10 < 1/150: Evidence against H0 is very strong.
+\item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+\item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+\item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+\item  150 <= BaFa01: Evidence against H1 is very strong.}
 }
 \examples{
 x=682; n=925; th1=0.5; a1=1; b1=1; th2=0.9; a2=0.5; b2=0.5
@@ -45,6 +55,7 @@ hypotestBAF6x(x,n,th1,a1,b1,th2,a2,b2)
 [1] 2006  Ghosh M, Delampady M and Samanta T.
 An introduction to Bayesian analysis: Theory and Methods.
 Springer, New York
+
 [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 International Journal of Statistics and Analysis, 4 (2), 139 - 153

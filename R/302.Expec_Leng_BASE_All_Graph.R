@@ -1,5 +1,5 @@
 ##### 1.WALD Expected Length for a given n and alpha level
-gexplWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+gexplWD<-function(n,alp,a,b)
 {
 ####INPUT n
 x=0:n
@@ -11,10 +11,10 @@ seW=0
 LW=0
 UW=0
 s=5000
-LEW=0 								#LENGTH OF INTERVAL
+LEW=0
 
-ewiW=matrix(0,k,s)						#Expected length quantity in sum
-ewW=0									#Expected Length
+ewiW=matrix(0,k,s)
+ewW=0
 ###CRITICAL VALUES
 cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
@@ -31,14 +31,14 @@ LEW[i]=UW[i]-LW[i]
 }
 #sumLEW=sum(LEW)
 ####Expected Length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(rbeta(s,a,b),decreasing = FALSE)
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 ewiW[i,j]=LEW[i]*dbinom(i-1, n,hp[j])
 }
-ewW[j]=sum(ewiW[,j])						#Expected Length
+ewW[j]=sum(ewiW[,j])
 }
 ELW=data.frame(hp,ew=ewW,method="Wald")
 return(ELW)
@@ -80,7 +80,7 @@ LES[i]=US[i]-LS[i]
 #sumLES=sum(LES)
 
 ####Expected Length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(rbeta(s,a,b),decreasing = FALSE)
 for (j in 1:s)
 {
 for(i in 1:k)
@@ -127,7 +127,7 @@ LEA[i]=UA[i]-LA[i]
 }
 #sumLEA=sum(LEA)
 ####Expected Length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(rbeta(s,a,b),decreasing = FALSE)
 for (j in 1:s)
 {
 for(i in 1:k)
@@ -142,7 +142,7 @@ return(ELA)
 
 
 ##### 4.LOGIT-WALD - Expected Length for a given n and alpha level
-gexplLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+gexplLT<-function(n,alp,a,b)
 {
 ####INPUT n
 x=0:n
@@ -190,7 +190,7 @@ LELT[i]=ULT[i]-LLT[i]
 }
 #sumLET=sum(LELT)
 ####Expected Length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(rbeta(s,a,b),decreasing = FALSE)
 for (j in 1:s)
 {
 for(i in 1:k)
@@ -200,9 +200,6 @@ ewiLT[i,j]=LELT[i]*dbinom(i-1, n,hp[j])
 ewLT[j]=sum(ewiLT[,j])						#Expected Length
 }
 ELLT=data.frame(hp,ew=ewLT,method="Logit-Wald")
-# windows()
-# plot(ELLT,xlab="p",ylab="Expected Length",main="Logit-Wald",type="l")
-# abline(v=0.5, lty=2)
 return(ELLT)
 }
 
@@ -250,7 +247,7 @@ LETW[i]=UTW[i]-LTW[i]
 }
 #sumLETW=sum(LETW)
 ####Expected Length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(rbeta(s,a,b),decreasing = FALSE)
 for (j in 1:s)
 {
 for(i in 1:k)
@@ -333,7 +330,7 @@ return(ELL)
 #' }
 #' @export
 ##### 1.EXACT EMTHOD Expected Length for a given n and alpha level
-PlotexplEX<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact method indicator (1:Clop-Pear,0.5:MID-p),a&b beta parameters for hypo "p'
+PlotexplEX<-function(n,alp,e,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -353,6 +350,7 @@ PlotexplEX<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact method
   ggplot2::ggplot(ELEX2, ggplot2::aes(x=hp, y=ewEX, color=e))+
     ggplot2::labs(title = "Expected length of Exact method") +
     ggplot2::labs(y = "Expected length") +
+    ggplot2::geom_vline(ggplot2::aes(xintercept=0.5),linetype = 2)+
     ggplot2::labs(x = "p") +
     ggplot2::geom_line()
 
@@ -371,7 +369,7 @@ for(i in 1:nvar)
 }
 return(res)
 }
-ncf302<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact method indicator (1:Clop-Pear,0.5:MID-p),a&b beta parameters for hypo "p'
+ncf302<-function(n,alp,e,a,b)
 {
 ####INPUT n
 x=0:n
@@ -521,14 +519,12 @@ ggplot2::ggplot(df.ba, ggplot2::aes(x=hp, y=ew))+
   ggplot2::labs(y = "Expected Length") +
   ggplot2::labs(x = "p") +
   ggplot2::geom_line(ggplot2::aes(color=method)) +
-  ggplot2::geom_vline(ggplot2::aes(xintercept=0.5,color="Intercept"),linetype = 2)+
+  ggplot2::geom_vline(ggplot2::aes(xintercept=0.5),linetype = 2)+
   ggplot2::scale_colour_manual(name='Heading',
                                values=c('Quantile' ='black',
-                                        'HPD' = 'red',
-                                        'Intercept'= 'brown',
-                                        'Confidence Level'='blue'),
+                                        'HPD' = 'red'),
                                guide='legend') +
-  ggplot2::guides(colour = ggplot2::guide_legend(override.aes = list(linetype=c(1,2,1))))
+  ggplot2::guides(colour = ggplot2::guide_legend(override.aes = list(linetype=c(1,1))))
 
 }
 
@@ -587,7 +583,7 @@ PlotexplAll<-function(n,alp,a,b)
 #' }
 #' @export
 ##### 1.WALD sum of length for a given n and alpha level
-PlotexplWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+PlotexplWD<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -745,7 +741,7 @@ PlotexplAS<-function(n,alp,a,b)
 #' }
 #' @export
 ##### 4.LOGIT-WALD - sum of length for a given n and alpha level
-PlotexplLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+PlotexplLT<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -797,8 +793,7 @@ PlotexplLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta paramete
 #' }
 #' @export
 ##### 5.t-WALD - sum of length for a given n and alpha level
-PlotexplTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
-
+PlotexplTW<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

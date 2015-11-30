@@ -1,4 +1,4 @@
-#'  Adjusted Wald method for p-Confidence and p-Bias estimation
+#' p-Confidence and p-Bias estimation for adjusted Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -18,7 +18,7 @@
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 1.ADJUSTED WALD- p-confidence and p-bias for a given n and alpha level
-pCOpBIAWD<-function(n,alp,h) #n:No of trials,alp:sign level,h:Adding factor
+pCOpBIAWD<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -72,7 +72,7 @@ return(p_C_B)
 }
 
 #####################################################################################################################################
-#'  Adjusted Score method for p-Confidence and p-Bias estimation
+#' p-Confidence and p-Bias estimation for adjusted Score method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -147,7 +147,7 @@ p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
 #####################################################################################################################################
-#'  Adjusted ArcSine method for p-Confidence and p-Bias estimation
+#' p-Confidence and p-Bias estimation for adjusted ArcSine method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -167,7 +167,7 @@ return(p_C_B)
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 3.ADJUSTED ARC SINE - p-confidence and p-bias for a given n and alpha level
-pCOpBIAAS<-function(n,alp,h) #n:No of trials,alp:sign level,h:Adding factor
+pCOpBIAAS<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -221,7 +221,7 @@ p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
 #####################################################################################################################################
-#'  Adjusted Logit-Wald method for p-Confidence and p-Bias estimation
+#' p-Confidence and p-Bias estimation for adjusted Logit-Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -297,7 +297,7 @@ p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
 #####################################################################################################################################
-#'  Adjusted  Wald-T method for p-Confidence and p-Bias estimation
+#' p-Confidence and p-Bias estimation for adjusted  Wald-T method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -373,8 +373,8 @@ p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
 
-#####################################################################################################################################
-#'  Adjusted Likelihood method for p-Confidence and p-Bias estimation
+###########################################################################################
+#' p-Confidence and p-Bias estimation for adjusted Likelihood method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -394,14 +394,14 @@ return(p_C_B)
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 6.ADJUSTED LIKELIHOOD RATIO - p-confidence and p-bias for a given n and alpha level
-pCOpBIALR<-function(n,alp,h) #n:No of trials,alp:sign level,h:Adding factor
+pCOpBIALR<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
 
 ####INPUT n
 y=0:n
@@ -468,14 +468,14 @@ return(p_C_B)
 #' The American Statistician: 59; 137 - 142.
 #' @export
 #7.All methods
-pCOpBIAAll<-function(n,alp,h) #n:No of trials,alp:signi level and addin factor
+pCOpBIAAll<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
 
   #### Calling functions and creating df
   WaldpCB.df    = pCOpBIAWD(n,alp,h)

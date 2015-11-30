@@ -33,7 +33,7 @@
 #' Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
-ciAWD<-function(n,alp,h) #n:No of trials,alp:sign level,h: adding factor
+ciAWD<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -116,7 +116,7 @@ return(data.frame(x,LAWD,UAWD,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #2.SCORE
-ciASC<-function(n,alp,h) #n:No of trials,alp:sign level
+ciASC<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -203,7 +203,7 @@ return(data.frame(x,LASC,UASC,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #3.ARCSINE
-ciAAS<-function(n,alp,h) #n:No of trials,alp:sign level
+ciAAS<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -285,14 +285,14 @@ return(data.frame(x,LAAS,UAAS,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #4.LIKELIHOOD RATIO
-ciALR<-function(n,alp,h) #n:No of trials,alp:sign level
+ciALR<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0 || is.integer(h) ) stop("'h' has to be and integer greater than or equal to 0")
 
 ####INPUT n
 x=0:n
@@ -369,7 +369,7 @@ return(data.frame(x,LALR,UALR,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #5.ADJUSTED WALD-T
-ciATW<-function(n,alp,h) #n:No of trials,alp:sign level,h: adding factor,a&b beta parameters for hypo "p'
+ciATW<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -457,7 +457,7 @@ return(data.frame(x,LATW,UATW,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #6.ADJUSTED LOGIT-WALD
-ciALT<-function(n,alp,h) #n:No of trials,alp:sign level,h: adding factor,a&b beta parameters for hypo "p'
+ciALT<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -542,14 +542,14 @@ return(data.frame(x,LALT,UALT,LABB,UABB,ZWI))
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #7.All methods
-ciAAll<-function(n,alp,h) #n:No of trials,alp:signi level and adding factor
+ciAAll<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
 
   #### Calling functions and creating df
   WaldCI.df    = ciAWD(n,alp,h)

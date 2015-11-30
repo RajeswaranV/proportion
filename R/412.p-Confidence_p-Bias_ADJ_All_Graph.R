@@ -1,9 +1,11 @@
-###########################################################################################################3
-#' Plots  p-confidence and p-bias for a given n and alpha level for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+#########################################################################################
+#' Plots  p-confidence and p-bias for a given n and alpha level for
+#' 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
-#' @details  Plots of p-confidence and p-bias plots for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+#' @details  Plots of p-confidence and p-bias for 6 adjusted methods
+#' (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @family p-confidence and p-bias of adjusted methods
 #' @examples
 #' \dontrun{
@@ -12,14 +14,14 @@
 #' }
 #' @export
 ####3.All methods plots of p-confidence and p-bias
-PlotpCOpBIAAll<-function(n,alp,h) #n:No of trials,alp:sign level
+PlotpCOpBIAAll<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   x=Value=Heading=val=mark=NULL
 
   nAll = pCOpBIAAll(n,alp,h)
@@ -109,7 +111,7 @@ PlotpCOpBIAAll<-function(n,alp,h) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;h=2
 #' PlotpCOpBIAWD(n,alp,h)
 #' @export
-PlotpCOpBIAWD<-function(n,alp,h) #n:No of trials,alp:sign level
+PlotpCOpBIAWD<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -145,14 +147,14 @@ PlotpCOpBIAWD<-function(n,alp,h) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;h=2
 #' PlotpCOpBIALR(n,alp,h)
 #' @export
-PlotpCOpBIALR<-function(n,alp,h) #n:No of trials,alp:sign level
+PlotpCOpBIALR<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n)>1 || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   x=Value=Heading=mark=NULL
 
   CBEX = pCOpBIALR(n,alp,h)
@@ -181,7 +183,7 @@ PlotpCOpBIALR<-function(n,alp,h) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;h=2
 #' PlotpCOpBIATW(n,alp,h)
 #' @export
-PlotpCOpBIATW<-function(n,alp,h) #n:No of trials,alp:sign level
+PlotpCOpBIATW<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -217,7 +219,7 @@ PlotpCOpBIATW<-function(n,alp,h) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;h=2
 #' PlotpCOpBIALT(n,alp,h)
 #' @export
-PlotpCOpBIALT<-function(n,alp,h) #n:No of trials,alp:sign level
+PlotpCOpBIALT<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -253,7 +255,7 @@ PlotpCOpBIALT<-function(n,alp,h) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;h=2
 #' PlotpCOpBIASC(n,alp,h)
 #' @export
-PlotpCOpBIASC<-function(n,alp,h) #n:No of trials,alp:sign level
+PlotpCOpBIASC<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -289,7 +291,7 @@ PlotpCOpBIASC<-function(n,alp,h) #n:No of trials,alp:sign level
 #' n=5; alp=0.05;h=2
 #' PlotpCOpBIAAS(n,alp,h)
 #' @export
-PlotpCOpBIAAS<-function(n,alp,h) #n:No of trials,alp:sign level
+PlotpCOpBIAAS<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

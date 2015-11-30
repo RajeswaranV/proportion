@@ -30,6 +30,16 @@ Computes Bayes factor under Beta-Binomial model for the
 model: \eqn{p = p0} Vs \eqn{p \ne p0}{p not equal to p0} from the given number of
 trials \code{n} and and for given number
 of successes \eqn{x = 0, 1, 2......n }
+We use the following guideline for reporting the results:
+\itemize{
+\item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+\item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+\item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+\item  BaFa10 < 1/150: Evidence against H0 is very strong.
+\item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+\item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+\item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+\item  150 <= BaFa01: Evidence against H1 is very strong.}
 }
 \examples{
 x=682; n=925; th0=0.75; a1=3; b1=3
@@ -39,6 +49,7 @@ hypotestBAF1x(x,n,th0,a1,b1)
 [1] 2006  Ghosh M, Delampady M and Samanta T.
 An introduction to Bayesian analysis: Theory and Methods.
 Springer, New York
+
 [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 International Journal of Statistics and Analysis, 4 (2), 139 - 153

@@ -1,10 +1,12 @@
-#####################################################################################################################################
-#' Plots the output of Exact method for p-confidence and p-bias for a given n and alpha level
+#################################################################################################
+#' Plots of p-confidence and p-bias of Exact method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param e - Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P}
 #' The input can also be a range of values between 0 and 1.
-#' @details  Evaluation of Confidence interval for \code{p} based on inverting equal-tailed binomial tests with null hypothesis \eqn{H0: p = p0} using p-confidence and p-bias for the \eqn{n + 1} intervals
+#' @details  Evaluation of Confidence interval for \code{p} based on inverting equal-tailed
+#' binomial tests with null hypothesis \eqn{H0: p = p0} using p-confidence and p-bias for
+#' the \eqn{n + 1} intervals
 #' @return A dataframe with
 #' \describe{
 #'  \item{x1}{  Number of successes (positive samples)}
@@ -13,11 +15,11 @@
 #' }
 #' @family p-confidence and p-bias of base methods
 #' @examples
-#' n=5; alp=0.05;e=0.5;a=1;b=1 # Mid-p
+#' n=5; alp=0.05;e=0.5; # Mid-p
 #' PlotpCOpBIEX(n,alp,e)
-#' n=5; alp=0.05;e=1;a=1;b=1 #Clopper-Pearson
+#' n=5; alp=0.05;e=1; #Clopper-Pearson
 #' PlotpCOpBIEX(n,alp,e)
-#' n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pearson
+#' n=5; alp=0.05;e=c(0.1,0.5,0.95,1); #Range including Mid-p and Clopper-Pearson
 #' PlotpCOpBIEX(n,alp,e)
 #' @references
 #' [1] 2005 Vos PW and Hudson S.
@@ -25,7 +27,7 @@
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 1.EXACT METHODS - p-confidence and p-bias for a given n and alpha level
-PlotpCOpBIEX<-function(n,alp,e) #n:No of trials,e: Exact method indicator (1:Clop-Pear,0.5:MID-p),a&b beta parameters for hypo "p'
+PlotpCOpBIEX<-function(n,alp,e)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -60,7 +62,7 @@ PlotpCOpBIEX<-function(n,alp,e) #n:No of trials,e: Exact method indicator (1:Clo
 }
 
 #######################################################################################################
-#' Plots Bayesian method for p-confidence and p-bias for a given n and alpha level and priors a & b
+#' Plots p-confidence and p-bias for Bayesian method given n and alpha level and priors a & b
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param a1 - Shape parameter 1 for prior Beta distribution in Bayesian model
@@ -78,7 +80,7 @@ PlotpCOpBIEX<-function(n,alp,e) #n:No of trials,e: Exact method indicator (1:Clo
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ####2.BAYESIAN p-confidence and p-bias
-PlotpCOpBIBA<-function(n,alp,a1,a2) #n:No of trials,alp:sign level
+PlotpCOpBIBA<-function(n,alp,a1,a2)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -127,7 +129,8 @@ PlotpCOpBIBA<-function(n,alp,a1,a2) #n:No of trials,alp:sign level
 }
 
 ###########################################################################################################3
-#' Plots  p-confidence and p-bias for a given n and alpha level for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+#' Plots  p-confidence and p-bias for a given n and alpha level for
+#' 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  p-confidence and p-bias plots for 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
@@ -143,7 +146,7 @@ PlotpCOpBIBA<-function(n,alp,a1,a2) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ####3.All methods plots of p-confidence and p-bias
-PlotpCOpBIAll<-function(n,alp) #n:No of trials,alp:sign level
+PlotpCOpBIAll<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -241,7 +244,7 @@ PlotpCOpBIAll<-function(n,alp) #n:No of trials,alp:sign level
 #' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
-PlotpCOpBIWD<-function(n,alp) #n:No of trials,alp:sign level
+PlotpCOpBIWD<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -278,7 +281,7 @@ PlotpCOpBIWD<-function(n,alp) #n:No of trials,alp:sign level
 #' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
-PlotpCOpBISC<-function(n,alp) #n:No of trials,alp:sign level
+PlotpCOpBISC<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -315,7 +318,7 @@ PlotpCOpBISC<-function(n,alp) #n:No of trials,alp:sign level
 #' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
-PlotpCOpBIAS<-function(n,alp) #n:No of trials,alp:sign level
+PlotpCOpBIAS<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -352,7 +355,7 @@ PlotpCOpBIAS<-function(n,alp) #n:No of trials,alp:sign level
 #' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
-PlotpCOpBILT<-function(n,alp) #n:No of trials,alp:sign level
+PlotpCOpBILT<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -389,7 +392,7 @@ PlotpCOpBILT<-function(n,alp) #n:No of trials,alp:sign level
 #' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
-PlotpCOpBITW<-function(n,alp) #n:No of trials,alp:sign level
+PlotpCOpBITW<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -426,7 +429,7 @@ PlotpCOpBITW<-function(n,alp) #n:No of trials,alp:sign level
 #' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
-PlotpCOpBILR<-function(n,alp) #n:No of trials,alp:sign level
+PlotpCOpBILR<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

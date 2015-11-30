@@ -16,7 +16,7 @@ probPOS(n, a, b, th)
 \item{th}{- Theta value seeking Pr(Theta/X < th)}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x}{ Number of successes}
  \item{PosProb}{ Posterior probability}
 }
@@ -24,8 +24,8 @@ A dataframe with
 Bayesian posterior Probabilities
 }
 \details{
-Computes probability of the event \eqn{p < p0} (p0 is specified in [0, 1]) based 
-on posterior distribution of Beta-Binomial model with given parameters for prior Beta 
+Computes probability of the event \eqn{p < p0} (p0 is specified in [0, 1]) based
+on posterior distribution of Beta-Binomial model with given parameters for prior Beta
 distribution for all \eqn{x = 0, 1, 2......n } where \code{n} is the number of trials
 }
 \examples{
@@ -33,9 +33,9 @@ n=5;  a=0.5; b=0.5; th=0.5;
 probPOS(n,a,b,th)
 }
 \references{
-[1] 2002 Gelman A, Carlin  JB, Stern HS and Dunson DB 
+[1] 2002 Gelman A, Carlin  JB, Stern HS and Dunson DB
 Bayesian Data Analysis, Chapman & Hall/CRC
-[2] 2006  Ghosh M, Delampady M and Samanta T. 
+[2] 2006  Ghosh M, Delampady M and Samanta T.
 An introduction to Bayesian analysis: Theory and Methods. Springer, New York
 }
 \seealso{

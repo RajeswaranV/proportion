@@ -2,7 +2,7 @@
 % Please edit documentation in R/401.p-Confidence_p-Bias_BASE_All.R
 \name{pCOpBILR}
 \alias{pCOpBILR}
-\title{Likelihood method for p-confidence and p-bias for a given n and alpha level}
+\title{p-confidence and p-bias for Likelihood method given n and alpha level}
 \usage{
 pCOpBILR(n, alp)
 }
@@ -18,7 +18,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-Likelihood method for p-confidence and p-bias for a given n and alpha level
+p-confidence and p-bias for Likelihood method given n and alpha level
 }
 \details{
 Evaluation of Likelihood ratio limits using p-confidence and p-bias for the \eqn{n + 1} intervals

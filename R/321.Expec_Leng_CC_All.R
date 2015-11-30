@@ -10,8 +10,8 @@
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of continuity corrected methods
 #' @examples
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
@@ -30,7 +30,7 @@
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 1.CC-WALD sum of length for a given n and alpha level
-lengthCWD<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
+lengthCWD<-function(n,alp,c,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -86,8 +86,8 @@ sumLen=sum(LECW)
 explMean=mean(ewCW)
 explSD=sd(ewCW)
 explMax=max(ewCW)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
@@ -104,8 +104,8 @@ return(df.length)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of continuity corrected methods
 #' @examples
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
@@ -185,8 +185,8 @@ sumLen=sum(LECS)
 explMean=mean(ewCS)
 explSD=sd(ewCS)
 explMax=max(ewCS)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
@@ -203,8 +203,8 @@ return(df.length)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of continuity corrected methods
 #' @examples
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
@@ -223,8 +223,7 @@ return(df.length)
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 3.CC ARC SINE - sum of length for a given n and alpha level
-lengthCAS<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
-
+lengthCAS<-function(n,alp,c,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -280,8 +279,8 @@ sumLen=sum(LECA)
 explMean=mean(ewCA)
 explSD=sd(ewCA)
 explMax=max(ewCA)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
@@ -299,8 +298,8 @@ return(df.length)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of continuity corrected methods
 #' @examples
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
@@ -319,8 +318,7 @@ return(df.length)
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 4.CC LOGIT-WALD - sum of length for a given n and alpha level
-lengthCLT<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
-
+lengthCLT<-function(n,alp,c,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -393,8 +391,8 @@ sumLen=sum(LECLT)
 explMean=mean(ewCLT)
 explSD=sd(ewCLT)
 explMax=max(ewCLT)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
@@ -414,8 +412,8 @@ return(df.length)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of continuity corrected methods
 #' @examples
 #' n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
@@ -434,8 +432,7 @@ return(df.length)
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 5.CC t-WALD_CC - sum of length for a given n and alpha level
-lengthCTW<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
-
+lengthCTW<-function(n,alp,c,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -502,8 +499,8 @@ sumLen=sum(LECTW)
 explMean=mean(ewCTW)
 explSD=sd(ewCTW)
 explMax=max(ewCTW)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.length=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.length)
 }
@@ -521,8 +518,8 @@ return(df.length)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of continuity corrected methods
 #' @examples
 #' \dontrun{

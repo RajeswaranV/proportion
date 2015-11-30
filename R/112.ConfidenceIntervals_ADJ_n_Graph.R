@@ -10,14 +10,14 @@
 #' PlotciAAll(n,alp,h)
 #' @export
 #8. Plot all methods
-PlotciAAll<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciAAll<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   Abberation=ID=Value=method=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAAll(n,alp,h)
@@ -56,11 +56,11 @@ PlotciAAll<-function(n,alp,h) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
       ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -87,14 +87,14 @@ PlotciAAll<-function(n,alp,h) #n:No of trials,alp:signi level
 #' PlotciAAllg(n,alp,h)
 #' @export
 #9.All methods plots with grouping
-PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciAAllg<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   Abberation=ID=Value=method=val1=val2=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   ss1=ciAAll(n,alp,h)
@@ -135,11 +135,11 @@ PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))                # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -169,11 +169,11 @@ PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))    +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
@@ -205,7 +205,7 @@ PlotciAAllg<-function(n,alp,h) #n:No of trials,alp:signi level
 #' PlotciAWD(n,alp,h)
 #' @export
 #8. Plot all methods
-PlotciAWD<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciAWD<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -252,9 +252,9 @@ PlotciAWD<-function(n,alp,h) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -282,7 +282,7 @@ PlotciAWD<-function(n,alp,h) #n:No of trials,alp:signi level
 #' PlotciAAS(n,alp,h)
 #' @export
 #8. Plot all methods
-PlotciAAS<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciAAS<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -330,9 +330,9 @@ PlotciAAS<-function(n,alp,h) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -360,14 +360,14 @@ PlotciAAS<-function(n,alp,h) #n:No of trials,alp:signi level
 #' PlotciALR(n,alp,h)
 #' @export
 #8. Plot all methods
-PlotciALR<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciALR<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(h)) stop("'h' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   Abberation=ID=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
   LRCI.df      = ciALR(n,alp,round(h,0))		#h must be +ve integer
@@ -408,9 +408,9 @@ PlotciALR<-function(n,alp,h) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -437,7 +437,7 @@ PlotciALR<-function(n,alp,h) #n:No of trials,alp:signi level
 #' n=5; alp=0.05;h=2
 #' PlotciASC(n,alp,h)
 #' @export
-PlotciASC<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciASC<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -485,9 +485,9 @@ PlotciASC<-function(n,alp,h) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -515,7 +515,7 @@ PlotciASC<-function(n,alp,h) #n:No of trials,alp:signi level
 #' PlotciALT(n,alp,h)
 #' @export
 #8. Plot all methods
-PlotciALT<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciALT<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -562,9 +562,9 @@ PlotciALT<-function(n,alp,h) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -591,7 +591,7 @@ PlotciALT<-function(n,alp,h) #n:No of trials,alp:signi level
 #' n=5; alp=0.05;h=2
 #' PlotciATW(n,alp,h)
 #' @export
-PlotciATW<-function(n,alp,h) #n:No of trials,alp:signi level
+PlotciATW<-function(n,alp,h)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -638,9 +638,9 @@ PlotciATW<-function(n,alp,h) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+

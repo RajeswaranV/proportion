@@ -2,7 +2,7 @@
 % Please edit documentation in R/401.p-Confidence_p-Bias_BASE_All.R
 \name{pCOpBIBA}
 \alias{pCOpBIBA}
-\title{Bayesian method for p-confidence and p-bias for a given n and alpha level and priors a & b}
+\title{p-confidence and p-bias for  Bayesian method given n and alpha level and priors a & b}
 \usage{
 pCOpBIBA(n, alp, a1, a2)
 }
@@ -24,7 +24,7 @@ A dataframe with
  \item{pbiasH }{   p-Bias HPD}
 }
 \description{
-Bayesian method for p-confidence and p-bias for a given n and alpha level and priors a & b
+p-confidence and p-bias for  Bayesian method given n and alpha level and priors a & b
 }
 \details{
 Evaluation of Bayesian Highest Probability Density (HPD) and two tailed

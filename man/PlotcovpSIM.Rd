@@ -36,9 +36,9 @@ and pre-defined space for the parameter \code{p} using Monte Carle simulation
 }
 \examples{
 \dontrun{
-LL=c(0,seq(.01,.55,.1),.56)		#Lower and Upper Limits
-UL=c(seq(.35,1,.1),1)
-n= 7; alp=0.05; s=5000; a=1; b=1; t1=0.93; t2=0.97
+LL=c(0,0.01,0.0734,0.18237,0.3344,0.5492)		#Lower and Upper Limits
+UL=c(0.4507,0.6655,0.8176,0.9265,0.9899,1)
+n= 5; alp=0.05; s=5000; a=1; b=1; t1=0.93; t2=0.97
 PlotcovpSIM(n,LL,UL,alp,s,a,b,t1,t2)
 }
 }

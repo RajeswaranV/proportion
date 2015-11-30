@@ -48,7 +48,7 @@
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciWD<-function(n,alp) #n:No of trials,alp:signi level
+ciWD<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -139,7 +139,7 @@ ciWD<-function(n,alp) #n:No of trials,alp:signi level
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciSC<-function(n,alp) #n:No of trials,alp:signi level
+ciSC<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -233,7 +233,7 @@ ciSC<-function(n,alp) #n:No of trials,alp:signi level
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciAS<-function(n,alp) #n:No of trials,alp:signi level
+ciAS<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -327,7 +327,7 @@ ciAS<-function(n,alp) #n:No of trials,alp:signi level
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciLR<-function(n,alp) #n:No of trials,alp:signi level
+ciLR<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -432,7 +432,7 @@ ciLR<-function(n,alp) #n:No of trials,alp:signi level
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciEX=function(n,alp,e)	#n:No of trials,alp:signi level, e: Exact method indicator (1:Clop-Pear,0.5:MID-p)
+ciEX=function(n,alp,e)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -564,7 +564,7 @@ exlim102u=function(x,n,alp,e)
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciTW<-function(n,alp) #n:No of trials,alp:sign level
+ciTW<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -669,7 +669,7 @@ ciTW<-function(n,alp) #n:No of trials,alp:sign level
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciLT<-function(n,alp) #n:No of trials,alp:sign level
+ciLT<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -760,7 +760,7 @@ ciLT<-function(n,alp) #n:No of trials,alp:sign level
 #' [2] 2006  Ghosh M, Delampady M and Samanta T.
 #' An introduction to Bayesian analysis: Theory and Methods. Springer, New York
 #' @export
-ciBA<-function(n,alp,a,b) #n:No of trials,alp:signi level
+ciBA<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -808,7 +808,7 @@ ciBA<-function(n,alp,a,b) #n:No of trials,alp:signi level
 }
 
 #######################################################################
-ciBAD<-function(n,alp,a,b) #n:No of trials,alp:signi level
+ciBAD<-function(n,alp,a,b)
 {
   if ((class(a) != "integer") & (class(a) != "numeric") || any(a < 0)) stop("'a' has to be a set of positive numeric vectors")
   if ((class(b) != "integer") & (class(b) != "numeric") || any(b < 0)) stop("'b' has to be a set of positive numeric vectors")
@@ -892,7 +892,7 @@ ciBAD<-function(n,alp,a,b) #n:No of trials,alp:signi level
 #' Two-tailed asymptotic inferences for a proportion.
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
-ciAll<-function(n,alp) #n:No of trials,alp:signi level
+ciAll<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

@@ -1,5 +1,5 @@
 ##### 1.CC-WALD Expected Length for a given n and alpha level
-gexplCWD<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
+gexplCWD<-function(n,alp,c,a,b)
 {
 ####INPUT n
 x=0:n
@@ -97,8 +97,7 @@ return(ELCS)
 }
 
 ##### 3.CC ARC SINE - Expected Length for a given n and alpha level
-gexplCAS<-function(n,alp,c,a,b) #n:No of trials,alp:sign level,c: Cont correction,a&b beta parameters for hypo "p'
-
+gexplCAS<-function(n,alp,c,a,b)
 {
 ####INPUT n
 x=0:n

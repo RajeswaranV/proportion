@@ -2,7 +2,7 @@
 % Please edit documentation in R/401.p-Confidence_p-Bias_BASE_All.R
 \name{pCOpBITW}
 \alias{pCOpBITW}
-\title{T-Wald method for p-confidence and p-bias for a given n and alpha level}
+\title{p-confidence and p-bias for  T-Wald method given n and alpha level}
 \usage{
 pCOpBITW(n, alp)
 }
@@ -18,7 +18,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-T-Wald method for p-confidence and p-bias for a given n and alpha level
+p-confidence and p-bias for  T-Wald method given n and alpha level
 }
 \details{
 Evaluation of approximate method based on a t_approximation of the standardized point estimator using p-confidence and p-bias for the \eqn{n + 1} intervals

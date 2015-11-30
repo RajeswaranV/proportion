@@ -2,7 +2,7 @@
 % Please edit documentation in R/411.p-Confidence_p-Bias_ADJ_All.R
 \name{pCOpBIATW}
 \alias{pCOpBIATW}
-\title{Adjusted  Wald-T method for p-Confidence and p-Bias estimation}
+\title{p-Confidence and p-Bias estimation for adjusted  Wald-T method}
 \usage{
 pCOpBIATW(n, alp, h)
 }
@@ -20,7 +20,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-Adjusted  Wald-T method for p-Confidence and p-Bias estimation
+p-Confidence and p-Bias estimation for adjusted  Wald-T method
 }
 \details{
 Evaluation of approximate and continuity corrected method based on a t_approximation

@@ -16,7 +16,7 @@
 #' PlotciEX(n,alp,e)
 #' }
 #' @export
-PlotciEX<-function(n,alp,e) #n:No of trials,alp:signi level
+PlotciEX<-function(n,alp,e)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -62,7 +62,7 @@ PlotciEX<-function(n,alp,e) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
@@ -111,7 +111,7 @@ PlotciEX<-function(n,alp,e) #n:No of trials,alp:signi level
 #' n=5; alp=0.05; a=c(0.5,2,1,1,2,0.5);b=c(0.5,2,1,1,2,0.5)
 #' PlotciBA(n,alp,a,b)
 #' @export
-PlotciBA<-function(n,alp,a,b) #n:No of trials,alp:signi level
+PlotciBA<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -154,7 +154,7 @@ PlotciBA<-function(n,alp,a,b) #n:No of trials,alp:signi level
   }
 }
 #######################################################################################
-PlotciBAD<-function(n,alp,a,b) #n:No of trials,alp:signi level
+PlotciBAD<-function(n,alp,a,b)
 {
   ss1=ciBAD(n,alp,a,b)
   id=1:nrow(ss1)
@@ -190,7 +190,7 @@ PlotciBAD<-function(n,alp,a,b) #n:No of trials,alp:signi level
 #' n=5; alp=0.05;
 #' PlotciAll(n,alp)
 #' @export
-PlotciAll<-function(n,alp) #n:No of trials,alp:signi level
+PlotciAll<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -232,13 +232,13 @@ PlotciAll<-function(n,alp) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(title = "Basic methods  of CI estimation") +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
       ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -264,7 +264,7 @@ PlotciAll<-function(n,alp) #n:No of trials,alp:signi level
 #' n=5; alp=0.05;
 #' PlotciAllg(n,alp)
 #' @export
-PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
+PlotciAllg<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -310,11 +310,11 @@ PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))                # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -344,11 +344,11 @@ PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))    +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
@@ -378,7 +378,7 @@ PlotciAllg<-function(n,alp) #n:No of trials,alp:signi level
 #' n=5; alp=0.05
 #' PlotciWD(n,alp)
 #' @export
-PlotciWD<-function(n,alp) #n:No of trials,alp:signi level
+PlotciWD<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -423,7 +423,7 @@ PlotciWD<-function(n,alp) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
@@ -453,7 +453,7 @@ PlotciWD<-function(n,alp) #n:No of trials,alp:signi level
 #' n=5; alp=0.05
 #' PlotciAS(n,alp)
 #' @export
-PlotciAS<-function(n,alp) #n:No of trials,alp:signi level
+PlotciAS<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -499,12 +499,12 @@ PlotciAS<-function(n,alp) #n:No of trials,alp:signi level
                               width = 0.5) +
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - ArcSine method")  +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     ggplot2::ggplot()+
@@ -529,7 +529,7 @@ PlotciAS<-function(n,alp) #n:No of trials,alp:signi level
 #' n=5; alp=0.05
 #' PlotciLR(n,alp)
 #' @export
-PlotciLR<-function(n,alp) #n:No of trials,alp:signi level
+PlotciLR<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -573,7 +573,7 @@ PlotciLR<-function(n,alp) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
@@ -603,7 +603,7 @@ PlotciLR<-function(n,alp) #n:No of trials,alp:signi level
 #' n=5; alp=0.05
 #' PlotciSC(n,alp)
 #' @export
-PlotciSC<-function(n,alp) #n:No of trials,alp:signi level
+PlotciSC<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -648,7 +648,7 @@ PlotciSC<-function(n,alp) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
@@ -678,7 +678,7 @@ PlotciSC<-function(n,alp) #n:No of trials,alp:signi level
 #' n=5; alp=0.05
 #' PlotciTW(n,alp)
 #' @export
-PlotciTW<-function(n,alp) #n:No of trials,alp:signi level
+PlotciTW<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -723,12 +723,12 @@ PlotciTW<-function(n,alp) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - Wald-T method")  +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     ggplot2::ggplot()+
@@ -753,7 +753,7 @@ PlotciTW<-function(n,alp) #n:No of trials,alp:signi level
 #' n=5; alp=0.05
 #' PlotciLT(n,alp)
 #' @export
-PlotciLT<-function(n,alp) #n:No of trials,alp:signi level
+PlotciLT<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -798,12 +798,12 @@ PlotciLT<-function(n,alp) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - Logit Wald method")  +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     ggplot2::ggplot()+

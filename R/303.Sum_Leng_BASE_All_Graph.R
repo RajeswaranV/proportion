@@ -65,7 +65,7 @@ PlotlengthAll<-function(n,alp,a,b)
 #' }
 #' @export
 ##### 1.EXACT EMTHOD Expected Length for a given n and alpha level
-PlotlengthEX<-function(n,alp,e,a,b) #n:No of trials,alp:sign level,e: Exact method indicator (1:Clop-Pear,0.5:MID-p),a&b beta parameters for hypo "p'
+PlotlengthEX<-function(n,alp,e,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -165,7 +165,7 @@ PlotlengthBA<-function(n,alp,a,b,a1,a2)
 #' PlotlengthWD(n,alp,a,b)
 #' @export
 ##### 1.WALD sum of length for a given n and alpha level
-PlotlengthWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+PlotlengthWD<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -302,7 +302,7 @@ PlotlengthAS<-function(n,alp,a,b)
 #' PlotlengthLT(n,alp,a,b)
 #' @export
 ##### 4.LOGIT-WALD - sum of length for a given n and alpha level
-PlotlengthLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+PlotlengthLT<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -348,8 +348,7 @@ PlotlengthLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parame
 #' PlotlengthTW(n,alp,a,b)
 #' @export
 ##### 5.t-WALD - sum of length for a given n and alpha level
-PlotlengthTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
-
+PlotlengthTW<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

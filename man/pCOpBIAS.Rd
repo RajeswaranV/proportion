@@ -2,7 +2,7 @@
 % Please edit documentation in R/401.p-Confidence_p-Bias_BASE_All.R
 \name{pCOpBIAS}
 \alias{pCOpBIAS}
-\title{ArcSine method for p-confidence and p-bias for a given n and alpha level}
+\title{p-confidence and p-bias for  ArcSine method given n and alpha level}
 \usage{
 pCOpBIAS(n, alp)
 }
@@ -18,7 +18,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-ArcSine method for p-confidence and p-bias for a given n and alpha level
+p-confidence and p-bias for  ArcSine method given n and alpha level
 }
 \details{
 Evaluation of Wald-type interval for the arcsine transformation of the parameter \code{p} using p-confidence and p-bias for the \eqn{n + 1} intervals

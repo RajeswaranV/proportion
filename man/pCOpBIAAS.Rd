@@ -2,7 +2,7 @@
 % Please edit documentation in R/411.p-Confidence_p-Bias_ADJ_All.R
 \name{pCOpBIAAS}
 \alias{pCOpBIAAS}
-\title{Adjusted ArcSine method for p-Confidence and p-Bias estimation}
+\title{p-Confidence and p-Bias estimation for adjusted ArcSine method}
 \usage{
 pCOpBIAAS(n, alp, h)
 }
@@ -20,7 +20,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-Adjusted ArcSine method for p-Confidence and p-Bias estimation
+p-Confidence and p-Bias estimation for adjusted ArcSine method
 }
 \details{
 Evaluation of adjusted Wald-type interval for the arcsine

@@ -317,7 +317,7 @@ PloterrLR<-function(n,alp,phi,f)
 #' PloterrBA(n,alp,phi,f,a,b)
 #' @export
 #8.BAYESIAN
-PloterrBA<-function(n,alp,phi,f,a,b) #n:No of trials,alp:signi level
+PloterrBA<-function(n,alp,phi,f,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -370,7 +370,7 @@ PloterrBA<-function(n,alp,phi,f,a,b) #n:No of trials,alp:signi level
 #' PloterrEX(n,alp,phi,f,e)
 #' @export
 #7.EXACT METHOD
-PloterrEX<-function(n,alp,phi,f,e)	#n:No of trials,alp:signi level, e: Exact method indicator (1:Clop-Pear,0.5:MID-p)
+PloterrEX<-function(n,alp,phi,f,e)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

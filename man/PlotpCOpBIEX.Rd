@@ -2,7 +2,7 @@
 % Please edit documentation in R/402.p-Confidence_p-Bias_BASE_All_Graph.R
 \name{PlotpCOpBIEX}
 \alias{PlotpCOpBIEX}
-\title{Plots the output of Exact method for p-confidence and p-bias for a given n and alpha level}
+\title{Plots of p-confidence and p-bias of Exact method given n and alpha level}
 \usage{
 PlotpCOpBIEX(n, alp, e)
 }
@@ -23,17 +23,19 @@ A dataframe with
 }
 }
 \description{
-Plots the output of Exact method for p-confidence and p-bias for a given n and alpha level
+Plots of p-confidence and p-bias of Exact method given n and alpha level
 }
 \details{
-Evaluation of Confidence interval for \code{p} based on inverting equal-tailed binomial tests with null hypothesis \eqn{H0: p = p0} using p-confidence and p-bias for the \eqn{n + 1} intervals
+Evaluation of Confidence interval for \code{p} based on inverting equal-tailed
+binomial tests with null hypothesis \eqn{H0: p = p0} using p-confidence and p-bias for
+the \eqn{n + 1} intervals
 }
 \examples{
-n=5; alp=0.05;e=0.5;a=1;b=1 # Mid-p
+n=5; alp=0.05;e=0.5; # Mid-p
 PlotpCOpBIEX(n,alp,e)
-n=5; alp=0.05;e=1;a=1;b=1 #Clopper-Pearson
+n=5; alp=0.05;e=1; #Clopper-Pearson
 PlotpCOpBIEX(n,alp,e)
-n=5; alp=0.05;e=c(0.1,0.5,0.95,1);a=1;b=1 #Range including Mid-p and Clopper-Pearson
+n=5; alp=0.05;e=c(0.1,0.5,0.95,1); #Range including Mid-p and Clopper-Pearson
 PlotpCOpBIEX(n,alp,e)
 }
 \references{

@@ -1,32 +1,32 @@
-#' Performs Continuity corrected Wald method for p-Confidence and p-Bias estimation
+#' p-Confidence and p-Bias estimation for continuity corrected Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Evaluation of Wald-type interval with 
+#' @details  Evaluation of Wald-type interval with
 #' continuity correction using p-confidence and p-bias for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{x1}{  Number of successes (positive samples)}
 #'  \item{pconf }{   p-Confidence}
 #'  \item{pbias }{   p-Bias}
 #' @family p-confidence and p-bias of continuity corrected methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;c=1/(2*n)
 #' pCOpBICWD(n,alp,c)
-#' @references 
-#' [1] 2005 Vos PW and Hudson S. 
-#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+#' @references
+#' [1] 2005 Vos PW and Hudson S.
+#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 1.CC-WALD- p-confidence and p-bias for a given n and alpha level
-pCOpBICWD<-function(n,alp,c) #n:No of trials,alp:sign level,c:Cont Correction 
+pCOpBICWD<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -67,37 +67,37 @@ x1=1:(n-1)
 p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
-#####################################################################################################################################
-#' Performs Continuity corrected Score method for p-Confidence and p-Bias estimation
+######################################################################################
+#' p-Confidence and p-Bias estimation for continuity corrected Score method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Evaluation of continuity corrected score test approach 
+#' @details  Evaluation of continuity corrected score test approach
 #' using p-confidence and p-bias for  the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{x1}{  Number of successes (positive samples)}
 #'  \item{pconf }{   p-Confidence}
 #'  \item{pbias }{   p-Bias}
 #' @family p-confidence and p-bias of continuity corrected methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;c=1/(2*n)
 #' pCOpBICSC(n,alp,c)
-#' @references 
-#' [1] 2005 Vos PW and Hudson S. 
-#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+#' @references
+#' [1] 2005 Vos PW and Hudson S.
+#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 2.CC-SCORE- p-confidence and p-bias for a given n and alpha level
-pCOpBICSC<-function(n,alp,c) #n:No of trials,alp:sign level,c:Cont Correction
+pCOpBICSC<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
-  
-  
+
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -143,36 +143,36 @@ x1=1:(n-1)
 p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
-#####################################################################################################################################
-#' Performs Continuity corrected ArcSine method for p-Confidence and p-Bias estimation
+#################################################################################
+#' p-Confidence and p-Bias estimation for continuity corrected ArcSine method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Evaluation of continuity corrected Wald-type interval for the arcsine 
+#' @details  Evaluation of continuity corrected Wald-type interval for the arcsine
 #' transformation of the parameter \code{p} using p-confidence and p-bias for the  \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{x1}{  Number of successes (positive samples)}
 #'  \item{pconf }{   p-Confidence}
 #'  \item{pbias }{   p-Bias}
 #' @family p-confidence and p-bias of continuity corrected methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;c=1/(2*n)
 #' pCOpBICAS(n,alp,c)
-#' @references 
-#' [1] 2005 Vos PW and Hudson S. 
-#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+#' @references
+#' [1] 2005 Vos PW and Hudson S.
+#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 3.CC-ARC SINE - p-confidence and p-bias for a given n and alpha level
-pCOpBICAS<-function(n,alp,c) #n:No of trials,alp:sign level,c:Cont Correction
+pCOpBICAS<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -216,36 +216,36 @@ p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
 
-#####################################################################################################################################
-#' Performs Continuity corrected Logit Wald method for p-Confidence and p-Bias estimation
+#########################################################################################
+#' p-Confidence and p-Bias estimation for continuity corrected Logit Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Evaluation of continuity corrected Wald-type interval based on the logit 
+#' @details  Evaluation of continuity corrected Wald-type interval based on the logit
 #' transformation of \code{p} using p-confidence and p-bias for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{x1}{  Number of successes (positive samples)}
 #'  \item{pconf }{   p-Confidence}
 #'  \item{pbias }{   p-Bias}
 #' @family p-confidence and p-bias of continuity corrected methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;c=1/(2*n)
 #' pCOpBICLT(n,alp,c)
-#' @references 
-#' [1] 2005 Vos PW and Hudson S. 
-#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+#' @references
+#' [1] 2005 Vos PW and Hudson S.
+#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 4.CC - LOGIT WALD - p-confidence and p-bias for a given n and alpha level
-pCOpBICLT<-function(n,alp,c) #n:No of trials,alp:sign level,c:Cont Correction
+pCOpBICLT<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -266,7 +266,7 @@ cv=qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pCLT[1]=0
 qCLT[1]=1
-LCLT[1] = 0 
+LCLT[1] = 0
 UCLT[1] = 1-((alp/2)^(1/n))
 
 pCLT[k]=1
@@ -300,36 +300,36 @@ x1=1:(n-1)
 p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
-#####################################################################################################################################
-#' Performs Continuity corrected Wald-T method for p-Confidence and p-Bias estimation
+####################################################################################
+#' p-Confidence and p-Bias estimation for continuity corrected Wald-T method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Evaluation of approximate and continuity corrected method based on a t_approximation 
+#' @details  Evaluation of approximate and continuity corrected method based on a t_approximation
 #' of the standardized point estimator using p-confidence and p-bias for the \eqn{n + 1} intervals
-#' @return A dataframe with 
+#' @return A dataframe with
 #'  \item{x1}{  Number of successes (positive samples)}
 #'  \item{pconf }{   p-Confidence}
 #'  \item{pbias }{   p-Bias}
 #' @family p-confidence and p-bias of continuity corrected methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;c=1/(2*n)
 #' pCOpBICTW(n,alp,c)
-#' @references 
-#' [1] 2005 Vos PW and Hudson S. 
-#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+#' @references
+#' [1] 2005 Vos PW and Hudson S.
+#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 5.T-WALD_CC: p-confidence and p-bias for a given n and alpha level
-pCOpBICTW<-function(n,alp,c) 
+pCOpBICTW<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
-  
+
 ####INPUT n
 x=0:n
 k=n+1
@@ -339,8 +339,8 @@ qCTW=0
 seCTW=0
 LCTW=0
 UCTW=0
-DOF=0	
-cv=0	
+DOF=0
+cv=0
 pcon=0						#p-confidence
 pconC=0
 pconf=0
@@ -387,46 +387,46 @@ return(p_C_B)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param c - Continuity correction
-#' @details  Evaluation of p-Confidence and p-Bias estimation of 5 continuity corrected methods (Wald, Wald-T,  Score, Logit-Wald, ArcSine) 
-#' @return A dataframe with 
+#' @details  Evaluation of p-Confidence and p-Bias estimation of 5 continuity corrected methods (Wald, Wald-T,  Score, Logit-Wald, ArcSine)
+#' @return A dataframe with
 #'  \item{x1}{  Number of successes (positive samples)}
 #'  \item{pconf }{   p-Confidence}
 #'  \item{pbias }{   p-Bias}
 #'  \item{method}{   Method name}
 #' @family p-confidence and p-bias of continuity corrected methods
-#' @examples 
+#' @examples
 #' n=5; alp=0.05;c=1/(2*n)
 #' pCOpBICAll(n,alp,c)
-#' @references 
-#' [1] 2005 Vos PW and Hudson S. 
-#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+#' @references
+#' [1] 2005 Vos PW and Hudson S.
+#' Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 #' The American Statistician: 59; 137 - 142.
 #' @export
 #7.All methods
-pCOpBICAll<-function(n,alp,c) #n:No of trials,alp:signi level and addin factor 
+pCOpBICAll<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(c)) stop("'c' is missing")
-  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0") 
+  if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
   if (c<=0 || c>(1/(2*n)) || length(c)>1) stop("'c' has to be positive and less than or equal to 1/(2*n)")
-  
+
   #### Calling functions and creating df
   WaldpCB.df    = pCOpBICWD(n,alp,c)
   ArcSinepCB.df = pCOpBICAS(n,alp,c)
   ScorepCB.df   = pCOpBICSC(n,alp,c)
   WaldLpCB.df   = pCOpBICLT(n,alp,c)
   AdWaldpCB.df  = pCOpBICTW(n,alp,c)
-  
+
   WaldpCB.df$method    = as.factor("CC-Wald")
   ArcSinepCB.df$method = as.factor("CC-ArcSine")
   WaldLpCB.df$method   = as.factor("CC-Logit-Wald")
   ScorepCB.df$method   = as.factor("CC-Score")
   AdWaldpCB.df$method  = as.factor("CC-Wald-T")
-  
+
   Final.df= rbind(WaldpCB.df, ArcSinepCB.df, ScorepCB.df,WaldLpCB.df,AdWaldpCB.df)
-  
+
   return(Final.df)
 }
 

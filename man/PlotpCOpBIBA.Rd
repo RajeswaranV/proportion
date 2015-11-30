@@ -2,7 +2,7 @@
 % Please edit documentation in R/402.p-Confidence_p-Bias_BASE_All_Graph.R
 \name{PlotpCOpBIBA}
 \alias{PlotpCOpBIBA}
-\title{Plots Bayesian method for p-confidence and p-bias for a given n and alpha level and priors a & b}
+\title{Plots p-confidence and p-bias for Bayesian method given n and alpha level and priors a & b}
 \usage{
 PlotpCOpBIBA(n, alp, a1, a2)
 }
@@ -16,7 +16,7 @@ PlotpCOpBIBA(n, alp, a1, a2)
 \item{a2}{- Shape parameter 2 for prior Beta distribution in Bayesian model}
 }
 \description{
-Plots Bayesian method for p-confidence and p-bias for a given n and alpha level and priors a & b
+Plots p-confidence and p-bias for Bayesian method given n and alpha level and priors a & b
 }
 \details{
 Evaluation of Bayesian Highest Probability Density (HPD) and two tailed

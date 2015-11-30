@@ -1,4 +1,4 @@
-#'  Wald method for p-confidence and p-bias for a given n and alpha level
+#' p-confidence and p-bias for Wald method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Evaluation of Wald-type intervals using p-confidence and p-bias for the \eqn{n + 1} intervals
@@ -16,7 +16,7 @@
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 1.WALD- p-confidence and p-bias for a given n and alpha level
-pCOpBIWD<-function(n,alp) #n:No of trials,alp:sign level
+pCOpBIWD<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -68,7 +68,7 @@ pCOpBIWD<-function(n,alp) #n:No of trials,alp:sign level
   return(p_C_B)
 }
 #####################################################################################################################################
-#'  Score method for p-confidence and p-bias for a given n and alpha level
+#' p-confidence and p-bias for  Score method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Evaluation of score test approach using p-confidence and p-bias for the \eqn{n + 1} intervals
@@ -86,7 +86,7 @@ pCOpBIWD<-function(n,alp) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 2.SCORE- p-confidence and p-bias for a given n and alpha level
-pCOpBISC<-function(n,alp) #n:No of trials,alp:sign level
+pCOpBISC<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -141,7 +141,7 @@ pCOpBISC<-function(n,alp) #n:No of trials,alp:sign level
   return(p_C_B)
 }
 #####################################################################################################################################
-#'  ArcSine method for p-confidence and p-bias for a given n and alpha level
+#' p-confidence and p-bias for  ArcSine method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Evaluation of Wald-type interval for the arcsine transformation of the parameter \code{p} using p-confidence and p-bias for the \eqn{n + 1} intervals
@@ -159,7 +159,7 @@ pCOpBISC<-function(n,alp) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 3.ARC SINE - p-confidence and p-bias for a given n and alpha level
-pCOpBIAS<-function(n,alp) #n:No of trials,alp:sign level
+pCOpBIAS<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -213,7 +213,7 @@ pCOpBIAS<-function(n,alp) #n:No of trials,alp:sign level
   return(p_C_B)
 }
 #####################################################################################################################################
-#'  Logit Wald method for p-confidence and p-bias for a given n and alpha level
+#' p-confidence and p-bias for  Logit Wald method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Evaluation of Wald-type interval based on the logit transformation of \code{p} using p-confidence and p-bias for the \eqn{n + 1} intervals
@@ -231,7 +231,7 @@ pCOpBIAS<-function(n,alp) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 4.LOGIT WALD - p-confidence and p-bias for a given n and alpha level
-pCOpBILT<-function(n,alp) #n:No of trials,alp:sign level
+pCOpBILT<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -297,7 +297,7 @@ pCOpBILT<-function(n,alp) #n:No of trials,alp:sign level
   return(p_C_B)
 }
 #####################################################################################################################################
-#'  T-Wald method for p-confidence and p-bias for a given n and alpha level
+#' p-confidence and p-bias for  T-Wald method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Evaluation of approximate method based on a t_approximation of the standardized point estimator using p-confidence and p-bias for the \eqn{n + 1} intervals
@@ -315,7 +315,7 @@ pCOpBILT<-function(n,alp) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 5.T-WALD: p-confidence and p-bias for a given n and alpha level
-pCOpBITW<-function(n,alp) #n:No of trials,alp:sign level
+pCOpBITW<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -379,7 +379,7 @@ pCOpBITW<-function(n,alp) #n:No of trials,alp:sign level
 }
 
 #####################################################################################################################################
-#' Likelihood method for p-confidence and p-bias for a given n and alpha level
+#' p-confidence and p-bias for Likelihood method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Evaluation of Likelihood ratio limits using p-confidence and p-bias for the \eqn{n + 1} intervals
@@ -397,7 +397,7 @@ pCOpBITW<-function(n,alp) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 6.LIKELIHOOD RATIO - p-confidence and p-bias for a given n and alpha level
-pCOpBILR<-function(n,alp) #n:No of trials,alp:sign level
+pCOpBILR<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -450,7 +450,7 @@ pCOpBILR<-function(n,alp) #n:No of trials,alp:sign level
   return(p_C_B)
 }
 #####################################################################################################################################
-#'  Exact method for p-confidence and p-bias for a given n and alpha level
+#' p-confidence and p-bias for  Exact method given n and alpha level
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param e - Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P}.
@@ -475,8 +475,8 @@ pCOpBILR<-function(n,alp) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ##### 7.EXACT METHODS - p-confidence and p-bias for a given n and alpha level
-pCOpBIEX<-function(n,alp,e) #n:No of trials,e: Exact method indicator (1:Clop-Pear,0.5:MID-p),a&b beta parameters for hypo "p'
-  {
+pCOpBIEX<-function(n,alp,e)
+{
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
   if (missing(e)) stop("'e' is missing")
@@ -575,7 +575,7 @@ exlim401u=function(x,n,alp,e)
 }
 
 #######################################################################################################
-#'  Bayesian method for p-confidence and p-bias for a given n and alpha level and priors a & b
+#' p-confidence and p-bias for  Bayesian method given n and alpha level and priors a & b
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param a1 - Shape parameter 1 for prior Beta distribution in Bayesian model
@@ -599,7 +599,7 @@ exlim401u=function(x,n,alp,e)
 #' The American Statistician: 59; 137 - 142.
 #' @export
 ####8.BAYESIAN p-confidence and p-bias
-pCOpBIBA<-function(n,alp,a1,a2) #n:No of trials,alp:sign level
+pCOpBIBA<-function(n,alp,a1,a2)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -681,7 +681,7 @@ pCOpBIBA<-function(n,alp,a1,a2) #n:No of trials,alp:sign level
 #' The American Statistician: 59; 137 - 142.
 #' @export
 #10.All methods
-pCOpBIAll<-function(n,alp) #n:No of trials,alp:signi level
+pCOpBIAll<-function(n,alp)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

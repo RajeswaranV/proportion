@@ -2,7 +2,8 @@
 % Please edit documentation in R/212.CoverageProb_ADJ_All.R
 \name{covpAAll}
 \alias{covpAAll}
-\title{Coverage Probability for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  for given n}
+\title{Coverage Probability for 6 adjusted methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
 \usage{
 covpAAll(n, alp, h, a, b, t1, t2)
 }
@@ -32,10 +33,13 @@ A dataframe with
  \item{tol }{   Required tolerance for coverage probability}
 }
 \description{
-Coverage Probability for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  for given n
+Coverage Probability for 6 adjusted methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \details{
-Calculates the  Coverage Probability of \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+Calculates the  Coverage Probability of \code{n} given \code{alp},
+\code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} for 6 adjusted methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \examples{
 \dontrun{

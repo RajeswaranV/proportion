@@ -51,7 +51,6 @@ covpGEN<-function(n,LL,UL,alp,hp,t1,t2)
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
 
 ####INPUT n
-#x=0:n
 k=n+1
 s=length(hp)
 cp=matrix(0,k,s)

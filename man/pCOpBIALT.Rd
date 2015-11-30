@@ -2,7 +2,7 @@
 % Please edit documentation in R/411.p-Confidence_p-Bias_ADJ_All.R
 \name{pCOpBIALT}
 \alias{pCOpBIALT}
-\title{Adjusted Logit-Wald method for p-Confidence and p-Bias estimation}
+\title{p-Confidence and p-Bias estimation for adjusted Logit-Wald method}
 \usage{
 pCOpBIALT(n, alp, h)
 }
@@ -20,7 +20,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-Adjusted Logit-Wald method for p-Confidence and p-Bias estimation
+p-Confidence and p-Bias estimation for adjusted Logit-Wald method
 }
 \details{
 Evaluation of adjusted Wald-type interval based on the logit transformation of

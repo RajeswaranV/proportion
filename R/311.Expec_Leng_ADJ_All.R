@@ -10,8 +10,8 @@
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of adjusted methods
 #' @examples
 #' n= 10; alp=0.05; h=2;a=1;b=1;
@@ -30,7 +30,7 @@
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 1.ADJUSTED WALD sum of length for a given n and alpha level
-lengthAWD<-function(n,alp,h,a,b) #n:No of trials,alp:sign level,h: Adjustement constant,a&b beta parameters for hypo "p'
+lengthAWD<-function(n,alp,h,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -89,8 +89,8 @@ sumLen=sum(LEAW)
 explMean=mean(ewAW)
 explSD=sd(ewAW)
 explMax=max(ewAW)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -107,8 +107,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of adjusted methods
 #' @examples
 #' n= 10; alp=0.05; h=2;a=1;b=1;
@@ -188,8 +188,8 @@ sumLen=sum(LEAS)
 explMean=mean(ewAS)
 explSD=sd(ewAS)
 explMax=max(ewAS)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -207,8 +207,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of adjusted methods
 #' @examples
 #' n= 10; alp=0.05; h=2;a=1;b=1;
@@ -227,8 +227,7 @@ return(df.Summary)
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 ##### 3. ADJUSTED ARC SINE - sum of length for a given n and alpha level
-lengthAAS<-function(n,alp,h,a,b) #n:No of trials,alp:sign level,h: Adjustement constant,a&b beta parameters for hypo "p'
-
+lengthAAS<-function(n,alp,h,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -286,8 +285,8 @@ sumLen=sum(LEAA)
 explMean=mean(ewAA)
 explSD=sd(ewAA)
 explMax=max(ewAA)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -305,8 +304,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of adjusted methods
 #' @examples
 #' n= 10; alp=0.05; h=2;a=1;b=1;
@@ -386,8 +385,8 @@ sumLen=sum(LEALT)
 explMean=mean(ewALT)
 explSD=sd(ewALT)
 explMax=max(ewALT)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -404,8 +403,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of adjusted methods
 #' @examples
 #' n= 10; alp=0.05; h=2;a=1;b=1;
@@ -486,8 +485,8 @@ sumLen=sum(LEATW)
 explMean=mean(ewATW)
 explSD=sd(ewATW)
 explMax=max(ewATW)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -506,8 +505,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of adjusted methods
 #' @examples
 #' n= 10; alp=0.05; h=2;a=1;b=1;
@@ -526,8 +525,7 @@ return(df.Summary)
 #' REVSTAT - Statistical Journal, 6, 165-197.
 #' @export
 #####6.ADJUSTED LIKELIHOOD RATIO - sum of length for a given n and alpha level
-lengthALR<-function(n,alp,h,a,b) #n:No of trials,alp:sign level,h: Adjustement constant,a&b beta parameters for hypo "p'
-
+lengthALR<-function(n,alp,h,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -536,7 +534,7 @@ lengthALR<-function(n,alp,h,a,b) #n:No of trials,alp:sign level,h: Adjustement c
   if (missing(b)) stop("'b' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(a)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
 
@@ -584,8 +582,8 @@ sumLen=sum(LEAL)
 explMean=mean(ewAL)
 explSD=sd(ewAL)
 explMax=max(ewAL)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -603,8 +601,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #'  \item{method}{Name of the method}
 #' @family Expected length  of adjusted methods
 #' @examples
@@ -633,7 +631,7 @@ lengthAAll<-function(n,alp,h,a,b)
   if (missing(b)) stop("'b' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(a)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
 

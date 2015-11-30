@@ -660,7 +660,7 @@ covpALR<-function(n,alp,h,a,b,t1,t2)
   if (missing(t2)) stop("'t2' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
   if (t1>t2) stop(" t1 has to be lesser than t2")
@@ -733,7 +733,8 @@ return(data.frame(mcpAL,micpAL,RMSE_N,RMSE_M,RMSE_MI,tol))
 }
 
 #############################################################################################################
-#' Coverage Probability for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  for given n
+#' Coverage Probability for 6 adjusted methods
+#' (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -741,7 +742,9 @@ return(data.frame(mcpAL,micpAL,RMSE_N,RMSE_M,RMSE_MI,tol))
 #' @param b - Beta parameters for hypo "p"
 #' @param t1 - Lower tolerance limit to check the spread of coverage Probability
 #' @param t2 - Upper tolerance limit to check the spread of coverage Probability
-#' @details  Calculates the  Coverage Probability of \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} for 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+#' @details  Calculates the  Coverage Probability of \code{n} given \code{alp},
+#' \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} for 6 adjusted methods
+#' (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @return A dataframe with
 #'  \item{method}{  Method name}
 #'  \item{MeanCP}{  Coverage Probability}
@@ -781,7 +784,7 @@ covpAAll<-function(n,alp,h,a,b,t1,t2)
   if (missing(t2)) stop("'t2' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp) >1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h)>1 || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   if ((class(a) != "integer") & (class(a) != "numeric") || length(a)>1 || a<0  ) stop("'a' has to be greater than or equal to 0")
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b)>1 || b<0  ) stop("'b' has to be greater than or equal to 0")
   if (t1>t2) stop(" t1 has to be lesser than t2")

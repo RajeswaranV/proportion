@@ -67,7 +67,7 @@ PlotciEXx<-function(x,n,alp,e)
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red",
                                           "black", "orange","brown","chartreuse4",
@@ -155,11 +155,11 @@ PlotciAllx<-function(x,n,alp)
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
       ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -181,7 +181,7 @@ PlotciAllx<-function(x,n,alp)
 #' @details  Plots of the Confidence Interval of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp} and \code{x} grouped by x
 #' @family Base methods of CI estimation given x & n
 #' @examples
-#' x=5; n=5; alp=0.5;
+#' x=5; n=5; alp=0.05;
 #' PlotciAllxg(x,n,alp)
 #' @export
 #12.All methods plots with grouping
@@ -233,11 +233,11 @@ PlotciAllxg<-function(x,n,alp)
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))                # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -267,11 +267,11 @@ PlotciAllxg<-function(x,n,alp)
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))    +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }

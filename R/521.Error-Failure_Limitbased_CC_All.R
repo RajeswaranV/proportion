@@ -96,7 +96,7 @@ data.frame(delalp=delalpCW,theta,Fail_Pass)
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 2.CC-SCORE:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errCSC<-function(n,alp,phi,c,f)#n:No of trials,alp:sign level,phi:Null value,c:Cont. correction, f:failure criterion
+errCSC<-function(n,alp,phi,c,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -179,7 +179,7 @@ return(data.frame(delalp=delalpCS,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 3.CC ARC SINE:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errCAS<-function(n,alp,phi,c,f)#n:No of trials,alp:sign level,phi:Null value,c: Correction factor, f:failure criterion
+errCAS<-function(n,alp,phi,c,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -257,7 +257,7 @@ return(data.frame(delalp=delalpCA,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 4.CC LOGIT:DEALTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errCLT<-function(n,alp,phi,c,f) #n:No of trials,alp:sign level,c: cont correction,f:Failure
+errCLT<-function(n,alp,phi,c,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -348,7 +348,7 @@ return(data.frame(delalp=delalpCLT,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 5.CC WALD_t:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errCTW<-function(n,alp,phi,c,f) #n:No of trials,alp:sign level,phi:Null value,c: cont. correction,f:failure criterion
+errCTW<-function(n,alp,phi,c,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

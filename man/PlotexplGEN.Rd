@@ -30,6 +30,7 @@ PlotexplGEN(n,LL,UL,hp)
 }
 \seealso{
 Other Expected length: \code{\link{PlotexplSIM}},
-  \code{\link{lengthGEN}}
+  \code{\link{PlotlengthGEN}}, \code{\link{PlotlengthSIM}},
+  \code{\link{lengthGEN}}, \code{\link{lengthSIM}}
 }
 

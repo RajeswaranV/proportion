@@ -1168,14 +1168,16 @@ return(ndf)
 }
 
 #############################################################################################################
-#' Coverage Probability using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+#' Coverage Probability using 6 base methods
+#' (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @param t1 - Lower tolerance limit to check the spread of coverage Probability
 #' @param t2 - Upper tolerance limit to check the spread of coverage Probability
-#' @details  The  Coverage Probability of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
+#' @details  The  Coverage Probability of 6 base methods
+#' (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @return A dataframe with
 #'  \item{method}{  method name}
 #'  \item{MeanCP}{  Coverage Probability}

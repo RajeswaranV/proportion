@@ -90,7 +90,7 @@ data.frame(delalp=delalpW,theta,Fail_Pass)
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 2.SCORE:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errSC<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:failure criterion
+errSC<-function(n,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -167,7 +167,7 @@ return(data.frame(delalp=delalpS,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 3.ARC SINE:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errAS<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:failure criterion
+errAS<-function(n,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -237,7 +237,7 @@ return(data.frame(delalp=delalpA,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 4.LOGIT WALD :DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errLT<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:failure criterion
+errLT<-function(n,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -322,7 +322,7 @@ return(data.frame(delalp=delalpLT,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 5. WALD -t:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errTW<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:failure criterion
+errTW<-function(n,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -405,7 +405,7 @@ return(data.frame(delalp=delalpTW,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 6.LIKELIHOOD RATIO:DELTA_ALPHA, THETA,F-ERROR,POWER,FAILURE
-errLR<-function(n,alp,phi,f) #n:No of trials,alp:sign level,phi:Null value,f:failure criterion
+errLR<-function(n,alp,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -486,7 +486,7 @@ return(data.frame(delalp=delalpL,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #7.EXACT METHOD
-errEX<-function(n,alp,phi,f,e)	#n:No of trials,alp:signi level, e: Exact method indicator (1:Clop-Pear,0.5:MID-p)
+errEX<-function(n,alp,phi,f,e)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -604,7 +604,7 @@ exlim501u=function(x,n,alp,e)
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #8.BAYESIAN
-errBA<-function(n,alp,phi,f,a,b) #n:No of trials,alp:signi level
+errBA<-function(n,alp,phi,f,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")

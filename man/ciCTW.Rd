@@ -26,8 +26,8 @@ A dataframe with
 Continuity corrected  Wald-T method of CI estimation
 }
 \details{
-Approximate method based on a t_approximation of the standardized point estimator
-using the test statistic
+Approximate method based on a t_approximation of the standardized
+point estimator using the test statistic
 \eqn{(abs(phat-p)-c)/SE}
 where \eqn{c > 0} is a constant for continuity correction for all \eqn{x = 0, 1, 2 ..n}.
 Boundary modifications when \eqn{x = 0} or \eqn{x = n} using Wald adjustment method with

@@ -2,7 +2,8 @@
 % Please edit documentation in R/201.CoverageProb_BASE_All.R
 \name{covpAll}
 \alias{covpAll}
-\title{Coverage Probability using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
+\title{Coverage Probability using 6 base methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
 \usage{
 covpAll(n, alp, a, b, t1, t2)
 }
@@ -30,10 +31,12 @@ A dataframe with
  \item{tol }{   Required tolerance for coverage probability}
 }
 \description{
-Coverage Probability using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
+Coverage Probability using 6 base methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \details{
-The  Coverage Probability of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
+The  Coverage Probability of 6 base methods
+(Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \examples{
 \dontrun{

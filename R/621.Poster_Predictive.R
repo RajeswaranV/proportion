@@ -17,7 +17,7 @@
 #' [1] 2002 Gelman A, Carlin  JB, Stern HS and Dunson DB
 #' Bayesian Data Analysis, Chapman & Hall/CRC
 #' @export
-probPRE<-function(n,m,a1,a2) #n:Data - trials,m:Future - trials, a1,a2:Prior parameters
+probPRE<-function(n,m,a1,a2)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(m)) stop("'m' is missing")

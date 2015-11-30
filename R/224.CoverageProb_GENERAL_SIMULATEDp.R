@@ -54,7 +54,6 @@ covpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
   if ((class(t2) != "integer") & (class(t2) != "numeric") || length(t2)>1 || t2<0 || t2>1 ) stop("'t2' has to be between 0 and 1")
 
   ####INPUT n
-#  x=0:n
   k=n+1
 
   cp=matrix(0,k,s)
@@ -64,8 +63,6 @@ covpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
   RMSE_M1=0
   RMSE_Mi1=0
   ctr=0
-  ###CRITICAL VALUES
- # cv=qnorm(1-(alp/2), mean = 0, sd = 1)
   ####COVERAGE PROBABILITIES
   hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
@@ -82,7 +79,7 @@ covpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
     RMSE_N1[j]=(cpp[j]-(1-alp))^2			#Root mean Square from nominal size
     if(t1<cpp[j]&&cpp[j]<t2) ctr=ctr+1		#tolerance for cov prob - user defined
   }
-  #CP=data.frame(hp,cpp)
+
   mcp=mean(cpp)
   micp=min(cpp)					#Mean Cov Prob
   RMSE_N=sqrt(mean(RMSE_N1))
@@ -116,9 +113,9 @@ covpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
 #' @family Simulated methods for coverage probability
 #' @examples
 #' \dontrun{
-#' LL=c(0,seq(.01,.55,.1),.56)		#Lower and Upper Limits
-#' UL=c(seq(.35,1,.1),1)
-#' n= 7; alp=0.05; s=5000; a=1; b=1; t1=0.93; t2=0.97
+#' LL=c(0,0.01,0.0734,0.18237,0.3344,0.5492)		#Lower and Upper Limits
+#' UL=c(0.4507,0.6655,0.8176,0.9265,0.9899,1)
+#' n= 5; alp=0.05; s=5000; a=1; b=1; t1=0.93; t2=0.97
 #' PlotcovpSIM(n,LL,UL,alp,s,a,b,t1,t2)
 #' }
 #' @export

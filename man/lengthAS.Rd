@@ -21,8 +21,8 @@ A dataframe with
  \item{explMean}{  The mean of the expected length}
  \item{explSD}{  The Standard Deviation of the expected length}
  \item{explMax}{  The max of the expected length}
- \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
- \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+ \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+ \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 }
 \description{
 Expected length and sum of length of  ArcSine method

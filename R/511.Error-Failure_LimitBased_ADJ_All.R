@@ -98,7 +98,7 @@ return(data.frame(delalp=delalpAW,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #2.ADJUSTED SCORE
-errASC<-function(n,alp,h,phi,f) #n:No of trials,alp:sign level
+errASC<-function(n,alp,h,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -177,7 +177,7 @@ return(data.frame(delalp=delalpAS,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #3.ADJUSTED ARCSINE
-errAAS<-function(n,alp,h,phi,f) #n:No of trials,alp:sign level
+errAAS<-function(n,alp,h,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -252,7 +252,7 @@ return(data.frame(delalp=delalpAAS,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #4.ADJUSTED LIKELIHOOD RATIO
-errALR<-function(n,alp,h,phi,f) #n:No of trials,alp:sign level
+errALR<-function(n,alp,h,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -261,7 +261,7 @@ errALR<-function(n,alp,h,phi,f) #n:No of trials,alp:sign level
   if (missing(f)) stop("'f' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
 
@@ -330,7 +330,7 @@ return(data.frame(delalp=delalpALR,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #5.ADJUSTED WALD-T
-errATW<-function(n,alp,h,phi,f) #n:No of trials,alp:sign level,h: Adding factor,a&b beta parameters for hypo "p'
+errATW<-function(n,alp,h,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -410,7 +410,7 @@ return(data.frame(delalp=delalpATW,theta,Fail_Pass))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #6.ADJUSTED LOGIT-WALD
-errALT<-function(n,alp,h,phi,f) #n:No of trials,alp:sign level,h: Adding factor,a&b beta parameters for hypo "p'
+errALT<-function(n,alp,h,phi,f)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -493,7 +493,7 @@ errAAll<-function(n,alp,h,phi,f)
   if (missing(f)) stop("'f' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
   #### Calling functions and creating df

@@ -28,7 +28,7 @@ Logit Wald method of CI estimation
 \details{
 Wald-type interval for all the given \code{x} and \code{n}
 based on the logit transformation of \code{p};
-that is that is normal approximation for \eqn{log(p/1-p)}
+that is normal approximation for \eqn{log(p/1-p)}
 }
 \examples{
 x=5; n=5; alp=0.05

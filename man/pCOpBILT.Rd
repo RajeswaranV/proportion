@@ -2,7 +2,7 @@
 % Please edit documentation in R/401.p-Confidence_p-Bias_BASE_All.R
 \name{pCOpBILT}
 \alias{pCOpBILT}
-\title{Logit Wald method for p-confidence and p-bias for a given n and alpha level}
+\title{p-confidence and p-bias for  Logit Wald method given n and alpha level}
 \usage{
 pCOpBILT(n, alp)
 }
@@ -18,7 +18,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-Logit Wald method for p-confidence and p-bias for a given n and alpha level
+p-confidence and p-bias for  Logit Wald method given n and alpha level
 }
 \details{
 Evaluation of Wald-type interval based on the logit transformation of \code{p} using p-confidence and p-bias for the \eqn{n + 1} intervals

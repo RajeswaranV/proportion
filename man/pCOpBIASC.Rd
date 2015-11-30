@@ -2,7 +2,7 @@
 % Please edit documentation in R/411.p-Confidence_p-Bias_ADJ_All.R
 \name{pCOpBIASC}
 \alias{pCOpBIASC}
-\title{Adjusted Score method for p-Confidence and p-Bias estimation}
+\title{p-Confidence and p-Bias estimation for adjusted Score method}
 \usage{
 pCOpBIASC(n, alp, h)
 }
@@ -20,7 +20,7 @@ A dataframe with
  \item{pbias }{   p-Bias}
 }
 \description{
-Adjusted Score method for p-Confidence and p-Bias estimation
+p-Confidence and p-Bias estimation for adjusted Score method
 }
 \details{
 Evaluation of adjusted score test approach

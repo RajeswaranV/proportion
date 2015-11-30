@@ -4,32 +4,44 @@
 #' @param a1 - Priors for hypothesis H1
 #' @param b1 - Priors for hypothesis H1
 #' @details  Computes Bayes factor under Beta-Binomial model for the
-#' model: \eqn{p = p0} Vs \eqn{p \ne p0}{p not equal to p0} from the given number of trials \code{n} and for all number
-#' of successes \eqn{x = 0, 1, 2......n }
+#' model: \eqn{p = p0} Vs \eqn{p \ne p0}{p not equal to p0} from the given number of trials
+#' \code{n} and for all number
+#' of successes \eqn{x = 0, 1, 2......n }.
+#' We use the following guideline for reporting the results:
+#' \itemize{
+#' \item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+#' \item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+#' \item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+#' \item  BaFa10 < 1/150: Evidence against H0 is very strong.
+#' \item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+#' \item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+#' \item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+#' \item  150 <= BaFa01: Evidence against H1 is very strong.}
 #' @return A dataframe with
 #'  \item{x}{ Number of successes}
 #'  \item{BaFa01}{ Bayesian Factor}
 #' @family Hypothesis testing
 #' @examples
-#' n=1; th0=10; a1=1; b1=1
+#' n=10; th0=0.1; a1=1; b1=1
 #' hypotestBAF1(n,th0,a1,b1)
 #' @references
 #' [1] 2006  Ghosh M, Delampady M and Samanta T.
 #' An introduction to Bayesian analysis: Theory and Methods.
 #' Springer, New York
+#'
 #' [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 #' Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 #' International Journal of Statistics and Analysis, 4 (2), 139 - 153
 #' @export
 #####Hypothesis 1: Theta = Theta0  Vs  Theta <> Theta0
-hypotestBAF1<-function(n,th0,a1,b1)	#n:No of trials, th0:#Hypothetical parameter,a1,b1,Priors for H1
+hypotestBAF1<-function(n,th0,a1,b1)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(th0)) stop("'th0' is missing")
   if (missing(a1)) stop("'a1' is missing")
   if (missing(b1)) stop("'b1' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<0 ) stop("'n' has to be greater or equal to 0")
-  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0<=0 ) stop("'th0' has to be greater than 0")
+  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0>1 || th0<=0 ) stop("'th0' has to be between 0 and 1")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1) >1|| a1<=0 ) stop("'a1' has to be greater than 0")
   if ((class(b1) != "integer") & (class(b1) != "numeric") || length(b1) >1|| b1<=0 ) stop("'b1' has to be greater than 0")
 
@@ -40,7 +52,36 @@ for(i in 1:k)
 {
 BaFa01[i]=(beta(a1,b1)/beta(x[i]+a1,n-x[i]+b1))*(th0^x[i])*((1-th0)^(n-x[i]))
 }
-return(data.frame(x,BaFa01))
+rdf=data.frame(x,BaFa01)
+ndf1=subset(rdf,(BaFa01<3 & BaFa01 >= 1))
+ndf2=subset(rdf,(BaFa01<20 & BaFa01 >= 3))
+ndf3=subset(rdf,(BaFa01<150 & BaFa01 >= 20))
+ndf4=subset(rdf,(BaFa01>=150))
+ndf5=subset(rdf,(BaFa01<1 & BaFa01 >= 1/3))
+ndf6=subset(rdf,(BaFa01<1/3 & BaFa01 >= 1/20))
+ndf7=subset(rdf,(BaFa01<1/20 & BaFa01 >= 1/150))
+ndf8=subset(rdf,(BaFa01<1/150))
+
+if(length(ndf1$x)>0){
+    ndf1$Interpretation="Evidence against H1 is not worth more than a bare mention"}
+if(length(ndf2$x)>0){
+    ndf2$Interpretation="Evidence against H1 is positive"}
+if(length(ndf3$x)>0){
+    ndf3$Interpretation="Evidence against H1 is strong"}
+if(length(ndf4$x)>0){
+    ndf4$Interpretation="Evidence against H1 is very strong"}
+if(length(ndf5$x)>0){
+    ndf5$Interpretation="Evidence against H0 is not worth more than a bare mention"}
+if(length(ndf6$x)>0){
+    ndf6$Interpretation="Evidence against H0 is positive"}
+if(length(ndf7$x)>0){
+    ndf7$Interpretation="Evidence against H0 is strong"}
+if(length(ndf8$x)>0){
+    ndf8$Interpretation="Evidence against H0 is very strong"}
+cbdf=rbind(ndf1,ndf2,ndf3,ndf4,ndf5,ndf6,ndf7,ndf8)
+ndf=cbdf[order(cbdf$x),]
+row.names(ndf)<-NULL
+return(ndf)
 }
 ######################################################################################################
 #' Bayesain Hypothesis testing : Hypothesis 2: Theta = Theta0 Vs Theta > Theta0
@@ -51,30 +92,41 @@ return(data.frame(x,BaFa01))
 #' @details  Computes Bayes factor under Beta-Binomial model for the
 #' model: \eqn{p = p0} Vs \eqn{p > p0} from the given number of trials \code{n} and for all number
 #' of successes \eqn{x = 0, 1, 2......n }
+#' We use the following guideline for reporting the results:
+#' \itemize{
+#' \item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+#' \item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+#' \item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+#' \item  BaFa10 < 1/150: Evidence against H0 is very strong.
+#' \item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+#' \item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+#' \item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+#' \item  150 <= BaFa01: Evidence against H1 is very strong.}
 #' @return A dataframe with
 #'  \item{x}{ Number of successes}
 #'  \item{BaFa01}{ Bayesian Factor}
 #' @family Hypothesis testing
 #' @examples
-#' n=1; th0=10; a1=1; b1=1
+#' n=10; th0=0.1; a1=1; b1=1
 #' hypotestBAF2(n,th0,a1,b1)
 #' @references
 #' [1] 2006  Ghosh M, Delampady M and Samanta T.
 #' An introduction to Bayesian analysis: Theory and Methods.
 #' Springer, New York
+#'
 #' [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 #' Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 #' International Journal of Statistics and Analysis, 4 (2), 139 - 153
 #' @export
 #####Hypothesis 2: Theta = Theta0  Vs  Theta > Theta0
-hypotestBAF2<-function(n,th0,a1,b1)	#n:No of trials, th0:#Hypothetical parameter,a1,b1,Priors for H1
+hypotestBAF2<-function(n,th0,a1,b1)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(th0)) stop("'th0' is missing")
   if (missing(a1)) stop("'a1' is missing")
   if (missing(b1)) stop("'b1' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<0 ) stop("'n' has to be greater or equal to 0")
-  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0<0 ) stop("'th0' has to be greater than 0")
+  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0>1 || th0<=0 ) stop("'th0' has to be between 0 and 1")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1) >1|| a1<=0 ) stop("'a1' has to be greater than 0")
   if ((class(b1) != "integer") & (class(b1) != "numeric") || length(b1) >1|| b1<=0 ) stop("'b1' has to be greater than 0")
 
@@ -92,7 +144,36 @@ t2[i]=integrate(bet2,th0,1)$value
 
 BaFa01[i]=(t1/t2[i])*(th0^x[i])*((1-th0)^(n-x[i]))
 }
-return(data.frame(x,BaFa01))
+rdf=data.frame(x,BaFa01)
+ndf1=subset(rdf,(BaFa01<3 & BaFa01 >= 1))
+ndf2=subset(rdf,(BaFa01<20 & BaFa01 >= 3))
+ndf3=subset(rdf,(BaFa01<150 & BaFa01 >= 20))
+ndf4=subset(rdf,(BaFa01>=150))
+ndf5=subset(rdf,(BaFa01<1 & BaFa01 >= 1/3))
+ndf6=subset(rdf,(BaFa01<1/3 & BaFa01 >= 1/20))
+ndf7=subset(rdf,(BaFa01<1/20 & BaFa01 >= 1/150))
+ndf8=subset(rdf,(BaFa01<1/150))
+
+if(length(ndf1$x)>0){
+  ndf1$Interpretation="Evidence against H1 is not worth more than a bare mention"}
+if(length(ndf2$x)>0){
+  ndf2$Interpretation="Evidence against H1 is positive"}
+if(length(ndf3$x)>0){
+  ndf3$Interpretation="Evidence against H1 is strong"}
+if(length(ndf4$x)>0){
+  ndf4$Interpretation="Evidence against H1 is very strong"}
+if(length(ndf5$x)>0){
+  ndf5$Interpretation="Evidence against H0 is not worth more than a bare mention"}
+if(length(ndf6$x)>0){
+  ndf6$Interpretation="Evidence against H0 is positive"}
+if(length(ndf7$x)>0){
+  ndf7$Interpretation="Evidence against H0 is strong"}
+if(length(ndf8$x)>0){
+  ndf8$Interpretation="Evidence against H0 is very strong"}
+cbdf=rbind(ndf1,ndf2,ndf3,ndf4,ndf5,ndf6,ndf7,ndf8)
+ndf=cbdf[order(cbdf$x),]
+row.names(ndf)<-NULL
+return(ndf)
 }
 ######################################################################################################
 #' Bayesain Hypothesis testing : Hypothesis 3: Theta = Theta0 Vs Theta < Theta0
@@ -103,30 +184,41 @@ return(data.frame(x,BaFa01))
 #' @details  Computes Bayes factor under Beta-Binomial model for the
 #' model: \eqn{p = p0} Vs \eqn{p < p0} from the given number of trials \code{n} and for all number
 #' of successes \eqn{x = 0, 1, 2......n }
+#' We use the following guideline for reporting the results:
+#' \itemize{
+#' \item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+#' \item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+#' \item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+#' \item  BaFa10 < 1/150: Evidence against H0 is very strong.
+#' \item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+#' \item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+#' \item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+#' \item  150 <= BaFa01: Evidence against H1 is very strong.}
 #' @return A dataframe with
 #'  \item{x}{ Number of successes}
 #'  \item{BaFa01}{ Bayesian Factor}
 #' @family Hypothesis testing
 #' @examples
-#' n=1; th0=10; a1=1; b1=1
+#' n=10; th0=0.1; a1=1; b1=1
 #' hypotestBAF3(n,th0,a1,b1)
 #' @references
 #' [1] 2006  Ghosh M, Delampady M and Samanta T.
 #' An introduction to Bayesian analysis: Theory and Methods.
 #' Springer, New York
+#'
 #' [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 #' Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 #' International Journal of Statistics and Analysis, 4 (2), 139 - 153
 #' @export
 #####Hypothesis 3: Theta = Theta0  Vs  Theta < Theta0
-hypotestBAF3<-function(n,th0,a1,b1)	#n:No of trials, th0:#Hypothetical parameter,a1,b1,Priors for H1
+hypotestBAF3<-function(n,th0,a1,b1)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(th0)) stop("'th0' is missing")
   if (missing(a1)) stop("'a1' is missing")
   if (missing(b1)) stop("'b1' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<0 ) stop("'n' has to be greater or equal to 0")
-  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0<0 ) stop("'th0' has to be greater than 0")
+  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0>1 || th0<=0 ) stop("'th0' has to be between 0 and 1")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1) >1|| a1<=0 ) stop("'a1' has to be greater than 0")
   if ((class(b1) != "integer") & (class(b1) != "numeric") || length(b1) >1|| b1<=0 ) stop("'b1' has to be greater than 0")
 
@@ -144,7 +236,36 @@ t2[i]=integrate(bet2,0,th0)$value
 
 BaFa01[i]=(t1/t2[i])*(th0^x[i])*((1-th0)^(n-x[i]))
 }
-return(data.frame(x,BaFa01))
+rdf=data.frame(x,BaFa01)
+ndf1=subset(rdf,(BaFa01<3 & BaFa01 >= 1))
+ndf2=subset(rdf,(BaFa01<20 & BaFa01 >= 3))
+ndf3=subset(rdf,(BaFa01<150 & BaFa01 >= 20))
+ndf4=subset(rdf,(BaFa01>=150))
+ndf5=subset(rdf,(BaFa01<1 & BaFa01 >= 1/3))
+ndf6=subset(rdf,(BaFa01<1/3 & BaFa01 >= 1/20))
+ndf7=subset(rdf,(BaFa01<1/20 & BaFa01 >= 1/150))
+ndf8=subset(rdf,(BaFa01<1/150))
+
+if(length(ndf1$x)>0){
+  ndf1$Interpretation="Evidence against H1 is not worth more than a bare mention"}
+if(length(ndf2$x)>0){
+  ndf2$Interpretation="Evidence against H1 is positive"}
+if(length(ndf3$x)>0){
+  ndf3$Interpretation="Evidence against H1 is strong"}
+if(length(ndf4$x)>0){
+  ndf4$Interpretation="Evidence against H1 is very strong"}
+if(length(ndf5$x)>0){
+  ndf5$Interpretation="Evidence against H0 is not worth more than a bare mention"}
+if(length(ndf6$x)>0){
+  ndf6$Interpretation="Evidence against H0 is positive"}
+if(length(ndf7$x)>0){
+  ndf7$Interpretation="Evidence against H0 is strong"}
+if(length(ndf8$x)>0){
+  ndf8$Interpretation="Evidence against H0 is very strong"}
+cbdf=rbind(ndf1,ndf2,ndf3,ndf4,ndf5,ndf6,ndf7,ndf8)
+ndf=cbdf[order(cbdf$x),]
+row.names(ndf)<-NULL
+return(ndf)
 }
 ######################################################################################################
 #' Bayesain Hypothesis testing :Hypothesis 4: Theta <= Theta0 Vs Theta > Theta0
@@ -157,23 +278,34 @@ return(data.frame(x,BaFa01))
 #' @details  Computes Bayes factor under Beta-Binomial model for the
 #' model: \eqn{p <= p0} Vs \eqn{p > p0} from the given number of trials \code{n} and for all number
 #' of successes \eqn{x = 0, 1, 2......n }
+#' We use the following guideline for reporting the results:
+#' \itemize{
+#' \item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+#' \item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+#' \item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+#' \item  BaFa10 < 1/150: Evidence against H0 is very strong.
+#' \item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+#' \item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+#' \item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+#' \item  150 <= BaFa01: Evidence against H1 is very strong.}
 #' @return A dataframe with
 #'  \item{x}{ Number of successes}
 #'  \item{BaFa01}{ Bayesian Factor}
 #' @family Hypothesis testing
 #' @examples
-#' n=1; th0=0.5; a0=0.5; b0=0.5; a1=1; b1=1
+#' n=10; th0=0.1; a0=0.5; b0=0.5; a1=1; b1=1
 #' hypotestBAF4(n,th0,a0,b0,a1,b1)
 #' @references
 #' [1] 2006  Ghosh M, Delampady M and Samanta T.
 #' An introduction to Bayesian analysis: Theory and Methods.
 #' Springer, New York
+#'
 #' [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 #' Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 #' International Journal of Statistics and Analysis, 4 (2), 139 - 153
 #' @export
 #####Hypothesis 4: Theta <= Theta0  Vs  Theta > Theta0
-hypotestBAF4<-function(n,th0,a0,b0,a1,b1)	#n:No of trials, th0:#Hypothetical parameter,a0,b0,Priors for H0,a1,b1,Priors for H1
+hypotestBAF4<-function(n,th0,a0,b0,a1,b1)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(th0)) stop("'th0' is missing")
@@ -182,7 +314,7 @@ hypotestBAF4<-function(n,th0,a0,b0,a1,b1)	#n:No of trials, th0:#Hypothetical par
   if (missing(a1)) stop("'a1' is missing")
   if (missing(b1)) stop("'b1' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<0 ) stop("'n' has to be greater than or equal to 0")
-  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0<0 ) stop("'th0' has to be greater than 0")
+  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0>1 || th0<=0 ) stop("'th0' has to be between 0 and 1")
   if ((class(a0) != "integer") & (class(a0) != "numeric") || length(a0) >1|| a0<=0 ) stop("'a0' has to be greater than 0")
   if ((class(b0) != "integer") & (class(b0) != "numeric") || length(b0) >1|| b0<=0 ) stop("'b0' has to be greater than 0")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1) >1|| a1<=0 ) stop("'a1' has to be greater than 0")
@@ -209,7 +341,36 @@ t11[i]=integrate(bet11,th0,1)$value
 
 BaFa01[i]=t01[i]*t1/(t0*t11[i])
 }
-return(data.frame(x,BaFa01))
+rdf=data.frame(x,BaFa01)
+ndf1=subset(rdf,(BaFa01<3 & BaFa01 >= 1))
+ndf2=subset(rdf,(BaFa01<20 & BaFa01 >= 3))
+ndf3=subset(rdf,(BaFa01<150 & BaFa01 >= 20))
+ndf4=subset(rdf,(BaFa01>=150))
+ndf5=subset(rdf,(BaFa01<1 & BaFa01 >= 1/3))
+ndf6=subset(rdf,(BaFa01<1/3 & BaFa01 >= 1/20))
+ndf7=subset(rdf,(BaFa01<1/20 & BaFa01 >= 1/150))
+ndf8=subset(rdf,(BaFa01<1/150))
+
+if(length(ndf1$x)>0){
+  ndf1$Interpretation="Evidence against H1 is not worth more than a bare mention"}
+if(length(ndf2$x)>0){
+  ndf2$Interpretation="Evidence against H1 is positive"}
+if(length(ndf3$x)>0){
+  ndf3$Interpretation="Evidence against H1 is strong"}
+if(length(ndf4$x)>0){
+  ndf4$Interpretation="Evidence against H1 is very strong"}
+if(length(ndf5$x)>0){
+  ndf5$Interpretation="Evidence against H0 is not worth more than a bare mention"}
+if(length(ndf6$x)>0){
+  ndf6$Interpretation="Evidence against H0 is positive"}
+if(length(ndf7$x)>0){
+  ndf7$Interpretation="Evidence against H0 is strong"}
+if(length(ndf8$x)>0){
+  ndf8$Interpretation="Evidence against H0 is very strong"}
+cbdf=rbind(ndf1,ndf2,ndf3,ndf4,ndf5,ndf6,ndf7,ndf8)
+ndf=cbdf[order(cbdf$x),]
+row.names(ndf)<-NULL
+return(ndf)
 }
 
 ######################################################################################################
@@ -223,23 +384,34 @@ return(data.frame(x,BaFa01))
 #' @details  Computes Bayes factor under Beta-Binomial model for the
 #' model: \eqn{p >= p0} Vs \eqn{p < p0} from the given number of trials \code{n} and for all number
 #' of successes \eqn{x = 0, 1, 2......n }
+#' We use the following guideline for reporting the results:
+#' \itemize{
+#' \item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+#' \item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+#' \item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+#' \item  BaFa10 < 1/150: Evidence against H0 is very strong.
+#' \item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+#' \item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+#' \item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+#' \item  150 <= BaFa01: Evidence against H1 is very strong.}
 #' @return A dataframe with
 #'  \item{x}{ Number of successes}
 #'  \item{BaFa01}{ Bayesian Factor}
 #' @family Hypothesis testing
 #' @examples
-#' n=1; th0=0.08; a0=0.5; b0= 0.5;a1=1; b1=1
+#' n=10; th0=0.1; a0=0.5; b0= 0.5;a1=1; b1=1
 #' hypotestBAF5(n,th0,a0,b0,a1,b1)
 #' @references
 #' [1] 2006  Ghosh M, Delampady M and Samanta T.
 #' An introduction to Bayesian analysis: Theory and Methods.
 #' Springer, New York
+#'
 #' [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 #' Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 #' International Journal of Statistics and Analysis, 4 (2), 139 - 153
 #' @export
 #####Hypothesis 5: Theta >= Theta0  Vs  Theta < Theta0
-hypotestBAF5<-function(n,th0,a0,b0,a1,b1)	#n:No of trials, th0:#Hypothetical parameter,a0,b0,Priors for H0,a1,b1,Priors for H1
+hypotestBAF5<-function(n,th0,a0,b0,a1,b1)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(th0)) stop("'th0' is missing")
@@ -248,7 +420,7 @@ hypotestBAF5<-function(n,th0,a0,b0,a1,b1)	#n:No of trials, th0:#Hypothetical par
   if (missing(a1)) stop("'a1' is missing")
   if (missing(b1)) stop("'b1' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<0 ) stop("'n' has to be greater than or equal to 0")
-  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0<0 ) stop("'th0' has to be greater than 0")
+  if ((class(th0) != "integer") & (class(th0) != "numeric") || length(th0) >1|| th0>1 || th0<=0 ) stop("'th0' has to be between 0 and 1")
   if ((class(a0) != "integer") & (class(a0) != "numeric") || length(a0) >1|| a0<=0 ) stop("'a0' has to be greater than 0")
   if ((class(b0) != "integer") & (class(b0) != "numeric") || length(b0) >1|| b0<=0 ) stop("'b0' has to be greater than 0")
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1) >1|| a1<=0 ) stop("'a1' has to be greater than 0")
@@ -275,8 +447,36 @@ t11[i]=integrate(bet11,0,th0)$value
 
 BaFa01[i]=t01[i]*t1/(t0*t11[i])
 }
-return(data.frame(x,BaFa01))
+rdf=data.frame(x,BaFa01)
+ndf1=subset(rdf,(BaFa01<3 & BaFa01 >= 1))
+ndf2=subset(rdf,(BaFa01<20 & BaFa01 >= 3))
+ndf3=subset(rdf,(BaFa01<150 & BaFa01 >= 20))
+ndf4=subset(rdf,(BaFa01>=150))
+ndf5=subset(rdf,(BaFa01<1 & BaFa01 >= 1/3))
+ndf6=subset(rdf,(BaFa01<1/3 & BaFa01 >= 1/20))
+ndf7=subset(rdf,(BaFa01<1/20 & BaFa01 >= 1/150))
+ndf8=subset(rdf,(BaFa01<1/150))
 
+if(length(ndf1$x)>0){
+  ndf1$Interpretation="Evidence against H1 is not worth more than a bare mention"}
+if(length(ndf2$x)>0){
+  ndf2$Interpretation="Evidence against H1 is positive"}
+if(length(ndf3$x)>0){
+  ndf3$Interpretation="Evidence against H1 is strong"}
+if(length(ndf4$x)>0){
+  ndf4$Interpretation="Evidence against H1 is very strong"}
+if(length(ndf5$x)>0){
+  ndf5$Interpretation="Evidence against H0 is not worth more than a bare mention"}
+if(length(ndf6$x)>0){
+  ndf6$Interpretation="Evidence against H0 is positive"}
+if(length(ndf7$x)>0){
+  ndf7$Interpretation="Evidence against H0 is strong"}
+if(length(ndf8$x)>0){
+  ndf8$Interpretation="Evidence against H0 is very strong"}
+cbdf=rbind(ndf1,ndf2,ndf3,ndf4,ndf5,ndf6,ndf7,ndf8)
+ndf=cbdf[order(cbdf$x),]
+row.names(ndf)<-NULL
+return(ndf)
 }
 ######################################################################################################
 #' Bayesain Hypothesis testing : Hypothesis 6: Theta < Theta1 Vs Theta > Theta2
@@ -290,23 +490,34 @@ return(data.frame(x,BaFa01))
 #' @details  Computes Bayes factor under Beta-Binomial model for the
 #' model: \eqn{p < p1} Vs \eqn{p > p2} from the given number of trials \code{n} and for all number
 #' of successes \eqn{x = 0, 1, 2......n }
+#' We use the following guideline for reporting the results:
+#' \itemize{
+#' \item  1/3 <= BaFa01 < 1: Evidence against H0 is not worth more than a bare mention.
+#' \item  1/20 <= BaFa01 < 1/3: Evidence against H0 is positive.
+#' \item  1/150 <= BaFa01 < 1/20: Evidence against H0 is strong.
+#' \item  BaFa10 < 1/150: Evidence against H0 is very strong.
+#' \item  1 <= BaFa01 < 3: Evidence against H1 is not worth more than a bare mention.
+#' \item  3 <= BaFa01 < 20: Evidence against H1 is positive.
+#' \item  20 <= BaFa01 < 150: Evidence against H1 is strong.
+#' \item  150 <= BaFa01: Evidence against H1 is very strong.}
 #' @return A dataframe with
 #'  \item{x}{ Number of successes}
-#'  \item{BaFa12}{ Bayesian Factor}
+#'  \item{BaFa01}{ Bayesian Factor}
 #' @family Hypothesis testing
 #' @examples
-#' n=1;th1=0.5; a1=1; b1=1; th2=0.9; a2=0.5; b2=0.5
+#' n=10;th1=0.1; a1=1; b1=1; th2=0.9; a2=0.5; b2=0.5
 #' hypotestBAF6(n,th1,a1,b1,th2,a2,b2)
 #' @references
 #' [1] 2006  Ghosh M, Delampady M and Samanta T.
 #' An introduction to Bayesian analysis: Theory and Methods.
 #' Springer, New York
+#'
 #' [2] 2014 Sakthivel S, Subbiah M and Ramakrishnan R
 #' Default prior approach for Bayesian testing of hypotheses involving single binomial proportion
 #' International Journal of Statistics and Analysis, 4 (2), 139 - 153
 #' @export
 #####Hypothesis 6: Theta < Theta1  Vs  Theta > Theta2
-hypotestBAF6<-function(n,th1,a1,b1,th2,a2,b2)	#n:No of trials, th1,th2:#Hypothetical parameter,ai,bi,Priors for hypothesis Hi (i:1,2)
+hypotestBAF6<-function(n,th1,a1,b1,th2,a2,b2)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(th1)) stop("'th1' is missing")
@@ -325,7 +536,7 @@ hypotestBAF6<-function(n,th1,a1,b1,th2,a2,b2)	#n:No of trials, th1,th2:#Hypothet
 
 x=0:n
 k=n+1
-BaFa12=0
+BaFa01=0
 t1=0
 t2=0
 
@@ -339,8 +550,36 @@ bet2=function(p) dbeta(p,shape1=x[i]+a2,shape2=n-x[i]+b2)
 t1[i]=integrate(bet1,0,th1)$value
 t2[i]=integrate(bet2,th2,1)$value
 
-BaFa12[i]=t1[i]/t2[i]
+BaFa01[i]=t1[i]/t2[i]
 }
-return(data.frame(x,BaFa12))
+rdf=data.frame(x,BaFa01)
+ndf1=subset(rdf,(BaFa01<3 & BaFa01 >= 1))
+ndf2=subset(rdf,(BaFa01<20 & BaFa01 >= 3))
+ndf3=subset(rdf,(BaFa01<150 & BaFa01 >= 20))
+ndf4=subset(rdf,(BaFa01>=150))
+ndf5=subset(rdf,(BaFa01<1 & BaFa01 >= 1/3))
+ndf6=subset(rdf,(BaFa01<1/3 & BaFa01 >= 1/20))
+ndf7=subset(rdf,(BaFa01<1/20 & BaFa01 >= 1/150))
+ndf8=subset(rdf,(BaFa01<1/150))
 
+if(length(ndf1$x)>0){
+  ndf1$Interpretation="Evidence against H1 is not worth more than a bare mention"}
+if(length(ndf2$x)>0){
+  ndf2$Interpretation="Evidence against H1 is positive"}
+if(length(ndf3$x)>0){
+  ndf3$Interpretation="Evidence against H1 is strong"}
+if(length(ndf4$x)>0){
+  ndf4$Interpretation="Evidence against H1 is very strong"}
+if(length(ndf5$x)>0){
+  ndf5$Interpretation="Evidence against H0 is not worth more than a bare mention"}
+if(length(ndf6$x)>0){
+  ndf6$Interpretation="Evidence against H0 is positive"}
+if(length(ndf7$x)>0){
+  ndf7$Interpretation="Evidence against H0 is strong"}
+if(length(ndf8$x)>0){
+  ndf8$Interpretation="Evidence against H0 is very strong"}
+cbdf=rbind(ndf1,ndf2,ndf3,ndf4,ndf5,ndf6,ndf7,ndf8)
+ndf=cbdf[order(cbdf$x),]
+row.names(ndf)<-NULL
+return(ndf)
 }

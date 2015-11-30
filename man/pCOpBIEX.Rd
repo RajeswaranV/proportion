@@ -2,7 +2,7 @@
 % Please edit documentation in R/401.p-Confidence_p-Bias_BASE_All.R
 \name{pCOpBIEX}
 \alias{pCOpBIEX}
-\title{Exact method for p-confidence and p-bias for a given n and alpha level}
+\title{p-confidence and p-bias for  Exact method given n and alpha level}
 \usage{
 pCOpBIEX(n, alp, e)
 }
@@ -22,7 +22,7 @@ A dataframe with
  \item{e }{- Exact method input}
 }
 \description{
-Exact method for p-confidence and p-bias for a given n and alpha level
+p-confidence and p-bias for  Exact method given n and alpha level
 }
 \details{
 Evaluation of Confidence interval for \code{p} based on inverting equal-tailed binomial tests with null hypothesis \eqn{H0: p = p0} using p-confidence and p-bias for the \eqn{n + 1} intervals

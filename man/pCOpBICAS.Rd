@@ -2,7 +2,7 @@
 % Please edit documentation in R/421.p-Confidence_p-Bias_CC_All.R
 \name{pCOpBICAS}
 \alias{pCOpBICAS}
-\title{Performs Continuity corrected ArcSine method for p-Confidence and p-Bias estimation}
+\title{p-Confidence and p-Bias estimation for continuity corrected ArcSine method}
 \usage{
 pCOpBICAS(n, alp, c)
 }
@@ -14,16 +14,16 @@ pCOpBICAS(n, alp, c)
 \item{c}{- Continuity correction}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x1}{  Number of successes (positive samples)}
  \item{pconf }{   p-Confidence}
  \item{pbias }{   p-Bias}
 }
 \description{
-Performs Continuity corrected ArcSine method for p-Confidence and p-Bias estimation
+p-Confidence and p-Bias estimation for continuity corrected ArcSine method
 }
 \details{
-Evaluation of continuity corrected Wald-type interval for the arcsine 
+Evaluation of continuity corrected Wald-type interval for the arcsine
 transformation of the parameter \code{p} using p-confidence and p-bias for the  \eqn{n + 1} intervals
 }
 \examples{
@@ -31,8 +31,8 @@ n=5; alp=0.05;c=1/(2*n)
 pCOpBICAS(n,alp,c)
 }
 \references{
-[1] 2005 Vos PW and Hudson S. 
-Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+[1] 2005 Vos PW and Hudson S.
+Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 The American Statistician: 59; 137 - 142.
 }
 \seealso{

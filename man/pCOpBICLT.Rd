@@ -2,7 +2,7 @@
 % Please edit documentation in R/421.p-Confidence_p-Bias_CC_All.R
 \name{pCOpBICLT}
 \alias{pCOpBICLT}
-\title{Performs Continuity corrected Logit Wald method for p-Confidence and p-Bias estimation}
+\title{p-Confidence and p-Bias estimation for continuity corrected Logit Wald method}
 \usage{
 pCOpBICLT(n, alp, c)
 }
@@ -14,16 +14,16 @@ pCOpBICLT(n, alp, c)
 \item{c}{- Continuity correction}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x1}{  Number of successes (positive samples)}
  \item{pconf }{   p-Confidence}
  \item{pbias }{   p-Bias}
 }
 \description{
-Performs Continuity corrected Logit Wald method for p-Confidence and p-Bias estimation
+p-Confidence and p-Bias estimation for continuity corrected Logit Wald method
 }
 \details{
-Evaluation of continuity corrected Wald-type interval based on the logit 
+Evaluation of continuity corrected Wald-type interval based on the logit
 transformation of \code{p} using p-confidence and p-bias for the \eqn{n + 1} intervals
 }
 \examples{
@@ -31,8 +31,8 @@ n=5; alp=0.05;c=1/(2*n)
 pCOpBICLT(n,alp,c)
 }
 \references{
-[1] 2005 Vos PW and Hudson S. 
-Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+[1] 2005 Vos PW and Hudson S.
+Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 The American Statistician: 59; 137 - 142.
 }
 \seealso{

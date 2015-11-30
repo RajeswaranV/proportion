@@ -10,7 +10,7 @@
 #' PlotciCAll(n,alp,c)
 #' @export
 #7. Plot all CC methods
-PlotciCAll<-function(n,alp,c) #n:No of trials,alp:signi level
+PlotciCAll<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -56,11 +56,11 @@ PlotciCAll<-function(n,alp,c) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
       ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -87,7 +87,7 @@ PlotciCAll<-function(n,alp,c) #n:No of trials,alp:signi level
 #' PlotciCAllg(n,alp,c)
 #' @export
 #8.All methods plots with grouping
-PlotciCAllg<-function(n,alp,c) #n:No of trials,alp:signi level
+PlotciCAllg<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -135,11 +135,11 @@ PlotciCAllg<-function(n,alp,c) #n:No of trials,alp:signi level
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))                # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
       oo=  ggplot2::ggplot()+
@@ -169,11 +169,11 @@ PlotciCAllg<-function(n,alp,c) #n:No of trials,alp:signi level
                                 width = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
-                                         group = Abberation,shape=Abberation),   # Shape depends on cond
+                                         group = Abberation,shape=Abberation),
                             size = 4, fill = "red") +
         ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red", "black", "orange","brown")) +
         ggplot2::scale_colour_manual(values=c("brown", "black", "blue", "cyan4", "red", "orange")) +
-        ggplot2::scale_shape_manual(values=c(21,22,23))    +              # Change shapes
+        ggplot2::scale_shape_manual(values=c(21,22,23))    +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
@@ -206,7 +206,7 @@ PlotciCAllg<-function(n,alp,c) #n:No of trials,alp:signi level
 #' PlotciCWD(n,alp,c)
 #' @export
 #7. Plot all CC methods
-PlotciCWD<-function(n,alp,c) #n:No of trials,alp:signi level
+PlotciCWD<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -254,9 +254,9 @@ PlotciCWD<-function(n,alp,c) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -284,7 +284,7 @@ PlotciCWD<-function(n,alp,c) #n:No of trials,alp:signi level
 #' n=5; alp=0.05;c=1/(2*n)
 #' PlotciCAS(n,alp,c)
 #' @export
-PlotciCAS<-function(n,alp,c) #n:No of trials,alp:signi level
+PlotciCAS<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -331,9 +331,9 @@ PlotciCAS<-function(n,alp,c) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -362,7 +362,7 @@ PlotciCAS<-function(n,alp,c) #n:No of trials,alp:signi level
 #' PlotciCSC(n,alp,c)
 #' @export
 #7. Plot all CC methods
-PlotciCSC<-function(n,alp,c) #n:No of trials,alp:signi level
+PlotciCSC<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -409,9 +409,9 @@ PlotciCSC<-function(n,alp,c) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -440,7 +440,7 @@ PlotciCSC<-function(n,alp,c) #n:No of trials,alp:signi level
 #' PlotciCLT(n,alp,c)
 #' @export
 #7. Plot all CC methods
-PlotciCLT<-function(n,alp,c) #n:No of trials,alp:signi level
+PlotciCLT<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -487,9 +487,9 @@ PlotciCLT<-function(n,alp,c) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+
@@ -518,7 +518,7 @@ PlotciCLT<-function(n,alp,c) #n:No of trials,alp:signi level
 #' PlotciCTW(n,alp,c)
 #' @export
 #7. Plot all CC methods
-PlotciCTW<-function(n,alp,c) #n:No of trials,alp:signi level
+PlotciCTW<-function(n,alp,c)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -566,9 +566,9 @@ PlotciCTW<-function(n,alp,c) #n:No of trials,alp:signi level
                               width = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
-                                       group = Abberation,shape=Abberation),   # Shape depends on cond
+                                       group = Abberation,shape=Abberation),
                           size = 4, fill = "red") +
-      ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
+      ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
     oo=  ggplot2::ggplot()+

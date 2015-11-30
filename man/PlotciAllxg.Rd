@@ -20,7 +20,7 @@ Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logi
 Plots of the Confidence Interval of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp} and \code{x} grouped by x
 }
 \examples{
-x=5; n=5; alp=0.5;
+x=5; n=5; alp=0.05;
 PlotciAllxg(x,n,alp)
 }
 \seealso{

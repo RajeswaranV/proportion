@@ -2,7 +2,7 @@
 % Please edit documentation in R/423.p-Confidence_p-Bias_GENERAL.R
 \name{PlotpCOpBIGEN}
 \alias{PlotpCOpBIGEN}
-\title{Plots the general method output of p-Confidence and p-Bias estimation}
+\title{Plots p-Confidence and p-Bias estimation for general method}
 \usage{
 PlotpCOpBIGEN(n, LL, UL)
 }
@@ -14,7 +14,7 @@ PlotpCOpBIGEN(n, LL, UL)
 \item{UL}{- Upper limit}
 }
 \description{
-Plots the general method output of p-Confidence and p-Bias estimation
+Plots p-Confidence and p-Bias estimation for general method
 }
 \details{
 Plot of the general method - intervals obtained from any method using

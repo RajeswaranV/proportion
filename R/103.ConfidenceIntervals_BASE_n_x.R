@@ -51,7 +51,7 @@
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #1.WALD
-ciWDx<-function(x,n,alp) #x:No of Successes, n:No of trials,alp:signi level
+ciWDx<-function(x,n,alp)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -130,7 +130,7 @@ return(data.frame(x,LWDx,UWDx,LABB,UABB,ZWI))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #2.SCORE
-ciSCx<-function(x,n,alp) #x: No. of Successes, n:No of trials,alp:signi level
+ciSCx<-function(x,n,alp)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -214,7 +214,7 @@ return(data.frame(x,LSCx,USCx,LABB,UABB,ZWI))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #3.ARCSINE
-ciASx<-function(x,n,alp) ##x:No of Success,n:No of trials,alp:signi level
+ciASx<-function(x,n,alp)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -295,7 +295,7 @@ return(data.frame(x,LASx,UASx,LABB,UABB,ZWI))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #4.LIKELIHOOD RATIO
-ciLRx<-function(x,n,alp) #x:No of Success, n:No of trials,alp:signi level
+ciLRx<-function(x,n,alp)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -515,7 +515,7 @@ exlim103u=function(x,n,alp,e)
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #6.WALD-T
-ciTWx<-function(x,n,alp) #x: No of success,n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+ciTWx<-function(x,n,alp)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -558,14 +558,14 @@ return(data.frame(x,LTWx,UTWx,LABB,UABB,ZWI))
 #' @param alp - Alpha value (significance level required)
 #' @details  Wald-type interval for all the given \code{x} and \code{n}
 #' based on the logit transformation of \code{p};
-#' that is that is normal approximation for \eqn{log(p/1-p)}
+#' that is normal approximation for \eqn{log(p/1-p)}
 #' @return A dataframe with
-##'  \item{x }{- Number of successes (positive samples)}
-##'  \item{LLTx }{ - Logit Wald Lower limit}
-##'  \item{ULTx }{ - Logit Wald Upper Limit}
-##'  \item{LABB }{ - Logit Wald Lower Abberation}
-##'  \item{UABB }{ - Logit Wald Upper Abberation}
-##'  \item{ZWI }{ - Zero Width Interval}
+#'  \item{x }{- Number of successes (positive samples)}
+#'  \item{LLTx }{ - Logit Wald Lower limit}
+#'  \item{ULTx }{ - Logit Wald Upper Limit}
+#'  \item{LABB }{ - Logit Wald Lower Abberation}
+#'  \item{UABB }{ - Logit Wald Upper Abberation}
+#'  \item{ZWI }{ - Zero Width Interval}
 #' @family Base methods of CI estimation given x & n
 #' @seealso \code{\link{prop.test} and \link{binom.test}} for equivalent base Stats R functionality,
 #'    \code{\link[binom]{binom.confint}}  provides similar functionality for 11 methods,
@@ -605,7 +605,7 @@ return(data.frame(x,LTWx,UTWx,LABB,UABB,ZWI))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #7.LOGIT-WALD
-ciLTx<-function(x,n,alp) #x: No of success,n:No of trials,alp:sign level
+ciLTx<-function(x,n,alp)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -719,7 +719,7 @@ return(data.frame(x,LLTx,ULTx,LABB,UABB,ZWI))
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 #8. BAYESIAN
-ciBAx<-function(x,n,alp,a,b) #n:No of trials,alp:signi level
+ciBAx<-function(x,n,alp,a,b)
 {
   if (missing(x)) stop("'x' is missing")
   if (missing(n)) stop("'n' is missing")
@@ -756,7 +756,7 @@ BAdfx=data.frame(x,LBAQx,UBAQx,LBAHx,UBAHx)
 return(BAdfx)
 }
 #######################################################################
-ciBADx<-function(x,n,alp,a,b) #n:No of trials,alp:signi level
+ciBADx<-function(x,n,alp,a,b)
 {
 
   k=n+1

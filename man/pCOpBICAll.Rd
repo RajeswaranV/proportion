@@ -14,7 +14,7 @@ pCOpBICAll(n, alp, c)
 \item{c}{- Continuity correction}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x1}{  Number of successes (positive samples)}
  \item{pconf }{   p-Confidence}
  \item{pbias }{   p-Bias}
@@ -31,8 +31,8 @@ n=5; alp=0.05;c=1/(2*n)
 pCOpBICAll(n,alp,c)
 }
 \references{
-[1] 2005 Vos PW and Hudson S. 
-Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length. 
+[1] 2005 Vos PW and Hudson S.
+Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Length.
 The American Statistician: 59; 137 - 142.
 }
 \seealso{

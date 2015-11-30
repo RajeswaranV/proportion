@@ -10,8 +10,8 @@
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of base methods
 #' @examples
 #' n=5; alp=0.05;a=1;b=1
@@ -46,7 +46,7 @@
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 1.WALD sum of length for a given n and alpha level
-lengthWD<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+lengthWD<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -101,8 +101,8 @@ sumLen=sum(LEW)
 explMean=mean(ewW)
 explSD=sd(ewW)
 explMax=max(ewW)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -118,8 +118,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of base methods
 #' @examples
 #' n=5; alp=0.05;a=1;b=1
@@ -212,8 +212,8 @@ sumLen=sum(LES)
 explMean=mean(ewS)
 explSD=sd(ewS)
 explMax=max(ewS)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -230,8 +230,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of base methods
 #' @examples
 #' n=5; alp=0.05;a=1;b=1
@@ -321,8 +321,8 @@ sumLen=sum(LEA)
 explMean=mean(ewA)
 explSD=sd(ewA)
 explMax=max(ewA)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -340,8 +340,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of base methods
 #' @examples
 #' n=5; alp=0.05;a=1;b=1
@@ -376,7 +376,7 @@ return(df.Summary)
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 4.LOGIT-WALD - sum of length for a given n and alpha level
-lengthLT<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
+lengthLT<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -446,8 +446,8 @@ sumLen=sum(LELT)
 explMean=mean(ewLT)
 explSD=sd(ewLT)
 explMax=max(ewLT)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -465,8 +465,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of base methods
 #' @examples
 #' n=5; alp=0.05;a=1;b=1
@@ -501,8 +501,7 @@ return(df.Summary)
 #' Journal of Applied Statistics, 41, 7, 1516-1529
 #' @export
 ##### 5.t-WALD - sum of length for a given n and alpha level
-lengthTW<-function(n,alp,a,b) #n:No of trials,alp:sign level,a&b beta parameters for hypo "p'
-
+lengthTW<-function(n,alp,a,b)
 {
   if (missing(n)) stop("'n' is missing")
   if (missing(alp)) stop("'alpha' is missing")
@@ -567,8 +566,8 @@ sumLen=sum(LETW)
 explMean=mean(ewTW)
 explSD=sd(ewTW)
 explMax=max(ewTW)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -585,8 +584,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of base methods
 #' @examples
 #' n=5; alp=0.05;a=1;b=1
@@ -674,8 +673,8 @@ sumLen=sum(LEL)
 explMean=mean(ewL)
 explSD=sd(ewL)
 explMax=max(ewL)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL)
 return(df.Summary)
 }
@@ -694,8 +693,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #' @family Expected length  of base methods
 #' @examples
 #' \dontrun{
@@ -804,8 +803,8 @@ sumLen=sum(LEEX)
 explMean=mean(ewEX)
 explSD=sd(ewEX)
 explMax=max(ewEX)
-explLL=explMean-(2*explSD)
-explUL=explMean+(2*explSD)
+explLL=explMean-(explSD)
+explUL=explMean+(explSD)
 df.Summary=data.frame(sumLen,explMean,explSD,explMax,explLL,explUL,e)
 return(df.Summary)
 }
@@ -844,8 +843,8 @@ exlim301u=function(x,n,alp,e)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #'  \item{method}{  The method used - Quantile and HPD}
 #' @family Expected length  of base methods
 #' @examples
@@ -944,8 +943,8 @@ sumLenBAQ=sum(LEBAQ)
 explMeanBAQ=mean(ewBAQ)
 explSDBAQ=sd(ewBAQ)
 explMaxBAQ=max(ewBAQ)
-explLLBAQ=explMeanBAQ-(2*explSDBAQ)
-explULBAQ=explMeanBAQ+(2*explSDBAQ)
+explLLBAQ=explMeanBAQ-(explSDBAQ)
+explULBAQ=explMeanBAQ+(explSDBAQ)
 df.SummaryBAQ=data.frame(sumLen=sumLenBAQ,explMean=explMeanBAQ,
                           explSD=explSDBAQ,explMax=explMaxBAQ,
                           explLL=explLLBAQ,explUL=explULBAQ,method="Quantile")
@@ -954,8 +953,8 @@ sumLenBAH=sum(LEBAH)
 explMeanBAH=mean(ewBAH)
 explSDBAH=sd(ewBAH)
 explMaxBAH=max(ewBAH)
-explLLBAH=explMeanBAH-(2*explSDBAH)
-explULBAH=explMeanBAH+(2*explSDBAH)
+explLLBAH=explMeanBAH-(explSDBAH)
+explULBAH=explMeanBAH+(explSDBAH)
 df.SummaryBAH=data.frame(sumLen=sumLenBAH,explMean=explMeanBAH,
                           explSD=explSDBAH,explMax=explMaxBAH,
                           explLL=explLLBAH,explUL=explULBAH,method="HPD")
@@ -974,8 +973,8 @@ return(df.Summary)
 #'  \item{explMean}{  The mean of the expected length}
 #'  \item{explSD}{  The Standard Deviation of the expected length}
 #'  \item{explMax}{  The max of the expected length}
-#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - 2*SD}
-#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + 2*SD}
+#'  \item{explLL}{  The Lower limit of the expected length calculated using mean - SD}
+#'  \item{explUL}{  The Upper limit of the expected length calculated using mean + SD}
 #'  \item{method}{  The name of the method}
 #' @family Expected length  of base methods
 #' @examples

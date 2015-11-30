@@ -1,0 +1,25 @@
+---
+title: "htmltable"
+output: pdf_document
+---
+
+```{r, echo=FALSE, results='asis'}
+library(printr) 
+
+Plot.Functions = matrix( c("PlotciAS","","PlotciAAS","","PlotciCAS","","PlotcovpAS","PlotcovpAAS","PlotcovpCAS","PlotlengthAS","PlotexplAS","PlotlengthAAS","PlotexplAAS","PlotlengthCAS","PlotexplCAS","PlotpCOpBIAS","PlotpCOpBIAAS","PlotpCOpBICAS","PloterrAS","PloterrAAS","PloterrCAS",
+"PlotciLR","","PlotciALR","","","","PlotcovpLR","PlotcovpALR","","PlotlengthLR","PlotexplLR","PlotlengthALR","PlotexplALR","","","PlotpCOpBILR","PlotpCOpBIALR","","PloterrLR","PloterrALR","",
+"PlotciLT","","PlotciALT","","PlotciCLT","","PlotcovpLT","PlotcovpALT","PlotcovpCLT","PlotlengthLT","PlotexplLT","PlotlengthALT","PlotexplALT","PlotlengthCLT","PlotexplCLT","PlotpCOpBILT","PlotpCOpBIALT","PlotpCOpBICLT","PloterrLT","PloterrALT","PloterrCLT",
+"PlotciSC","","PlotciASC","","PlotciCSC","","PlotcovpSC","PlotcovpASC","PlotcovpCSC","PlotlengthSC","PlotexplSC","PlotlengthASC","PlotexplASC","PlotlengthCSC","PlotexplCSC","PlotpCOpBISC","PlotpCOpBIASC","PlotpCOpBICSC","PloterrSC","PloterrASC","PloterrCSC",
+"PlotciTW","","PlotciATW","","PlotciCTW","","PlotcovpTW","PlotcovpATW","PlotcovpCTW","PlotlengthTW","PlotexplTW","PlotlengthATW","PlotexplATW","PlotlengthCTW","PlotexplCTW","PlotpCOpBITW","PlotpCOpBIATW","PlotpCOpBICTW","PloterrTW","PloterrATW","PloterrCTW",
+"PlotciWD","","PlotciAWD","","PlotciCWD","","PlotcovpWD","PlotcovpAWD","PlotcovpCWD","PlotlengthWD","PlotexplWD","PlotlengthAWD","PlotexplAWD","PlotlengthCWD","PlotexplCWD","PlotpCOpBIWD","PlotpCOpBIAWD","PlotpCOpBICWD","PloterrWD","PloterrAWD","PloterrCWD",
+"PlotciAllg","PlotciAllxg","PlotciAAllg","PlotciAAllxg","PlotciCAllg","PlotciCAllxg","","","","","","","","","","","","","","","",
+"PlotciAll","PlotciAllx","PlotciAAll","PlotciAAllx","PlotciCAll","PlotciCAllx","PlotcovpAll","PlotcovpAAll","PlotcovpCAll","PlotlengthAll","PlotexplAll","PlotlengthAAll","PlotexplAAll","PlotlengthCAll","PlotexplCAll","PlotpCOpBIAll","PlotpCOpBIAAll","PlotpCOpBICAll","PloterrAll","PloterrAAll","PloterrCAll",
+"PlotciBA","","","","","","PlotcovpBA","","","PlotlengthBA","PlotexplBA","","","","","PlotpCOpBIBA","","","PloterrBA","","",
+"PlotciEX","PlotciEXx","","","","","PlotcovpEX","","","PlotlengthEX","PlotexplEX","","","","","PlotpCOpBIEX","","","PloterrEX","",""),byrow=TRUE, nrow=10,  ncol=21)
+
+
+colnames(Plot.Functions)=c("ci","cix","ci-Adjusted","ciAx","ci-Continuity corrected","ciCx","covp","covpA","covpC","length","EL","Alength","AEL","Clength","CEL","pcpb","pcpbA","pcpbC","error","errorA","errorC")
+rownames(Plot.Functions)=c("ArcSine", "LR","Logit","Score","Wald-T","Wald","All","Allg","Bayes","Exact")
+
+knitr::kable(Plot.Functions)
+```
