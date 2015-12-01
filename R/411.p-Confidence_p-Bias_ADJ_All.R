@@ -296,6 +296,7 @@ x1=1:(n-1)
 p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
+
 #####################################################################################################################################
 #' p-Confidence and p-Bias estimation for adjusted  Wald-T method
 #' @param n - Number of trials
@@ -401,7 +402,7 @@ pCOpBIALR<-function(n,alp,h)
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || !(h%%1 ==0)) stop("'h' has to be an integer greater than or equal to 0")
 
 ####INPUT n
 y=0:n
@@ -475,7 +476,7 @@ pCOpBIAAll<-function(n,alp,h)
   if (missing(h)) stop("'h' is missing")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
-  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || is.integer(h)) stop("'h' has to be an integer greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || !(h%%1 ==0)) stop("'h' has to be an integer greater than or equal to 0")
 
   #### Calling functions and creating df
   WaldpCB.df    = pCOpBIAWD(n,alp,h)

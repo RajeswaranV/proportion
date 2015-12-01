@@ -4,7 +4,7 @@ author: "M.Subbiah, V.Rajeswaran"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{proportion}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -242,32 +242,6 @@ Tables
 ======
  
 You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-library(xtable)
-Nu.Functions = matrix( 
-   c("ciAS","ciASx","ciAAS","ciAASx","ciCAS","ciCASx","covpAS","covpAAS","covpCAS","lengthAS","lengthAAS","lengthCAS","pCOpBIAS","pCOpBIAAS","pCOpBICAS","errAS","errAAS","errCAS",
-"ciLR","ciLRx","ciALR","ciALRx","","","covpLR","covpALR","","lengthLR","lengthALR","","pCOpBILR","pCOpBIALR","","errLR","errALR","",
-"ciLT","ciLTx","ciALT","ciALTx","ciCLT","ciCLTx","covpLT","covpALT","covpCLT","lengthLT","lengthALT","lengthCLT","pCOpBILT","pCOpBIALT","pCOpBICLT","errLT","errALT","errCLT",
-"ciSC","ciSCx","ciASC","ciASCx","ciCSC","ciCSCx","covpSC","covpASC","covpCSC","lengthSC","lengthASC","lengthCSC","pCOpBISC","pCOpBIASC","pCOpBICSC","errSC","errASC","errCSC",
-"ciTW","ciTWx","ciATW","ciATWx","ciCTW","ciCTWx","covpTW","covpATW","covpCTW","lengthTW","lengthATW","lengthCTW","pCOpBITW","pCOpBIATW","pCOpBICTW","errTW","errATW","errCTW",
-"ciWD","ciWDx","ciAWD","ciAWDx","ciCWD","ciCWDx","covpWD","covpAWD","covpCWD","lengthWD","lengthAWD","lengthCWD","pCOpBIWD","pCOpBIAWD","pCOpBICWD","errWD","errAWD","errCWD",
-"ciAll","ciAllx","ciAAll","ciAAllx","ciCAll","ciCAllx","covpAll","covpAAll","covpCAll","lengthAll","lengthAAll","lengthCAll","pCOpBIAll","pCOpBIAAll","pCOpBICAll","errAll","errAAll","errCAll",
-"ciBA","ciBAx","","","","","covpBA","","","lengthBA","","","pCOpBIBA","","","errBA","","",
-"ciEX","ciEXx","","","","","covpEX","","","lengthEX","","","pCOpBIEX","","","errEX","",""
-), 
-   byrow=TRUE,
-   nrow=9, 
-   ncol=18)
-
-colnames(Nu.Functions)=c("CI","Cix","CIA","CIAx","CIC","CICx","covp","covpA","covpC","length","Alength","Clength","pcpb","pcpbA","pcpbC","error","errorA","errorC")
-rownames(Nu.Functions)=c("ArcSine", "LR","Logit","Score","Wald-T","Wald","All","Bayes","Exact")
-col <- sprintf("Cell %d:%%d", 1:9)
-vars <- sapply(1:3, function(i) sprintf(col, i))
- 
-print(xtable(Nu.Functions, caption="An xtable example", type="html", include.rownames = TRUE))
-knitr::kable(Nu.Functions)
-```
 
 ```{r, echo=TRUE, results='asis'}
 #print(xNu)

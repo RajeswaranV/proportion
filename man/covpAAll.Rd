@@ -37,8 +37,7 @@ Coverage Probability for 6 adjusted methods
 (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \details{
-Calculates the  Coverage Probability of \code{n} given \code{alp},
-\code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} for 6 adjusted methods
+Calculates the  Coverage Probability  for 6 adjusted methods
 (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \examples{

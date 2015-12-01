@@ -252,7 +252,7 @@ PloterrALR<-function(n,alp,h,phi,f)
   if (missing(f)) stop("'f' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  || !(h%%1 ==0)) stop("'h' has to be an integer greater than or equal to 0")
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
   method=value=Fail_Pass=NULL
@@ -299,11 +299,10 @@ PloterrAAll<-function(n,alp,h,phi,f)
   if (missing(f)) stop("'f' is missing")
   if ((class(n) != "integer") & (class(n) != "numeric") || n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if ((class(h) != "integer") & (class(h) != "numeric") || h<0  ) stop("'h' has to be greater than or equal to 0")
+  if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0 || !(h%%1 ==0)) stop("'h' has to be an integer greater than or equal to 0")
   if (phi>1 || phi<0) stop("Null hypothesis 'phi' has to be between 0 and 1")
   if ((class(f) != "integer") & (class(f) != "numeric")) stop("'f' has to be numeric value")
   method=value=Fail_Pass=NULL
-
 
   #### Calling functions and creating df
   errdf=  errAAll(n,alp,h,phi,f)

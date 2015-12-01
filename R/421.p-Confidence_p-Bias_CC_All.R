@@ -300,6 +300,7 @@ x1=1:(n-1)
 p_C_B=data.frame(x1,pconf,pbias)
 return(p_C_B)
 }
+
 ####################################################################################
 #' p-Confidence and p-Bias estimation for continuity corrected Wald-T method
 #' @param n - Number of trials
