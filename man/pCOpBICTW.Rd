@@ -23,7 +23,7 @@ A dataframe with
 p-Confidence and p-Bias estimation for continuity corrected Wald-T method
 }
 \details{
-Evaluation of approximate and continuity corrected method based on a t_approximation
+Evaluation of continuity corrected Wald method based on a t_approximation
 of the standardized point estimator using p-confidence and p-bias for the \eqn{n + 1} intervals
 }
 \examples{

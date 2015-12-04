@@ -439,7 +439,7 @@ ciCAllx<-function(x,n,alp,c)
 
   WaldCI.df$method    = as.factor("Wald")
   ArcSineCI.df$method = as.factor("ArcSine")
-  WaldLCI.df$method   = as.factor("WaldLogit")
+  WaldLCI.df$method   = as.factor("Logit Wald")
   ScoreCI.df$method   = as.factor("Score")
   WaldTCI.df$method   = as.factor("Wald-T")
 

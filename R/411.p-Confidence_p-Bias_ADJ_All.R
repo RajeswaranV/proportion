@@ -302,7 +302,7 @@ return(p_C_B)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
-#' @details  Evaluation of approximate and continuity corrected method based on a t_approximation
+#' @details  Evaluation of approximate Wald method based on a t_approximation
 #' of the standardized point estimator using p-confidence and p-bias for the \eqn{n + 1} intervals
 #' @return A dataframe with
 #'  \item{x1}{  Number of successes (positive samples)}

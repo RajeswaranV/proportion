@@ -21,10 +21,19 @@
 #' @section Proportion function naming convention:
 #' The general guideline for finding functions are given below:
 #' \itemize{
-#' \item Short names AS - ArcSine, LR - Likelihood Ratio, LT - Logit Wald,
+#' \item Short names for concepts: ci - Confidence Interval, covp - Coverage Probability,
+#' expl - Expected length (simulation), length - Sum of length, pCOpBI - p-Confidence and p-Bias,
+#' err - Error and long term power
+#' \item Short names for methods: AS - ArcSine, LR - Likelihood Ratio, LT - Logit Wald,
 #' SC - Score (also know as Wilson), TW - Wald-T, WD - Wald, BA - Bayesian and
 #' EX - Exact (if you set e=0.5 you get mid-p, if e=1 you get Clopper Pearson)
-#' \item For generic functions BaFa - Bayesian Factor, SIM - Simulation, GEN - Generic
+#' \item For adjusted methods "A" is added to the function name while "C" will be added if it is
+#' continuity corrected.
+#' \item For generic functions BAF - Bayesian Factor, SIM - Simulation, GEN - Generic, PRE - Predicted,
+#' POS - Posterior
+#' \item Combining the above you should be able to identify the function. For example,
+#' function for coverage probability (covp) using ArcSine (AS) method will be covpAS(). If we need
+#' the adjusted coverage probability (covp) using ArcSine (AS) method, then it will be covpAAS().
 #' \item	Wherever possible, results are consolidated for all
 #' \code{x (0,1...n)} and specific \code{x}
 #' (function name succeeds with \code{x}). For example, if we run \code{ciAS(n=5, alp=0.05)}
