@@ -108,6 +108,7 @@
 #' [12] 2008 Tuyl F, Gerlach R and Mengersen K .
 #' A comparison of Bayes-Laplace, Jeffreys, and Other Priors: The case of zero events.
 #' The American Statistician: 62; 40 - 44.
+#' @import stats
 #' @name A package for binomial proportion
 NULL
 #> NULL
