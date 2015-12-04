@@ -1,5 +1,5 @@
 #####################################################################################
-#' Plots the CI estimation of the exact method given n, alp and x
+#' Plots the CI estimation of the exact method
 #' @param n - Number of trials
 #' @param x - Number of sucess
 #' @param alp - Alpha value (significance level required)
@@ -98,7 +98,7 @@ PlotciEXx<-function(x,n,alp,e)
 }
 
 #####################################################################################
-#' Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given n, alp and x
+#' Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param x - Number of sucess
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
@@ -174,7 +174,7 @@ PlotciAllx<-function(x,n,alp)
   oo
 }
 #############################################
-#' Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  given x & n grouped by x value
+#' Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x value
 #' @param x - Number of sucess
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
@@ -223,7 +223,7 @@ PlotciAllxg<-function(x,n,alp)
   if((max(as.numeric(unique(ss$method)))-nrow(ss))==0){
     if(nrow(ldf)>0){
       oo= ggplot2::ggplot()+
-        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation given x & n sorted by x") +
+        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
                                 ggplot2::aes(x = UpperLimit,y = ID,
@@ -241,7 +241,7 @@ PlotciAllxg<-function(x,n,alp)
     }
     else {
       oo=  ggplot2::ggplot()+
-        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation given x & n sorted by x") +
+        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
                                 ggplot2::aes(x = UpperLimit,y = ID,
@@ -257,7 +257,7 @@ PlotciAllxg<-function(x,n,alp)
 
     if(nrow(ldf)>0){
       oo= ggplot2::ggplot()+
-        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation given x & n sorted by x") +
+        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
                                 ggplot2::aes(x = UpperLimit,y = ID,
@@ -277,7 +277,7 @@ PlotciAllxg<-function(x,n,alp)
     }
     else {
       oo=  ggplot2::ggplot()+
-        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation given x & n sorted by x") +
+        ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
                                 ggplot2::aes(x = UpperLimit,y = ID,

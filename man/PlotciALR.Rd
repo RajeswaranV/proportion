@@ -2,7 +2,7 @@
 % Please edit documentation in R/112.ConfidenceIntervals_ADJ_n_Graph.R
 \name{PlotciALR}
 \alias{PlotciALR}
-\title{Plot of CI estimation of adjusted Likelihood Ratio given n, alp and h}
+\title{Plot of CI estimation of adjusted Likelihood Ratio}
 \usage{
 PlotciALR(n, alp, h)
 }
@@ -14,7 +14,7 @@ PlotciALR(n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plot of CI estimation of adjusted Likelihood Ratio given n, alp and h
+Plot of CI estimation of adjusted Likelihood Ratio
 }
 \details{
 The plots of the Confidence Interval using adjusted Likelihood Ratio method for \code{n} given \code{alp} and \code{h}

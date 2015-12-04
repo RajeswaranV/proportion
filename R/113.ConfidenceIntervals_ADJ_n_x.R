@@ -506,7 +506,7 @@ ciAAllx<-function(x,n,alp,h)
 }
 #####################################################################################
 #' Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score,
-#' Logit-Wald, ArcSine) given n, alp and x
+#' Logit-Wald, ArcSine)
 #' @param x - Number of success
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
@@ -558,7 +558,7 @@ PlotciAAllx<-function(x,n,alp,h)
 
   if(nrow(ldf)>0){
     oo= ggplot2::ggplot()+
-      ggplot2::ggtitle("Confidence interval for adjusted methods given x & n") +
+      ggplot2::ggtitle("Confidence interval for adjusted methods") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::geom_errorbarh(data= ss,
                               ggplot2::aes(x = UpperLimit,y = ID,
@@ -576,7 +576,7 @@ PlotciAAllx<-function(x,n,alp,h)
   }
   else {
     oo=  ggplot2::ggplot()+
-      ggplot2::ggtitle("Confidence interval for adjusted methods given x & n") +
+      ggplot2::ggtitle("Confidence interval for adjusted methods") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::geom_errorbarh(data= ss,
                               ggplot2::aes(x = UpperLimit,y = ID,
@@ -587,7 +587,7 @@ PlotciAAllx<-function(x,n,alp,h)
   oo
 }
 #############################################
-#' Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given x & n grouped by x value
+#' Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x value
 #' @param x - Number of success
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
@@ -638,7 +638,7 @@ PlotciAAllxg<-function(x,n,alp,h)
   if((max(as.numeric(unique(ss$method)))-nrow(ss))==0){
     if(nrow(ldf)>0){
       oo= ggplot2::ggplot()+
-        ggplot2::ggtitle("Confidence interval for adjusted methods given x & n sorted by x") +
+        ggplot2::ggtitle("Confidence interval for adjusted methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
                                 ggplot2::aes(x = UpperLimit,y = ID,
@@ -656,7 +656,7 @@ PlotciAAllxg<-function(x,n,alp,h)
     }
     else {
       oo=  ggplot2::ggplot()+
-        ggplot2::ggtitle("Confidence interval for adjusted methods given x & n sorted by x") +
+        ggplot2::ggtitle("Confidence interval for adjusted methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
                                 ggplot2::aes(x = UpperLimit,y = ID,
@@ -672,7 +672,7 @@ PlotciAAllxg<-function(x,n,alp,h)
 
     if(nrow(ldf)>0){
       oo= ggplot2::ggplot()+
-        ggplot2::ggtitle("Confidence interval for adjusted methods given x & n sorted by x") +
+        ggplot2::ggtitle("Confidence interval for adjusted methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
                                 ggplot2::aes(x = UpperLimit,y = ID,

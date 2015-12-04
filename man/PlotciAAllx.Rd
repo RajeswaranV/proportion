@@ -3,7 +3,7 @@
 \name{PlotciAAllx}
 \alias{PlotciAAllx}
 \title{Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score,
-Logit-Wald, ArcSine) given n, alp and x}
+Logit-Wald, ArcSine)}
 \usage{
 PlotciAAllx(x, n, alp, h)
 }
@@ -18,7 +18,7 @@ PlotciAAllx(x, n, alp, h)
 }
 \description{
 Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score,
-Logit-Wald, ArcSine) given n, alp and x
+Logit-Wald, ArcSine)
 }
 \details{
 The plots of confidence intervals of using 6 adjusted methods

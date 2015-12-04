@@ -841,6 +841,7 @@ ciBAD<-function(n,alp,a,b)
   }
   return(data.frame(x,pomean,LBAQ,UBAQ,LBAH,UBAH))
 }
+
 #####################################################################################
 #' CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials

@@ -43,7 +43,7 @@ expl - Expected length (simulation), length - Sum of length, pCOpBI - p-Confiden
 err - Error and long term power
 \item Short names for methods: AS - ArcSine, LR - Likelihood Ratio, LT - Logit Wald,
 SC - Score (also know as Wilson), TW - Wald-T, WD - Wald, BA - Bayesian and
-EX - Exact (if you set e=0.5 you get mid-p, if e=1 you get Clopper Pearson)
+EX - Exact in general form that includes Mid-P and Clopper-Pearson.
 \item For adjusted methods "A" is added to the function name while "C" will be added if it is
 continuity corrected.
 \item For generic functions BAF - Bayesian Factor, SIM - Simulation, GEN - Generic, PRE - Predicted,

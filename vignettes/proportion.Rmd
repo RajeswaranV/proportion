@@ -2,10 +2,14 @@
 title: "Proportion"
 author: "M.Subbiah, V.Rajeswaran"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output:
+  html_document:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
 vignette: >
   %\VignetteIndexEntry{proportion}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
   %\SweaveUTF8 
 ---
@@ -13,7 +17,7 @@ vignette: >
 Let x denote the number of successes in n independent Bernoulli trials with X ~ Binomial (n, p) then  $\hat p = x/n$ denotes the sample proportion. Single binomial proportion (p) has drawn appreciable research attention with theoretical, applied, and pedagogic objectives. Such interest has been intensified further when Classical, Bayesian, and Bootstrap approaches are providing candidate intervals to enrich this literature. Specifically,
 
 - M. Thulin, (2014 a, b), W. Wang (2014), B. Lecoutre and J. Poitevineau (2014), Wei Yu (2012), Zhou, X. H., Li, C.M. and Yang, Z (2008) - Aiming to improve methods methodologically
-- K. Breitung and MA. Maes (2015), AM. Andrés and MA. Hernández (2014, 2015), V. RG. Newcombe (2011), C. Damgaard and A. Fayolle (2011), Tuyl F, Gerlach R and Mengersen K (2008), Vos PW and Hudson S (2005), Reiczigel J (2003), Pires (2002) - Comparison of methods with one or two evaluation metrics
+- K. Breitung and MA. Maes (2015), AM. Andres and MA. Hernandez (2014, 2015), V. RG. Newcombe (2011), C. Damgaard and A. Fayolle (2011), Tuyl F, Gerlach R and Mengersen K (2008), Vos PW and Hudson S (2005), Reiczigel J (2003), Pires (2002) - Comparison of methods with one or two evaluation metrics
 - Pradhan, JC. Evans and T. Banerjee (2013), Newcombe RG (2007), Lewis JR and Sauro J (2006), Sauro J and Lewis JR (2005), Bolboaca S and Cadariu AA (2003), Henderson M and Meyer MC (2001) - Application in various fields and recommendations for teaching practices.
 
 This package has identified scope to collate widely or frequently used methods involved in the inferential problems regarding p and prominent procedures for comparing in terms of their performance. This includes two major statistical paradigms, Classical and Bayesian; especially, later provides a list of tools to broaden this scope.
@@ -538,7 +542,7 @@ knitr::kable(Paper1.2,caption = "Exact method CI using ciBAx(x=0,n=20,alp=0.05,e
 # 14. Paper 1
 Paper1.31=ciBAx(x=0,n=20,alp=0.05,a=2,b=2) 
 Paper1.32=ciBAx(x=0,n=20,alp=0.05,a=1,b=1) 
-Paper1.33=ciBAx(x=0,n=20,alp=0.05,a=0.05,b=0.05) 
+Paper1.33=ciBAx(x=0,n=20,alp=0.05,a=0.5,b=0.5) 
 Paper1.34=ciBAx(x=0,n=20,alp=0.05,a=0.02,b=2) 
 Paper1.31$desc = "Assuming Symmetry"
 Paper1.32$desc = "Flat"

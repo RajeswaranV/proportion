@@ -781,7 +781,7 @@ ciBADx<-function(x,n,alp,a,b)
   return(data.frame(x,LBAQx,UBAQx,LBAHx,UBAHx))
 }
 #####################################################################################
-#' CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  given x and n
+#' Specific CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param x - Number of sucess
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/112.ConfidenceIntervals_ADJ_n_Graph.R
 \name{PlotciAAll}
 \alias{PlotciAAll}
-\title{Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given n, alp and h}
+\title{Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
 \usage{
 PlotciAAll(n, alp, h)
 }
@@ -14,7 +14,7 @@ PlotciAAll(n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given n, alp and h
+Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \details{
 The plots of the Confidence Interval using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp} and \code{h}

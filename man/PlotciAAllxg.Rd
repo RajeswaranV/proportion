@@ -2,7 +2,7 @@
 % Please edit documentation in R/113.ConfidenceIntervals_ADJ_n_x.R
 \name{PlotciAAllxg}
 \alias{PlotciAAllxg}
-\title{Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given x & n grouped by x value}
+\title{Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x value}
 \usage{
 PlotciAAllxg(x, n, alp, h)
 }
@@ -16,7 +16,7 @@ PlotciAAllxg(x, n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given x & n grouped by x value
+Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x value
 }
 \details{
 The plots of confidence intervals of using 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x for \code{n} given \code{alp}, \code{x} and \code{h}

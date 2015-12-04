@@ -1,5 +1,5 @@
 #####################################################################################
-#' Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) given n, alp and h
+#' Plots the CI estimation of 6 adjusted methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -194,7 +194,7 @@ PlotciAAllg<-function(n,alp,h)
 }
 
 #####################################################################################
-#' Plot of CI estimation of adjusted Wald given n, alp and h
+#' Plot of CI estimation of adjusted Wald
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -271,7 +271,7 @@ PlotciAWD<-function(n,alp,h)
 }
 
 #####################################################################################
-#' Plot of CI estimation of adjusted ArcSine given n, alp and h
+#' Plot of CI estimation of adjusted ArcSine
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -349,7 +349,7 @@ PlotciAAS<-function(n,alp,h)
 }
 
 #####################################################################################
-#' Plot of CI estimation of adjusted Likelihood Ratio given n, alp and h
+#' Plot of CI estimation of adjusted Likelihood Ratio
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -427,7 +427,7 @@ PlotciALR<-function(n,alp,h)
 }
 
 #####################################################################################
-#' Plot of CI estimation of adjusted Score given n, alp and h
+#' Plot of CI estimation of adjusted Score
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -504,7 +504,7 @@ PlotciASC<-function(n,alp,h)
 }
 
 #####################################################################################
-#' Plot of CI estimation of adjusted Logit Wald given n, alp and h
+#' Plot of CI estimation of adjusted Logit Wald
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor
@@ -581,7 +581,7 @@ PlotciALT<-function(n,alp,h)
 }
 
 #####################################################################################
-#' Plot of CI estimation of adjusted Wald-T given n, alp and h
+#' Plot of CI estimation of adjusted Wald-T
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @param h - Adding factor

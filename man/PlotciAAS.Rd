@@ -2,7 +2,7 @@
 % Please edit documentation in R/112.ConfidenceIntervals_ADJ_n_Graph.R
 \name{PlotciAAS}
 \alias{PlotciAAS}
-\title{Plot of CI estimation of adjusted ArcSine given n, alp and h}
+\title{Plot of CI estimation of adjusted ArcSine}
 \usage{
 PlotciAAS(n, alp, h)
 }
@@ -14,7 +14,7 @@ PlotciAAS(n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plot of CI estimation of adjusted ArcSine given n, alp and h
+Plot of CI estimation of adjusted ArcSine
 }
 \details{
 The plots of the Confidence Interval using adjusted ArcSine method for \code{n} given \code{alp} and \code{h}

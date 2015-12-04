@@ -2,7 +2,7 @@
 % Please edit documentation in R/104.ConfidenceIntervals_BASE_n_x_Graph.R
 \name{PlotciEXx}
 \alias{PlotciEXx}
-\title{Plots the CI estimation of the exact method given n, alp and x}
+\title{Plots the CI estimation of the exact method}
 \usage{
 PlotciEXx(x, n, alp, e)
 }
@@ -16,7 +16,7 @@ PlotciEXx(x, n, alp, e)
 \item{e}{- Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P}}
 }
 \description{
-Plots the CI estimation of the exact method given n, alp and x
+Plots the CI estimation of the exact method
 }
 \details{
 Plot of the Confidence interval for exact method

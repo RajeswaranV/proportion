@@ -2,7 +2,7 @@
 % Please edit documentation in R/104.ConfidenceIntervals_BASE_n_x_Graph.R
 \name{PlotciAllxg}
 \alias{PlotciAllxg}
-\title{Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  given x & n grouped by x value}
+\title{Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x value}
 \usage{
 PlotciAllxg(x, n, alp)
 }
@@ -14,7 +14,7 @@ PlotciAllxg(x, n, alp)
 \item{alp}{- Alpha value (significance level required)}
 }
 \description{
-Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  given x & n grouped by x value
+Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x value
 }
 \details{
 Plots of the Confidence Interval of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp} and \code{x} grouped by x

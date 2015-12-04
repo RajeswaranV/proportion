@@ -2,7 +2,7 @@
 % Please edit documentation in R/112.ConfidenceIntervals_ADJ_n_Graph.R
 \name{PlotciATW}
 \alias{PlotciATW}
-\title{Plot of CI estimation of adjusted Wald-T given n, alp and h}
+\title{Plot of CI estimation of adjusted Wald-T}
 \usage{
 PlotciATW(n, alp, h)
 }
@@ -14,7 +14,7 @@ PlotciATW(n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plot of CI estimation of adjusted Wald-T given n, alp and h
+Plot of CI estimation of adjusted Wald-T
 }
 \details{
 The plots of the Confidence Interval using adjusted Wald-T method for \code{n} given \code{alp} and \code{h}

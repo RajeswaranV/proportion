@@ -2,7 +2,7 @@
 % Please edit documentation in R/112.ConfidenceIntervals_ADJ_n_Graph.R
 \name{PlotciALT}
 \alias{PlotciALT}
-\title{Plot of CI estimation of adjusted Logit Wald given n, alp and h}
+\title{Plot of CI estimation of adjusted Logit Wald}
 \usage{
 PlotciALT(n, alp, h)
 }
@@ -14,7 +14,7 @@ PlotciALT(n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plot of CI estimation of adjusted Logit Wald given n, alp and h
+Plot of CI estimation of adjusted Logit Wald
 }
 \details{
 The plots of the Confidence Interval using adjusted Logit Wald method for \code{n} given \code{alp} and \code{h}

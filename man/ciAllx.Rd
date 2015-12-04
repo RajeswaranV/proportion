@@ -2,7 +2,7 @@
 % Please edit documentation in R/103.ConfidenceIntervals_BASE_n_x.R
 \name{ciAllx}
 \alias{ciAllx}
-\title{CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  given x and n}
+\title{Specific CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)}
 \usage{
 ciAllx(x, n, alp)
 }
@@ -24,7 +24,7 @@ A dataframe with
  \item{ZWI }{ - Zero Width Interval}
 }
 \description{
-CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  given x and n
+Specific CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
 }
 \details{
 The Confidence Interval of using 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)  for \code{n} given \code{alp} and \code{x}

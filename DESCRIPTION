@@ -3,12 +3,13 @@ Title: Confidence Interavals for binomial sampling
 Version: 0.0.0.9000
 Author: M.Subbiah, V.Rajeswaran
 Maintainer: Rajeswaran <v.rajeswaran@gmail.com>
-Description: Multiple procedures to obtain an interval estimate for an unknown
-    proportion (p) based on binomial sampling. It is known that approximations
-    are poor when the true p is close to zero or to one. So we provide alternative
-    procedures with better properties. Non-iterative methods widely discussed
-    in litrature for computing a (central) two-sided interval estimate for p are
-    implemented in terms of coverage probability and expected length.
+Description: Abundant statistical literature has revealed the importance of constructing and
+             evaluating various methods for constructing confidence intervals (CI) for single binomial
+             proportion (p). We comprehensively provide procedures in frequentist (approximate with
+             or without adding pseudo counts / continuity correction or exact) and in Bayesian cultures.
+             Evaluation procedures for CI warrant active computational attention and required summaries
+             pertaining to  four criterion (coverage probability, expected length, p-confidence, p-bias,
+             and error) are implemented
 License: GPL-2
 URL: https://github.com/RajeswaranV/proportion
 BugReports: https://github.com/RajeswaranV/proportion/issues
@@ -21,6 +22,7 @@ Imports:
     ggplot2
 Suggests:
     knitr,
-    rmarkdown
+    rmarkdown,
+    R.rsp
 RoxygenNote: 5.0.1
-VignetteBuilder: knitr
+VignetteBuilder: R.rsp

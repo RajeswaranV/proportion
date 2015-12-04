@@ -2,7 +2,7 @@
 % Please edit documentation in R/112.ConfidenceIntervals_ADJ_n_Graph.R
 \name{PlotciASC}
 \alias{PlotciASC}
-\title{Plot of CI estimation of adjusted Score given n, alp and h}
+\title{Plot of CI estimation of adjusted Score}
 \usage{
 PlotciASC(n, alp, h)
 }
@@ -14,7 +14,7 @@ PlotciASC(n, alp, h)
 \item{h}{- Adding factor}
 }
 \description{
-Plot of CI estimation of adjusted Score given n, alp and h
+Plot of CI estimation of adjusted Score
 }
 \details{
 The plots of the Confidence Interval using adjusted Score method for \code{n} given \code{alp} and \code{h}
