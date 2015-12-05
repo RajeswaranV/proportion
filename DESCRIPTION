@@ -1,15 +1,9 @@
 Package: proportion
-Title: Confidence Interavals for binomial sampling
+Title: 'Confidence Interavals for binomial sampling'
 Version: 0.0.0.9000
 Author: M.Subbiah, V.Rajeswaran
 Maintainer: Rajeswaran <v.rajeswaran@gmail.com>
-Description: Abundant statistical literature has revealed the importance of constructing and
-             evaluating various methods for constructing confidence intervals (CI) for single binomial
-             proportion (p). We comprehensively provide procedures in frequentist (approximate with
-             or without adding pseudo counts / continuity correction or exact) and in Bayesian cultures.
-             Evaluation procedures for CI warrant active computational attention and required summaries
-             pertaining to  four criterion (coverage probability, expected length, p-confidence, p-bias,
-             and error) are implemented
+Description: Abundant statistical literature has revealed the importance of constructing and evaluating various methods for constructing confidence intervals (CI) for single binomial proportion (p). We comprehensively provide procedures in frequentist (approximate with or without adding pseudo counts or continuity correction or exact) and in Bayesian cultures. Evaluation procedures for CI warrant active computational attention and required summaries pertaining to  four criterion (coverage probability, expected length, p-confidence, p-bias, and error) are implemented.
 License: GPL-2
 URL: https://github.com/RajeswaranV/proportion
 BugReports: https://github.com/RajeswaranV/proportion/issues
