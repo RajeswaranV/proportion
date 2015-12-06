@@ -8,10 +8,9 @@ output:
     fig_height: 6
     fig_caption: true
 vignette: >
-  %\VignetteIndexEntry{proportion}
-  %\VignetteEngine{knitr::knitr}
-  %\VignetteEncoding{UTF-8}
-  %\SweaveUTF8 
+    %\VignetteIndexEntry{proportion}
+    %\VignetteEngine{R.rsp::asis}
+    %\VignetteEncoding{UTF-8}
 ---
 ## Introduction
 Let x denote the number of successes in n independent Bernoulli trials with X ~ Binomial (n, p) then  $\hat p = x/n$ denotes the sample proportion. Single binomial proportion (p) has drawn appreciable research attention with theoretical, applied, and pedagogic objectives. Such interest has been intensified further when Classical, Bayesian, and Bootstrap approaches are providing candidate intervals to enrich this literature. Specifically,
