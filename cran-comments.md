@@ -12,13 +12,8 @@ This is a resubmission:
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. 
+There were no ERRORs or WARNINGs or NOTES.
 
-There were 1 NOTE:
-
-* Package has a VignetteBuilder field but no prebuilt vignette index.
-Please fix - unable to fix this.
-  
 ## CRAN comments
 
 * Maintainer: 'Rajeswaran <v.rajeswaran@gmail.com>'
@@ -28,9 +23,17 @@ Please specify your full name. Fixed.
 File
   LICENSE
 is not mentioned in the DESCRIPTION file.
-
 Please omit that file.Fixed.
-  
+
+* Package has a VignetteBuilder field but no prebuilt vignette index.
+So please add a vignette index.Fixed.
+
+* The Title field should be in title case, current version then in title case:
+'Inference on single Binomial proportion and Bayesian computations'
+'Inference on Single Binomial Proportion and Bayesian Computations'
+
+Pls fix. Fixed.
+
 ## Downstream dependencies
 
 * None
