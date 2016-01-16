@@ -45,9 +45,9 @@ PlotcovpCAll<-function(n,alp,c,a,b,t1,t2)
   df5    = gcovpCTW(n,alp,c,a,b,t1,t2)
 
   g.df= rbind(df1,df2,df3,df4,df5)
-  g$t1=t1
-  g$t2=t2
-  g$alp=alp
+  g.df$t1=t1
+  g.df$t2=t2
+  g.df$alp=alp
 
   ggplot2::ggplot(g.df, ggplot2::aes(x=hp, y=cp))+
     ggplot2::labs(title = "Coverage Probability of Continuity corrected methods") +
@@ -56,8 +56,8 @@ PlotcovpCAll<-function(n,alp,c,a,b,t1,t2)
     ggplot2::geom_line(ggplot2::aes(color=method)) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=t1), color="red",linetype = 2) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=t2), color="blue",linetype = 2) +
-    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red", text=ggplot2::element_text(size=11)) +
-    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue", text=ggplot2::element_text(size=11)) +
+    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red") +
+    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue") +
     ggplot2::geom_hline(ggplot2::aes(yintercept=1-(alp)),linetype = 2)
 
 }
@@ -117,8 +117,8 @@ PlotcovpCWD<-function(n,alp,c,a,b,t1,t2)
     ggplot2::geom_hline(ggplot2::aes(yintercept=mcp,color="Mean Coverage"))+
     ggplot2::geom_hline(ggplot2::aes(yintercept=t1), color="red",linetype = 2) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=t2), color="blue",linetype = 2) +
-    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red", text=ggplot2::element_text(size=11)) +
-    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue", text=ggplot2::element_text(size=11)) +
+    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red") +
+    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue") +
     ggplot2::guides(colour = ggplot2::guide_legend("Heading")) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=1-(alp)),linetype = 2)
 
@@ -180,8 +180,8 @@ PlotcovpCAS<-function(n,alp,c,a,b,t1,t2)
     ggplot2::geom_hline(ggplot2::aes(yintercept=mcp,color="Mean Coverage"))+
     ggplot2::geom_hline(ggplot2::aes(yintercept=t1), color="red",linetype = 2) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=t2), color="blue",linetype = 2) +
-    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red", text=ggplot2::element_text(size=11)) +
-    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue", text=ggplot2::element_text(size=11)) +
+    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red") +
+    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue") +
     ggplot2::guides(colour = ggplot2::guide_legend("Heading")) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=1-(alp)),linetype = 2)
 
@@ -243,8 +243,8 @@ PlotcovpCSC<-function(n,alp,c,a,b,t1,t2)
     ggplot2::geom_hline(ggplot2::aes(yintercept=mcp,color="Mean Coverage"))+
     ggplot2::geom_hline(ggplot2::aes(yintercept=t1), color="red",linetype = 2) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=t2), color="blue",linetype = 2) +
-    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red", text=ggplot2::element_text(size=11)) +
-    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue", text=ggplot2::element_text(size=11)) +
+    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red") +
+    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue") +
     ggplot2::guides(colour = ggplot2::guide_legend("Heading")) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=1-(alp)),linetype = 2)
 
@@ -306,8 +306,8 @@ PlotcovpCLT<-function(n,alp,c,a,b,t1,t2)
     ggplot2::geom_hline(ggplot2::aes(yintercept=mcp,color="Mean Coverage"))+
     ggplot2::geom_hline(ggplot2::aes(yintercept=t1), color="red",linetype = 2) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=t2), color="blue",linetype = 2) +
-    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red", text=ggplot2::element_text(size=11)) +
-    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue", text=ggplot2::element_text(size=11)) +
+    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red") +
+    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue") +
     ggplot2::guides(colour = ggplot2::guide_legend("Heading")) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=1-(alp)),linetype = 2)
 
@@ -372,8 +372,8 @@ ggplot2::ggplot(df1, ggplot2::aes(x=hp, y=cp))+
     ggplot2::geom_hline(ggplot2::aes(yintercept=mcp,color="Mean Coverage"))+
     ggplot2::geom_hline(ggplot2::aes(yintercept=t1), color="red",linetype = 2) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=t2), color="blue",linetype = 2) +
-    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red", text=ggplot2::element_text(size=11)) +
-    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue", text=ggplot2::element_text(size=11)) +
+    ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red") +
+    ggplot2::geom_text(ggplot2::aes(y=t2, label="Higher tolerance(t2)", x=.1), colour="blue") +
     ggplot2::guides(colour = ggplot2::guide_legend("Heading")) +
     ggplot2::geom_hline(ggplot2::aes(yintercept=1-(alp)),linetype = 2)
 

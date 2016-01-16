@@ -83,8 +83,7 @@ PlotpCOpBICAll<-function(n,alp,c)
                                    'pConf CC-Wald-T'='red',
                                    'pConf CC-Wald-T Values'='red',
                                    'pbias CC-Wald-T'='black',
-                                   'pbias CC-Wald-T Values'='black'),
-                                 ggplot2::scale_colour_hue(guide = "none"))
+                                   'pbias CC-Wald-T Values'='black'))
 
 }
 

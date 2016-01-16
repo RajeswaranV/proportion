@@ -66,7 +66,7 @@ ggplot2::ggplot(data=EL, mapping=ggplot2::aes(x=hp, y=ew)) +
   ggplot2::labs(title = "Expected length of Simulation method") +
   ggplot2::labs(y = "Expected length") +
   ggplot2::labs(x = "p") +
-  ggplot2::geom_line(mapping=ggplot2::aes(colour=method), show_guide = TRUE)  +
+  ggplot2::geom_line(mapping=ggplot2::aes(colour=method), show.legend  = TRUE)  +
   ggplot2::geom_hline(mapping=ggplot2::aes(yintercept=explMean, fill="Mean"),color="orange"  ) +
   ggplot2::geom_hline(mapping=ggplot2::aes(yintercept=explMax, fill="Max"),color="blue"  ) +
   ggplot2::geom_hline(mapping=ggplot2::aes(yintercept=explLL, fill="Lower Limit"),color="cyan4"  ) +

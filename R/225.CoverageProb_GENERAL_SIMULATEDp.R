@@ -175,14 +175,17 @@ PlotcovpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
   CP$mcp=mean(cpp)
   CP$micp=min(cpp)					#Mean Cov Prob
 
-ggplot2::ggplot(CP, ggplot2::aes(x=hp, y=cpp))+
+ggplot2::ggplot(CP, ggplot2::aes(x=hp,
+                                 y=cpp,
+                                 color = ggplot2::guide_legend(override.aes = list(linetype=c(2,1,1,1,1),
+                                                                  shape=c(NA, NA, 16,NA,NA)))))+
   ggplot2::labs(y = "Coverage Probability") +
   ggplot2::labs(x = "p") +
   ggplot2::labs(title = "Coverage Probability using simulation") +
   ggplot2::geom_hline(ggplot2::aes(yintercept=t1), color="red",linetype = 2) +
   ggplot2::geom_hline(ggplot2::aes(yintercept=t2), color="blue",linetype = 2) +
-  ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red", text=ggplot2::element_text(size=11)) +
-  ggplot2::geom_text(ggplot2::aes(y=t2, label="\nHigher tolerance(t2)", x=.1), colour="blue", text=ggplot2::element_text(size=11)) +
+  ggplot2::geom_text(ggplot2::aes(y=t1, label="\nLower tolerance(t1)", x=.1), colour="red") +
+  ggplot2::geom_text(ggplot2::aes(y=t2, label="\nHigher tolerance(t2)", x=.1), colour="blue") +
   ggplot2::geom_line(ggplot2::aes(color="Coverage Probability"))+
   ggplot2::geom_point(ggplot2::aes(color="CP Values"))+
   ggplot2::geom_hline(ggplot2::aes(yintercept=1-(alp),color="Confidence Level"),linetype = 2)+
@@ -194,11 +197,7 @@ ggplot2::ggplot(CP, ggplot2::aes(x=hp, y=cpp))+
                                         'Minimum Coverage'='black',
                                         'Mean Coverage'='blue',
                                         'Confidence Level'='brown'),
-                               guide='legend') +
-  ggplot2::guides(colour = ggplot2::guide_legend(override.aes = list(linetype=c(2,1,1,1,1),
-                                                                     shape=c(NA, NA, 16,NA,NA),
-                                                                     linetype=c(1,1,1,1,1),
-                                                                     linetype=c(1,1,1,1,1),
-                                                                     linetype=c(1,1,1,1,1))))
+                               guide='legend')
+
 
 }

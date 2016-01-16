@@ -225,8 +225,7 @@ PlotpCOpBIAll<-function(n,alp)
                                 'pConf Likelihood'='red',
                                           'pConf Likelihood Values'='red',
                                           'pbias Likelihood'='black',
-                                          'pbias Likelihood Values'='black'),
-  ggplot2::scale_colour_hue(guide = "none"))
+                                          'pbias Likelihood Values'='black'))
 
 }
 

@@ -59,7 +59,7 @@ PlotciEX<-function(n,alp,e)
                                            xmin = LEX,
                                            xmax = UEX,
                                            color= e),
-                              width = 0.5)+
+                              size=0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -85,7 +85,7 @@ PlotciEX<-function(n,alp,e)
                                            xmin = LEX,
                                            xmax = UEX,
                                            color= e),
-                              width = 0.5) +
+                              size = 0.5) +
       ggplot2::scale_fill_manual(values=c("blue", "cyan4", "red",
                                           "black", "orange","brown","chartreuse4",
                                           "blueviolet" , "deeppink", "darksalmon", "tan1" )) +
@@ -147,7 +147,7 @@ PlotciBA<-function(n,alp,a,b)
                                            xmin = LB,
                                            xmax = UB,
                                            color=method),
-                              width = 0.5)+
+                              size=0.5)+
     ggplot2::labs(title = "Bayesian methods - Quantile and HPD") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::scale_colour_manual(values=c("blue", "red"))
@@ -173,7 +173,7 @@ PlotciBAD<-function(n,alp,a,b)
                                          xmin = LB,
                                          xmax = UB,
                                          color=method),
-                            width = 0.5)+
+                            size=0.5)+
     ggplot2::labs(title = "Bayesian methods  - Quantile and HPD") +
     ggplot2::labs(x = "Lower and Upper limits") +
     ggplot2::scale_colour_manual(values=c("blue", "red"))
@@ -229,7 +229,7 @@ PlotciAll<-function(n,alp)
                                            xmin = LowerLimit,
                                            xmax = UpperLimit,
                                            color= method),
-                              width = 0.5)+
+                              size=0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -248,7 +248,7 @@ PlotciAll<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit, color= method),
-                              width = 0.5)
+                              size=0.5)
   }
   oo
 }
@@ -307,7 +307,7 @@ PlotciAllg<-function(n,alp)
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
-                                width = 0.5)+
+                                size=0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
                                          group = Abberation,shape=Abberation),
@@ -324,7 +324,7 @@ PlotciAllg<-function(n,alp)
                                 ggplot2::aes(x = UpperLimit,y = ID,
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
-                                width = 0.5)
+                                size=0.5)
     }
     oo
   }
@@ -341,7 +341,7 @@ PlotciAllg<-function(n,alp)
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
-                                width = 0.5)+
+                                size=0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
                                          group = Abberation,shape=Abberation),
@@ -360,7 +360,7 @@ PlotciAllg<-function(n,alp)
                                 ggplot2::aes(x = UpperLimit,y = ID,
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
-                                width = 0.5) +
+                                size=0.5) +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
@@ -420,7 +420,7 @@ PlotciWD<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)+
+                              size=0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -439,7 +439,7 @@ PlotciWD<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)
+                              size=0.5)
   }
 }
 
@@ -496,7 +496,7 @@ PlotciAS<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5) +
+                              size=0.5) +
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -515,7 +515,7 @@ PlotciAS<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)
+                              size=0.5)
   }
 }
 
@@ -570,7 +570,7 @@ PlotciLR<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)+
+                              size=0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -589,7 +589,7 @@ PlotciLR<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)
+                              size=0.5)
   }
 }
 
@@ -645,7 +645,7 @@ PlotciSC<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)+
+                              size=0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -664,7 +664,7 @@ PlotciSC<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)
+                              size=0.5)
   }
 }
 
@@ -720,7 +720,7 @@ PlotciTW<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)+
+                              size=0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -739,7 +739,7 @@ PlotciTW<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)
+                              size=0.5)
   }
 }
 
@@ -795,7 +795,7 @@ PlotciLT<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)+
+                              size=0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -814,7 +814,7 @@ PlotciLT<-function(n,alp)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
-                              width = 0.5)
+                              size=0.5)
   }
 }
 

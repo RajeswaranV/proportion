@@ -16,6 +16,5 @@ Imports:
     ggplot2
 Suggests:
     knitr,
-    rmarkdown,
-    R.rsp
+    rmarkdown
 RoxygenNote: 5.0.1

@@ -511,7 +511,7 @@ PlotciCAllx<-function(x,n,alp,c)
                                            xmin = LowerLimit,
                                            xmax = UpperLimit,
                                            color= method),
-                              width = 0.5)+
+                              size = 0.5)+
       ggplot2::geom_point(data=ldf,
                           ggplot2::aes(x=Value, y=ID,
                                        group = Abberation,shape=Abberation),
@@ -528,7 +528,7 @@ PlotciCAllx<-function(x,n,alp,c)
                               ggplot2::aes(x = UpperLimit,y = ID,
                                            xmin = LowerLimit,
                                            xmax = UpperLimit, color= method),
-                              width = 0.5)
+                              size = 0.5)
   }
   oo
 }
@@ -592,7 +592,7 @@ PlotciCAllxg<-function(x,n,alp,c)
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
-                                width = 0.5)+
+                                size = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
                                          group = Abberation,shape=Abberation),
@@ -609,7 +609,7 @@ PlotciCAllxg<-function(x,n,alp,c)
                                 ggplot2::aes(x = UpperLimit,y = ID,
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
-                                width = 0.5)
+                                size = 0.5)
     }
     oo
   }
@@ -626,7 +626,7 @@ PlotciCAllxg<-function(x,n,alp,c)
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
-                                width = 0.5)+
+                                size = 0.5)+
         ggplot2::geom_point(data=ldf,
                             ggplot2::aes(x=Value, y=ID,
                                          group = Abberation,shape=Abberation),
@@ -645,7 +645,7 @@ PlotciCAllxg<-function(x,n,alp,c)
                                 ggplot2::aes(x = UpperLimit,y = ID,
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
-                                width = 0.5) +
+                                size = 0.5) +
         ggplot2::geom_hline(ggplot2::aes(yintercept=val1),data=ff) +
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }

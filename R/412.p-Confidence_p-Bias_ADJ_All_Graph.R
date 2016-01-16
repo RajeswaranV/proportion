@@ -95,8 +95,7 @@ PlotpCOpBIAAll<-function(n,alp,h)
                                    'pConf Adj-Likelihood'='red',
                                    'pConf Adj-Likelihood Values'='red',
                                    'pbias Adj-Likelihood'='black',
-                                   'pbias Adj-Likelihood Values'='black'),
-                                 ggplot2::scale_colour_hue(guide = "none"))
+                                   'pbias Adj-Likelihood Values'='black'))
 
 }
 

@@ -1,8 +1,17 @@
 ---
 title: "Proportion"
 author: "M.Subbiah, V.Rajeswaran"
-date: "December 5, 2015"
-output: html_document
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+vignette: >
+  %\VignetteIndexEntry{proportion}
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteEncoding{UTF-8}
+  %\SweaveUTF8 
 ---
 ## Introduction
 Let x denote the number of successes in n independent Bernoulli trials with X ~ Binomial (n, p) then  $\hat p = x/n$ denotes the sample proportion. Single binomial proportion (p) has drawn appreciable research attention with theoretical, applied, and pedagogic objectives. Such interest has been intensified further when Classical, Bayesian, and Bootstrap approaches are providing candidate intervals to enrich this literature. Specifically,
@@ -283,7 +292,7 @@ rownames(Plot.covp)=c("ArcSine", "LR","Logit","Score","Wald-T","Wald","All","Bay
 knitr::kable(Plot.covp,caption = "Plotting functions of sum length and expected length (EL)")
 ```
 
-### 5.Metric 2:EXPECTED LENGTH (Applicable to Base, Adjusted and Continuity Corrected Methods)
+### 4.Metric 2:EXPECTED LENGTH (Applicable to Base, Adjusted and Continuity Corrected Methods)
 
 1.	__Wald:__  
 Evaluation of Wald-type intervals using expected length of the $n + 1$ intervals
@@ -340,7 +349,7 @@ rownames(Plot.pcpb)=c("ArcSine", "LR","Logit","Score","Wald-T","Wald","All","Bay
 knitr::kable(Plot.pcpb,caption = "Plotting functions for p-Confidence & p-Bias")
 ```
 
-### 6.Metric 3:p-CONFIDENCE, p-BIAS (BASE METHOD)
+### 5.Metric 3:p-CONFIDENCE, p-BIAS (BASE METHOD)
 
 1.	__Wald:__  
 Evaluation of Wald-type intervals using p-confidence and p-bias for the $n + 1$ intervals
@@ -359,7 +368,7 @@ Evaluation of Confidence interval for p based on inverting equal-tailed binomial
 8.	__Bayesian:__  
 Evaluation of Bayesian Highest Probability Density (HPD) and two tailed intervals using p-confidence and p-bias for the $n + 1$ intervals for the Beta - Binomial conjugate prior model for the probability of success $p$. 
 
-### 7.Metric 3:p-CONFIDENCE, p-BIAS (Applicable to Base, Adjusted and Continuity Corrected Methods)
+### 6.Metric 3:p-CONFIDENCE, p-BIAS (Applicable to Base, Adjusted and Continuity Corrected Methods)
 
 1.	__Wald:__  
 Evaluation of adjusted Wald-type interval using p-confidence and p-bias for the $n + 1$ intervals
@@ -411,7 +420,7 @@ rownames(Plot.error)=c("ArcSine", "LR","Logit","Score","Wald-T","Wald","All","Ba
 knitr::kable(Plot.error,caption = "Plotting functions for error and long term power")
 ```
 
-### 8.Metric 4:ERROR (Applicable to Base, Adjusted and Continuity Corrected Methods)
+### 7.Metric 4:ERROR (Applicable to Base, Adjusted and Continuity Corrected Methods)
 
 1.	__Wald:__  
 Evaluation of Wald-type intervals using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals
@@ -430,7 +439,7 @@ Evaluation of Confidence interval for p based on inverting equal-tailed binomial
 8.	__Bayesian:__  
 Evaluation of Bayesian Highest Probability Density (HPD) and two tailed intervals using error due to the difference of achieved and nominal level of significance for the $n + 1$ intervals for the Beta - Binomial conjugate prior model for the probability of success $p$. 
 
-### 9. EVALUATION METHODS FOR GENERAL APPROACH
+### 8. EVALUATION METHODS FOR GENERAL APPROACH
 
 1.	Evaluation of intervals obtained from any method using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage for the $n + 1$ intervals and pre-defined space for the parameter $p$ using Monte Carle simulation
 2.	Graphical evaluation of intervals obtained from any method using coverage probability, root mean square statistic, and the proportion of proportion lies within the desired level of coverage for the $n + 1$ intervals and pre-defined space for the parameter $p$ using Monte Carle simulation
@@ -456,7 +465,7 @@ colnames(Other.functions)=c("Hypothesis","covp","length","pCOpBI","Others","Erro
 knitr::kable(Other.functions,caption = "Additional functions")
 ```
 
-### 10. Testing of hypothesis and other functions for Bayesian method 
+### 9. Testing of hypothesis and other functions for Bayesian method 
 
 1.	__EBA:__  
 Highest Probability Density (HPD) and two tailed intervals are provided for all $x = 0, 1, 2 ..n$ based on empirical Bayesian approach for Beta-Binomial model. Lower and Upper support values are needed to obtain the MLE of marginal likelihood for prior parameters.
@@ -477,7 +486,7 @@ Computes Bayes factor under Beta-Binomial model for the model: $H_0: p < p_1$ Vs
 9.	__probPOS:__  
 Computes probability of the event $p < p_0$ ($p_0$ is specified in $[0, 1]$) based on posterior distribution of Beta-Binomial model with given parameters for prior Beta distribution for all $x = 0, 1, 2...n$ ($n$: number of trials) 
 
-### 11. Assistance for reading papers
+### 10. Assistance for reading papers
 We have taken six key papers and shown how this package can assist in reproducing the results in these papers.
 On top of that we have also provided some further areas researchers can gain insight using the package.
 
@@ -507,7 +516,7 @@ colnames(Key.Papers)=c("#","x","n","Paper","Methods","Function","Additional opti
 knitr::kable(Key.Papers,caption = "Additional functions")
 ```
 
-### Paper 1 (Newcombe 1998):
+###Paper 1 (Newcombe 1998):
 The paper has compared seven methods (Wald, Wald continuity corrected, Likelihood ratio, Score (Wilson), Score, continuity corrected, Clopper Pearson, Mid-P) for Two-sided confidence intervals for the single proportion. Evaluation criteria, Average CP, Aberrations, Zero Width Interval and Non Coverage aspects are considered. Four illustrative data sets have also been provided
 	The package, proportion provides a more comprehensive way of summarizing results similar to the above studies; for example, a function $(ciAllx for n = 20, x = 0)$ from the package yields an easily comparable summary (numerical and graphical) together with other useful measures like existence of aberration, zero width intervals (ZWI). ArcSine and Wald-t methods are additional inclusions; Summaries / Methods which are not readily available elsewhere such as opting with Exact method in a more general way (ciEXx), continuity corrected (ciCAllx), or adding pseudo constants (ciAAllx) in a more general way or Quantile (Q) based and Highest Posterior (H) based CI from Bayesian conjugate method (ciBAx) with an option for specifying any plausible value for the two parameters of prior beta distribution. 
 
@@ -563,7 +572,7 @@ knitr::kable(Paper1.5,caption = "Adding Continuity Correction, c = 1/(2n) & usin
 
 Graphical Summaries
 ```{r, echo=TRUE, results='asis'}
-# 17. Graph of the Confidence Interval of 6 base methods
+# 17. Paper 1
 PlotciAllx(x=0,n=20,alp=0.05)
 
 ```
@@ -579,13 +588,13 @@ In the case of other evaluation criteria, package proportion provides ample scop
 ```{r, echo=FALSE, results='asis'}
 # 19. Paper 1
 Paper1.6=covpAll(n=250,alp=0.05,a=1,b=1,t1=0.93,t2=0.97) 
-knitr::kable(Paper1.6,caption = "Coverage probability of 6 methods")
+knitr::kable(Paper1.6,caption = "Coverage probability using covpAll()")
 PlotcovpAll(n=250,alp=0.05,a=1,b=1,t1=0.93,t2=0.97)
 ```
 
 For a more comparative case consider similar plot for $n = 10$  
 ```{r, echo=TRUE, results='asis'}
-# 20. Coverage Probability of 6 base methods
+# 20. Paper 1
 PlotcovpAll(n=10,alp=0.05,a=1,b=1,t1=0.93,t2=0.97)
 ```
 
@@ -593,7 +602,7 @@ PlotcovpAll(n=10,alp=0.05,a=1,b=1,t1=0.93,t2=0.97)
 A tutorial kind of article pertaining to obtain CI based on inverting two tailed tests involving single proportion is available in Joseph and Reinfold 2005. This mainly deals with Wald large sample and Exact methods for CI and hypothesis testing involving values near boundary of p. Only interval for Wald is avialble in the paper however, comparison of procedure would enhance the presentation and purpose. One way is through a pictorial output can be improved further by sorting the CI for each  $x = 0, 1,..,n$ using a function $PlotciAllg(n,alp)$.
 
 ```{r, echo=TRUE, results='asis'}
-# 21. Confidence Interval of 6 base methods grouped by x (smallest at bottom for each group)
+# 21. Paper 2 - display the function
 PlotciAllg(n=10,alp=0.05)
 ```
 
@@ -602,7 +611,7 @@ Further, one of the significant features of the package is readily available Bay
 Additionally this package has an option (like hypotestBAF4) to compare Bayes factor for all possible values of x (such as the one listed below) so as to understand the possible change in the values of Bayes factor in turn the decision.
 
 ```{r, echo=TRUE, eval=FALSE}
-# 20. Hypothesis testing - Bayes Factor 4 
+# 20. Paper 2 - display the function
 hypotestBAF4(n=10, th0=0.9, a0=1,b0=1,a1=0.5,b1=0.5)
 ```
 
@@ -640,7 +649,7 @@ knitr::kable(Paper2.7,caption = "CI with x=16, n=109 & h=2")
 
 To compare the length of the intervals for the data $x = 16, n = 17$, a graphical form can be obtained from the package using 
 ```{r, echo=TRUE, results='asis'}
-# 21. Plot of ci of 6 adjusted methods with h=1
+# 21. Paper 3&4 - Plot of all the adjusted CI with h=1
 PlotciAAllxg(x=16,n=17,alp=0.05,h=1)
 ```
 
@@ -648,7 +657,7 @@ As can be seen above the grouping function (ending with g) convinently orders th
 
 Another aspect is the way Exact method has been handled; based on the extensive studies for adjusting Exact method, this package confines to randomized test using the constant e in [0, 1]. Example 6 (Joseph and Reinfold 2005- see table above)  may be reproduced with the function ciEXx as shown below.
 ```{r, echo=TRUE, eval=FALSE}
-# 22. ci using Excat method with range of e values including mid-p(0.5) and Cloper Pearson(e=1)
+# 22. Paper 3&4 - display the function
 ciEXx(x=98, n=100,alp = 0.05,e=c(0.1,.5,0.95,1))
 ```
 
