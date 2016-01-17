@@ -1,6 +1,6 @@
 Package: proportion
 Title: Inference on Single Binomial Proportion and Bayesian Computations
-Version: 1.1.0
+Version: 1.2.0
 Author: M.Subbiah, V.Rajeswaran
 Maintainer: Rajeswaran Viswanathan <v.rajeswaran@gmail.com>
 Description: Abundant statistical literature has revealed the importance of constructing and evaluating various methods for constructing confidence intervals (CI) for single binomial proportion (p). We comprehensively provide procedures in frequentist (approximate with or without adding pseudo counts or continuity correction or exact) and in Bayesian cultures. Evaluation procedures for CI warrant active computational attention and required summaries pertaining to  four criterion (coverage probability, expected length, p-confidence, p-bias, and error) are implemented.

@@ -1,4 +1,4 @@
-This is a resubmission:
+This is an update:
 
 * http -> https in link to CRAN policies.
 
@@ -6,7 +6,7 @@ This is a resubmission:
 
 ## Release summary
 
-* Initial release
+* Updated release to make it compatible with ggplot version 2.
 
 ## Test environments
 * win-builder (devel and release)
@@ -15,24 +15,7 @@ This is a resubmission:
 There were no ERRORs or WARNINGs or NOTES.
 
 ## CRAN comments
-
-* Maintainer: 'Rajeswaran <v.rajeswaran@gmail.com>'
-Please specify your full name. Fixed.
-
-* checking top-level files ... NOTE
-File
-  LICENSE
-is not mentioned in the DESCRIPTION file.
-Please omit that file.Fixed.
-
-* Package has a VignetteBuilder field but no prebuilt vignette index.
-So please add a vignette index.Fixed.
-
-* The Title field should be in title case, current version then in title case:
-'Inference on single Binomial proportion and Bayesian computations'
-'Inference on Single Binomial Proportion and Bayesian Computations'
-
-Pls fix. Fixed.
+None
 
 ## Downstream dependencies
 
