@@ -30,7 +30,7 @@ Following Figure depicts the way this inferential problem can be understood so a
 5.	a and b: Beta parameters for hypothetical parameter generation; Prior parameters in Bayesian predictive models 
 6.	t1 and t2: Limits for tolerance (within which CP lies)
 7.	$\pi$: Population parameter
-8.	f: Failure limit
+8.	f: Failure limit 
 9.	h: Constant used in adjustment methods
 10.	c: Constant used in continuity corrected methods
 11.	$a_1,a_2$: Prior parameters in Bayesian estimation procedures
