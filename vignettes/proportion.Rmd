@@ -1,36 +1,17 @@
 ---
-title: "Proportion"
+title: "Proportion: A comprehensive R package for inference on single Binomial proportion and Bayesian computations"
 author: "M.Subbiah, V.Rajeswaran"
-date: "`r Sys.Date()`"
-output:
-  html_document:
-    fig_width: 7
-    fig_height: 6
-    fig_caption: true
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{proportion}
-  %\VignetteEngine{knitr::knitr}
-  %\VignetteEncoding{UTF-8}
-  %\SweaveUTF8 
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 ## Introduction
-Let x denote the number of successes in n independent Bernoulli trials with X ~ Binomial (n, p) then  $\hat p = x/n$ denotes the sample proportion. Single binomial proportion (p) has drawn appreciable research attention with theoretical, applied, and pedagogic objectives. Such interest has been intensified further when Classical, Bayesian, and Bootstrap approaches are providing candidate intervals to enrich this literature. Specifically,
-
-- M. Thulin, (2014 a, b), W. Wang (2014), B. Lecoutre and J. Poitevineau (2014), Wei Yu (2012), Zhou, X. H., Li, C.M. and Yang, Z (2008) - Aiming to improve methods methodologically
-- K. Breitung and MA. Maes (2015), AM. Andres and MA. Hernandez (2014, 2015), V. RG. Newcombe (2011), C. Damgaard and A. Fayolle (2011), Tuyl F, Gerlach R and Mengersen K (2008), Vos PW and Hudson S (2005), Reiczigel J (2003), Pires (2002) - Comparison of methods with one or two evaluation metrics
-- Pradhan, JC. Evans and T. Banerjee (2013), Newcombe RG (2007), Lewis JR and Sauro J (2006), Sauro J and Lewis JR (2005), Bolboaca S and Cadariu AA (2003), Henderson M and Meyer MC (2001) - Application in various fields and recommendations for teaching practices.
+Let x denote the number of successes in n independent Bernoulli trials with X ~ Binomial (n, p) then  $\hat p = x/n$ denotes the sample proportion. Single binomial proportion (p) has drawn appreciable research attention with theoretical, applied, and pedagogic objectives. 
 
 This package has identified scope to collate widely or frequently used methods involved in the inferential problems regarding p and prominent procedures for comparing in terms of their performance. This includes two major statistical paradigms, Classical and Bayesian; especially, later provides a list of tools to broaden this scope.
 
-
-Methods for finding confidence interval for p include methods
-
-1. Based on the asymptotic normality of the sample proportion and estimating standard error,
-2. Exact methods based on inverting equal-tailed binomial tests of $H_0 : p = p_0$,
-3. Methods based on likelihood ratios 
-4. Bayesian approaches with beta priors or other suitable priors. 
-
-Apart from this testing of hypotheses involving p and measures based on posterior in Bayesian approach have drawn active research interest.   
 
 Objective of this package is to present interval estimation procedures for 'p' outlined above in a more comprehensive way. Performance assessment of these procedures such as coverage probability, Expected length, Error, p-confidence and p-bias are included. Also, an array of Bayesian computations (Bayes factor, Empirical Bayesian, Posterior predictive computation, and posterior probability) with conjugate prior is made available. More importantly package has aimed to complement the summaries using more appropriate graphical forms that enhance the presentation and teaching activities. 
 
@@ -746,3 +727,13 @@ The p-confidence and p-Bias from Vos and Hudson (2005) and the result for p-conf
 Paper6= pCOpBIBA(n=10,alp=0.05,a1=1,a2=1) 
 knitr::kable(Paper6,caption = "p-Confidence & p-Bias of Bayesian method for n=10, a1=a2=1")
 ```
+
+
+## References
+[1]	1998 Newcombe RG. Two-sided confidence intervals for the single proportion: Comparison of seven methods. Statistics in Medicine: 17; 857 - 872.
+
+[2]	2005 Joseph L and Reinhold C. Statistical Inference for Proportions American Journal of Radiologists 184; 1057 - 1064
+
+[3]	2008 Zhou, X. H., Li, C.M. and Yang, Z.  Improving interval estimation of binomial proportions. Phil. Trans. R. Soc. A, 366, 2405-2418
+
+[4]	2012 Wei Yu, Xu Guo and Wangli Xua. An improved score interval with a modified midpoint for a binomial proportion, Journal of Statistical Computation and Simulation, 84, 5, 1-17
