@@ -7,7 +7,7 @@
 PlotciEXx(x, n, alp, e)
 }
 \arguments{
-\item{x}{- Number of sucess}
+\item{x}{- Number of success}
 
 \item{n}{- Number of trials}
 
@@ -30,11 +30,17 @@ x=5; n=5; alp=0.05;e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clopper-Pearso
 PlotciEXx(x,n,alp,e)
 }
 \seealso{
-Other Base methods of CI estimation given x & n: \code{\link{PlotciAllxg}},
-  \code{\link{PlotciAllx}}, \code{\link{ciASx}},
-  \code{\link{ciAllx}}, \code{\link{ciBAx}},
-  \code{\link{ciEXx}}, \code{\link{ciLRx}},
-  \code{\link{ciLTx}}, \code{\link{ciSCx}},
-  \code{\link{ciTWx}}, \code{\link{ciWDx}}
+Other Base methods of CI estimation given x & n: 
+\code{\link{PlotciAllxg}()},
+\code{\link{PlotciAllx}()},
+\code{\link{ciASx}()},
+\code{\link{ciAllx}()},
+\code{\link{ciBAx}()},
+\code{\link{ciEXx}()},
+\code{\link{ciLRx}()},
+\code{\link{ciLTx}()},
+\code{\link{ciSCx}()},
+\code{\link{ciTWx}()},
+\code{\link{ciWDx}()}
 }
-
+\concept{Base methods of CI estimation given x & n}

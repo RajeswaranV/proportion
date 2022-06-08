@@ -50,6 +50,7 @@ Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{
-Other General methods for p-Confidence and p-Bias: \code{\link{PlotpCOpBIGEN}}
+Other General methods for p-Confidence and p-Bias: 
+\code{\link{PlotpCOpBIGEN}()}
 }
-
+\concept{General methods for p-Confidence and p-Bias}

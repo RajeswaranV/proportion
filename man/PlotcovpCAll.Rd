@@ -35,11 +35,17 @@ PlotcovpCAll(n,alp,c,a,b,t1,t2)
 }
 }
 \seealso{
-Other Coverage probability for continuity corrected methods: \code{\link{PlotcovpCAS}},
-  \code{\link{PlotcovpCLT}}, \code{\link{PlotcovpCSC}},
-  \code{\link{PlotcovpCTW}}, \code{\link{PlotcovpCWD}},
-  \code{\link{covpCAS}}, \code{\link{covpCAll}},
-  \code{\link{covpCLT}}, \code{\link{covpCSC}},
-  \code{\link{covpCTW}}, \code{\link{covpCWD}}
+Other Coverage probability for continuity corrected methods: 
+\code{\link{PlotcovpCAS}()},
+\code{\link{PlotcovpCLT}()},
+\code{\link{PlotcovpCSC}()},
+\code{\link{PlotcovpCTW}()},
+\code{\link{PlotcovpCWD}()},
+\code{\link{covpCAS}()},
+\code{\link{covpCAll}()},
+\code{\link{covpCLT}()},
+\code{\link{covpCSC}()},
+\code{\link{covpCTW}()},
+\code{\link{covpCWD}()}
 }
-
+\concept{Coverage probability for continuity corrected methods}

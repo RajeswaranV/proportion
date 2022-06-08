@@ -22,15 +22,24 @@ n=5; alp=0.05
 PlotciSC(n,alp)
 }
 \seealso{
-Other Basic methods of CI estimation: \code{\link{PlotciAS}},
-  \code{\link{PlotciAllg}}, \code{\link{PlotciAll}},
-  \code{\link{PlotciBA}}, \code{\link{PlotciEX}},
-  \code{\link{PlotciLR}}, \code{\link{PlotciLT}},
-  \code{\link{PlotciTW}}, \code{\link{PlotciWD}},
-  \code{\link{ciAS}}, \code{\link{ciAll}},
-  \code{\link{ciBA}}, \code{\link{ciEX}},
-  \code{\link{ciLR}}, \code{\link{ciLT}},
-  \code{\link{ciSC}}, \code{\link{ciTW}},
-  \code{\link{ciWD}}
+Other Basic methods of CI estimation: 
+\code{\link{PlotciAS}()},
+\code{\link{PlotciAllg}()},
+\code{\link{PlotciAll}()},
+\code{\link{PlotciBA}()},
+\code{\link{PlotciEX}()},
+\code{\link{PlotciLR}()},
+\code{\link{PlotciLT}()},
+\code{\link{PlotciTW}()},
+\code{\link{PlotciWD}()},
+\code{\link{ciAS}()},
+\code{\link{ciAll}()},
+\code{\link{ciBA}()},
+\code{\link{ciEX}()},
+\code{\link{ciLR}()},
+\code{\link{ciLT}()},
+\code{\link{ciSC}()},
+\code{\link{ciTW}()},
+\code{\link{ciWD}()}
 }
-
+\concept{Basic methods of CI estimation}

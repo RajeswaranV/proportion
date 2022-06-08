@@ -43,4 +43,4 @@ errGEN(n,LL,UL,alp,phi,f)
 Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
-
+\concept{General methods for error}

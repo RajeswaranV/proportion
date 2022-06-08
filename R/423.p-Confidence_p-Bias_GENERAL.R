@@ -54,8 +54,8 @@ pbias=0
 ####p-confidence and p-bias
 for(i in 2:(k-1))
 {
-pcon[i-1]=2*(pbinom(i-1, n, LL[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LL[i]))
-pconC[i-1]=2*pbinom(i-1, n, UL[i], lower.tail = TRUE, log.p = FALSE)
+pcon[i-1]=2*(stats::pbinom(i-1, n, LL[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LL[i]))
+pconC[i-1]=2*stats::pbinom(i-1, n, UL[i], lower.tail = TRUE, log.p = FALSE)
 pconf[i-1]=(1-max(pcon[i-1],pconC[i-1]))*100 		#p-confidence calculation
 pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
 pbias[i-1]=max(0,pbia1[i-1])*100

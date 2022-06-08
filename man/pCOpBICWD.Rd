@@ -36,12 +36,17 @@ Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Lengt
 The American Statistician: 59; 137 - 142.
 }
 \seealso{
-Other p-confidence and p-bias of continuity corrected methods: \code{\link{PlotpCOpBICAS}},
-  \code{\link{PlotpCOpBICAll}},
-  \code{\link{PlotpCOpBICLT}}, \code{\link{PlotpCOpBICSC}},
-  \code{\link{PlotpCOpBICTW}}, \code{\link{PlotpCOpBICWD}},
-  \code{\link{pCOpBICAS}}, \code{\link{pCOpBICAll}},
-  \code{\link{pCOpBICLT}}, \code{\link{pCOpBICSC}},
-  \code{\link{pCOpBICTW}}
+Other p-confidence and p-bias of continuity corrected methods: 
+\code{\link{PlotpCOpBICAS}()},
+\code{\link{PlotpCOpBICAll}()},
+\code{\link{PlotpCOpBICLT}()},
+\code{\link{PlotpCOpBICSC}()},
+\code{\link{PlotpCOpBICTW}()},
+\code{\link{PlotpCOpBICWD}()},
+\code{\link{pCOpBICAS}()},
+\code{\link{pCOpBICAll}()},
+\code{\link{pCOpBICLT}()},
+\code{\link{pCOpBICSC}()},
+\code{\link{pCOpBICTW}()}
 }
-
+\concept{p-confidence and p-bias of continuity corrected methods}

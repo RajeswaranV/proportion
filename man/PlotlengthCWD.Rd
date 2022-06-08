@@ -28,15 +28,23 @@ n= 10; alp=0.05; c=1/(2*n);a=1;b=1;
 PlotlengthCWD(n,alp,c,a,b)
 }
 \seealso{
-Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAS}},
-  \code{\link{PlotexplCAll}}, \code{\link{PlotexplCLT}},
-  \code{\link{PlotexplCSC}}, \code{\link{PlotexplCTW}},
-  \code{\link{PlotexplCWD}}, \code{\link{PlotlengthCAS}},
-  \code{\link{PlotlengthCAll}},
-  \code{\link{PlotlengthCLT}}, \code{\link{PlotlengthCSC}},
-  \code{\link{PlotlengthCTW}}, \code{\link{lengthCAS}},
-  \code{\link{lengthCAll}}, \code{\link{lengthCLT}},
-  \code{\link{lengthCSC}}, \code{\link{lengthCTW}},
-  \code{\link{lengthCWD}}
+Other Expected length  of continuity corrected methods: 
+\code{\link{PlotexplCAS}()},
+\code{\link{PlotexplCAll}()},
+\code{\link{PlotexplCLT}()},
+\code{\link{PlotexplCSC}()},
+\code{\link{PlotexplCTW}()},
+\code{\link{PlotexplCWD}()},
+\code{\link{PlotlengthCAS}()},
+\code{\link{PlotlengthCAll}()},
+\code{\link{PlotlengthCLT}()},
+\code{\link{PlotlengthCSC}()},
+\code{\link{PlotlengthCTW}()},
+\code{\link{lengthCAS}()},
+\code{\link{lengthCAll}()},
+\code{\link{lengthCLT}()},
+\code{\link{lengthCSC}()},
+\code{\link{lengthCTW}()},
+\code{\link{lengthCWD}()}
 }
-
+\concept{Expected length  of continuity corrected methods}

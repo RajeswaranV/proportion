@@ -2,7 +2,7 @@
 #' Plots the Expected length using  5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine)
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correctection
+#' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  The  plots of the expected length of 5 continuity corrected methods (Wald, Wald-T, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp}, \code{h}, \code{a}, \code{b}, \code{t1} and  \code{t2} using all the methods
@@ -44,7 +44,7 @@ PlotexplCAll<-function(n,alp,c,a,b)
 #' Plots the Expected length using continuity corrected Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correctection
+#' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  The  plots of the expected length of continuity corrected Wald method
@@ -100,7 +100,7 @@ PlotexplCWD<-function(n,alp,c,a,b)
 #' Plots the Expected length using continuity corrected Score method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correctection
+#' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  The  plots of the expected length of continuity corrected Score method
@@ -155,7 +155,7 @@ PlotexplCSC<-function(n,alp,c,a,b)
 #' Plots the Expected length using continuity corrected ArcSine method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correctection
+#' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  The  plots of the expected length of continuity corrected ArcSine method
@@ -210,7 +210,7 @@ PlotexplCAS<-function(n,alp,c,a,b)
 #' Plots the Expected length using continuity corrected Logit Wald method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correctection
+#' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  The  plots of the expected length of continuity corrected Logit Wald method
@@ -266,7 +266,7 @@ PlotexplCLT<-function(n,alp,c,a,b)
 #' Plots the Expected length using continuity corrected Wald-T method
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
-#' @param c - Continuity correctection
+#' @param c - Continuity correction
 #' @param a - Beta parameters for hypo "p"
 #' @param b - Beta parameters for hypo "p"
 #' @details  The  plots of the expected length of continuity corrected Wald-T method

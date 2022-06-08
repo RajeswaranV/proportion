@@ -29,12 +29,19 @@ n=20; alp=0.05; h=2;phi=0.99; f=-2
 PloterrALR(n,alp,h,phi,f)
 }
 \seealso{
-Other Error for adjusted methods: \code{\link{PloterrAAS}},
-  \code{\link{PloterrAAll}}, \code{\link{PloterrALT}},
-  \code{\link{PloterrASC}}, \code{\link{PloterrATW}},
-  \code{\link{PloterrAWD}}, \code{\link{errAAS}},
-  \code{\link{errAAll}}, \code{\link{errALR}},
-  \code{\link{errALT}}, \code{\link{errASC}},
-  \code{\link{errATW}}, \code{\link{errAWD}}
+Other Error for adjusted methods: 
+\code{\link{PloterrAAS}()},
+\code{\link{PloterrAAll}()},
+\code{\link{PloterrALT}()},
+\code{\link{PloterrASC}()},
+\code{\link{PloterrATW}()},
+\code{\link{PloterrAWD}()},
+\code{\link{errAAS}()},
+\code{\link{errAAll}()},
+\code{\link{errALR}()},
+\code{\link{errALT}()},
+\code{\link{errASC}()},
+\code{\link{errATW}()},
+\code{\link{errAWD}()}
 }
-
+\concept{Error for adjusted methods}

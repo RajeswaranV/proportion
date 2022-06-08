@@ -6,7 +6,7 @@ This is an update:
 
 ## Release summary
 
-* Updated release to make it compatible with ggplot version 2.
+* Updated release to make it compatible with ggplot version 3.
 
 ## Test environments
 * win-builder (devel and release)

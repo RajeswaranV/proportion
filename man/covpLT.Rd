@@ -70,14 +70,23 @@ Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{
-Other Basic coverage probability methods: \code{\link{PlotcovpAS}},
-  \code{\link{PlotcovpAll}}, \code{\link{PlotcovpBA}},
-  \code{\link{PlotcovpEX}}, \code{\link{PlotcovpLR}},
-  \code{\link{PlotcovpLT}}, \code{\link{PlotcovpSC}},
-  \code{\link{PlotcovpTW}}, \code{\link{PlotcovpWD}},
-  \code{\link{covpAS}}, \code{\link{covpAll}},
-  \code{\link{covpBA}}, \code{\link{covpEX}},
-  \code{\link{covpLR}}, \code{\link{covpSC}},
-  \code{\link{covpTW}}, \code{\link{covpWD}}
+Other Basic coverage probability methods: 
+\code{\link{PlotcovpAS}()},
+\code{\link{PlotcovpAll}()},
+\code{\link{PlotcovpBA}()},
+\code{\link{PlotcovpEX}()},
+\code{\link{PlotcovpLR}()},
+\code{\link{PlotcovpLT}()},
+\code{\link{PlotcovpSC}()},
+\code{\link{PlotcovpTW}()},
+\code{\link{PlotcovpWD}()},
+\code{\link{covpAS}()},
+\code{\link{covpAll}()},
+\code{\link{covpBA}()},
+\code{\link{covpEX}()},
+\code{\link{covpLR}()},
+\code{\link{covpSC}()},
+\code{\link{covpTW}()},
+\code{\link{covpWD}()}
 }
-
+\concept{Basic coverage probability methods}

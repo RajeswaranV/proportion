@@ -45,11 +45,12 @@ PlotciCAll<-function(n,alp,c)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo=
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::ggtitle("Confidence interval for continuity corrected methods") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit,
                                            color= method),
@@ -63,11 +64,11 @@ PlotciCAll<-function(n,alp,c)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::ggtitle("Confidence interval for continuity corrected methods") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit, color= method),
                               size = 0.5)
@@ -124,11 +125,11 @@ PlotciCAllg<-function(n,alp,c)
 
   if((max(as.numeric(unique(ss$method)))-nrow(ss))==0){
     if(nrow(ldf)>0){
-      oo= ggplot2::ggplot()+
+      oo= ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for continuity corrected methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                     ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
@@ -142,11 +143,11 @@ PlotciCAllg<-function(n,alp,c)
         ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
-      oo=  ggplot2::ggplot()+
+      oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for Continuity corrected methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                     ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 size = 0.5)
@@ -158,11 +159,11 @@ PlotciCAllg<-function(n,alp,c)
     ff= data.frame(val1=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),val2=(0:max(ss$x)))
 
     if(nrow(ldf)>0){
-      oo= ggplot2::ggplot()+
+      oo= ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for Continuity corrected methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                     ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
@@ -178,11 +179,11 @@ PlotciCAllg<-function(n,alp,c)
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     else {
-      oo=  ggplot2::ggplot()+
+      oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for Continuity corrected methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                     ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 size = 0.5) +
@@ -243,12 +244,12 @@ PlotciCWD<-function(n,alp,c)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo= ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Wald method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)+
@@ -259,12 +260,12 @@ PlotciCWD<-function(n,alp,c)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Wald method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)
@@ -320,12 +321,12 @@ PlotciCAS<-function(n,alp,c)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo= ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected ArcSine method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)+
@@ -336,12 +337,12 @@ PlotciCAS<-function(n,alp,c)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected ArcSine method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)
@@ -398,12 +399,12 @@ PlotciCSC<-function(n,alp,c)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo= ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Score method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)+
@@ -414,12 +415,12 @@ PlotciCSC<-function(n,alp,c)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Score method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)
@@ -476,12 +477,12 @@ PlotciCLT<-function(n,alp,c)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo= ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Logit Wald method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)+
@@ -492,12 +493,12 @@ PlotciCLT<-function(n,alp,c)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Logit Wald method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)
@@ -555,12 +556,12 @@ PlotciCTW<-function(n,alp,c)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo= ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Wald-T method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)+
@@ -571,12 +572,12 @@ PlotciCTW<-function(n,alp,c)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=  ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(title = "Confidence Interval - Continuity corrected Wald-T method") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                                   ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size = 0.5)

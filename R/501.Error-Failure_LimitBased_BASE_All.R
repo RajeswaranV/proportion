@@ -43,7 +43,7 @@ alpstarW=0
 thetactr=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -58,7 +58,7 @@ for(m in 1:k)
 if(phi > UWD[m] || phi<LWD[m])
 {
 thetactr=thetactr+1
-alpstarW[m]=dbinom(x[m],n,phi)
+alpstarW[m]=stats::dbinom(x[m],n,phi)
 } else alpstarW[m] = 0
 }
 delalpW=round((alp-sum(alpstarW))*100,2)
@@ -113,7 +113,7 @@ USC=0
 
 #SCORE (WILSON) METHOD
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n)
 cv2=(cv/(2*n))^2
 
@@ -134,7 +134,7 @@ for(m in 1:k)
 if(phi > USC[m] || phi<LSC[m])
 {
 thetactr=thetactr+1
-alpstarS[m]=dbinom(x[m],n,phi)
+alpstarS[m]=stats::dbinom(x[m],n,phi)
 } else alpstarS[m] = 0
 }
 
@@ -187,7 +187,7 @@ qA=0
 seA=0
 LAS=0
 UAS=0
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 for(i in 1:k)
 {
@@ -205,7 +205,7 @@ for(m in 1:k)
 if(phi > UAS[m] || phi<LAS[m])
 {
 thetactr=thetactr+1
-alpstarA[m]=dbinom(x[m],n,phi)
+alpstarA[m]=stats::dbinom(x[m],n,phi)
 } else alpstarA[m] = 0
 }
 delalpA=round((alp-sum(alpstarA))*100,2)
@@ -260,7 +260,7 @@ LLT=0
 ULT=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 
 #LOGIT-WALD METHOD
 pLT[1]=0
@@ -289,7 +289,7 @@ for(m in 1:k)
 if(phi > ULT[m] || phi<LLT[m])
 {
 thetactr=thetactr+1
-alpstarLT[m]=dbinom(x[m],n,phi)
+alpstarLT[m]=stats::dbinom(x[m],n,phi)
 } else alpstarLT[m] = 0
 }
 
@@ -359,7 +359,7 @@ qTW[i]=1-pTW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pTW[i],n))^2)/f2(pTW[i],n)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seTW[i]=cv[i]*sqrt(f1(pTW[i],n))
 LTW[i]=max(pTW[i]-(seTW[i]),0)
 UTW[i]=min(pTW[i]+(seTW[i]),1)
@@ -372,7 +372,7 @@ for(m in 1:k)
 if(phi > UTW[m] || phi<LTW[m])
 {
 thetactr=thetactr+1
-alpstarTW[m]=dbinom(x[m],n,phi)
+alpstarTW[m]=stats::dbinom(x[m],n,phi)
 } else alpstarTW[m] = 0
 }
 
@@ -426,17 +426,17 @@ LLR=0
 ULR=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
 for(i in 1:k)
 {
-likelhd = function(p) dbinom(y[i],n,p)
-loglik = function(p) dbinom(y[i],n,p,log=TRUE)
-mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y[i],n,p)
+loglik = function(p) stats::dbinom(y[i],n,p,log=TRUE)
+mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff[i]=loglik(mle[i])-(cv^2/2)
 loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-LLR[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-ULR[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+LLR[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+ULR[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
 }
 ###DELTA_ALPHA, THETA,F
 alpstarL=0
@@ -446,7 +446,7 @@ for(m in 1:k)
 if(phi > ULR[m] || phi < LLR[m])
 {
 thetactr=thetactr+1
-alpstarL[m]=dbinom(y[m],n,phi)
+alpstarL[m]=stats::dbinom(y[m],n,phi)
 } else alpstarL[m] = 0
 }
 
@@ -532,7 +532,7 @@ for(m in 1:k)
 if(phi > UEX[m] || phi < LEX[m])
 {
 thetactr=thetactr+1
-alpstarE[m]=dbinom(x[m],n,phi)
+alpstarE[m]=stats::dbinom(x[m],n,phi)
 } else alpstarE[m] = 0
 }
 
@@ -554,8 +554,8 @@ exlim501l=function(x,n,alp,e)
   {
     z=x-1
     y=0:z
-    f1=function(p) (1-e)*dbinom(x,n,p)+sum(dbinom(y,n,p))-(1-(alp/2))
-    LEX= uniroot(f1,c(0,1))$root
+    f1=function(p) (1-e)*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(1-(alp/2))
+    LEX= stats::uniroot(f1,c(0,1))$root
   }
   return(LEX)
 }
@@ -570,8 +570,8 @@ exlim501u=function(x,n,alp,e)
   {
     z=x-1
     y=0:z
-    f2= function(p) e*dbinom(x,n,p)+sum(dbinom(y,n,p))-(alp/2)
-    UEX =uniroot(f2,c(0,1))$root
+    f2= function(p) e*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(alp/2)
+    UEX =stats::uniroot(f2,c(0,1))$root
   }
   return(UEX)
 }
@@ -632,11 +632,11 @@ UBAH=0
 for(i in 1:k)
 {
 #Quantile Based Intervals
-LBAQ[i]=qbeta(alp/2,x[i]+a,n-x[i]+b)
-UBAQ[i]=qbeta(1-(alp/2),x[i]+a,n-x[i]+b)
+LBAQ[i]=stats::qbeta(alp/2,x[i]+a,n-x[i]+b)
+UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a,n-x[i]+b)
 
-LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[1]
-UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[2]
+LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[1]
+UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[2]
 
 }
 ###DELTA_ALPHA, THETA,F_Quantile Based
@@ -647,7 +647,7 @@ for(m in 1:k)
 if(phi > UBAQ[m] || phi < LBAQ[m])
 {
 thetactrQ=thetactrQ+1
-alpstarLQ[m]=dbinom(x[m],n,phi)
+alpstarLQ[m]=stats::dbinom(x[m],n,phi)
 } else alpstarLQ[m] = 0
 }
 
@@ -664,7 +664,7 @@ for(m in 1:k)
 if(phi > UBAH[m] || phi < LBAH[m])
 {
 thetactrH=thetactrH+1
-alpstarLH[m]=dbinom(x[m],n,phi)
+alpstarLH[m]=stats::dbinom(x[m],n,phi)
 } else alpstarLH[m] = 0
 }
 

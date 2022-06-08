@@ -43,6 +43,7 @@ PlotcovpSIM(n,LL,UL,alp,s,a,b,t1,t2)
 }
 }
 \seealso{
-Other Simulated methods for coverage probability: \code{\link{covpSIM}}
+Other Simulated methods for coverage probability: 
+\code{\link{covpSIM}()}
 }
-
+\concept{Simulated methods for coverage probability}

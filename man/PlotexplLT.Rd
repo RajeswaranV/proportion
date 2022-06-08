@@ -29,19 +29,32 @@ PlotexplLT(n,alp,a,b)
 }
 }
 \seealso{
-Other Expected length  of base methods: \code{\link{PlotexplAS}},
-  \code{\link{PlotexplAll}}, \code{\link{PlotexplBA}},
-  \code{\link{PlotexplEX}}, \code{\link{PlotexplLR}},
-  \code{\link{PlotexplSC}}, \code{\link{PlotexplTW}},
-  \code{\link{PlotexplWD}}, \code{\link{PlotlengthAS}},
-  \code{\link{PlotlengthAll}}, \code{\link{PlotlengthBA}},
-  \code{\link{PlotlengthEX}}, \code{\link{PlotlengthLR}},
-  \code{\link{PlotlengthLT}}, \code{\link{PlotlengthSC}},
-  \code{\link{PlotlengthTW}}, \code{\link{PlotlengthWD}},
-  \code{\link{lengthAS}}, \code{\link{lengthAll}},
-  \code{\link{lengthBA}}, \code{\link{lengthEX}},
-  \code{\link{lengthLR}}, \code{\link{lengthLT}},
-  \code{\link{lengthSC}}, \code{\link{lengthTW}},
-  \code{\link{lengthWD}}
+Other Expected length  of base methods: 
+\code{\link{PlotexplAS}()},
+\code{\link{PlotexplAll}()},
+\code{\link{PlotexplBA}()},
+\code{\link{PlotexplEX}()},
+\code{\link{PlotexplLR}()},
+\code{\link{PlotexplSC}()},
+\code{\link{PlotexplTW}()},
+\code{\link{PlotexplWD}()},
+\code{\link{PlotlengthAS}()},
+\code{\link{PlotlengthAll}()},
+\code{\link{PlotlengthBA}()},
+\code{\link{PlotlengthEX}()},
+\code{\link{PlotlengthLR}()},
+\code{\link{PlotlengthLT}()},
+\code{\link{PlotlengthSC}()},
+\code{\link{PlotlengthTW}()},
+\code{\link{PlotlengthWD}()},
+\code{\link{lengthAS}()},
+\code{\link{lengthAll}()},
+\code{\link{lengthBA}()},
+\code{\link{lengthEX}()},
+\code{\link{lengthLR}()},
+\code{\link{lengthLT}()},
+\code{\link{lengthSC}()},
+\code{\link{lengthTW}()},
+\code{\link{lengthWD}()}
 }
-
+\concept{Expected length  of base methods}

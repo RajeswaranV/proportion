@@ -36,14 +36,23 @@ PlotcovpBA(n,alp,a,b,t1,t2,a1,a2)
 }
 }
 \seealso{
-Other Basic coverage probability methods: \code{\link{PlotcovpAS}},
-  \code{\link{PlotcovpAll}}, \code{\link{PlotcovpEX}},
-  \code{\link{PlotcovpLR}}, \code{\link{PlotcovpLT}},
-  \code{\link{PlotcovpSC}}, \code{\link{PlotcovpTW}},
-  \code{\link{PlotcovpWD}}, \code{\link{covpAS}},
-  \code{\link{covpAll}}, \code{\link{covpBA}},
-  \code{\link{covpEX}}, \code{\link{covpLR}},
-  \code{\link{covpLT}}, \code{\link{covpSC}},
-  \code{\link{covpTW}}, \code{\link{covpWD}}
+Other Basic coverage probability methods: 
+\code{\link{PlotcovpAS}()},
+\code{\link{PlotcovpAll}()},
+\code{\link{PlotcovpEX}()},
+\code{\link{PlotcovpLR}()},
+\code{\link{PlotcovpLT}()},
+\code{\link{PlotcovpSC}()},
+\code{\link{PlotcovpTW}()},
+\code{\link{PlotcovpWD}()},
+\code{\link{covpAS}()},
+\code{\link{covpAll}()},
+\code{\link{covpBA}()},
+\code{\link{covpEX}()},
+\code{\link{covpLR}()},
+\code{\link{covpLT}()},
+\code{\link{covpSC}()},
+\code{\link{covpTW}()},
+\code{\link{covpWD}()}
 }
-
+\concept{Basic coverage probability methods}

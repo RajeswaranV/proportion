@@ -84,7 +84,7 @@ RMSE_M1=0
 RMSE_Mi1=0
 ctr=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -97,14 +97,14 @@ if(LW[i]<0) LW[i]=0
 if(UW[i]>1) UW[i]=1
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LW[i] && hp[j] < UW[i])
 {
-cpW[i,j]=dbinom(i-1, n,hp[j])
+cpW[i,j]=stats::dbinom(i-1, n,hp[j])
 ctW[i,j]=1
 }
 }
@@ -216,7 +216,7 @@ RMSE_Mi1=0
 ctr=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n)
 cv2=(cv/(2*n))^2
 
@@ -232,14 +232,14 @@ if(LS[i]<0) LS[i]=0
 if(US[i]>1) US[i]=1
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LS[i] && hp[j] < US[i])
 {
-cpS[i,j]=dbinom(i-1, n,hp[j])
+cpS[i,j]=stats::dbinom(i-1, n,hp[j])
 ctS[i,j]=1
 }
 }
@@ -352,7 +352,7 @@ RMSE_Mi1=0
 ctr=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 for(i in 1:k)
 {
@@ -365,14 +365,14 @@ if(LA[i]<0) LA[i]=0
 if(UA[i]>1) UA[i]=1
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LA[i] && hp[j] < UA[i])
 {
-cpA[i,j]=dbinom(i-1, n,hp[j])
+cpA[i,j]=stats::dbinom(i-1, n,hp[j])
 ctA[i,j]=1
 }
 }
@@ -484,7 +484,7 @@ RMSE_Mi1=0
 ctr=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pLT[1]=0
 qLT[1]=1
@@ -508,14 +508,14 @@ if(LLT[j+1]<0) LLT[j+1]=0
 if(ULT[j+1]>1) ULT[j+1]=1
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LLT[i] && hp[j] < ULT[i])
 {
-cpLT[i,j]=dbinom(i-1, n,hp[j])
+cpLT[i,j]=stats::dbinom(i-1, n,hp[j])
 ctLT[i,j]=1
 }
 }
@@ -643,7 +643,7 @@ qTW[i]=1-pTW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pTW[i],n))^2)/f2(pTW[i],n)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seTW[i]=cv[i]*sqrt(f1(pTW[i],n))
 LTW[i]=pTW[i]-(seTW[i])
 UTW[i]=pTW[i]+(seTW[i])
@@ -651,14 +651,14 @@ if(LTW[i]<0) LTW[i]=0
 if(UTW[i]>1) UTW[i]=1
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LTW[i] && hp[j] < UTW[i])
 {
-cpTW[i,j]=dbinom(i-1, n,hp[j])
+cpTW[i,j]=stats::dbinom(i-1, n,hp[j])
 ctTW[i,j]=1
 }
 }
@@ -769,27 +769,27 @@ RMSE_Mi1=0
 ctr=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
 for(i in 1:k)
 {
-likelhd = function(p) dbinom(y[i],n,p)
-loglik = function(p) dbinom(y[i],n,p,log=TRUE)
-mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y[i],n,p)
+loglik = function(p) stats::dbinom(y[i],n,p,log=TRUE)
+mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff[i]=loglik(mle[i])-(cv^2/2)
 loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-LL[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-UL[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+LL[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+UL[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LL[i] && hp[j] < UL[i])
 {
-cpL[i,j]=dbinom(i-1, n,hp[j])
+cpL[i,j]=stats::dbinom(i-1, n,hp[j])
 ctL[i,j]=1
 }
 }
@@ -936,14 +936,14 @@ LEX[i+1]=exlim201l(x[i+1],n,alp,e)
 UEX[i+1]=exlim201u(x[i+1],n,alp,e)
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LEX[i] && hp[j] < UEX[i])
 {
-cpEX[i,j]=dbinom(i-1, n,hp[j])
+cpEX[i,j]=stats::dbinom(i-1, n,hp[j])
 ctEX[i,j]=1
 }
 }
@@ -972,8 +972,8 @@ exlim201l=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f1=function(p) (1-e)*dbinom(x,n,p)+sum(dbinom(y,n,p))-(1-(alp/2))
-  LEX= uniroot(f1,c(0,1))$root
+  f1=function(p) (1-e)*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(1-(alp/2))
+  LEX= stats::uniroot(f1,c(0,1))$root
   return(LEX)
 }
 #####TO FIND UPPER LIMITS
@@ -981,8 +981,8 @@ exlim201u=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f2  = function(p) e*dbinom(x,n,p)+sum(dbinom(y,n,p))-(alp/2)
-  UEX = uniroot(f2,c(0,1))$root
+  f2  = function(p) e*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(alp/2)
+  UEX = stats::uniroot(f2,c(0,1))$root
   return(UEX)
 }
 
@@ -1096,27 +1096,27 @@ ctrH=0
 for(i in 1:k)
 {
 #Quantile Based Intervals
-LBAQ[i]=qbeta(alp/2,x[i]+a1,n-x[i]+a2)
-UBAQ[i]=qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
+LBAQ[i]=stats::qbeta(alp/2,x[i]+a1,n-x[i]+a2)
+UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
 
-LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
-UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
+LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
+UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
 
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LBAQ[i] && hp[j] < UBAQ[i])
 {
-cpBAQ[i,j]=dbinom(i-1, n,hp[j])
+cpBAQ[i,j]=stats::dbinom(i-1, n,hp[j])
 ctBAQ[i,j]=1
 }
 if(hp[j] > LBAH[i] && hp[j] < UBAH[i])
 {
-cpBAH[i,j]=dbinom(i-1, n,hp[j])
+cpBAH[i,j]=stats::dbinom(i-1, n,hp[j])
 ctBAH[i,j]=1
 }
 

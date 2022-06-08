@@ -41,8 +41,8 @@ PosProb=0
 
 for(i in 1:k)
 {
-bet=function(p) dbeta(p,shape1=x[i]+a,shape2=n-x[i]+b)
-PosProb[i]=integrate(bet,0,th)$value
+bet=function(p) stats::dbeta(p,shape1=x[i]+a,shape2=n-x[i]+b)
+PosProb[i]=stats::integrate(bet,0,th)$value
 }
 return(data.frame(x,PosProb))
 }

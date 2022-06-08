@@ -55,9 +55,13 @@ REVSTAT - Statistical Journal, 6, 165-197.
    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
    \code{\link[prevalence]{propCI}} which provides similar functionality.
 
-Other Adjusted methods of CI estimation  given x & n: \code{\link{PlotciAAllx}},
-  \code{\link{ciAASx}}, \code{\link{ciALRx}},
-  \code{\link{ciALTx}}, \code{\link{ciASCx}},
-  \code{\link{ciATWx}}, \code{\link{ciAWDx}}
+Other Adjusted methods of CI estimation  given x & n: 
+\code{\link{PlotciAAllx}()},
+\code{\link{ciAASx}()},
+\code{\link{ciALRx}()},
+\code{\link{ciALTx}()},
+\code{\link{ciASCx}()},
+\code{\link{ciATWx}()},
+\code{\link{ciAWDx}()}
 }
-
+\concept{Adjusted methods of CI estimation  given x & n}

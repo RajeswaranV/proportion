@@ -24,12 +24,17 @@ n=5; alp=0.05;c=1/(2*n)
 PlotpCOpBICTW(n,alp,c)
 }
 \seealso{
-Other p-confidence and p-bias of continuity corrected methods: \code{\link{PlotpCOpBICAS}},
-  \code{\link{PlotpCOpBICAll}},
-  \code{\link{PlotpCOpBICLT}}, \code{\link{PlotpCOpBICSC}},
-  \code{\link{PlotpCOpBICWD}}, \code{\link{pCOpBICAS}},
-  \code{\link{pCOpBICAll}}, \code{\link{pCOpBICLT}},
-  \code{\link{pCOpBICSC}}, \code{\link{pCOpBICTW}},
-  \code{\link{pCOpBICWD}}
+Other p-confidence and p-bias of continuity corrected methods: 
+\code{\link{PlotpCOpBICAS}()},
+\code{\link{PlotpCOpBICAll}()},
+\code{\link{PlotpCOpBICLT}()},
+\code{\link{PlotpCOpBICSC}()},
+\code{\link{PlotpCOpBICWD}()},
+\code{\link{pCOpBICAS}()},
+\code{\link{pCOpBICAll}()},
+\code{\link{pCOpBICLT}()},
+\code{\link{pCOpBICSC}()},
+\code{\link{pCOpBICTW}()},
+\code{\link{pCOpBICWD}()}
 }
-
+\concept{p-confidence and p-bias of continuity corrected methods}

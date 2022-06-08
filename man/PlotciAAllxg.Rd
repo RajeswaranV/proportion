@@ -25,4 +25,3 @@ The plots of confidence intervals of using 6 adjusted methods (Wald, Wald-T, Lik
 x=5; n=5; alp=0.5;h=2
 PlotciAAllxg(x,n,alp,h)
 }
-

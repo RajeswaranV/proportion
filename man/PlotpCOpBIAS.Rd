@@ -27,14 +27,23 @@ Evaluation Criteria for Discrete Confidence Intervals: Beyond Coverage and Lengt
 The American Statistician: 59; 137 - 142.
 }
 \seealso{
-Other p-confidence and p-bias of base methods: \code{\link{PlotpCOpBIAll}},
-  \code{\link{PlotpCOpBIBA}}, \code{\link{PlotpCOpBIEX}},
-  \code{\link{PlotpCOpBILR}}, \code{\link{PlotpCOpBILT}},
-  \code{\link{PlotpCOpBISC}}, \code{\link{PlotpCOpBITW}},
-  \code{\link{PlotpCOpBIWD}}, \code{\link{pCOpBIAS}},
-  \code{\link{pCOpBIAll}}, \code{\link{pCOpBIBA}},
-  \code{\link{pCOpBIEX}}, \code{\link{pCOpBILR}},
-  \code{\link{pCOpBILT}}, \code{\link{pCOpBISC}},
-  \code{\link{pCOpBITW}}, \code{\link{pCOpBIWD}}
+Other p-confidence and p-bias of base methods: 
+\code{\link{PlotpCOpBIAll}()},
+\code{\link{PlotpCOpBIBA}()},
+\code{\link{PlotpCOpBIEX}()},
+\code{\link{PlotpCOpBILR}()},
+\code{\link{PlotpCOpBILT}()},
+\code{\link{PlotpCOpBISC}()},
+\code{\link{PlotpCOpBITW}()},
+\code{\link{PlotpCOpBIWD}()},
+\code{\link{pCOpBIAS}()},
+\code{\link{pCOpBIAll}()},
+\code{\link{pCOpBIBA}()},
+\code{\link{pCOpBIEX}()},
+\code{\link{pCOpBILR}()},
+\code{\link{pCOpBILT}()},
+\code{\link{pCOpBISC}()},
+\code{\link{pCOpBITW}()},
+\code{\link{pCOpBIWD}()}
 }
-
+\concept{p-confidence and p-bias of base methods}

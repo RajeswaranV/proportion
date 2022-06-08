@@ -30,16 +30,26 @@ PlotexplALT(n,alp,h,a,b)
 }
 }
 \seealso{
-Other Expected length  of adjusted methods: \code{\link{PlotexplAAS}},
-  \code{\link{PlotexplAAll}}, \code{\link{PlotexplALR}},
-  \code{\link{PlotexplASC}}, \code{\link{PlotexplATW}},
-  \code{\link{PlotexplAWD}}, \code{\link{PlotlengthAAS}},
-  \code{\link{PlotlengthAAll}},
-  \code{\link{PlotlengthALR}}, \code{\link{PlotlengthALT}},
-  \code{\link{PlotlengthASC}}, \code{\link{PlotlengthATW}},
-  \code{\link{PlotlengthAWD}}, \code{\link{lengthAAS}},
-  \code{\link{lengthAAll}}, \code{\link{lengthALR}},
-  \code{\link{lengthALT}}, \code{\link{lengthASC}},
-  \code{\link{lengthATW}}, \code{\link{lengthAWD}}
+Other Expected length  of adjusted methods: 
+\code{\link{PlotexplAAS}()},
+\code{\link{PlotexplAAll}()},
+\code{\link{PlotexplALR}()},
+\code{\link{PlotexplASC}()},
+\code{\link{PlotexplATW}()},
+\code{\link{PlotexplAWD}()},
+\code{\link{PlotlengthAAS}()},
+\code{\link{PlotlengthAAll}()},
+\code{\link{PlotlengthALR}()},
+\code{\link{PlotlengthALT}()},
+\code{\link{PlotlengthASC}()},
+\code{\link{PlotlengthATW}()},
+\code{\link{PlotlengthAWD}()},
+\code{\link{lengthAAS}()},
+\code{\link{lengthAAll}()},
+\code{\link{lengthALR}()},
+\code{\link{lengthALT}()},
+\code{\link{lengthASC}()},
+\code{\link{lengthATW}()},
+\code{\link{lengthAWD}()}
 }
-
+\concept{Expected length  of adjusted methods}

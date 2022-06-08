@@ -47,7 +47,7 @@ ciAWDx<-function(x,n,alp,h)
   if ((class(h) != "integer") & (class(h) != "numeric") || length(h) >1|| h<0  ) stop("'h' has to be greater than or equal to 0")
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 y=x+h
 m=n+(2*h)
@@ -117,7 +117,7 @@ y=x+h
 m=n+(2*h)
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*m)
 cv2=(cv/(2*m))^2
 
@@ -189,7 +189,7 @@ ciAASx<-function(x,n,alp,h)
 
 y=x+h
 m=n+(2*h)
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 pA=y/m
 #qA=1-pA
@@ -262,15 +262,15 @@ y1=y+h
 n1=n+(2*h)
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
-likelhd = function(p) dbinom(y1,n1,p)
-loglik = function(p) dbinom(y1,n1,p,log=TRUE)
-mle=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y1,n1,p)
+loglik = function(p) stats::dbinom(y1,n1,p,log=TRUE)
+mle=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff=loglik(mle)-(cv^2/2)
 loglik.optim=function(p){abs(cutoff-loglik(p))}
-LALRx=optimize(loglik.optim, c(0,mle))$minimum
-UALRx=optimize(loglik.optim, c(mle,1))$minimum
+LALRx=stats::optimize(loglik.optim, c(0,mle))$minimum
+UALRx=stats::optimize(loglik.optim, c(mle,1))$minimum
 
 if(LALRx<0) LABB="YES" else LABB="NO"
 if(LALRx<0) LALRx=0
@@ -340,7 +340,7 @@ pATWx=y/n1
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOFx=2*((f1(pATWx,n1))^2)/f2(pATWx,n1)
-cvx=qt(1-(alp/2), df=DOFx)
+cvx=stats::qt(1-(alp/2), df=DOFx)
 seATWx=cvx*sqrt(f1(pATWx,n1))
 LATWx=pATWx-(seATWx)
 UATWx=pATWx+(seATWx)
@@ -409,7 +409,7 @@ y=x+h
 n1=n+(2*h)
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pALTx=y/n1
 qALTx=1-pALTx

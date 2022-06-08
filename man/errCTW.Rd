@@ -40,11 +40,17 @@ Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{
-Other Error for continuity corrected methods: \code{\link{PloterrCAS}},
-  \code{\link{PloterrCAll}}, \code{\link{PloterrCLT}},
-  \code{\link{PloterrCSC}}, \code{\link{PloterrCTW}},
-  \code{\link{PloterrCWD}}, \code{\link{errCAS}},
-  \code{\link{errCAll}}, \code{\link{errCLT}},
-  \code{\link{errCSC}}, \code{\link{errCWD}}
+Other Error for continuity corrected methods: 
+\code{\link{PloterrCAS}()},
+\code{\link{PloterrCAll}()},
+\code{\link{PloterrCLT}()},
+\code{\link{PloterrCSC}()},
+\code{\link{PloterrCTW}()},
+\code{\link{PloterrCWD}()},
+\code{\link{errCAS}()},
+\code{\link{errCAll}()},
+\code{\link{errCLT}()},
+\code{\link{errCSC}()},
+\code{\link{errCWD}()}
 }
-
+\concept{Error for continuity corrected methods}

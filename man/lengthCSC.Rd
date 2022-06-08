@@ -50,15 +50,23 @@ Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{
-Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAS}},
-  \code{\link{PlotexplCAll}}, \code{\link{PlotexplCLT}},
-  \code{\link{PlotexplCSC}}, \code{\link{PlotexplCTW}},
-  \code{\link{PlotexplCWD}}, \code{\link{PlotlengthCAS}},
-  \code{\link{PlotlengthCAll}},
-  \code{\link{PlotlengthCLT}}, \code{\link{PlotlengthCSC}},
-  \code{\link{PlotlengthCTW}}, \code{\link{PlotlengthCWD}},
-  \code{\link{lengthCAS}}, \code{\link{lengthCAll}},
-  \code{\link{lengthCLT}}, \code{\link{lengthCTW}},
-  \code{\link{lengthCWD}}
+Other Expected length  of continuity corrected methods: 
+\code{\link{PlotexplCAS}()},
+\code{\link{PlotexplCAll}()},
+\code{\link{PlotexplCLT}()},
+\code{\link{PlotexplCSC}()},
+\code{\link{PlotexplCTW}()},
+\code{\link{PlotexplCWD}()},
+\code{\link{PlotlengthCAS}()},
+\code{\link{PlotlengthCAll}()},
+\code{\link{PlotlengthCLT}()},
+\code{\link{PlotlengthCSC}()},
+\code{\link{PlotlengthCTW}()},
+\code{\link{PlotlengthCWD}()},
+\code{\link{lengthCAS}()},
+\code{\link{lengthCAll}()},
+\code{\link{lengthCLT}()},
+\code{\link{lengthCTW}()},
+\code{\link{lengthCWD}()}
 }
-
+\concept{Expected length  of continuity corrected methods}

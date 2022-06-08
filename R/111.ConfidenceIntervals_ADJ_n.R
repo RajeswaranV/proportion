@@ -58,7 +58,7 @@ UABB=0
 ZWI=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -141,7 +141,7 @@ UABB=0
 ZWI=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n1)
 cv2=(cv/(2*n1))^2
 
@@ -227,7 +227,7 @@ LABB=0
 UABB=0
 ZWI=0
 
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 for(i in 1:k)
 {
@@ -309,17 +309,17 @@ UABB=0
 ZWI=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
 for(i in 1:k)
 {
-likelhd = function(p) dbinom(y1[i],n1,p)
-loglik = function(p) dbinom(y1[i],n1,p,log=TRUE)
-mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y1[i],n1,p)
+loglik = function(p) stats::dbinom(y1[i],n1,p,log=TRUE)
+mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff[i]=loglik(mle[i])-(cv^2/2)
 loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-LALR[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-UALR[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+LALR[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+UALR[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
 
 if(LALR[i]<0) LABB[i]="YES" else LABB[i]="NO"
 
@@ -403,7 +403,7 @@ qATW[i]=1-pATW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pATW[i],n1))^2)/f2(pATW[i],n1)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seATW[i]=cv[i]*sqrt(f1(pATW[i],n1))
 LATW[i]=pATW[i]-(seATW[i])
 UATW[i]=pATW[i]+(seATW[i])
@@ -483,7 +483,7 @@ LABB=0
 UABB=0
 ZWI=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 for(i in 1:k)
 {

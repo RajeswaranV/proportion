@@ -27,6 +27,7 @@ n=5;
 PlotpCOpBIGEN(n,LL,UL)
 }
 \seealso{
-Other General methods for p-Confidence and p-Bias: \code{\link{pCOpBIGEN}}
+Other General methods for p-Confidence and p-Bias: 
+\code{\link{pCOpBIGEN}()}
 }
-
+\concept{General methods for p-Confidence and p-Bias}

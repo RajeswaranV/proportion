@@ -26,11 +26,17 @@ PlotpCOpBICAll(n,alp,c)
 }
 }
 \seealso{
-Other p-confidence and p-bias of continuity corrected methods: \code{\link{PlotpCOpBICAS}},
-  \code{\link{PlotpCOpBICLT}}, \code{\link{PlotpCOpBICSC}},
-  \code{\link{PlotpCOpBICTW}}, \code{\link{PlotpCOpBICWD}},
-  \code{\link{pCOpBICAS}}, \code{\link{pCOpBICAll}},
-  \code{\link{pCOpBICLT}}, \code{\link{pCOpBICSC}},
-  \code{\link{pCOpBICTW}}, \code{\link{pCOpBICWD}}
+Other p-confidence and p-bias of continuity corrected methods: 
+\code{\link{PlotpCOpBICAS}()},
+\code{\link{PlotpCOpBICLT}()},
+\code{\link{PlotpCOpBICSC}()},
+\code{\link{PlotpCOpBICTW}()},
+\code{\link{PlotpCOpBICWD}()},
+\code{\link{pCOpBICAS}()},
+\code{\link{pCOpBICAll}()},
+\code{\link{pCOpBICLT}()},
+\code{\link{pCOpBICSC}()},
+\code{\link{pCOpBICTW}()},
+\code{\link{pCOpBICWD}()}
 }
-
+\concept{p-confidence and p-bias of continuity corrected methods}

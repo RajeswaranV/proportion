@@ -56,11 +56,17 @@ Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{
-Other Coverage probability for continuity corrected methods: \code{\link{PlotcovpCAS}},
-  \code{\link{PlotcovpCAll}}, \code{\link{PlotcovpCLT}},
-  \code{\link{PlotcovpCSC}}, \code{\link{PlotcovpCTW}},
-  \code{\link{PlotcovpCWD}}, \code{\link{covpCAS}},
-  \code{\link{covpCAll}}, \code{\link{covpCLT}},
-  \code{\link{covpCSC}}, \code{\link{covpCTW}}
+Other Coverage probability for continuity corrected methods: 
+\code{\link{PlotcovpCAS}()},
+\code{\link{PlotcovpCAll}()},
+\code{\link{PlotcovpCLT}()},
+\code{\link{PlotcovpCSC}()},
+\code{\link{PlotcovpCTW}()},
+\code{\link{PlotcovpCWD}()},
+\code{\link{covpCAS}()},
+\code{\link{covpCAll}()},
+\code{\link{covpCLT}()},
+\code{\link{covpCSC}()},
+\code{\link{covpCTW}()}
 }
-
+\concept{Coverage probability for continuity corrected methods}

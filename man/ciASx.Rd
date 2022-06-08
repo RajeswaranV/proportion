@@ -70,11 +70,17 @@ Journal of Applied Statistics, 41, 7, 1516-1529
    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
    \code{\link[prevalence]{propCI}} which provides similar functionality.
 
-Other Base methods of CI estimation given x & n: \code{\link{PlotciAllxg}},
-  \code{\link{PlotciAllx}}, \code{\link{PlotciEXx}},
-  \code{\link{ciAllx}}, \code{\link{ciBAx}},
-  \code{\link{ciEXx}}, \code{\link{ciLRx}},
-  \code{\link{ciLTx}}, \code{\link{ciSCx}},
-  \code{\link{ciTWx}}, \code{\link{ciWDx}}
+Other Base methods of CI estimation given x & n: 
+\code{\link{PlotciAllxg}()},
+\code{\link{PlotciAllx}()},
+\code{\link{PlotciEXx}()},
+\code{\link{ciAllx}()},
+\code{\link{ciBAx}()},
+\code{\link{ciEXx}()},
+\code{\link{ciLRx}()},
+\code{\link{ciLTx}()},
+\code{\link{ciSCx}()},
+\code{\link{ciTWx}()},
+\code{\link{ciWDx}()}
 }
-
+\concept{Base methods of CI estimation given x & n}

@@ -56,7 +56,7 @@ LABB=0
 UABB=0
 ZWI=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -140,7 +140,7 @@ ciCSC<-function(n,alp,c)
   ZWI=0
 
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   cv1=(cv^2)/(2*n)
   cv2= cv/(2*n)
 
@@ -225,7 +225,7 @@ UABB=0
 ZWI=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 for(i in 1:k)
 {
@@ -310,7 +310,7 @@ LABB=0
 UABB=0
 ZWI=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pCLT[1]=0
 qCLT[1]=1
@@ -425,7 +425,7 @@ qCTW[i]=1-pCTW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pCTW[i],n))^2)/f2(pCTW[i],n)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seCTW[i]=cv[i]*sqrt(f1(pCTW[i],n))
 LCTW[i]=pCTW[i]-(seCTW[i]+c)
 UCTW[i]=pCTW[i]+(seCTW[i]+c)

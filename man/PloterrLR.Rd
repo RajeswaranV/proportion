@@ -27,14 +27,23 @@ n=20; alp=0.05; phi=0.05; f=-2
 PloterrLR(n,alp,phi,f)
 }
 \seealso{
-Other Error for base methods: \code{\link{PloterrAS}},
-  \code{\link{PloterrAll}}, \code{\link{PloterrBA}},
-  \code{\link{PloterrEX}}, \code{\link{PloterrLT}},
-  \code{\link{PloterrSC}}, \code{\link{PloterrTW}},
-  \code{\link{PloterrWD}}, \code{\link{errAS}},
-  \code{\link{errAll}}, \code{\link{errBA}},
-  \code{\link{errEX}}, \code{\link{errLR}},
-  \code{\link{errLT}}, \code{\link{errSC}},
-  \code{\link{errTW}}, \code{\link{errWD}}
+Other Error for base methods: 
+\code{\link{PloterrAS}()},
+\code{\link{PloterrAll}()},
+\code{\link{PloterrBA}()},
+\code{\link{PloterrEX}()},
+\code{\link{PloterrLT}()},
+\code{\link{PloterrSC}()},
+\code{\link{PloterrTW}()},
+\code{\link{PloterrWD}()},
+\code{\link{errAS}()},
+\code{\link{errAll}()},
+\code{\link{errBA}()},
+\code{\link{errEX}()},
+\code{\link{errLR}()},
+\code{\link{errLT}()},
+\code{\link{errSC}()},
+\code{\link{errTW}()},
+\code{\link{errWD}()}
 }
-
+\concept{Error for base methods}

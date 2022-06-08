@@ -61,7 +61,7 @@ LEAW=0 								#LENGTH OF INTERVAL
 ewiAW=matrix(0,k,s)						#sum of length quantity in sum
 ewAW=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -75,19 +75,19 @@ if(UAW[i]>1) UAW[i]=1
 LEAW[i]=UAW[i]-LAW[i]
 }
 #sumLEAW=sum(LEAW)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiAW[i,j]=LEAW[i]*dbinom(i-1, n,hp[j])
+    ewiAW[i,j]=LEAW[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewAW[j]=sum(ewiAW[,j])						#Expected Length
 }
 
 sumLen=sum(LEAW)
 explMean=mean(ewAW)
-explSD=sd(ewAW)
+explSD=stats::sd(ewAW)
 explMax=max(ewAW)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -157,7 +157,7 @@ LEAS=0 								#LENGTH OF INTERVAL
 ewiAS=matrix(0,k,s)						#sum of length quantity in sum
 ewAS=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n1)
 cv2=(cv/(2*n1))^2
 
@@ -174,19 +174,19 @@ if(UAS[i]>1) UAS[i]=1
 LEAS[i]=UAS[i]-LAS[i]
 }
 #sumLEAS=sum(LEAS)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiAS[i,j]=LEAS[i]*dbinom(i-1, n,hp[j])
+    ewiAS[i,j]=LEAS[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewAS[j]=sum(ewiAS[,j])						#Expected Length
 }
 
 sumLen=sum(LEAS)
 explMean=mean(ewAS)
-explSD=sd(ewAS)
+explSD=stats::sd(ewAS)
 explMax=max(ewAS)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -257,7 +257,7 @@ LEAA=0 								#LENGTH OF INTERVAL
 ewiAA=matrix(0,k,s)						#sum of length quantity in sum
 ewAA=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 for(i in 1:k)
 {
@@ -271,19 +271,19 @@ if(UAA[i]>1) UAA[i]=1
 LEAA[i]=UAA[i]-LAA[i]
 }
 #sumLEAA=sum(LEAA)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiAA[i,j]=LEAA[i]*dbinom(i-1, n,hp[j])
+    ewiAA[i,j]=LEAA[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewAA[j]=sum(ewiAA[,j])						#Expected Length
 }
 
 sumLen=sum(LEAA)
 explMean=mean(ewAA)
-explSD=sd(ewAA)
+explSD=stats::sd(ewAA)
 explMax=max(ewAA)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -356,7 +356,7 @@ LEALT=0 								#LENGTH OF INTERVAL
 ewiALT=matrix(0,k,s)						#sum of length quantity in sum
 ewALT=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 
 for(i in 1:k)
@@ -372,18 +372,18 @@ if(UALT[i]>1) UALT[i]=1
 LEALT[i]=UALT[i]-LALT[i]
 }
 #sumLEALT=sum(LEALT)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiALT[i,j]=LEALT[i]*dbinom(i-1, n,hp[j])
+    ewiALT[i,j]=LEALT[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewALT[j]=sum(ewiALT[,j])						#Expected Length
 }
 sumLen=sum(LEALT)
 explMean=mean(ewALT)
-explSD=sd(ewALT)
+explSD=stats::sd(ewALT)
 explMax=max(ewALT)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -462,7 +462,7 @@ qATW[i]=1-pATW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pATW[i],n1))^2)/f2(pATW[i],n1)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seATW[i]=cv[i]*sqrt(f1(pATW[i],n1))
 LATW[i]=pATW[i]-(seATW[i])
 UATW[i]=pATW[i]+(seATW[i])
@@ -471,19 +471,19 @@ if(UATW[i]>1) UATW[i]=1
 LEATW[i]=UATW[i]-LATW[i]
 }
 #sumLEATW=sum(LEATW)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiATW[i,j]=LEATW[i]*dbinom(i-1, n,hp[j])
+    ewiATW[i,j]=LEATW[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewATW[j]=sum(ewiATW[,j])						#Expected Length
 }
 
 sumLen=sum(LEATW)
 explMean=mean(ewATW)
-explSD=sd(ewATW)
+explSD=stats::sd(ewATW)
 explMax=max(ewATW)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -554,33 +554,33 @@ LEAL=0 								#LENGTH OF INTERVAL
 ewiAL=matrix(0,k,s)						#sum of length quantity in sum
 ewAL=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
 for(i in 1:k)
 {
-likelhd = function(p) dbinom(y1[i],n1,p)
-loglik = function(p) dbinom(y1[i],n1,p,log=TRUE)
-mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y1[i],n1,p)
+loglik = function(p) stats::dbinom(y1[i],n1,p,log=TRUE)
+mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff[i]=loglik(mle[i])-(cv^2/2)
 loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-LAL[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-UAL[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+LAL[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+UAL[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
 LEAL[i]=UAL[i]-LAL[i]
 }
 #sumLEAL=sum(LEAL)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiAL[i,j]=LEAL[i]*dbinom(i-1, n,hp[j])
+    ewiAL[i,j]=LEAL[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewAL[j]=sum(ewiAL[,j])						#Expected Length
 }
 
 sumLen=sum(LEAL)
 explMean=mean(ewAL)
-explSD=sd(ewAL)
+explSD=stats::sd(ewAL)
 explMax=max(ewAL)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)

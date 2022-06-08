@@ -37,8 +37,11 @@ probPRE(n,m,a1,a2)
 Bayesian Data Analysis, Chapman & Hall/CRC
 }
 \seealso{
-Other Miscellaneous  functions for Bayesian method: \code{\link{empericalBAx}},
-  \code{\link{empericalBA}}, \code{\link{probPOSx}},
-  \code{\link{probPOS}}, \code{\link{probPREx}}
+Other Miscellaneous  functions for Bayesian method: 
+\code{\link{empericalBAx}()},
+\code{\link{empericalBA}()},
+\code{\link{probPOSx}()},
+\code{\link{probPOS}()},
+\code{\link{probPREx}()}
 }
-
+\concept{Miscellaneous  functions for Bayesian method}

@@ -39,8 +39,11 @@ hp=seq(0,1,by=0.01)
 lengthGEN(n,LL,UL,hp)
 }
 \seealso{
-Other Expected length: \code{\link{PlotexplGEN}},
-  \code{\link{PlotexplSIM}}, \code{\link{PlotlengthGEN}},
-  \code{\link{PlotlengthSIM}}, \code{\link{lengthSIM}}
+Other Expected length: 
+\code{\link{PlotexplGEN}()},
+\code{\link{PlotexplSIM}()},
+\code{\link{PlotlengthGEN}()},
+\code{\link{PlotlengthSIM}()},
+\code{\link{lengthSIM}()}
 }
-
+\concept{Expected length}

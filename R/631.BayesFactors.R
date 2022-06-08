@@ -136,11 +136,11 @@ BaFa01=0
 t2=0
 for(i in 1:k)
 {
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet2=function(p) dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet2=function(p) stats::dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)
 
-t1=integrate(bet1,th0,1)$value
-t2[i]=integrate(bet2,th0,1)$value
+t1=stats::integrate(bet1,th0,1)$value
+t2[i]=stats::integrate(bet2,th0,1)$value
 
 BaFa01[i]=(t1/t2[i])*(th0^x[i])*((1-th0)^(n-x[i]))
 }
@@ -228,11 +228,11 @@ BaFa01=0
 t2=0
 for(i in 1:k)
 {
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet2=function(p) dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet2=function(p) stats::dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)
 
-t1=integrate(bet1,0,th0)$value
-t2[i]=integrate(bet2,0,th0)$value
+t1=stats::integrate(bet1,0,th0)$value
+t2[i]=stats::integrate(bet2,0,th0)$value
 
 BaFa01[i]=(t1/t2[i])*(th0^x[i])*((1-th0)^(n-x[i]))
 }
@@ -328,16 +328,16 @@ t11=0
 
 for(i in 1:k)
 {
-bet0=function(p) dbeta(p,shape1=a0,shape2=b0)
-bet01=function(p) dbeta(p,shape1=x[i]+a0,shape2=n-x[i]+b0)	#Null Posterior based
+bet0=function(p) stats::dbeta(p,shape1=a0,shape2=b0)
+bet01=function(p) stats::dbeta(p,shape1=x[i]+a0,shape2=n-x[i]+b0)	#Null Posterior based
 
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet11=function(p) dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)	#Alternate Posterior based
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet11=function(p) stats::dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)	#Alternate Posterior based
 
-t0=integrate(bet0,0,th0)$value
-t1=integrate(bet1,th0,1)$value
-t01[i]=integrate(bet01,0,th0)$value
-t11[i]=integrate(bet11,th0,1)$value
+t0=stats::integrate(bet0,0,th0)$value
+t1=stats::integrate(bet1,th0,1)$value
+t01[i]=stats::integrate(bet01,0,th0)$value
+t11[i]=stats::integrate(bet11,th0,1)$value
 
 BaFa01[i]=t01[i]*t1/(t0*t11[i])
 }
@@ -434,16 +434,16 @@ t11=0
 
 for(i in 1:k)
 {
-bet0=function(p) dbeta(p,shape1=a0,shape2=b0)
-bet01=function(p) dbeta(p,shape1=x[i]+a0,shape2=n-x[i]+b0)	#Null Posterior based
+bet0=function(p) stats::dbeta(p,shape1=a0,shape2=b0)
+bet01=function(p) stats::dbeta(p,shape1=x[i]+a0,shape2=n-x[i]+b0)	#Null Posterior based
 
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet11=function(p) dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)	#Alternate Posterior based
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet11=function(p) stats::dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)	#Alternate Posterior based
 
-t0=integrate(bet0,th0,1)$value
-t1=integrate(bet1,0,th0)$value
-t01[i]=integrate(bet01,th0,1)$value
-t11[i]=integrate(bet11,0,th0)$value
+t0=stats::integrate(bet0,th0,1)$value
+t1=stats::integrate(bet1,0,th0)$value
+t01[i]=stats::integrate(bet01,th0,1)$value
+t11[i]=stats::integrate(bet11,0,th0)$value
 
 BaFa01[i]=t01[i]*t1/(t0*t11[i])
 }
@@ -542,13 +542,13 @@ t2=0
 
 for(i in 1:k)
 {					#####For Hypothesis 1
-bet1=function(p) dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)
+bet1=function(p) stats::dbeta(p,shape1=x[i]+a1,shape2=n-x[i]+b1)
 
 					#####For Hypothesis 2
-bet2=function(p) dbeta(p,shape1=x[i]+a2,shape2=n-x[i]+b2)
+bet2=function(p) stats::dbeta(p,shape1=x[i]+a2,shape2=n-x[i]+b2)
 
-t1[i]=integrate(bet1,0,th1)$value
-t2[i]=integrate(bet2,th2,1)$value
+t1[i]=stats::integrate(bet1,0,th1)$value
+t2[i]=stats::integrate(bet2,th2,1)$value
 
 BaFa01[i]=t1[i]/t2[i]
 }

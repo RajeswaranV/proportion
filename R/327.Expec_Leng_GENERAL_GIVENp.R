@@ -47,12 +47,12 @@ for (j in 1:s)
 {
 for(i in 1:k)
 {
-ewi[i,j]=LE[i]*dbinom(i-1, n,hp[j])
+ewi[i,j]=LE[i]*stats::dbinom(i-1, n,hp[j])
 }
 ew[j]=sum(ewi[,j])						#Expected Length
 }
 explMean=mean(ew)
-explSD=sd(ew)
+explSD=stats::sd(ew)
 explMax=max(ew)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)

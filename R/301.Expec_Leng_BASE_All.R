@@ -72,7 +72,7 @@ LEW=0 								#LENGTH OF INTERVAL
 ewiW=matrix(0,k,s)						#sum of length quantity in sum
 ewW=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -87,19 +87,19 @@ LEW[i]=UW[i]-LW[i]
 }
 #sumLEW=sum(LEW)
 ####sum of length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
-ewiW[i,j]=LEW[i]*dbinom(i-1, n,hp[j])
+ewiW[i,j]=LEW[i]*stats::dbinom(i-1, n,hp[j])
 }
 ewW[j]=sum(ewiW[,j])						#sum of length
 }
 #ELW=data.frame(hp,ewW)
 sumLen=sum(LEW)
 explMean=mean(ewW)
-explSD=sd(ewW)
+explSD=stats::sd(ewW)
 explMax=max(ewW)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -179,7 +179,7 @@ LES=0 								#LENGTH OF INTERVAL
 ewiS=matrix(0,k,s)						#sum of length quantity in sum
 ewS=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n)
 cv2=(cv/(2*n))^2
 
@@ -198,19 +198,19 @@ LES[i]=US[i]-LS[i]
 #sumLES=sum(LES)
 
 ####sum of length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
-ewiS[i,j]=LES[i]*dbinom(i-1, n,hp[j])
+ewiS[i,j]=LES[i]*stats::dbinom(i-1, n,hp[j])
 }
 ewS[j]=sum(ewiS[,j])						#sum of length
 }
 #ELS=data.frame(hp,ewS)
 sumLen=sum(LES)
 explMean=mean(ewS)
-explSD=sd(ewS)
+explSD=stats::sd(ewS)
 explMax=max(ewS)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -292,7 +292,7 @@ LEA=0 								#LENGTH OF INTERVAL
 ewiA=matrix(0,k,s)						#sum of length quantity in sum
 ewA=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 #ARC-SINE METHOD
 for(i in 1:k)
@@ -307,19 +307,19 @@ if(UA[i]>1) UA[i]=1
 LEA[i]=UA[i]-LA[i]
 }
 #sumLEA=sum(LEA)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiA[i,j]=LEA[i]*dbinom(i-1, n,hp[j])
+    ewiA[i,j]=LEA[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewA[j]=sum(ewiA[,j])						#Expected Length
 }
 
 sumLen=sum(LEA)
 explMean=mean(ewA)
-explSD=sd(ewA)
+explSD=stats::sd(ewA)
 explMax=max(ewA)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -403,7 +403,7 @@ LELT=0 								#LENGTH OF INTERVAL
 ewiLT=matrix(0,k,s)						#sum of length quantity in sum
 ewLT=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 
 pLT[1]=0
@@ -432,19 +432,19 @@ for(i in 1:k)
 LELT[i]=ULT[i]-LLT[i]
 }
 #sumLET=sum(LELT)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiLT[i,j]=LELT[i]*dbinom(i-1, n,hp[j])
+    ewiLT[i,j]=LELT[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewLT[j]=sum(ewiLT[,j])						#Expected Length
 }
 
 sumLen=sum(LELT)
 explMean=mean(ewLT)
-explSD=sd(ewLT)
+explSD=stats::sd(ewLT)
 explMax=max(ewLT)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -543,7 +543,7 @@ qTW[i]=1-pTW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pTW[i],n))^2)/f2(pTW[i],n)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seTW[i]=cv[i]*sqrt(f1(pTW[i],n))
 LTW[i]=pTW[i]-(seTW[i])
 UTW[i]=pTW[i]+(seTW[i])
@@ -552,19 +552,19 @@ if(UTW[i]>1) UTW[i]=1
 LETW[i]=UTW[i]-LTW[i]
 }
 #sumLETW=sum(LETW)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiTW[i,j]=LETW[i]*dbinom(i-1, n,hp[j])
+    ewiTW[i,j]=LETW[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewTW[j]=sum(ewiTW[,j])						#Expected Length
 }
 
 sumLen=sum(LETW)
 explMean=mean(ewTW)
-explSD=sd(ewTW)
+explSD=stats::sd(ewTW)
 explMax=max(ewTW)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -645,33 +645,33 @@ LEL=0 								#LENGTH OF INTERVAL
 ewiL=matrix(0,k,s)						#sum of length quantity in sum
 ewL=0										#Simulation run to generate hypothetical p
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
 for(i in 1:k)
 {
-likelhd = function(p) dbinom(y[i],n,p)
-loglik = function(p) dbinom(y[i],n,p,log=TRUE)
-mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y[i],n,p)
+loglik = function(p) stats::dbinom(y[i],n,p,log=TRUE)
+mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff[i]=loglik(mle[i])-(cv^2/2)
 loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-LL[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-UL[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+LL[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+UL[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
 LEL[i]=UL[i]-LL[i]
 }
 #sumLEL=sum(LEL)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiL[i,j]=LEL[i]*dbinom(i-1, n,hp[j])
+    ewiL[i,j]=LEL[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewL[j]=sum(ewiL[,j])						#Expected Length
 }
 
 sumLen=sum(LEL)
 explMean=mean(ewL)
-explSD=sd(ewL)
+explSD=stats::sd(ewL)
 explMax=max(ewL)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -789,19 +789,19 @@ UEX[i+1]=exlim301u(x[i+1],n,alp,e)
 LEEX[i+1]=UEX[i+1]-LEX[i+1]
 }
 #sumLEEX=sum(LEEX)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiEX[i,j]=LEEX[i]*dbinom(i-1, n,hp[j])
+    ewiEX[i,j]=LEEX[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewEX[j]=sum(ewiEX[,j])						#Expected Length
 }
 
 sumLen=sum(LEEX)
 explMean=mean(ewEX)
-explSD=sd(ewEX)
+explSD=stats::sd(ewEX)
 explMax=max(ewEX)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -813,8 +813,8 @@ exlim301l=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f1=function(p) (1-e)*dbinom(x,n,p)+sum(dbinom(y,n,p))-(1-(alp/2))
-  LEX= uniroot(f1,c(0,1))$root
+  f1=function(p) (1-e)*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(1-(alp/2))
+  LEX= stats::uniroot(f1,c(0,1))$root
   return(LEX)
 }
 #####TO FIND UPPER LIMITS
@@ -822,8 +822,8 @@ exlim301u=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f2  = function(p) e*dbinom(x,n,p)+sum(dbinom(y,n,p))-(alp/2)
-  UEX = uniroot(f2,c(0,1))$root
+  f2  = function(p) e*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(alp/2)
+  UEX = stats::uniroot(f2,c(0,1))$root
   return(UEX)
 }
 
@@ -916,24 +916,24 @@ ewBAH=0									#sum of length
 for(i in 1:k)
 {
 #Quantile Based Intervals
-LBAQ[i]=qbeta(alp/2,x[i]+a1,n-x[i]+a2)
-UBAQ[i]=qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
+LBAQ[i]=stats::qbeta(alp/2,x[i]+a1,n-x[i]+a2)
+UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
 
-LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
-UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
+LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
+UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
 
 LEBAQ[i]=UBAQ[i]-LBAQ[i]
 LEBAH[i]=UBAH[i]-LBAH[i]
 }
 # sumLEBAQ=sum(LEBAQ)
 # sumLEBAH=sum(LEBAH)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiBAQ[i,j]=LEBAQ[i]*dbinom(i-1, n,hp[j])
-    ewiBAH[i,j]=LEBAH[i]*dbinom(i-1, n,hp[j])
+    ewiBAQ[i,j]=LEBAQ[i]*stats::dbinom(i-1, n,hp[j])
+    ewiBAH[i,j]=LEBAH[i]*stats::dbinom(i-1, n,hp[j])
 
   }
   ewBAQ[j]=sum(ewiBAQ[,j])
@@ -941,7 +941,7 @@ for (j in 1:s)
 }
 sumLenBAQ=sum(LEBAQ)
 explMeanBAQ=mean(ewBAQ)
-explSDBAQ=sd(ewBAQ)
+explSDBAQ=stats::sd(ewBAQ)
 explMaxBAQ=max(ewBAQ)
 explLLBAQ=explMeanBAQ-(explSDBAQ)
 explULBAQ=explMeanBAQ+(explSDBAQ)
@@ -951,7 +951,7 @@ df.SummaryBAQ=data.frame(sumLen=sumLenBAQ,explMean=explMeanBAQ,
 
 sumLenBAH=sum(LEBAH)
 explMeanBAH=mean(ewBAH)
-explSDBAH=sd(ewBAH)
+explSDBAH=stats::sd(ewBAH)
 explMaxBAH=max(ewBAH)
 explLLBAH=explMeanBAH-(explSDBAH)
 explULBAH=explMeanBAH+(explSDBAH)

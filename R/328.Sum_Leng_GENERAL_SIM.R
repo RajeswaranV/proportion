@@ -53,14 +53,14 @@ lengthGEN<-function(n,LL,UL,hp)
   {
     for(i in 1:k)
     {
-      ewi[i,j]=LE[i]*dbinom(i-1, n,hp[j])
+      ewi[i,j]=LE[i]*stats::dbinom(i-1, n,hp[j])
     }
     ew[j]=sum(ewi[,j])						#Expected Length
   }
 
   sumLen=sum(LE)
   explMean=mean(ew)
-  explSD=sd(ew)
+  explSD=stats::sd(ew)
   explMax=max(ew)
   explLL=explMean-(explSD)
   explUL=explMean+(explSD)
@@ -166,18 +166,18 @@ lengthSIM<-function(n,LL,UL,s,a,b)
   {
     LE[i]=UL[i]-LL[i]
   }
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewi[i,j]=LE[i]*dbinom(i-1, n,hp[j])
+      ewi[i,j]=LE[i]*stats::dbinom(i-1, n,hp[j])
     }
     ew[j]=sum(ewi[,j])						#Expected Length
   }
   sumLen=sum(LE)
   explMean=mean(ew)
-  explSD=sd(ew)
+  explSD=stats::sd(ew)
   explMax=max(ew)
   explLL=explMean-(explSD)
   explUL=explMean+(explSD)

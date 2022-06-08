@@ -18,7 +18,7 @@ gexplAWD<-function(n,alp,h,a,b)
   ewiAW=matrix(0,k,s)						#Expected length quantity in sum
   ewAW=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #WALD METHOD
   for(i in 1:k)
   {
@@ -33,12 +33,12 @@ gexplAWD<-function(n,alp,h,a,b)
   }
   #sumLEAW=sum(LEAW)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiAW[i,j]=LEAW[i]*dbinom(i-1, n,hp[j])
+      ewiAW[i,j]=LEAW[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewAW[j]=sum(ewiAW[,j])						#Expected Length
   }
@@ -66,7 +66,7 @@ gexplASC<-function(n,alp,h,a,b)
   ewiAS=matrix(0,k,s)						#Expected length quantity in sum
   ewAS=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   cv1=(cv^2)/(2*n1)
   cv2=(cv/(2*n1))^2
 
@@ -85,12 +85,12 @@ gexplASC<-function(n,alp,h,a,b)
   #sumLEAS=sum(LEAS)
 
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiAS[i,j]=LEAS[i]*dbinom(i-1, n,hp[j])
+      ewiAS[i,j]=LEAS[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewAS[j]=sum(ewiAS[,j])						#Expected Length
   }
@@ -118,7 +118,7 @@ gexplAAS<-function(n,alp,h,a,b)
   ewiAA=matrix(0,k,s)						#Expected length quantity in sum
   ewAA=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #ARC-SINE METHOD
   for(i in 1:k)
   {
@@ -133,12 +133,12 @@ gexplAAS<-function(n,alp,h,a,b)
   }
   #sumLEAA=sum(LEAA)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiAA[i,j]=LEAA[i]*dbinom(i-1, n,hp[j])
+      ewiAA[i,j]=LEAA[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewAA[j]=sum(ewiAA[,j])						#Expected Length
   }
@@ -169,7 +169,7 @@ gexplALT<-function(n,alp,h,a,b)
   ewiALT=matrix(0,k,s)						#Expected length quantity in sum
   ewALT=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LOGIT-WALD METHOD
 
   for(i in 1:k)
@@ -186,12 +186,12 @@ gexplALT<-function(n,alp,h,a,b)
   }
   #sumLEALT=sum(LEALT)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiALT[i,j]=LEALT[i]*dbinom(i-1, n,hp[j])
+      ewiALT[i,j]=LEALT[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewALT[j]=sum(ewiALT[,j])						#Expected Length
   }
@@ -229,7 +229,7 @@ gexplATW<-function(n,alp,h,a,b)
     f1=function(p,n) p*(1-p)/n
     f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
     DOF[i]=2*((f1(pATW[i],n1))^2)/f2(pATW[i],n1)
-    cv[i]=qt(1-(alp/2), df=DOF[i])
+    cv[i]=stats::qt(1-(alp/2), df=DOF[i])
     seATW[i]=cv[i]*sqrt(f1(pATW[i],n1))
     LATW[i]=pATW[i]-(seATW[i])
     UATW[i]=pATW[i]+(seATW[i])
@@ -239,12 +239,12 @@ gexplATW<-function(n,alp,h,a,b)
   }
   #sumLEATW=sum(LEATW)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiATW[i,j]=LEATW[i]*dbinom(i-1, n,hp[j])
+      ewiATW[i,j]=LEATW[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewATW[j]=sum(ewiATW[,j])						#Expected Length
   }
@@ -271,27 +271,27 @@ gexplALR<-function(n,alp,h,a,b)
   ewiAL=matrix(0,k,s)						#Expected length quantity in sum
   ewAL=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LIKELIHOOD-RATIO METHOD
   for(i in 1:k)
   {
-    likelhd = function(p) dbinom(y1[i],n1,p)
-    loglik = function(p) dbinom(y1[i],n1,p,log=TRUE)
-    mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+    likelhd = function(p) stats::dbinom(y1[i],n1,p)
+    loglik = function(p) stats::dbinom(y1[i],n1,p,log=TRUE)
+    mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
     cutoff[i]=loglik(mle[i])-(cv^2/2)
     loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-    LAL[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-    UAL[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+    LAL[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+    UAL[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
     LEAL[i]=UAL[i]-LAL[i]
   }
   #sumLEAL=sum(LEAL)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiAL[i,j]=LEAL[i]*dbinom(i-1, n,hp[j])
+      ewiAL[i,j]=LEAL[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewAL[j]=sum(ewiAL[,j])						#Expected Length
   }

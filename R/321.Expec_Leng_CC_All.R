@@ -58,7 +58,7 @@ LECW=0 								#LENGTH OF INTERVAL
 ewiCW=matrix(0,k,s)						#sum of length quantity in sum
 ewCW=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -72,19 +72,19 @@ if(UCW[i]>1) UCW[i]=1
 LECW[i]=UCW[i]-LCW[i]
 }
 #sumLECW=sum(LECW)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiCW[i,j]=LECW[i]*dbinom(i-1, n,hp[j])
+    ewiCW[i,j]=LECW[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewCW[j]=sum(ewiCW[,j])						#Expected Length
 }
 
 sumLen=sum(LECW)
 explMean=mean(ewCW)
-explSD=sd(ewCW)
+explSD=stats::sd(ewCW)
 explMax=max(ewCW)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -153,7 +153,7 @@ LECS=0 								#LENGTH OF INTERVAL
 ewiCS=matrix(0,k,s)						#sum of length quantity in sum
 ewCS=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n)
 cv2= cv/(2*n)
 
@@ -171,19 +171,19 @@ if(UCS[i]>1) UCS[i]=1
 LECS[i]=UCS[i]-LCS[i]
 }
 #sumLECS=sum(LECS)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiCS[i,j]=LECS[i]*dbinom(i-1, n,hp[j])
+    ewiCS[i,j]=LECS[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewCS[j]=sum(ewiCS[,j])						#Expected Length
 }
 
 sumLen=sum(LECS)
 explMean=mean(ewCS)
-explSD=sd(ewCS)
+explSD=stats::sd(ewCS)
 explMax=max(ewCS)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -251,7 +251,7 @@ LECA=0 								#LENGTH OF INTERVAL
 ewiCA=matrix(0,k,s)						#sum of length quantity in sum
 ewCA=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 for(i in 1:k)
 {
@@ -265,19 +265,19 @@ if(UCA[i]>1) UCA[i]=1
 LECA[i]=UCA[i]-LCA[i]
 }
 #sumLECA=sum(LECA)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiCA[i,j]=LECA[i]*dbinom(i-1, n,hp[j])
+    ewiCA[i,j]=LECA[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewCA[j]=sum(ewiCA[,j])						#Expected Length
 }
 
 sumLen=sum(LECA)
 explMean=mean(ewCA)
-explSD=sd(ewCA)
+explSD=stats::sd(ewCA)
 explMax=max(ewCA)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -348,7 +348,7 @@ LECLT=0 								#LENGTH OF INTERVAL
 ewiCLT=matrix(0,k,s)						#sum of length quantity in sum
 ewCLT=0									#sum of length
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pCLT[1]=0
 qCLT[1]=1
@@ -377,19 +377,19 @@ if(UCLT[i]>1) UCLT[i]=1
 LECLT[i]=UCLT[i]-LCLT[i]
 }
 #sumLECLT=sum(LECLT)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiCLT[i,j]=LECLT[i]*dbinom(i-1, n,hp[j])
+    ewiCLT[i,j]=LECLT[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewCLT[j]=sum(ewiCLT[,j])						#Expected Length
 }
 
 sumLen=sum(LECLT)
 explMean=mean(ewCLT)
-explSD=sd(ewCLT)
+explSD=stats::sd(ewCLT)
 explMax=max(ewCLT)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)
@@ -476,7 +476,7 @@ qCTW[i]=1-pCTW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pCTW[i],n))^2)/f2(pCTW[i],n)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seCTW[i]=cv[i]*sqrt(f1(pCTW[i],n))
 LCTW[i]=pCTW[i]-(seCTW[i]+c)
 UCTW[i]=pCTW[i]+(seCTW[i]+c)
@@ -485,19 +485,19 @@ if(UCTW[i]>1) UCTW[i]=1
 LECTW[i]=UCTW[i]-LCTW[i]
 }
 #sumLECTW=sum(LECTW)
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
   for(i in 1:k)
   {
-    ewiCTW[i,j]=LECTW[i]*dbinom(i-1, n,hp[j])
+    ewiCTW[i,j]=LECTW[i]*stats::dbinom(i-1, n,hp[j])
   }
   ewCTW[j]=sum(ewiCTW[,j])						#Expected Length
 }
 
 sumLen=sum(LECTW)
 explMean=mean(ewCTW)
-explSD=sd(ewCTW)
+explSD=stats::sd(ewCTW)
 explMax=max(ewCTW)
 explLL=explMean-(explSD)
 explUL=explMean+(explSD)

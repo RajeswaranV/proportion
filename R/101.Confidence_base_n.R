@@ -68,7 +68,7 @@ ciWD<-function(n,alp)
   UABB=0
   ZWI=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #WALD METHOD
   for(i in 1:k)
   {
@@ -159,7 +159,7 @@ ciSC<-function(n,alp)
   UABB=0
   ZWI=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   cv1=(cv^2)/(2*n)
   cv2=(cv/(2*n))^2
 
@@ -253,7 +253,7 @@ ciAS<-function(n,alp)
   UABB=0
   ZWI=0
 
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #ARC-SINE METHOD
   for(i in 1:k)
   {
@@ -347,17 +347,17 @@ ciLR<-function(n,alp)
   ZWI=0
 
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LIKELIHOOD-RATIO METHOD
   for(i in 1:k)
   {
-    likelhd = function(p) dbinom(x[i],n,p)
-    loglik = function(p) dbinom(x[i],n,p,log=TRUE)
-    mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+    likelhd = function(p) stats::dbinom(x[i],n,p)
+    loglik = function(p) stats::dbinom(x[i],n,p,log=TRUE)
+    mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
     cutoff[i]=loglik(mle[i])-(cv^2/2)
     loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-    LLR[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-    ULR[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+    LLR[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+    ULR[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
 
     if(LLR[i]<0) LABB[i]="YES" else LABB[i]="NO"
 
@@ -490,8 +490,8 @@ exlim102l=function(x,n,alp,e)
   {
     z=x-1
     y=0:z
-    f1=function(p) (1-e)*dbinom(x,n,p)+sum(dbinom(y,n,p))-(1-(alp/2))
-    LEX= uniroot(f1,c(0,1))$root
+    f1=function(p) (1-e)*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(1-(alp/2))
+    LEX= stats::uniroot(f1,c(0,1))$root
   }
   return(LEX)
 }
@@ -506,8 +506,8 @@ exlim102u=function(x,n,alp,e)
   {
     z=x-1
     y=0:z
-    f2= function(p) e*dbinom(x,n,p)+sum(dbinom(y,n,p))-(alp/2)
-    UEX =uniroot(f2,c(0,1))$root
+    f2= function(p) e*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(alp/2)
+    UEX =stats::uniroot(f2,c(0,1))$root
   }
   return(UEX)
 }
@@ -601,7 +601,7 @@ ciTW<-function(n,alp)
     f1=function(p,n) p*(1-p)/n
     f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
     DOF[i]=2*((f1(pTW[i],n))^2)/f2(pTW[i],n)
-    cv[i]=qt(1-(alp/2), df=DOF[i])
+    cv[i]=stats::qt(1-(alp/2), df=DOF[i])
     seTW[i]=cv[i]*sqrt(f1(pTW[i],n))
     LTW[i]=pTW[i]-(seTW[i])
     UTW[i]=pTW[i]+(seTW[i])
@@ -690,7 +690,7 @@ ciLT<-function(n,alp)
   UABB=0
   ZWI=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LOGIT-WALD METHOD
   pLT[1]=0
   qLT[1]=1
@@ -795,11 +795,11 @@ ciBA<-function(n,alp,a,b)
     pomean[i]=(x[i]+a)/(n+a+b)
 
     #Quantile Based Intervals
-    LBAQ[i]=qbeta(alp/2,x[i]+a,n-x[i]+b)
-    UBAQ[i]=qbeta(1-(alp/2),x[i]+a,n-x[i]+b)
+    LBAQ[i]=stats::qbeta(alp/2,x[i]+a,n-x[i]+b)
+    UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a,n-x[i]+b)
 
-    LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[1]
-    UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[2]
+    LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[1]
+    UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a,shape2=n-x[i]+b,conf=1-alp)[2]
 
   }
     BAdf=data.frame(x,pomean,LBAQ,UBAQ,LBAH,UBAH)
@@ -832,11 +832,11 @@ ciBAD<-function(n,alp,a,b)
     pomean[i]=(x[i]+a[i])/(n+a[i]+b[i])
 
     #Quantile Based Intervals
-    LBAQ[i]=qbeta(alp/2,x[i]+a[i],n-x[i]+b[i])
-    UBAQ[i]=qbeta(1-(alp/2),x[i]+a[i],n-x[i]+b[i])
+    LBAQ[i]=stats::qbeta(alp/2,x[i]+a[i],n-x[i]+b[i])
+    UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a[i],n-x[i]+b[i])
 
-    LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a[i],shape2=n-x[i]+b[i],conf=1-alp)[1]
-    UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a[i],shape2=n-x[i]+b[i],conf=1-alp)[2]
+    LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a[i],shape2=n-x[i]+b[i],conf=1-alp)[1]
+    UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a[i],shape2=n-x[i]+b[i],conf=1-alp)[2]
 
   }
   return(data.frame(x,pomean,LBAQ,UBAQ,LBAH,UBAH))

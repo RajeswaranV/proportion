@@ -62,7 +62,7 @@ ciWDx<-function(x,n,alp)
 
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 pW=x/n
 qW=1-(x/n)
@@ -140,7 +140,7 @@ ciSCx<-function(x,n,alp)
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n)
 cv2=(cv/(2*n))^2
 
@@ -223,7 +223,7 @@ ciASx<-function(x,n,alp)
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
 
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 pA=x/n
 #qA=1-pA
@@ -307,15 +307,15 @@ ciLRx<-function(x,n,alp)
 ####INPUT
 y=x
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
-likelhd = function(p) dbinom(y,n,p)
-loglik = function(p) dbinom(y,n,p,log=TRUE)
-mle=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y,n,p)
+loglik = function(p) stats::dbinom(y,n,p,log=TRUE)
+mle=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff=loglik(mle)-(cv^2/2)
 loglik.optim=function(p){abs(cutoff-loglik(p))}
-LLRx=optimize(loglik.optim, c(0,mle))$minimum
-ULRx=optimize(loglik.optim, c(mle,1))$minimum
+LLRx=stats::optimize(loglik.optim, c(0,mle))$minimum
+ULRx=stats::optimize(loglik.optim, c(mle,1))$minimum
 
 if(LLRx<0) LABB="YES" else LABB="NO"
 if(LLRx<0) LLRx=0
@@ -439,8 +439,8 @@ exlim103l=function(x,n,alp,e)
   {
     z=x-1
     y=0:z
-    f1=function(p) (1-e)*dbinom(x,n,p)+sum(dbinom(y,n,p))-(1-(alp/2))
-    LEX= uniroot(f1,c(0,1))$root
+    f1=function(p) (1-e)*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(1-(alp/2))
+    LEX= stats::uniroot(f1,c(0,1))$root
   }
   return(LEX)
 }
@@ -455,8 +455,8 @@ exlim103u=function(x,n,alp,e)
   {
     z=x-1
     y=0:z
-    f2= function(p) e*dbinom(x,n,p)+sum(dbinom(y,n,p))-(alp/2)
-    UEX =uniroot(f2,c(0,1))$root
+    f2= function(p) e*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(alp/2)
+    UEX =stats::uniroot(f2,c(0,1))$root
   }
   return(UEX)
 }
@@ -537,7 +537,7 @@ pTWx=x/n
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOFx=2*((f1(pTWx,n))^2)/f2(pTWx,n)
-cvx=qt(1-(alp/2), df=DOFx)
+cvx=stats::qt(1-(alp/2), df=DOFx)
 seTWx=cvx*sqrt(f1(pTWx,n))
 LTWx=pTWx-(seTWx)
 UTWx=pTWx+(seTWx)
@@ -625,7 +625,7 @@ LABB=0
 UABB=0
 ZWI=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 if(x==0)
 {
@@ -744,11 +744,11 @@ ciBAx<-function(x,n,alp,a,b)
 ##############
 #library(TeachingDemos)				#To get HPDs
 #Quantile Based Intervals
-LBAQx=qbeta(alp/2,x+a,n-x+b)
-UBAQx=qbeta(1-(alp/2),x+a,n-x+b)
+LBAQx=stats::qbeta(alp/2,x+a,n-x+b)
+UBAQx=stats::qbeta(1-(alp/2),x+a,n-x+b)
 
-LBAHx=TeachingDemos::hpd(qbeta,shape1=x+a,shape2=n-x+b,conf=1-alp)[1]
-UBAHx=TeachingDemos::hpd(qbeta,shape1=x+a,shape2=n-x+b,conf=1-alp)[2]
+LBAHx=TeachingDemos::hpd(stats::qbeta,shape1=x+a,shape2=n-x+b,conf=1-alp)[1]
+UBAHx=TeachingDemos::hpd(stats::qbeta,shape1=x+a,shape2=n-x+b,conf=1-alp)[2]
 
 BAdfx=data.frame(x,LBAQx,UBAQx,LBAHx,UBAHx)
 }
@@ -770,11 +770,11 @@ ciBADx<-function(x,n,alp,a,b)
   for(i in 1:k)
   {
     #Quantile Based Intervals
-    LBAQx[i]=qbeta(alp/2,x+a[i],n-x+b[i])
-    UBAQx[i]=qbeta(1-(alp/2),x+a[i],n-x+b[i])
+    LBAQx[i]=stats::qbeta(alp/2,x+a[i],n-x+b[i])
+    UBAQx[i]=stats::qbeta(1-(alp/2),x+a[i],n-x+b[i])
 
-    LBAHx[i]=TeachingDemos::hpd(qbeta,shape1=x+a[i],shape2=n-x+b[i],conf=1-alp)[1]
-    UBAHx[i]=TeachingDemos::hpd(qbeta,shape1=x+a[i],shape2=n-x+b[i],conf=1-alp)[2]
+    LBAHx[i]=TeachingDemos::hpd(stats::qbeta,shape1=x+a[i],shape2=n-x+b[i],conf=1-alp)[1]
+    UBAHx[i]=TeachingDemos::hpd(stats::qbeta,shape1=x+a[i],shape2=n-x+b[i],conf=1-alp)[2]
 
   }
 

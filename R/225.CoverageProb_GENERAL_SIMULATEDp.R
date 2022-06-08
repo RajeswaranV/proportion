@@ -64,14 +64,14 @@ covpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
   RMSE_Mi1=0
   ctr=0
   ####COVERAGE PROBABILITIES
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
       if(hp[j] > LL[i] && hp[j] < UL[i])
       {
-        cp[i,j]=dbinom(i-1, n,hp[j])
+        cp[i,j]=stats::dbinom(i-1, n,hp[j])
         ct[i,j]=1
       }
     }
@@ -155,16 +155,16 @@ PlotcovpSIM<-function(n,LL,UL,alp,s,a,b,t1,t2)
   cpp=0								#Coverage probabilty
   ctr=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   ####COVERAGE PROBABILITIES
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
       if(hp[j] > LL[i] && hp[j] < UL[i])
       {
-        cp[i,j]=dbinom(i-1, n,hp[j])
+        cp[i,j]=stats::dbinom(i-1, n,hp[j])
         ct[i,j]=1
       }
     }

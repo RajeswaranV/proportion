@@ -134,11 +134,11 @@ hypotestBAF2x<-function(x,n,th0,a1,b1)
   if ((class(b1) != "integer") & (class(b1) != "numeric") || length(b1) >1|| b1<=0 ) stop("'b1' has to be greater than 0")
 
 
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet2=function(p) dbeta(p,shape1=x+a1,shape2=n-x+b1)
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet2=function(p) stats::dbeta(p,shape1=x+a1,shape2=n-x+b1)
 
-t1=integrate(bet1,th0,1)$value
-t2=integrate(bet2,th0,1)$value
+t1=stats::integrate(bet1,th0,1)$value
+t2=stats::integrate(bet2,th0,1)$value
 
 BaFa01=(t1/t2)*(th0^x)*((1-th0)^(n-x))
 
@@ -225,11 +225,11 @@ hypotestBAF3x<-function(x,n,th0,a1,b1)
   if ((class(b1) != "integer") & (class(b1) != "numeric") || length(b1) >1|| b1<=0 ) stop("'b1' has to be greater than 0")
 
 
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet2=function(p) dbeta(p,shape1=x+a1,shape2=n-x+b1)
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet2=function(p) stats::dbeta(p,shape1=x+a1,shape2=n-x+b1)
 
-t1=integrate(bet1,0,th0)$value
-t2=integrate(bet2,0,th0)$value
+t1=stats::integrate(bet1,0,th0)$value
+t2=stats::integrate(bet2,0,th0)$value
 
 BaFa01=(t1/t2)*(th0^x)*((1-th0)^(n-x))
 
@@ -321,16 +321,16 @@ hypotestBAF4x<-function(x,n,th0,a0,b0,a1,b1)
   if ((class(a1) != "integer") & (class(a1) != "numeric") || length(a1) >1|| a1<=0 ) stop("'a1' has to be greater than 0")
   if ((class(b1) != "integer") & (class(b1) != "numeric") || length(b1) >1|| b1<=0 ) stop("'b1' has to be greater than 0")
 
-bet0=function(p) dbeta(p,shape1=a0,shape2=b0)
-bet01=function(p) dbeta(p,shape1=x+a0,shape2=n-x+b0)	#Null Posterior based
+bet0=function(p) stats::dbeta(p,shape1=a0,shape2=b0)
+bet01=function(p) stats::dbeta(p,shape1=x+a0,shape2=n-x+b0)	#Null Posterior based
 
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet11=function(p) dbeta(p,shape1=x+a1,shape2=n-x+b1)	#Alternate Posterior based
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet11=function(p) stats::dbeta(p,shape1=x+a1,shape2=n-x+b1)	#Alternate Posterior based
 
-t0=integrate(bet0,0,th0)$value
-t1=integrate(bet1,th0,1)$value
-t01=integrate(bet01,0,th0)$value
-t11=integrate(bet11,th0,1)$value
+t0=stats::integrate(bet0,0,th0)$value
+t1=stats::integrate(bet1,th0,1)$value
+t01=stats::integrate(bet01,0,th0)$value
+t11=stats::integrate(bet11,th0,1)$value
 
 BaFa01=t01*t1/(t0*t11)
 
@@ -423,16 +423,16 @@ hypotestBAF5x<-function(x,n,th0,a0,b0,a1,b1)
   if ((class(b1) != "integer") & (class(b1) != "numeric") || length(b1) >1|| b1<=0 ) stop("'b1' has to be greater than 0")
 
 
-bet0=function(p) dbeta(p,shape1=a0,shape2=b0)
-bet01=function(p) dbeta(p,shape1=x+a0,shape2=n-x+b0)	#Null Posterior based
+bet0=function(p) stats::dbeta(p,shape1=a0,shape2=b0)
+bet01=function(p) stats::dbeta(p,shape1=x+a0,shape2=n-x+b0)	#Null Posterior based
 
-bet1=function(p) dbeta(p,shape1=a1,shape2=b1)
-bet11=function(p) dbeta(p,shape1=x+a1,shape2=n-x+b1)	#Alternate Posterior based
+bet1=function(p) stats::dbeta(p,shape1=a1,shape2=b1)
+bet11=function(p) stats::dbeta(p,shape1=x+a1,shape2=n-x+b1)	#Alternate Posterior based
 
-t0=integrate(bet0,th0,1)$value
-t1=integrate(bet1,0,th0)$value
-t01=integrate(bet01,th0,1)$value
-t11=integrate(bet11,0,th0)$value
+t0=stats::integrate(bet0,th0,1)$value
+t1=stats::integrate(bet1,0,th0)$value
+t01=stats::integrate(bet01,th0,1)$value
+t11=stats::integrate(bet11,0,th0)$value
 
 BaFa01=t01*t1/(t0*t11)
 rdf=data.frame(x,BaFa01)
@@ -529,13 +529,13 @@ hypotestBAF6x<-function(x,n,th1,a1,b1,th2,a2,b2)
   if ((class(b2) != "integer") & (class(b2) != "numeric") || length(b2) >1|| b2<=0 ) stop("'b2' has to be greater than 0")
 
   #####For Hypothesis 1
-bet1=function(p) dbeta(p,shape1=x+a1,shape2=n-x+b1)
+bet1=function(p) stats::dbeta(p,shape1=x+a1,shape2=n-x+b1)
 
 	#####For Hypothesis 2
-bet2=function(p) dbeta(p,shape1=x+a2,shape2=n-x+b2)
+bet2=function(p) stats::dbeta(p,shape1=x+a2,shape2=n-x+b2)
 
-t1=integrate(bet1,0,th1)$value
-t2=integrate(bet2,th2,1)$value
+t1=stats::integrate(bet1,0,th1)$value
+t2=stats::integrate(bet2,th2,1)$value
 
 BaFa01=t1/t2
 

@@ -34,8 +34,8 @@ probPOSx<-function(x,n,a,b,th)
   if ((class(b) != "integer") & (class(b) != "numeric") || length(b) >1|| b<=0 ) stop("'b' has to be greater than 0")
   if ((class(th) != "integer") & (class(th) != "numeric") || length(th) >1|| th<0 ) stop("'theta' has to be greater than x")
 
-bet=function(p) dbeta(p,shape1=x+a,shape2=n-x+b)
-PosProb=integrate(bet,0,th)$value
+bet=function(p) stats::dbeta(p,shape1=x+a,shape2=n-x+b)
+PosProb=stats::integrate(bet,0,th)$value
 return(data.frame(x,PosProb))
 }
 

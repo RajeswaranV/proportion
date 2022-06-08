@@ -35,14 +35,23 @@ n=20; alp=0.05;phi=0.05; f=-2;e=c(0.1,0.5,0.95,1) #Range including Mid-p and Clo
 PloterrEX(n,alp,phi,f,e)
 }
 \seealso{
-Other Error for base methods: \code{\link{PloterrAS}},
-  \code{\link{PloterrAll}}, \code{\link{PloterrBA}},
-  \code{\link{PloterrLR}}, \code{\link{PloterrLT}},
-  \code{\link{PloterrSC}}, \code{\link{PloterrTW}},
-  \code{\link{PloterrWD}}, \code{\link{errAS}},
-  \code{\link{errAll}}, \code{\link{errBA}},
-  \code{\link{errEX}}, \code{\link{errLR}},
-  \code{\link{errLT}}, \code{\link{errSC}},
-  \code{\link{errTW}}, \code{\link{errWD}}
+Other Error for base methods: 
+\code{\link{PloterrAS}()},
+\code{\link{PloterrAll}()},
+\code{\link{PloterrBA}()},
+\code{\link{PloterrLR}()},
+\code{\link{PloterrLT}()},
+\code{\link{PloterrSC}()},
+\code{\link{PloterrTW}()},
+\code{\link{PloterrWD}()},
+\code{\link{errAS}()},
+\code{\link{errAll}()},
+\code{\link{errBA}()},
+\code{\link{errEX}()},
+\code{\link{errLR}()},
+\code{\link{errLT}()},
+\code{\link{errSC}()},
+\code{\link{errTW}()},
+\code{\link{errWD}()}
 }
-
+\concept{Error for base methods}

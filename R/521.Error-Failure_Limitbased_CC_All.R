@@ -44,7 +44,7 @@ LCW=0
 UCW=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 
 for(i in 1:k)
 {
@@ -56,7 +56,7 @@ UCW[i]=min(pCW[i]+((cv*seCW[i])+c),1)
 }
 
 ###DELTA_ALPHA, THETA,F
-#z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(stats::qnorm(1-(alp/2),0,1))^2
 alpstarCW=0
 thetactr=0
 for(m in 1:k)
@@ -64,7 +64,7 @@ for(m in 1:k)
 if(phi > UCW[m] || phi<LCW[m])
 {
 thetactr=thetactr+1
-alpstarCW[m]=dbinom(x[m],n,phi)
+alpstarCW[m]=stats::dbinom(x[m],n,phi)
 } else alpstarCW[m] = 0
 }
 delalpCW=round((alp-sum(alpstarCW))*100,2)
@@ -120,7 +120,7 @@ seCS_U=0
 LCS=0
 UCS=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n)
 cv2= cv/(2*n)
 
@@ -136,7 +136,7 @@ UCS[i]=min((n/(n+(cv)^2))*((pCS[i]+c+cv1)+(cv2*seCS_U[i])),1)
 }
 
 ###DELTA_ALPHA, THETA,F
-#z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(stats::qnorm(1-(alp/2),0,1))^2
 alpstarCS=0
 thetactr=0
 for(m1 in 1:k)
@@ -144,7 +144,7 @@ for(m1 in 1:k)
 if(phi > UCS[m1] || phi<LCS[m1])
 {
 thetactr=thetactr+1
-alpstarCS[m1]=dbinom(x[m1],n,phi)
+alpstarCS[m1]=stats::dbinom(x[m1],n,phi)
 } else alpstarCS[m1] = 0
 }
 
@@ -202,7 +202,7 @@ seCA=0
 LCA=0
 UCA=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 
 #ARC-SINE METHOD
 for(i in 1:k)
@@ -215,7 +215,7 @@ UCA[i]=min((sin(asin(sqrt(pCA[i]))+seCA[i]+c))^2,1)
 }
 
 ###DELTA_ALPHA, THETA,F
-#z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(stats::qnorm(1-(alp/2),0,1))^2
 alpstarCA=0
 thetactr=0
 for(m1 in 1:k)
@@ -223,7 +223,7 @@ for(m1 in 1:k)
 if(phi > UCA[m1] || phi<LCA[m1])
 {
 thetactr=thetactr+1
-alpstarCA[m1]=dbinom(x[m1],n,phi)
+alpstarCA[m1]=stats::dbinom(x[m1],n,phi)
 } else alpstarCA[m1] = 0
 }
 
@@ -284,7 +284,7 @@ UCLT=0
 
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 pCLT[1]=0
 qCLT[1]=1
@@ -306,7 +306,7 @@ seCLT[j+1]=sqrt(pCLT[j+1]*qCLT[j+1]*n)
 LCLT[j+1]=max(lgiti(lgit[j+1]-(cv/seCLT[j+1])-c),0)
 UCLT[j+1]=min(lgiti(lgit[j+1]+(cv/seCLT[j+1])+c),1)
 }
-#z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(stats::qnorm(1-(alp/2),0,1))^2
 alpstarCLT=0
 thetactr=0
 for(m in 1:k)
@@ -314,7 +314,7 @@ for(m in 1:k)
 if(phi > UCLT[m] || phi<LCLT[m])
 {
 thetactr=thetactr+1
-alpstarCLT[m]=dbinom(x[m],n,phi)
+alpstarCLT[m]=stats::dbinom(x[m],n,phi)
 } else alpstarCLT[m] = 0
 }
 
@@ -387,12 +387,12 @@ qCTW[i]=1-pCTW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pCTW[i],n))^2)/f2(pCTW[i],n)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seCTW[i]=cv[i]*sqrt(f1(pCTW[i],n))
 LCTW[i]=max(pCTW[i]-(seCTW[i]+c),0)
 UCTW[i]=min(pCTW[i]+(seCTW[i]+c),1)
 }
-#z_alp=(qnorm(1-(alp/2),0,1))^2
+#z_alp=(stats::qnorm(1-(alp/2),0,1))^2
 alpstarCTW=0
 thetactr=0
 for(m in 1:k)
@@ -400,7 +400,7 @@ for(m in 1:k)
 if(phi > UCTW[m] || phi<LCTW[m])
 {
 thetactr=thetactr+1
-alpstarCTW[m]=dbinom(x[m],n,phi)
+alpstarCTW[m]=stats::dbinom(x[m],n,phi)
 } else alpstarCTW[m] = 0
 }
 

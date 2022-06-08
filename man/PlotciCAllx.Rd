@@ -26,9 +26,12 @@ x=5; n=5; alp=0.05;c=1/(2*n)
 PlotciCAllx(x,n,alp,c)
 }
 \seealso{
-Other Continuity correction methods of CI estimation given x and n: \code{\link{PlotciCAllxg}},
-  \code{\link{ciCAllx}}, \code{\link{ciCLTx}},
-  \code{\link{ciCSCx}}, \code{\link{ciCTWx}},
-  \code{\link{ciCWDx}}
+Other Continuity correction methods of CI estimation given x and n: 
+\code{\link{PlotciCAllxg}()},
+\code{\link{ciCAllx}()},
+\code{\link{ciCLTx}()},
+\code{\link{ciCSCx}()},
+\code{\link{ciCTWx}()},
+\code{\link{ciCWDx}()}
 }
-
+\concept{Continuity correction methods of CI estimation given x and n}

@@ -25,12 +25,18 @@ n=5; alp=0.05;c=1/(2*n)
 PlotciCWD(n,alp,c)
 }
 \seealso{
-Other Continuity correction methods of CI estimation: \code{\link{PlotciCAS}},
-  \code{\link{PlotciCAllg}}, \code{\link{PlotciCAll}},
-  \code{\link{PlotciCLT}}, \code{\link{PlotciCSC}},
-  \code{\link{PlotciCTW}}, \code{\link{ciCAS}},
-  \code{\link{ciCAll}}, \code{\link{ciCLT}},
-  \code{\link{ciCSC}}, \code{\link{ciCTW}},
-  \code{\link{ciCWD}}
+Other Continuity correction methods of CI estimation: 
+\code{\link{PlotciCAS}()},
+\code{\link{PlotciCAllg}()},
+\code{\link{PlotciCAll}()},
+\code{\link{PlotciCLT}()},
+\code{\link{PlotciCSC}()},
+\code{\link{PlotciCTW}()},
+\code{\link{ciCAS}()},
+\code{\link{ciCAll}()},
+\code{\link{ciCLT}()},
+\code{\link{ciCSC}()},
+\code{\link{ciCTW}()},
+\code{\link{ciCWD}()}
 }
-
+\concept{Continuity correction methods of CI estimation}

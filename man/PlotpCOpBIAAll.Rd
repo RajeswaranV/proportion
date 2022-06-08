@@ -29,12 +29,19 @@ PlotpCOpBIAAll(n,alp,h)
 }
 }
 \seealso{
-Other p-confidence and p-bias of adjusted methods: \code{\link{PlotpCOpBIAAS}},
-  \code{\link{PlotpCOpBIALR}}, \code{\link{PlotpCOpBIALT}},
-  \code{\link{PlotpCOpBIASC}}, \code{\link{PlotpCOpBIATW}},
-  \code{\link{PlotpCOpBIAWD}}, \code{\link{pCOpBIAAS}},
-  \code{\link{pCOpBIAAll}}, \code{\link{pCOpBIALR}},
-  \code{\link{pCOpBIALT}}, \code{\link{pCOpBIASC}},
-  \code{\link{pCOpBIATW}}, \code{\link{pCOpBIAWD}}
+Other p-confidence and p-bias of adjusted methods: 
+\code{\link{PlotpCOpBIAAS}()},
+\code{\link{PlotpCOpBIALR}()},
+\code{\link{PlotpCOpBIALT}()},
+\code{\link{PlotpCOpBIASC}()},
+\code{\link{PlotpCOpBIATW}()},
+\code{\link{PlotpCOpBIAWD}()},
+\code{\link{pCOpBIAAS}()},
+\code{\link{pCOpBIAAll}()},
+\code{\link{pCOpBIALR}()},
+\code{\link{pCOpBIALT}()},
+\code{\link{pCOpBIASC}()},
+\code{\link{pCOpBIATW}()},
+\code{\link{pCOpBIAWD}()}
 }
-
+\concept{p-confidence and p-bias of adjusted methods}

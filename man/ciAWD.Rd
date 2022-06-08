@@ -53,13 +53,20 @@ REVSTAT - Statistical Journal, 6, 165-197.
    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
    \code{\link[prevalence]{propCI}} which provides similar functionality.
 
-Other Adjusted methods of CI estimation: \code{\link{PlotciAAS}},
-  \code{\link{PlotciAAllg}}, \code{\link{PlotciAAll}},
-  \code{\link{PlotciALR}}, \code{\link{PlotciALT}},
-  \code{\link{PlotciASC}}, \code{\link{PlotciATW}},
-  \code{\link{PlotciAWD}}, \code{\link{ciAAS}},
-  \code{\link{ciAAll}}, \code{\link{ciALR}},
-  \code{\link{ciALT}}, \code{\link{ciASC}},
-  \code{\link{ciATW}}
+Other Adjusted methods of CI estimation: 
+\code{\link{PlotciAAS}()},
+\code{\link{PlotciAAllg}()},
+\code{\link{PlotciAAll}()},
+\code{\link{PlotciALR}()},
+\code{\link{PlotciALT}()},
+\code{\link{PlotciASC}()},
+\code{\link{PlotciATW}()},
+\code{\link{PlotciAWD}()},
+\code{\link{ciAAS}()},
+\code{\link{ciAAll}()},
+\code{\link{ciALR}()},
+\code{\link{ciALT}()},
+\code{\link{ciASC}()},
+\code{\link{ciATW}()}
 }
-
+\concept{Adjusted methods of CI estimation}

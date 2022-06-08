@@ -11,7 +11,7 @@ PlotexplCTW(n, alp, c, a, b)
 
 \item{alp}{- Alpha value (significance level required)}
 
-\item{c}{- Continuity correctection}
+\item{c}{- Continuity correction}
 
 \item{a}{- Beta parameters for hypo "p"}
 
@@ -30,15 +30,23 @@ PlotexplCTW(n,alp,c,a,b)
 }
 }
 \seealso{
-Other Expected length  of continuity corrected methods: \code{\link{PlotexplCAS}},
-  \code{\link{PlotexplCAll}}, \code{\link{PlotexplCLT}},
-  \code{\link{PlotexplCSC}}, \code{\link{PlotexplCWD}},
-  \code{\link{PlotlengthCAS}},
-  \code{\link{PlotlengthCAll}},
-  \code{\link{PlotlengthCLT}}, \code{\link{PlotlengthCSC}},
-  \code{\link{PlotlengthCTW}}, \code{\link{PlotlengthCWD}},
-  \code{\link{lengthCAS}}, \code{\link{lengthCAll}},
-  \code{\link{lengthCLT}}, \code{\link{lengthCSC}},
-  \code{\link{lengthCTW}}, \code{\link{lengthCWD}}
+Other Expected length  of continuity corrected methods: 
+\code{\link{PlotexplCAS}()},
+\code{\link{PlotexplCAll}()},
+\code{\link{PlotexplCLT}()},
+\code{\link{PlotexplCSC}()},
+\code{\link{PlotexplCWD}()},
+\code{\link{PlotlengthCAS}()},
+\code{\link{PlotlengthCAll}()},
+\code{\link{PlotlengthCLT}()},
+\code{\link{PlotlengthCSC}()},
+\code{\link{PlotlengthCTW}()},
+\code{\link{PlotlengthCWD}()},
+\code{\link{lengthCAS}()},
+\code{\link{lengthCAll}()},
+\code{\link{lengthCLT}()},
+\code{\link{lengthCSC}()},
+\code{\link{lengthCTW}()},
+\code{\link{lengthCWD}()}
 }
-
+\concept{Expected length  of continuity corrected methods}

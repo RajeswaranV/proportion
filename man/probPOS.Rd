@@ -39,8 +39,11 @@ Bayesian Data Analysis, Chapman & Hall/CRC
 An introduction to Bayesian analysis: Theory and Methods. Springer, New York
 }
 \seealso{
-Other Miscellaneous  functions for Bayesian method: \code{\link{empericalBAx}},
-  \code{\link{empericalBA}}, \code{\link{probPOSx}},
-  \code{\link{probPREx}}, \code{\link{probPRE}}
+Other Miscellaneous  functions for Bayesian method: 
+\code{\link{empericalBAx}()},
+\code{\link{empericalBA}()},
+\code{\link{probPOSx}()},
+\code{\link{probPREx}()},
+\code{\link{probPRE}()}
 }
-
+\concept{Miscellaneous  functions for Bayesian method}

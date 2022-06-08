@@ -40,12 +40,19 @@ Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{
-Other Error for adjusted methods: \code{\link{PloterrAAS}},
-  \code{\link{PloterrAAll}}, \code{\link{PloterrALR}},
-  \code{\link{PloterrALT}}, \code{\link{PloterrASC}},
-  \code{\link{PloterrATW}}, \code{\link{PloterrAWD}},
-  \code{\link{errAAS}}, \code{\link{errAAll}},
-  \code{\link{errALR}}, \code{\link{errASC}},
-  \code{\link{errATW}}, \code{\link{errAWD}}
+Other Error for adjusted methods: 
+\code{\link{PloterrAAS}()},
+\code{\link{PloterrAAll}()},
+\code{\link{PloterrALR}()},
+\code{\link{PloterrALT}()},
+\code{\link{PloterrASC}()},
+\code{\link{PloterrATW}()},
+\code{\link{PloterrAWD}()},
+\code{\link{errAAS}()},
+\code{\link{errAAll}()},
+\code{\link{errALR}()},
+\code{\link{errASC}()},
+\code{\link{errATW}()},
+\code{\link{errAWD}()}
 }
-
+\concept{Error for adjusted methods}

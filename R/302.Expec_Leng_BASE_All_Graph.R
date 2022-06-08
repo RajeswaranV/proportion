@@ -87,12 +87,12 @@ UEX[i+1]=exlim302u(x[i+1],n,alp,e)
 LEEX[i+1]=UEX[i+1]-LEX[i+1]
 }
 ####Expected Length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
-ewiEX[i,j]=LEEX[i]*dbinom(i-1, n,hp[j])
+ewiEX[i,j]=LEEX[i]*stats::dbinom(i-1, n,hp[j])
 }
 ewEX[j]=sum(ewiEX[,j])						#Expected Length
 }
@@ -106,8 +106,8 @@ exlim302l=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f1=function(p) (1-e)*dbinom(x,n,p)+sum(dbinom(y,n,p))-(1-(alp/2))
-  LEX= uniroot(f1,c(0,1))$root
+  f1=function(p) (1-e)*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(1-(alp/2))
+  LEX= stats::uniroot(f1,c(0,1))$root
   return(LEX)
 }
 #####TO FIND UPPER LIMITS
@@ -115,8 +115,8 @@ exlim302u=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f2  = function(p) e*dbinom(x,n,p)+sum(dbinom(y,n,p))-(alp/2)
-  UEX = uniroot(f2,c(0,1))$root
+  f2  = function(p) e*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(alp/2)
+  UEX = stats::uniroot(f2,c(0,1))$root
   return(UEX)
 }
 
@@ -175,11 +175,11 @@ ewBAH=0									#Expected Length
 for(i in 1:k)
 {
 #Quantile Based Intervals
-LBAQ[i]=qbeta(alp/2,x[i]+a1,n-x[i]+a2)
-UBAQ[i]=qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
+LBAQ[i]=stats::qbeta(alp/2,x[i]+a1,n-x[i]+a2)
+UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
 
-LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
-UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
+LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
+UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
 
 LEBAQ[i]=UBAQ[i]-LBAQ[i]
 LEBAH[i]=UBAH[i]-LBAH[i]
@@ -187,13 +187,13 @@ LEBAH[i]=UBAH[i]-LBAH[i]
 #sumLEBAQ=sum(LEBAQ)
 #sumLEBAH=sum(LEBAH)
 ####Expected Length
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
-ewiBAQ[i,j]=LEBAQ[i]*dbinom(i-1, n,hp[j])
-ewiBAH[i,j]=LEBAH[i]*dbinom(i-1, n,hp[j])
+ewiBAQ[i,j]=LEBAQ[i]*stats::dbinom(i-1, n,hp[j])
+ewiBAH[i,j]=LEBAH[i]*stats::dbinom(i-1, n,hp[j])
 
 }
 ewBAQ[j]=sum(ewiBAQ[,j])

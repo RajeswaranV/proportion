@@ -57,9 +57,12 @@ REVSTAT - Statistical Journal, 6, 165-197.
    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
    \code{\link[prevalence]{propCI}} which provides similar functionality.
 
-Other Continuity correction methods of CI estimation given x and n: \code{\link{PlotciCAllxg}},
-  \code{\link{PlotciCAllx}}, \code{\link{ciCAllx}},
-  \code{\link{ciCLTx}}, \code{\link{ciCTWx}},
-  \code{\link{ciCWDx}}
+Other Continuity correction methods of CI estimation given x and n: 
+\code{\link{PlotciCAllxg}()},
+\code{\link{PlotciCAllx}()},
+\code{\link{ciCAllx}()},
+\code{\link{ciCLTx}()},
+\code{\link{ciCTWx}()},
+\code{\link{ciCWDx}()}
 }
-
+\concept{Continuity correction methods of CI estimation given x and n}

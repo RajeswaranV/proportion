@@ -16,7 +16,7 @@ empericalBA(n, alp, sL, sU)
 \item{sU}{- Upper support for MLE optimization}
 }
 \value{
-A dataframe with 
+A dataframe with
  \item{x }{- Number of successes (positive samples)}
  \item{pomean }{ - Posterior mean}
  \item{LBAQ }{ - Lower limits of Quantile based intervals}
@@ -28,24 +28,27 @@ A dataframe with
 The empirical Bayesian approach for Beta-Binomial model
 }
 \details{
-Highest Probability Density (HPD) and two tailed intervals are provided for 
-all \eqn{x = 0, 1, 2 ..n} based on empirical Bayesian approach for Beta-Binomial model. 
-Lower and Upper support values are needed to obtain the MLE of marginal likelihood 
+Highest Probability Density (HPD) and two tailed intervals are provided for
+all \eqn{x = 0, 1, 2 ..n} based on empirical Bayesian approach for Beta-Binomial model.
+Lower and Upper support values are needed to obtain the MLE of marginal likelihood
 for prior parameters.
 }
 \examples{
 sL=runif(1,0,2)				#Lower and upper of Support for MLE optimization
 sU=runif(1,sL,10)
 n= 5; alp=0.05
-empericalBA(n,alp,sL,sU) 
+empericalBA(n,alp,sL,sU)
 }
 \references{
 [1] 1998 Lehmann EL and Casella G
 Theory of Point Estimation, 2nd ed Springer, New York
 }
 \seealso{
-Other Miscellaneous  functions for Bayesian method: \code{\link{empericalBAx}},
-  \code{\link{probPOSx}}, \code{\link{probPOS}},
-  \code{\link{probPREx}}, \code{\link{probPRE}}
+Other Miscellaneous  functions for Bayesian method: 
+\code{\link{empericalBAx}()},
+\code{\link{probPOSx}()},
+\code{\link{probPOS}()},
+\code{\link{probPREx}()},
+\code{\link{probPRE}()}
 }
-
+\concept{Miscellaneous  functions for Bayesian method}

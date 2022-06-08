@@ -1,7 +1,7 @@
 #####################################################################################
 #' Plots the CI estimation of the exact method
 #' @param n - Number of trials
-#' @param x - Number of sucess
+#' @param x - Number of success
 #' @param alp - Alpha value (significance level required)
 #' @param e - Exact method indicator  in [0, 1] {1: Clopper Pearson, 0.5: Mid P}
 #' @details  Plot of the Confidence interval for exact method
@@ -24,7 +24,7 @@ PlotciEXx<-function(x,n,alp,e)
   if (((class(x) != "integer") & (class(x) != "numeric")) || (x<0) || x>n || length(x)>1) stop("'x' has to be a positive integer between 0 and n")
   if ((class(n) != "integer") & (class(n) != "numeric") || length(n) >1|| n<=0 ) stop("'n' has to be greater than 0")
   if (alp>1 || alp<0 || length(alp)>1) stop("'alpha' has to be between 0 and 1")
-  if (e>1 || e<0) stop("'e' has to be between 0 and 1")
+#  if (e>1 || e<0) stop("'e' has to be between 0 and 1")
   if (length(e)>10 ) stop("Plot of only 10 interavals of 'e' is possible")
   Abberation=ID=method=Value=LowerLimit=UpperLimit=LowerAbb=UpperAbb=ZWI=NULL
 
@@ -55,12 +55,13 @@ PlotciEXx<-function(x,n,alp,e)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo=
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "x values") +
       ggplot2::labs(title = "Exact method given x") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit,
                                            color= e),
@@ -78,12 +79,13 @@ PlotciEXx<-function(x,n,alp,e)
       ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "x values") +
       ggplot2::labs(title = "Exact method given x") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit, color= e),
                               size = 0.5)  +
@@ -99,7 +101,7 @@ PlotciEXx<-function(x,n,alp,e)
 
 #####################################################################################
 #' Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine)
-#' @param x - Number of sucess
+#' @param x - Number of success
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Plots of the Confidence Intervals of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp} and \code{x}
@@ -144,11 +146,12 @@ PlotciAllx<-function(x,n,alp)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo=
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::ggtitle("Confidence interval for base methods") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit,
                                            color= method),
@@ -162,11 +165,12 @@ PlotciAllx<-function(x,n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::ggtitle("Confidence interval for base methods") +
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit, color= method),
                               size = 0.5)
@@ -175,7 +179,7 @@ PlotciAllx<-function(x,n,alp)
 }
 #############################################
 #' Plots the CI estimation of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) grouped by x value
-#' @param x - Number of sucess
+#' @param x - Number of success
 #' @param n - Number of trials
 #' @param alp - Alpha value (significance level required)
 #' @details  Plots of the Confidence Interval of 6 base methods (Wald, Wald-T, Likelihood, Score, Logit-Wald, ArcSine) for \code{n} given \code{alp} and \code{x} grouped by x
@@ -222,11 +226,12 @@ PlotciAllxg<-function(x,n,alp)
 
   if((max(as.numeric(unique(ss$method)))-nrow(ss))==0){
     if(nrow(ldf)>0){
-      oo= ggplot2::ggplot()+
+      oo=
+        ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
@@ -240,11 +245,12 @@ PlotciAllxg<-function(x,n,alp)
         ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
-      oo=  ggplot2::ggplot()+
+      oo=
+        ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 size = 0.5)
@@ -256,11 +262,12 @@ PlotciAllxg<-function(x,n,alp)
     ff= data.frame(val1=seq(0.5,max(ss$ID),by=(max(ss$ID)/(max(ss$x)+1))),val2=(0:max(ss$x)))
 
     if(nrow(ldf)>0){
-      oo= ggplot2::ggplot()+
+      oo=
+        ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
@@ -276,11 +283,12 @@ PlotciAllxg<-function(x,n,alp)
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     else {
-      oo=  ggplot2::ggplot()+
+      oo=
+        ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::ggtitle("Confidence interval for Base methods of CI estimation sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 size = 0.5) +

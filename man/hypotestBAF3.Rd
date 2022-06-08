@@ -52,11 +52,17 @@ Default prior approach for Bayesian testing of hypotheses involving single binom
 International Journal of Statistics and Analysis, 4 (2), 139 - 153
 }
 \seealso{
-Other Hypothesis testing: \code{\link{hypotestBAF1x}},
-  \code{\link{hypotestBAF1}}, \code{\link{hypotestBAF2x}},
-  \code{\link{hypotestBAF2}}, \code{\link{hypotestBAF3x}},
-  \code{\link{hypotestBAF4x}}, \code{\link{hypotestBAF4}},
-  \code{\link{hypotestBAF5x}}, \code{\link{hypotestBAF5}},
-  \code{\link{hypotestBAF6x}}, \code{\link{hypotestBAF6}}
+Other Hypothesis testing: 
+\code{\link{hypotestBAF1x}()},
+\code{\link{hypotestBAF1}()},
+\code{\link{hypotestBAF2x}()},
+\code{\link{hypotestBAF2}()},
+\code{\link{hypotestBAF3x}()},
+\code{\link{hypotestBAF4x}()},
+\code{\link{hypotestBAF4}()},
+\code{\link{hypotestBAF5x}()},
+\code{\link{hypotestBAF5}()},
+\code{\link{hypotestBAF6x}()},
+\code{\link{hypotestBAF6}()}
 }
-
+\concept{Hypothesis testing}

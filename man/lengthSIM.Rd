@@ -41,8 +41,11 @@ n= 5; s=5000; a=1; b=1;
 lengthSIM(n,LL,UL,s,a,b)
 }
 \seealso{
-Other Expected length: \code{\link{PlotexplGEN}},
-  \code{\link{PlotexplSIM}}, \code{\link{PlotlengthGEN}},
-  \code{\link{PlotlengthSIM}}, \code{\link{lengthGEN}}
+Other Expected length: 
+\code{\link{PlotexplGEN}()},
+\code{\link{PlotexplSIM}()},
+\code{\link{PlotlengthGEN}()},
+\code{\link{PlotlengthSIM}()},
+\code{\link{lengthGEN}()}
 }
-
+\concept{Expected length}

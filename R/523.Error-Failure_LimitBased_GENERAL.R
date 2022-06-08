@@ -53,7 +53,7 @@ for(m in 1:k)
 if(phi > UL[m] || phi<LL[m])
 {
 thetactr=thetactr+1
-alpstar[m]=dbinom(x[m],n,phi)
+alpstar[m]=stats::dbinom(x[m],n,phi)
 } else alpstar[m] = 0
 }
 delalp=round((alp-sum(alpstar))*100,2)

@@ -38,7 +38,7 @@ pCOpBIWD<-function(n,alp)
   pbia1=0					#p-bias
   pbias=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #WALD METHOD
   for(i in 1:k)
   {
@@ -53,8 +53,8 @@ pCOpBIWD<-function(n,alp)
   ####p-confidence and p-bias
   for(i in 2:(k-1))
   {
-    pcon[i-1]=2*(pbinom(i-1, n, LW[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LW[i]))
-    pconC[i-1]=2*pbinom(i-1, n, UW[i], lower.tail = TRUE, log.p = FALSE)
+    pcon[i-1]=2*(stats::pbinom(i-1, n, LW[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LW[i]))
+    pconC[i-1]=2*stats::pbinom(i-1, n, UW[i], lower.tail = TRUE, log.p = FALSE)
     pconf[i-1]=(1-max(pcon[i-1],pconC[i-1]))*100 		#p-confidence calculation
     pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
     pbias[i-1]=max(0,pbia1[i-1])*100
@@ -108,7 +108,7 @@ pCOpBISC<-function(n,alp)
   pbia1=0					#p-bias
   pbias=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   cv1=(cv^2)/(2*n)
   cv2=(cv/(2*n))^2
 
@@ -126,8 +126,8 @@ pCOpBISC<-function(n,alp)
   ####p-confidence and p-bias
   for(i in 2:(k-1))
   {
-    pcon[i-1]=2*(pbinom(i-1, n, LS[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LS[i]))
-    pconC[i-1]=2*pbinom(i-1, n, US[i], lower.tail = TRUE, log.p = FALSE)
+    pcon[i-1]=2*(stats::pbinom(i-1, n, LS[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LS[i]))
+    pconC[i-1]=2*stats::pbinom(i-1, n, US[i], lower.tail = TRUE, log.p = FALSE)
     pconf[i-1]=1-max(pcon[i-1],pconC[i-1]) 		#p-confidence calculation
     pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
     pbias[i-1]=as.numeric(max(0,pbia1[i-1]))
@@ -181,7 +181,7 @@ pCOpBIAS<-function(n,alp)
   pbia1=0					#p-bias
   pbias=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #ARC-SINE METHOD
   for(i in 1:k)
   {
@@ -197,8 +197,8 @@ pCOpBIAS<-function(n,alp)
   ####p-confidence and p-bias
   for(i in 2:(k-1))
   {
-    pcon[i-1]=2*(pbinom(i-1, n, LA[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LA[i]))
-    pconC[i-1]=2*pbinom(i-1, n, UA[i], lower.tail = TRUE, log.p = FALSE)
+    pcon[i-1]=2*(stats::pbinom(i-1, n, LA[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LA[i]))
+    pconC[i-1]=2*stats::pbinom(i-1, n, UA[i], lower.tail = TRUE, log.p = FALSE)
     pconf[i-1]=1-max(pcon[i-1],pconC[i-1]) 		#p-confidence calculation
     pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
     pbias[i-1]=as.numeric(max(0,pbia1[i-1]))
@@ -254,7 +254,7 @@ pCOpBILT<-function(n,alp)
   pbia1=0					#p-bias
   pbias=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LOGIT-WALD METHOD
   pLT[1]=0
   qLT[1]=1
@@ -282,8 +282,8 @@ pCOpBILT<-function(n,alp)
   ####p-confidence and p-bias
   for(i in 2:(k-1))
   {
-    pcon[i-1]=2*(pbinom(i-1, n, LLT[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LLT[i]))
-    pconC[i-1]=2*pbinom(i-1, n, ULT[i], lower.tail = TRUE, log.p = FALSE)
+    pcon[i-1]=2*(stats::pbinom(i-1, n, LLT[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LLT[i]))
+    pconC[i-1]=2*stats::pbinom(i-1, n, ULT[i], lower.tail = TRUE, log.p = FALSE)
     pconf[i-1]=1-max(pcon[i-1],pconC[i-1]) 		#p-confidence calculation
     pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
     pbias[i-1]=as.numeric(max(0,pbia1[i-1]))
@@ -353,7 +353,7 @@ pCOpBITW<-function(n,alp)
     f1=function(p,n) p*(1-p)/n
     f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
     DOF[i]=2*((f1(pTW[i],n))^2)/f2(pTW[i],n)
-    cv[i]=qt(1-(alp/2), df=DOF[i])
+    cv[i]=stats::qt(1-(alp/2), df=DOF[i])
     seTW[i]=cv[i]*sqrt(f1(pTW[i],n))
     LTW[i]=pTW[i]-(seTW[i])
     UTW[i]=pTW[i]+(seTW[i])
@@ -363,8 +363,8 @@ pCOpBITW<-function(n,alp)
   ####p-confidence and p-bias
   for(i in 2:(k-1))
   {
-    pcon[i-1]=2*(pbinom(i-1, n, LTW[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LTW[i]))
-    pconC[i-1]=2*pbinom(i-1, n, UTW[i], lower.tail = TRUE, log.p = FALSE)
+    pcon[i-1]=2*(stats::pbinom(i-1, n, LTW[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LTW[i]))
+    pconC[i-1]=2*stats::pbinom(i-1, n, UTW[i], lower.tail = TRUE, log.p = FALSE)
     pconf[i-1]=1-max(pcon[i-1],pconC[i-1]) 		#p-confidence calculation
     pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
     pbias[i-1]=as.numeric(max(0,pbia1[i-1]))
@@ -420,23 +420,23 @@ pCOpBILR<-function(n,alp)
 
 
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LIKELIHOOD-RATIO METHOD
   for(i in 1:k)
   {
-    likelhd = function(p) dbinom(y[i],n,p)
-    loglik = function(p) dbinom(y[i],n,p,log=TRUE)
-    mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+    likelhd = function(p) stats::dbinom(y[i],n,p)
+    loglik = function(p) stats::dbinom(y[i],n,p,log=TRUE)
+    mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
     cutoff[i]=loglik(mle[i])-(cv^2/2)
     loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-    LL[i]=optimize(loglik.optim, c(0,mle[i]))$minimum
-    UL[i]=optimize(loglik.optim, c(mle[i],1))$minimum
+    LL[i]=stats::optimize(loglik.optim, c(0,mle[i]))$minimum
+    UL[i]=stats::optimize(loglik.optim, c(mle[i],1))$minimum
   }
   ####p-confidence and p-bias
   for(i in 2:(k-1))
   {
-    pcon[i-1]=2*(pbinom(i-1, n, LL[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LL[i]))
-    pconC[i-1]=2*pbinom(i-1, n, UL[i], lower.tail = TRUE, log.p = FALSE)
+    pcon[i-1]=2*(stats::pbinom(i-1, n, LL[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LL[i]))
+    pconC[i-1]=2*stats::pbinom(i-1, n, UL[i], lower.tail = TRUE, log.p = FALSE)
     pconf[i-1]=1-max(pcon[i-1],pconC[i-1]) 		#p-confidence calculation
     pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
     pbias[i-1]=as.numeric(max(0,pbia1[i-1]))
@@ -544,8 +544,8 @@ pcb401=function(n,stdf)
 
   for(i in 2:(k-1))
   {
-    pcon[i-1]=2*(pbinom(i-1, n, LEX[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LEX[i]))
-    pconC[i-1]=2*pbinom(i-1, n, UEX[i], lower.tail = TRUE, log.p = FALSE)
+    pcon[i-1]=2*(stats::pbinom(i-1, n, LEX[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LEX[i]))
+    pconC[i-1]=2*stats::pbinom(i-1, n, UEX[i], lower.tail = TRUE, log.p = FALSE)
     pconf[i-1]=1-max(pcon[i-1],pconC[i-1]) 		#p-confidence calculation
     pbia1[i-1]=max(pcon[i-1],pconC[i-1])-min(pcon[i-1],pconC[i-1])
     pbias[i-1]=as.numeric(max(0,pbia1[i-1]))
@@ -560,8 +560,8 @@ exlim401l=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f1=function(p) (1-e)*dbinom(x,n,p)+sum(dbinom(y,n,p))-(1-(alp/2))
-  LEX= uniroot(f1,c(0,1))$root
+  f1=function(p) (1-e)*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(1-(alp/2))
+  LEX= stats::uniroot(f1,c(0,1))$root
   return(LEX)
 }
 #####TO FIND UPPER LIMITS
@@ -569,8 +569,8 @@ exlim401u=function(x,n,alp,e)
 {
   z=x-1
   y=0:z
-  f2  = function(p) e*dbinom(x,n,p)+sum(dbinom(y,n,p))-(alp/2)
-  UEX = uniroot(f2,c(0,1))$root
+  f2  = function(p) e*stats::dbinom(x,n,p)+sum(stats::dbinom(y,n,p))-(alp/2)
+  UEX = stats::uniroot(f2,c(0,1))$root
   return(UEX)
 }
 
@@ -634,23 +634,23 @@ pCOpBIBA<-function(n,alp,a1,a2)
   for(i in 1:k)
   {
     #Quantile Based Intervals
-    LBAQ[i]=qbeta(alp/2,x[i]+a1,n-x[i]+a2)
-    UBAQ[i]=qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
+    LBAQ[i]=stats::qbeta(alp/2,x[i]+a1,n-x[i]+a2)
+    UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
 
-    LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
-    UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
+    LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
+    UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
   }
 
   for(i in 2:(k-1))
   {
-    pconQ[i-1]=2*(pbinom(i-1, n, LBAQ[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LBAQ[i]))
-    pconCQ[i-1]=2*pbinom(i-1, n, UBAQ[i], lower.tail = TRUE, log.p = FALSE)
+    pconQ[i-1]=2*(stats::pbinom(i-1, n, LBAQ[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LBAQ[i]))
+    pconCQ[i-1]=2*stats::pbinom(i-1, n, UBAQ[i], lower.tail = TRUE, log.p = FALSE)
     pconfQ[i-1]=(1-max(pconQ[i-1],pconCQ[i-1]))*100 		#p-confidence calculation
     pbia1Q[i-1]=max(pconQ[i-1],pconCQ[i-1])-min(pconQ[i-1],pconCQ[i-1])
     pbiasQ[i-1]=max(0,pbia1Q[i-1])*100
 
-    pconH[i-1]=2*(pbinom(i-1, n, LBAH[i], lower.tail = FALSE, log.p = FALSE)+dbinom(i-1, n, LBAH[i]))
-    pconCH[i-1]=2*pbinom(i-1, n, UBAH[i], lower.tail = TRUE, log.p = FALSE)
+    pconH[i-1]=2*(stats::pbinom(i-1, n, LBAH[i], lower.tail = FALSE, log.p = FALSE)+stats::dbinom(i-1, n, LBAH[i]))
+    pconCH[i-1]=2*stats::pbinom(i-1, n, UBAH[i], lower.tail = TRUE, log.p = FALSE)
     pconfH[i-1]=(1-max(pconH[i-1],pconCH[i-1]))*100 		#p-confidence calculation
     pbia1H[i-1]=max(pconH[i-1],pconCH[i-1])-min(pconH[i-1],pconCH[i-1])
     pbiasH[i-1]=max(0,pbia1H[i-1])*100

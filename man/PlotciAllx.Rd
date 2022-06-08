@@ -7,7 +7,7 @@
 PlotciAllx(x, n, alp)
 }
 \arguments{
-\item{x}{- Number of sucess}
+\item{x}{- Number of success}
 
 \item{n}{- Number of trials}
 
@@ -24,11 +24,17 @@ x=5; n=5; alp=0.05;
 PlotciAllx(x,n,alp)
 }
 \seealso{
-Other Base methods of CI estimation given x & n: \code{\link{PlotciAllxg}},
-  \code{\link{PlotciEXx}}, \code{\link{ciASx}},
-  \code{\link{ciAllx}}, \code{\link{ciBAx}},
-  \code{\link{ciEXx}}, \code{\link{ciLRx}},
-  \code{\link{ciLTx}}, \code{\link{ciSCx}},
-  \code{\link{ciTWx}}, \code{\link{ciWDx}}
+Other Base methods of CI estimation given x & n: 
+\code{\link{PlotciAllxg}()},
+\code{\link{PlotciEXx}()},
+\code{\link{ciASx}()},
+\code{\link{ciAllx}()},
+\code{\link{ciBAx}()},
+\code{\link{ciEXx}()},
+\code{\link{ciLRx}()},
+\code{\link{ciLTx}()},
+\code{\link{ciSCx}()},
+\code{\link{ciTWx}()},
+\code{\link{ciWDx}()}
 }
-
+\concept{Base methods of CI estimation given x & n}

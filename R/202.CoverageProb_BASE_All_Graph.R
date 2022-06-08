@@ -153,27 +153,27 @@ ctrH=0
 for(i in 1:k)
 {
 #Quantile Based Intervals
-LBAQ[i]=qbeta(alp/2,x[i]+a1,n-x[i]+a2)
-UBAQ[i]=qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
+LBAQ[i]=stats::qbeta(alp/2,x[i]+a1,n-x[i]+a2)
+UBAQ[i]=stats::qbeta(1-(alp/2),x[i]+a1,n-x[i]+a2)
 
-LBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
-UBAH[i]=TeachingDemos::hpd(qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
+LBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[1]
+UBAH[i]=TeachingDemos::hpd(stats::qbeta,shape1=x[i]+a1,shape2=n-x[i]+a2,conf=1-alp)[2]
 
 }
 ####COVERAGE PROBABILITIES
-hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
 for (j in 1:s)
 {
 for(i in 1:k)
 {
 if(hp[j] > LBAQ[i] && hp[j] < UBAQ[i])
 {
-cpBAQ[i,j]=dbinom(i-1, n,hp[j])
+cpBAQ[i,j]=stats::dbinom(i-1, n,hp[j])
 ctBAQ[i,j]=1
 }
 if(hp[j] > LBAH[i] && hp[j] < UBAH[i])
 {
-cpBAH[i,j]=dbinom(i-1, n,hp[j])
+cpBAH[i,j]=stats::dbinom(i-1, n,hp[j])
 ctBAH[i,j]=1
 }
 

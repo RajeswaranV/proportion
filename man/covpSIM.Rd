@@ -52,6 +52,7 @@ n= 5; alp=0.05; s=5000; a=1; b=1; t1=0.93; t2=0.97
 covpSIM(n,LL,UL,alp,s,a,b,t1,t2)
 }
 \seealso{
-Other Simulated methods for coverage probability: \code{\link{PlotcovpSIM}}
+Other Simulated methods for coverage probability: 
+\code{\link{PlotcovpSIM}()}
 }
-
+\concept{Simulated methods for coverage probability}

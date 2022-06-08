@@ -47,7 +47,7 @@ UAWD=0
 
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 for(i in 1:k)
 {
@@ -66,7 +66,7 @@ for(m in 1:k)
 if(phi > UAWD[m] || phi<LAWD[m])
 {
 thetactr=thetactr+1
-alpstarAW[m]=dbinom(x[m],n,phi)
+alpstarAW[m]=stats::dbinom(x[m],n,phi)
 } else alpstarAW[m] = 0
 }
 delalpAW=round((alp-sum(alpstarAW))*100,2)
@@ -124,7 +124,7 @@ LASC=0
 UASC=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n1)
 cv2=(cv/(2*n1))^2
 
@@ -145,7 +145,7 @@ for(m in 1:k)
 if(phi > UASC[m] || phi<LASC[m])
 {
 thetactr=thetactr+1
-alpstarAS[m]=dbinom(x[m],n,phi)
+alpstarAS[m]=stats::dbinom(x[m],n,phi)
 } else alpstarAS[m] = 0
 }
 delalpAS=round((alp-sum(alpstarAS))*100,2)
@@ -202,7 +202,7 @@ seA=0
 LAAS=0
 UAAS=0
 
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 for(i in 1:k)
 {
@@ -220,7 +220,7 @@ for(m in 1:k)
 if(phi > UAAS[m] || phi<LAAS[m])
 {
 thetactr=thetactr+1
-alpstarAAS[m]=dbinom(x[m],n,phi)
+alpstarAAS[m]=stats::dbinom(x[m],n,phi)
 } else alpstarAAS[m] = 0
 }
 delalpAAS=round((alp-sum(alpstarAAS))*100,2)
@@ -277,17 +277,17 @@ LALR=0
 UALR=0
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LIKELIHOOD-RATIO METHOD
 for(i in 1:k)
 {
-likelhd = function(p) dbinom(y1[i],n1,p)
-loglik = function(p) dbinom(y1[i],n1,p,log=TRUE)
-mle[i]=optimize(likelhd,c(0,1),maximum=TRUE)$maximum
+likelhd = function(p) stats::dbinom(y1[i],n1,p)
+loglik = function(p) stats::dbinom(y1[i],n1,p,log=TRUE)
+mle[i]=stats::optimize(likelhd,c(0,1),maximum=TRUE)$maximum
 cutoff[i]=loglik(mle[i])-(cv^2/2)
 loglik.optim=function(p){abs(cutoff[i]-loglik(p))}
-LALR[i]=max(optimize(loglik.optim, c(0,mle[i]))$minimum,0)
-UALR[i]=min(optimize(loglik.optim, c(mle[i],1))$minimum,1)
+LALR[i]=max(stats::optimize(loglik.optim, c(0,mle[i]))$minimum,0)
+UALR[i]=min(stats::optimize(loglik.optim, c(mle[i],1))$minimum,1)
 }
 #####Finding Error, Failure
 alpstarALR=0
@@ -297,7 +297,7 @@ for(m in 1:k)
 if(phi > UALR[m] || phi<LALR[m])
 {
 thetactr=thetactr+1
-alpstarALR[m]=dbinom(y[m],n,phi)
+alpstarALR[m]=stats::dbinom(y[m],n,phi)
 } else alpstarALR[m] = 0
 }
 delalpALR=round((alp-sum(alpstarALR))*100,2)
@@ -365,7 +365,7 @@ qATW[i]=1-pATW[i]
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOF[i]=2*((f1(pATW[i],n1))^2)/f2(pATW[i],n1)
-cv[i]=qt(1-(alp/2), df=DOF[i])
+cv[i]=stats::qt(1-(alp/2), df=DOF[i])
 seATW[i]=cv[i]*sqrt(f1(pATW[i],n1))
 LATW[i]=max(pATW[i]-(seATW[i]),0)
 UATW[i]=min(pATW[i]+(seATW[i]),1)
@@ -378,7 +378,7 @@ for(m in 1:k)
 if(phi > UATW[m] || phi<LATW[m])
 {
 thetactr=thetactr+1
-alpstarATW[m]=dbinom(x[m],n,phi)
+alpstarATW[m]=stats::dbinom(x[m],n,phi)
 } else alpstarATW[m] = 0
 }
 delalpATW=round((alp-sum(alpstarATW))*100,2)
@@ -436,7 +436,7 @@ lgit=0
 LALT=0
 UALT=0
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 for(i in 1:k)
 {
@@ -455,7 +455,7 @@ for(m in 1:k)
 if(phi > UALT[m] || phi<LALT[m])
 {
 thetactr=thetactr+1
-alpstarALT[m]=dbinom(x[m],n,phi)
+alpstarALT[m]=stats::dbinom(x[m],n,phi)
 } else alpstarALT[m] = 0
 }
 delalpALT=round((alp-sum(alpstarALT))*100,2)

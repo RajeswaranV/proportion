@@ -66,15 +66,24 @@ Journal of Applied Statistics, 41, 7, 1516-1529
    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
    \code{\link[prevalence]{propCI}} which provides similar functionality.
 
-Other Basic methods of CI estimation: \code{\link{PlotciAS}},
-  \code{\link{PlotciAllg}}, \code{\link{PlotciAll}},
-  \code{\link{PlotciBA}}, \code{\link{PlotciEX}},
-  \code{\link{PlotciLR}}, \code{\link{PlotciLT}},
-  \code{\link{PlotciSC}}, \code{\link{PlotciTW}},
-  \code{\link{PlotciWD}}, \code{\link{ciAS}},
-  \code{\link{ciAll}}, \code{\link{ciBA}},
-  \code{\link{ciEX}}, \code{\link{ciLR}},
-  \code{\link{ciSC}}, \code{\link{ciTW}},
-  \code{\link{ciWD}}
+Other Basic methods of CI estimation: 
+\code{\link{PlotciAS}()},
+\code{\link{PlotciAllg}()},
+\code{\link{PlotciAll}()},
+\code{\link{PlotciBA}()},
+\code{\link{PlotciEX}()},
+\code{\link{PlotciLR}()},
+\code{\link{PlotciLT}()},
+\code{\link{PlotciSC}()},
+\code{\link{PlotciTW}()},
+\code{\link{PlotciWD}()},
+\code{\link{ciAS}()},
+\code{\link{ciAll}()},
+\code{\link{ciBA}()},
+\code{\link{ciEX}()},
+\code{\link{ciLR}()},
+\code{\link{ciSC}()},
+\code{\link{ciTW}()},
+\code{\link{ciWD}()}
 }
-
+\concept{Basic methods of CI estimation}

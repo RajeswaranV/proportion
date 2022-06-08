@@ -17,7 +17,7 @@ gcovpCWD<-function(n,alp,c,a,b,t1,t2)
   cppCW=0								#Coverage probabilty
   ctr=0
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #WALD METHOD
   for(i in 1:k)
   {
@@ -30,14 +30,14 @@ gcovpCWD<-function(n,alp,c,a,b,t1,t2)
     if(UCW[i]>1) UCW[i]=1
   }
   ####COVERAGE PROBABILITIES
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
       if(hp[j] > LCW[i] && hp[j] < UCW[i])
       {
-        cpCW[i,j]=dbinom(i-1, n,hp[j])
+        cpCW[i,j]=stats::dbinom(i-1, n,hp[j])
         ctCW[i,j]=1
       }
     }
@@ -71,7 +71,7 @@ gcovpCSC<-function(n,alp,c,a,b,t1,t2)
   ctr=0
 
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   cv1=(cv^2)/(2*n)
   cv2=cv/(2*n)
 
@@ -88,14 +88,14 @@ gcovpCSC<-function(n,alp,c,a,b,t1,t2)
     if(UCS[i]>1) UCS[i]=1
   }
   ####COVERAGE PROBABILITIES
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
       if(hp[j] > LCS[i] && hp[j] < UCS[i])
       {
-        cpCS[i,j]=dbinom(i-1, n,hp[j])
+        cpCS[i,j]=stats::dbinom(i-1, n,hp[j])
         ctCS[i,j]=1
       }
     }
@@ -129,7 +129,7 @@ gcovpCAS<-function(n,alp,c,a,b,t1,t2)
   ctr=0
 
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #ARC-SINE METHOD
   for(i in 1:k)
   {
@@ -142,14 +142,14 @@ gcovpCAS<-function(n,alp,c,a,b,t1,t2)
     if(UCA[i]>1) UCA[i]=1
   }
   ####COVERAGE PROBABILITIES
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
       if(hp[j] > LCA[i] && hp[j] < UCA[i])
       {
-        cpCA[i,j]=dbinom(i-1, n,hp[j])
+        cpCA[i,j]=stats::dbinom(i-1, n,hp[j])
         ctCA[i,j]=1
       }
     }
@@ -182,7 +182,7 @@ gcovpCLT<-function(n,alp,c,a,b,t1,t2)
   ctr=0
 
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LOGIT-WALD METHOD
   pCLT[1]=0
   qCLT[1]=1
@@ -210,14 +210,14 @@ gcovpCLT<-function(n,alp,c,a,b,t1,t2)
     if(UCLT[i]>1) UCLT[i]=1
   }
   ####COVERAGE PROBABILITIES
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
       if(hp[j] > LCLT[i] && hp[j] < UCLT[i])
       {
-        cpCLT[i,j]=dbinom(i-1, n,hp[j])
+        cpCLT[i,j]=stats::dbinom(i-1, n,hp[j])
         ctCLT[i,j]=1
       }
     }
@@ -264,7 +264,7 @@ gcovpCTW<-function(n,alp,c,a,b,t1,t2)
     f1=function(p,n) p*(1-p)/n
     f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
     DOF[i]=2*((f1(pCTW[i],n))^2)/f2(pCTW[i],n)
-    cv[i]=qt(1-(alp/2), df=DOF[i])
+    cv[i]=stats::qt(1-(alp/2), df=DOF[i])
     seCTW[i]=cv[i]*sqrt(f1(pCTW[i],n))
     LCTW[i]=pCTW[i]-(seCTW[i]+c)
     UCTW[i]=pCTW[i]+(seCTW[i]+c)
@@ -272,14 +272,14 @@ gcovpCTW<-function(n,alp,c,a,b,t1,t2)
     if(UCTW[i]>1) UCTW[i]=1
   }
   ####COVERAGE PROBABILITIES
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
       if(hp[j] > LCTW[i] && hp[j] < UCTW[i])
       {
-        cpCTW[i,j]=dbinom(i-1, n,hp[j])
+        cpCTW[i,j]=stats::dbinom(i-1, n,hp[j])
         ctCTW[i,j]=1
       }
     }

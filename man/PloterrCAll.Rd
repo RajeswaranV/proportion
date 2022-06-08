@@ -31,11 +31,17 @@ n=5; alp=0.05; phi=0.05; c=1/(2*n); f=-2
 PloterrCAll(n,alp,phi,c,f)
 }
 \seealso{
-Other Error for continuity corrected methods: \code{\link{PloterrCAS}},
-  \code{\link{PloterrCLT}}, \code{\link{PloterrCSC}},
-  \code{\link{PloterrCTW}}, \code{\link{PloterrCWD}},
-  \code{\link{errCAS}}, \code{\link{errCAll}},
-  \code{\link{errCLT}}, \code{\link{errCSC}},
-  \code{\link{errCTW}}, \code{\link{errCWD}}
+Other Error for continuity corrected methods: 
+\code{\link{PloterrCAS}()},
+\code{\link{PloterrCLT}()},
+\code{\link{PloterrCSC}()},
+\code{\link{PloterrCTW}()},
+\code{\link{PloterrCWD}()},
+\code{\link{errCAS}()},
+\code{\link{errCAll}()},
+\code{\link{errCLT}()},
+\code{\link{errCSC}()},
+\code{\link{errCTW}()},
+\code{\link{errCWD}()}
 }
-
+\concept{Error for continuity corrected methods}

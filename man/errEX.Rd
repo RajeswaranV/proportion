@@ -46,14 +46,23 @@ Two-tailed asymptotic inferences for a proportion.
 Journal of Applied Statistics, 41, 7, 1516-1529
 }
 \seealso{
-Other Error for base methods: \code{\link{PloterrAS}},
-  \code{\link{PloterrAll}}, \code{\link{PloterrBA}},
-  \code{\link{PloterrEX}}, \code{\link{PloterrLR}},
-  \code{\link{PloterrLT}}, \code{\link{PloterrSC}},
-  \code{\link{PloterrTW}}, \code{\link{PloterrWD}},
-  \code{\link{errAS}}, \code{\link{errAll}},
-  \code{\link{errBA}}, \code{\link{errLR}},
-  \code{\link{errLT}}, \code{\link{errSC}},
-  \code{\link{errTW}}, \code{\link{errWD}}
+Other Error for base methods: 
+\code{\link{PloterrAS}()},
+\code{\link{PloterrAll}()},
+\code{\link{PloterrBA}()},
+\code{\link{PloterrEX}()},
+\code{\link{PloterrLR}()},
+\code{\link{PloterrLT}()},
+\code{\link{PloterrSC}()},
+\code{\link{PloterrTW}()},
+\code{\link{PloterrWD}()},
+\code{\link{errAS}()},
+\code{\link{errAll}()},
+\code{\link{errBA}()},
+\code{\link{errLR}()},
+\code{\link{errLT}()},
+\code{\link{errSC}()},
+\code{\link{errTW}()},
+\code{\link{errWD}()}
 }
-
+\concept{Error for base methods}

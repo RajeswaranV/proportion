@@ -56,4 +56,4 @@ REVSTAT - Statistical Journal, 6, 165-197.
    \code{\link[BlakerCI]{binom.blaker.limits}} which calculates Blaker CI which is not covered here and
    \code{\link[prevalence]{propCI}} which provides similar functionality.
 }
-
+\concept{Continuity correction methods given x and n}

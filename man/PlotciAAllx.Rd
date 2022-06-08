@@ -30,9 +30,13 @@ x=5; n=5; alp=0.05; h=2
 PlotciAAllx(x,n,alp,h)
 }
 \seealso{
-Other Adjusted methods of CI estimation  given x & n: \code{\link{ciAASx}},
-  \code{\link{ciAAllx}}, \code{\link{ciALRx}},
-  \code{\link{ciALTx}}, \code{\link{ciASCx}},
-  \code{\link{ciATWx}}, \code{\link{ciAWDx}}
+Other Adjusted methods of CI estimation  given x & n: 
+\code{\link{ciAASx}()},
+\code{\link{ciAAllx}()},
+\code{\link{ciALRx}()},
+\code{\link{ciALTx}()},
+\code{\link{ciASCx}()},
+\code{\link{ciATWx}()},
+\code{\link{ciAWDx}()}
 }
-
+\concept{Adjusted methods of CI estimation  given x & n}

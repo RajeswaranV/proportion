@@ -16,7 +16,7 @@ gexplCWD<-function(n,alp,c,a,b)
   ewiCW=matrix(0,k,s)						#Expected length quantity in sum
   ewCW=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #WALD METHOD
   for(i in 1:k)
   {
@@ -31,12 +31,12 @@ gexplCWD<-function(n,alp,c,a,b)
   }
   #sumLECW=sum(LECW)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiCW[i,j]=LECW[i]*dbinom(i-1, n,hp[j])
+      ewiCW[i,j]=LECW[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewCW[j]=sum(ewiCW[,j])						#Expected Length
   }
@@ -63,7 +63,7 @@ gexplCSC<-function(n,alp,c,a,b)
   ewiCS=matrix(0,k,s)						#Expected length quantity in sum
   ewCS=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   cv1=(cv^2)/(2*n)
   cv2= cv/(2*n)
 
@@ -83,12 +83,12 @@ gexplCSC<-function(n,alp,c,a,b)
   #sumLECS=sum(LECS)
 
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiCS[i,j]=LECS[i]*dbinom(i-1, n,hp[j])
+      ewiCS[i,j]=LECS[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewCS[j]=sum(ewiCS[,j])						#Expected Length
   }
@@ -114,7 +114,7 @@ gexplCAS<-function(n,alp,c,a,b)
   ewiCA=matrix(0,k,s)						#Expected length quantity in sum
   ewCA=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #ARC-SINE METHOD
   for(i in 1:k)
   {
@@ -129,12 +129,12 @@ gexplCAS<-function(n,alp,c,a,b)
   }
   #sumLECA=sum(LECA)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiCA[i,j]=LECA[i]*dbinom(i-1, n,hp[j])
+      ewiCA[i,j]=LECA[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewCA[j]=sum(ewiCA[,j])						#Expected Length
   }
@@ -162,7 +162,7 @@ gexplCLT<-function(n,alp,c,a,b)
   ewiCLT=matrix(0,k,s)						#Expected length quantity in sum
   ewCLT=0									#Expected Length
   ###CRITICAL VALUES
-  cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+  cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
   #LOGIT-WALD METHOD
   pCLT[1]=0
   qCLT[1]=1
@@ -192,12 +192,12 @@ gexplCLT<-function(n,alp,c,a,b)
   }
   #sumLECLT=sum(LECLT)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiCLT[i,j]=LECLT[i]*dbinom(i-1, n,hp[j])
+      ewiCLT[i,j]=LECLT[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewCLT[j]=sum(ewiCLT[,j])						#Expected Length
   }
@@ -239,7 +239,7 @@ gexplCTW<-function(n,alp,c,a,b)
     f1=function(p,n) p*(1-p)/n
     f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
     DOF[i]=2*((f1(pCTW[i],n))^2)/f2(pCTW[i],n)
-    cv[i]=qt(1-(alp/2), df=DOF[i])
+    cv[i]=stats::qt(1-(alp/2), df=DOF[i])
     seCTW[i]=cv[i]*sqrt(f1(pCTW[i],n))
     LCTW[i]=pCTW[i]-(seCTW[i]+c)
     UCTW[i]=pCTW[i]+(seCTW[i]+c)
@@ -249,12 +249,12 @@ gexplCTW<-function(n,alp,c,a,b)
   }
   #sumLECTW=sum(LECTW)
   ####Expected Length
-  hp=sort(rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
+  hp=sort(stats::rbeta(s,a,b),decreasing = FALSE)	#HYPOTHETICAL "p"
   for (j in 1:s)
   {
     for(i in 1:k)
     {
-      ewiCTW[i,j]=LECTW[i]*dbinom(i-1, n,hp[j])
+      ewiCTW[i,j]=LECTW[i]*stats::dbinom(i-1, n,hp[j])
     }
     ewCTW[j]=sum(ewiCTW[,j])						#Expected Length
   }

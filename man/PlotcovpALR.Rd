@@ -35,12 +35,19 @@ PlotcovpALR(n,alp,h,a,b,t1,t2)
 }
 }
 \seealso{
-Other Coverage probability of adjusted methods: \code{\link{PlotcovpAAS}},
-  \code{\link{PlotcovpAAll}}, \code{\link{PlotcovpALT}},
-  \code{\link{PlotcovpASC}}, \code{\link{PlotcovpATW}},
-  \code{\link{PlotcovpAWD}}, \code{\link{covpAAS}},
-  \code{\link{covpAAll}}, \code{\link{covpALR}},
-  \code{\link{covpALT}}, \code{\link{covpASC}},
-  \code{\link{covpATW}}, \code{\link{covpAWD}}
+Other Coverage probability of adjusted methods: 
+\code{\link{PlotcovpAAS}()},
+\code{\link{PlotcovpAAll}()},
+\code{\link{PlotcovpALT}()},
+\code{\link{PlotcovpASC}()},
+\code{\link{PlotcovpATW}()},
+\code{\link{PlotcovpAWD}()},
+\code{\link{covpAAS}()},
+\code{\link{covpAAll}()},
+\code{\link{covpALR}()},
+\code{\link{covpALT}()},
+\code{\link{covpASC}()},
+\code{\link{covpATW}()},
+\code{\link{covpAWD}()}
 }
-
+\concept{Coverage probability of adjusted methods}

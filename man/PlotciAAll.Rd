@@ -24,13 +24,20 @@ n=5; alp=0.05;h=2
 PlotciAAll(n,alp,h)
 }
 \seealso{
-Other Adjusted methods of CI estimation: \code{\link{PlotciAAS}},
-  \code{\link{PlotciAAllg}}, \code{\link{PlotciALR}},
-  \code{\link{PlotciALT}}, \code{\link{PlotciASC}},
-  \code{\link{PlotciATW}}, \code{\link{PlotciAWD}},
-  \code{\link{ciAAS}}, \code{\link{ciAAll}},
-  \code{\link{ciALR}}, \code{\link{ciALT}},
-  \code{\link{ciASC}}, \code{\link{ciATW}},
-  \code{\link{ciAWD}}
+Other Adjusted methods of CI estimation: 
+\code{\link{PlotciAAS}()},
+\code{\link{PlotciAAllg}()},
+\code{\link{PlotciALR}()},
+\code{\link{PlotciALT}()},
+\code{\link{PlotciASC}()},
+\code{\link{PlotciATW}()},
+\code{\link{PlotciAWD}()},
+\code{\link{ciAAS}()},
+\code{\link{ciAAll}()},
+\code{\link{ciALR}()},
+\code{\link{ciALT}()},
+\code{\link{ciASC}()},
+\code{\link{ciATW}()},
+\code{\link{ciAWD}()}
 }
-
+\concept{Adjusted methods of CI estimation}

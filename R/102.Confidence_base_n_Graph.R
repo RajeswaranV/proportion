@@ -53,9 +53,9 @@ PlotciEX<-function(n,alp,e)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-      ggplot2::ggplot()+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UEX,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UEX,y = ID,
+                              ggplot2::aes(
                                            xmin = LEX,
                                            xmax = UEX,
                                            color= e),
@@ -76,12 +76,12 @@ PlotciEX<-function(n,alp,e)
       ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
   }
   else {
-    ggplot2::ggplot()+
+    ggplot2::ggplot(data= ss,ggplot2::aes(x = UEX,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Exact method") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UEX,y = ID,
+                              ggplot2::aes(
                                            xmin = LEX,
                                            xmax = UEX,
                                            color= e),
@@ -141,9 +141,9 @@ PlotciBA<-function(n,alp,a,b)
 
   vs=rbind(df1,df2)
 
-    ggplot2::ggplot()+
-      ggplot2::geom_errorbarh(data= vs,
-                              ggplot2::aes(x = UB,y = ID,
+        ggplot2::ggplot(data= vs,ggplot2::aes(x = UB,y = ID))+
+            ggplot2::geom_errorbarh(data= vs,
+                              ggplot2::aes(
                                            xmin = LB,
                                            xmax = UB,
                                            color=method),
@@ -167,9 +167,10 @@ PlotciBAD<-function(n,alp,a,b)
 
   vs=rbind(df1,df2)
 
-  ggplot2::ggplot()+
+
+    ggplot2::ggplot(data= vs,ggplot2::aes(x = UB,y = ID))+
     ggplot2::geom_errorbarh(data= vs,
-                            ggplot2::aes(x = UB,y = ID,
+                            ggplot2::aes(
                                          xmin = LB,
                                          xmax = UB,
                                          color=method),
@@ -223,9 +224,10 @@ PlotciAll<-function(n,alp)
   ldf= rbind(ll,ul,zl)
 
   if(nrow(ldf)>0){
-    oo= ggplot2::ggplot()+
+    oo=
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit,
                                            color= method),
@@ -241,11 +243,12 @@ PlotciAll<-function(n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    oo=  ggplot2::ggplot()+
+    oo=
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(title = "Basic methods  of CI estimation") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit, color= method),
                               size=0.5)
@@ -299,11 +302,12 @@ PlotciAllg<-function(n,alp)
 
   if((max(as.numeric(unique(ss$method)))-nrow(ss))==0){
     if(nrow(ldf)>0){
-      oo= ggplot2::ggplot()+
+      oo=
+        ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::labs(title = "Confidence interval for adjusted methods sorted by x") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit,
                                              color= method),
@@ -317,7 +321,8 @@ PlotciAllg<-function(n,alp)
         ggplot2::scale_shape_manual(values=c(21,22,23))
     }
     else {
-      oo=  ggplot2::ggplot()+
+      oo=
+        ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::labs(title = "Confidence interval for adjusted methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
@@ -353,11 +358,12 @@ PlotciAllg<-function(n,alp)
         ggplot2::geom_text(ggplot2::aes(0,val1,label = paste("x=", sep="", val2),hjust=1.1, vjust = -1), data=ff)
     }
     else {
-      oo=  ggplot2::ggplot()+
+      oo=
+        ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
         ggplot2::labs(title = "Confidence interval for adjusted methods sorted by x") +
         ggplot2::labs(x = "Lower and Upper limits") +
         ggplot2::geom_errorbarh(data= ss,
-                                ggplot2::aes(x = UpperLimit,y = ID,
+                                ggplot2::aes(
                                              xmin = LowerLimit,
                                              xmax = UpperLimit, color= method),
                                 size=0.5) +
@@ -415,9 +421,10 @@ PlotciWD<-function(n,alp)
 
   if(nrow(ldf)>0)
   {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)+
@@ -431,12 +438,13 @@ PlotciWD<-function(n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
   }
   else {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - Wald method") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)
@@ -491,9 +499,10 @@ PlotciAS<-function(n,alp)
 
   if(nrow(ldf)>0)
   {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5) +
@@ -507,12 +516,13 @@ PlotciAS<-function(n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - ArcSine method") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)
@@ -565,9 +575,10 @@ PlotciLR<-function(n,alp)
 
   if(nrow(ldf)>0)
   {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)+
@@ -581,12 +592,13 @@ PlotciLR<-function(n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
   }
   else {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - Likelihood Ratio method") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)
@@ -640,9 +652,10 @@ PlotciSC<-function(n,alp)
 
   if(nrow(ldf)>0)
   {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)+
@@ -656,12 +669,13 @@ PlotciSC<-function(n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))                  # Change shapes
   }
   else {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - Score method") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)
@@ -715,9 +729,10 @@ PlotciTW<-function(n,alp)
 
   if(nrow(ldf)>0)
   {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)+
@@ -731,12 +746,13 @@ PlotciTW<-function(n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - Wald-T method") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)
@@ -790,9 +806,10 @@ PlotciLT<-function(n,alp)
 
   if(nrow(ldf)>0)
   {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)+
@@ -806,12 +823,13 @@ PlotciLT<-function(n,alp)
       ggplot2::scale_shape_manual(values=c(21,22,23))
   }
   else {
-    ggplot2::ggplot()+
+
+      ggplot2::ggplot(data= ss,ggplot2::aes(x = UpperLimit,y = ID))+
       ggplot2::labs(x = "Lower and Upper limits") +
       ggplot2::labs(y = "ID") +
       ggplot2::labs(title = "Confidence Interval - Logit Wald method") +
       ggplot2::geom_errorbarh(data= ss,
-                              ggplot2::aes(x = UpperLimit,y = ID,
+                              ggplot2::aes(
                                            xmin = LowerLimit,
                                            xmax = UpperLimit),
                               size=0.5)

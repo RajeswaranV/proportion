@@ -48,7 +48,7 @@ ciCWDx<-function(x,n,alp,c)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
 
   ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #WALD METHOD
 pCWx=x/n
 qCWx=1-pCWx
@@ -119,7 +119,7 @@ ciCSCx<-function(x,n,alp,c)
 
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 cv1=(cv^2)/(2*n)
 cv2= cv/(2*n)
 
@@ -191,7 +191,7 @@ ciCASx<-function(x,n,alp,c)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #ARC-SINE METHOD
 pCAx=x/n
 #qCAx=1-pCAx
@@ -263,7 +263,7 @@ ciCLTx<-function(x,n,alp,c)
   if ((class(c) != "integer") & (class(c) != "numeric") || length(c) >1 || c<0 ) stop("'c' has to be positive")
 
 ###CRITICAL VALUES
-cv=qnorm(1-(alp/2), mean = 0, sd = 1)
+cv=stats::qnorm(1-(alp/2), mean = 0, sd = 1)
 #LOGIT-WALD METHOD
 if(x==0)
 {
@@ -366,7 +366,7 @@ pCTWx=x/n
 f1=function(p,n) p*(1-p)/n
 f2=function(p,n) (p*(1-p)/(n^3))+(p+((6*n)-7)*(p^2)+(4*(n-1)*(n-3)*(p^3))-(2*(n-1)*((2*n)-3)*(p^4)))/(n^5)-(2*(p+((2*n)-3)*(p^2)-2*(n-1)*(p^3)))/(n^4)
 DOFx=2*((f1(pCTWx,n))^2)/f2(pCTWx,n)
-cvx=qt(1-(alp/2), df=DOFx)
+cvx=stats::qt(1-(alp/2), df=DOFx)
 seCTWx=cvx*sqrt(f1(pCTWx,n))
 LCTWx=pCTWx-(seCTWx+c)
 UCTWx=pCTWx+(seCTWx+c)

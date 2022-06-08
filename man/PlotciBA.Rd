@@ -28,15 +28,24 @@ n=5; alp=0.05; a=c(0.5,2,1,1,2,0.5);b=c(0.5,2,1,1,2,0.5)
 PlotciBA(n,alp,a,b)
 }
 \seealso{
-Other Basic methods of CI estimation: \code{\link{PlotciAS}},
-  \code{\link{PlotciAllg}}, \code{\link{PlotciAll}},
-  \code{\link{PlotciEX}}, \code{\link{PlotciLR}},
-  \code{\link{PlotciLT}}, \code{\link{PlotciSC}},
-  \code{\link{PlotciTW}}, \code{\link{PlotciWD}},
-  \code{\link{ciAS}}, \code{\link{ciAll}},
-  \code{\link{ciBA}}, \code{\link{ciEX}},
-  \code{\link{ciLR}}, \code{\link{ciLT}},
-  \code{\link{ciSC}}, \code{\link{ciTW}},
-  \code{\link{ciWD}}
+Other Basic methods of CI estimation: 
+\code{\link{PlotciAS}()},
+\code{\link{PlotciAllg}()},
+\code{\link{PlotciAll}()},
+\code{\link{PlotciEX}()},
+\code{\link{PlotciLR}()},
+\code{\link{PlotciLT}()},
+\code{\link{PlotciSC}()},
+\code{\link{PlotciTW}()},
+\code{\link{PlotciWD}()},
+\code{\link{ciAS}()},
+\code{\link{ciAll}()},
+\code{\link{ciBA}()},
+\code{\link{ciEX}()},
+\code{\link{ciLR}()},
+\code{\link{ciLT}()},
+\code{\link{ciSC}()},
+\code{\link{ciTW}()},
+\code{\link{ciWD}()}
 }
-
+\concept{Basic methods of CI estimation}

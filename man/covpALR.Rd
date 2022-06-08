@@ -56,12 +56,19 @@ Interval Estimators for a Binomial Proportion: Comparison of Twenty Methods.
 REVSTAT - Statistical Journal, 6, 165-197.
 }
 \seealso{
-Other Coverage probability of adjusted methods: \code{\link{PlotcovpAAS}},
-  \code{\link{PlotcovpAAll}}, \code{\link{PlotcovpALR}},
-  \code{\link{PlotcovpALT}}, \code{\link{PlotcovpASC}},
-  \code{\link{PlotcovpATW}}, \code{\link{PlotcovpAWD}},
-  \code{\link{covpAAS}}, \code{\link{covpAAll}},
-  \code{\link{covpALT}}, \code{\link{covpASC}},
-  \code{\link{covpATW}}, \code{\link{covpAWD}}
+Other Coverage probability of adjusted methods: 
+\code{\link{PlotcovpAAS}()},
+\code{\link{PlotcovpAAll}()},
+\code{\link{PlotcovpALR}()},
+\code{\link{PlotcovpALT}()},
+\code{\link{PlotcovpASC}()},
+\code{\link{PlotcovpATW}()},
+\code{\link{PlotcovpAWD}()},
+\code{\link{covpAAS}()},
+\code{\link{covpAAll}()},
+\code{\link{covpALT}()},
+\code{\link{covpASC}()},
+\code{\link{covpATW}()},
+\code{\link{covpAWD}()}
 }
-
+\concept{Coverage probability of adjusted methods}

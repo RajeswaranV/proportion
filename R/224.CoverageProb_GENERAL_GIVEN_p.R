@@ -69,7 +69,7 @@ for(i in 1:k)
 {
 if(hp[j] > LL[i] && hp[j] < UL[i])
 {
-cp[i,j]=dbinom(i-1, n,hp[j])
+cp[i,j]=stats::dbinom(i-1, n,hp[j])
 ct[i,j]=1
 }
 }
@@ -156,7 +156,7 @@ PlotcovpGEN<-function(n,LL,UL,alp,hp,t1,t2)
     {
       if(hp[j] > LL[i] && hp[j] < UL[i])
       {
-        cp[i,j]=dbinom(i-1, n,hp[j])
+        cp[i,j]=stats::dbinom(i-1, n,hp[j])
         ct[i,j]=1
       }
     }
